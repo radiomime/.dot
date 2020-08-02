@@ -25,11 +25,40 @@ def getSys():
     else:
         return 'unknown'
 
+class Dotfiles:
+    def __init__(self):
+        self.files  = {
+            "./conf/vimrc_full": "~/.vimrc",
+            # "../conf/bashrc": "~/.bashrc",
+            # "../conf/functions": "~/.functions",
+            # "../conf/public_aliases": "~/.public_aliases",
+            # "../conf/tmux.conf": "~/.tmux.conf",
+            # "../conf/vim_colors": "~/.vim/colors",
+            # "../conf/skeletons": "~/.vim/skeletons",
+            # "../conf/fzf_functions": "~/.fzf_functions",
+            # "../conf/vimrc_full": "~/.vimrc",
+            # "../conf/gitconfig": "~/.gitconfig",
+        }
+    def symlink(self, src, lnk):
+        # cmd = "ln -sfn " + full_path(src) + " " + full_path(lnk)
+        print('running ' + 'cmd')
+
+    def createSymlinks(self):
+        for src, dst in self.files.items():
+            self.symlink(src, dst)
+        # self.system  = system
+        # self.path    =  abspath(expanduser('.'))
+        # self.installPath = '/tmp/dot-neovim-' + str(time.time_ns())
+        # print('system:', self.system)
+        # print('path:', self.path)
+        # print('installPath:', self.installPath)
+
 class Neovim:
     def __init__(self, system='unknown'):
         self.system  = system
         self.path    =  abspath(expanduser('.'))
         self.installPath = '/tmp/dot-neovim-' + str(time.time_ns())
+        self.configDir = abspath(expanduser('~/.config/nvim'))
         # print('system:', self.system)
         # print('path:', self.path)
         # print('installPath:', self.installPath)
@@ -63,6 +92,10 @@ class Neovim:
                             'pkg-config',
                             'gettext'])
 
+    def createConfigDir(self):
+        print('Config for nvim at:', self.configDir)
+        subprocess.run(['mkdir', '-p', self.configDir])
+
     def install(self):
         # Research, should I be on the stable branch? `git checkout stable`
         print('Cloning neovim directory')
@@ -79,12 +112,14 @@ class Neovim:
         print('Uninstalling nvim local share')
         subprocess.run(['sudo', 'rm', '-rf', '/usr/local/share/nvim'])
 
+
 def main(argv):
     print('Warn: This install scripts will run some install commands as sudo')
 
     # Install basic packages
 
-    # Update and Upgrade system
+    # Install 
+    print('create nvim config')
 
     # Install NeoVim
     neo = Neovim(getSys())
@@ -92,8 +127,14 @@ def main(argv):
         print('Installing neovim')
         neo.getRequirements()
         neo.install()
+        # neo.createConfigDir()
     else:
         print('Neovim is already installed')
+
+    # Symlink dotfiles
+    neo.createConfigDir()
+    dots = Dotfiles()
+    dots.createSymlinks()
 
 if __name__ == "__main__":
     main(sys.argv)
