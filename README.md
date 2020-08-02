@@ -9,5 +9,5 @@ Repo for dotfiles.
 
 # thanks
 
-Snaps to [Ethan Wright](https://github.com/EthanJWright) for the vim insights
-and dotfiles boilerplate.
+Many thanks to [Ethan Wright](https://github.com/EthanJWright) for vim
+insights, the original dotfiles, and inspiration to get off the ides.
