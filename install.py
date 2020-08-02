@@ -26,9 +26,11 @@ def getSys():
         return 'unknown'
 
 class Dotfiles:
-    def __init__(self):
+    def __init__(self, configDir=abspath(expanduser('~/.config/nvim'))):
+        self.configDir = configDir
         self.files  = {
-            "./conf/vimrc_full": "~/.vimrc",
+            abspath('./conf/init.vim'): self.configDir + "/init.vim",
+            # abspath('./conf/generate.vim'): self.configDir + "/generate.vim",
             # "../conf/bashrc": "~/.bashrc",
             # "../conf/functions": "~/.functions",
             # "../conf/public_aliases": "~/.public_aliases",
@@ -39,9 +41,23 @@ class Dotfiles:
             # "../conf/vimrc_full": "~/.vimrc",
             # "../conf/gitconfig": "~/.gitconfig",
         }
+
     def symlink(self, src, lnk):
         # cmd = "ln -sfn " + full_path(src) + " " + full_path(lnk)
         print('running ' + 'cmd')
+        print('Linking:', lnk, 'to\n\t', src)
+        subprocess.run(['ln', '-sfn', src, lnk])
+        # subprocess.run(['sudo', 'apt-get', '-qq' ,'install',
+        #                 'ninja-build',
+        #                 'gettext',
+        #                 'libtool',
+        #                 'libtool-bin',
+        #                 'autoconf',
+        #                 'automake',
+        #                 'cmake',
+        #                 'g++',
+        #                 'pkg-config',
+        #                 'unzip'])
 
     def createSymlinks(self):
         for src, dst in self.files.items():
