@@ -74,18 +74,19 @@ class Neovim:
         subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
 
     def uninstall(self):
-        print('Cloning neovim directory')
-        subprocess.run(['git', 'clone',
-                        'https://github.com/neovim/neovim', self.installPath])
-                        # 'https://github.com/neovim/neovim'])
-        print('Making neovim')
-        subprocess.run(['make', '--directory', self.installPath, 'CMAKE_BUILD_TYPE=Release'])
-        print('Installing neovim')
-        subprocess.run(['make', '--directory', self.installPath, 'install'])
+        print('Uninstalling nvim binary')
+        subprocess.run(['sudo', 'rm', '/usr/local/bin/nvim'])
+        print('Uninstalling nvim local share')
+        subprocess.run(['sudo', 'rm', '-rf', '/usr/local/share/nvim'])
 
 def main(argv):
     print('Warn: This install scripts will run some install commands as sudo')
 
+    # Install basic packages
+
+    # Update and Upgrade system
+
+    # Install NeoVim
     neo = Neovim(getSys())
     if not neo.checkInstall():
         print('Installing neovim')
