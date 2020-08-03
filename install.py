@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-# import re
 import sys
-# from sys import platform
 from os.path import expanduser
 from os.path import abspath
 import time
+import subprocess
+import os
+# import re
+# from sys import platform
 # import os
 # import argparse
 # from subprocess import STDOUT, check_call, run
-import subprocess
-import os
 
 from sys import platform
 
@@ -29,12 +29,16 @@ class Dotfiles:
     def __init__(self, configDir=abspath(expanduser('~/.config/nvim'))):
         self.configDir = configDir
         self.files  = {
-            abspath('./conf/init.vim'): self.configDir + "/init.vim",
+            './conf/init.vim': self.configDir + "/init.vim",
+            './conf/gitconfig': '~/.gitconfig',
+            './conf/bashrc': '~/.bashrc',
+            './conf/bashrc': '~/.bashrc',
+            './conf/public_aliases': '~/.public_aliases',
+            './conf/tmux.conf': '~/.tmux.conf',
+            './conf/fzf_functions': '~/.fzf_functions',
+            './conf/functions': '~/.functions',
+            # self.configDir = abspath(expanduser('~/.config/nvim'))
             # abspath('./conf/generate.vim'): self.configDir + "/generate.vim",
-            # "../conf/bashrc": "~/.bashrc",
-            # "../conf/functions": "~/.functions",
-            # "../conf/public_aliases": "~/.public_aliases",
-            # "../conf/tmux.conf": "~/.tmux.conf",
             # "../conf/vim_colors": "~/.vim/colors",
             # "../conf/skeletons": "~/.vim/skeletons",
             # "../conf/fzf_functions": "~/.fzf_functions",
@@ -43,25 +47,12 @@ class Dotfiles:
         }
 
     def symlink(self, src, lnk):
-        # cmd = "ln -sfn " + full_path(src) + " " + full_path(lnk)
-        print('running ' + 'cmd')
         print('Linking:', lnk, 'to\n\t', src)
         subprocess.run(['ln', '-sfn', src, lnk])
-        # subprocess.run(['sudo', 'apt-get', '-qq' ,'install',
-        #                 'ninja-build',
-        #                 'gettext',
-        #                 'libtool',
-        #                 'libtool-bin',
-        #                 'autoconf',
-        #                 'automake',
-        #                 'cmake',
-        #                 'g++',
-        #                 'pkg-config',
-        #                 'unzip'])
 
     def createSymlinks(self):
         for src, dst in self.files.items():
-            self.symlink(src, dst)
+            self.symlink(abspath(expanduser(src)), abspath(expanduser(dst)))
         # self.system  = system
         # self.path    =  abspath(expanduser('.'))
         # self.installPath = '/tmp/dot-neovim-' + str(time.time_ns())
@@ -79,11 +70,14 @@ class Neovim:
         # print('path:', self.path)
         # print('installPath:', self.installPath)
 
+    def getConfigDir(self):
+        return self.configDir
+
     def checkInstall(self):
         from shutil import which
         return which('nvim') is not None
 
-    def getRequirements(self):
+    def installRequirements(self):
         if self.system == 'linux':
             print('Installing neovim dependencies')
             subprocess.run(['sudo', 'apt-get', '-qq' ,'install',
@@ -139,17 +133,17 @@ def main(argv):
 
     # Install NeoVim
     neo = Neovim(getSys())
+    neo.createConfigDir()
     if not neo.checkInstall():
         print('Installing neovim')
-        neo.getRequirements()
+        neo.installRequirements()
         neo.install()
         # neo.createConfigDir()
     else:
         print('Neovim is already installed')
 
     # Symlink dotfiles
-    neo.createConfigDir()
-    dots = Dotfiles()
+    dots = Dotfiles(neo.getConfigDir())
     dots.createSymlinks()
 
 if __name__ == "__main__":
