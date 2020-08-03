@@ -134,7 +134,7 @@ set autoindent
 
 "" Map leader to <space>
 let mapleader=' '
-" let mapleader=','
+let maplocalleader=','
 
 "" Enable hidden buffers
 set hidden
