@@ -4,6 +4,13 @@ Repo for dotfiles.
 
 ## ToDo
 
+### Move filetype specific things to ftplugin
+
+Checkout
+* https://github.com/dense-analysis/ale#2ii-fixing
+* https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
+* https://vim.fandom.com/wiki/File_type_plugins
+
 ### Editor speed
 
 Chris A sent this over:
