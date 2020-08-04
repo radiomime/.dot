@@ -1,7 +1,7 @@
 " vim-bootstrap 
 
 "*****************************************************************************
-"" Vim-PLug core
+"" install vim-plug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
@@ -21,12 +21,20 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+"*****************************************************************************
+"" plug install packages
+"*****************************************************************************
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
+""""""""""
+" Linting
+"""
+Plug 'dense-analysis/ale'
+
+""""""""""
+" Unknown
+"""
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -38,7 +46,6 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
@@ -96,6 +103,12 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
+"*****************************************************************************
+"" Custom bundles
+"*****************************************************************************
+" PU to update plugsins && upgrade vim-plug
+command! PU PlugUpdate | PlugUpgrade
+
 
 "*****************************************************************************
 "*****************************************************************************
@@ -124,6 +137,9 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
+" ts = 'number of spaces that <Tab> in file uses'
+" sts = 'number of spaces that <Tab> uses while editing'
+" sw = 'number of spaces to use for (auto)indent step'
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
@@ -164,8 +180,8 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 syntax on
 set ruler
-set number
-set relativenumber
+set number relativenumber
+set numberwidth=4
 
 let no_buffers_menu=1
 silent! colorscheme molokai
@@ -184,6 +200,7 @@ else
   let g:CSApprox_loaded = 1
 
   " IndentLine
+  let g:indentLine_setConceal = 0
   let g:indentLine_enabled = 1
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
@@ -542,6 +559,13 @@ augroup END
 :call extend(g:ale_linters, {
     \"go": ['golint', 'go vet'], })
 
+"*****************************************************************************
+"" Javascript Rules
+"*****************************************************************************
+" ts = 'number of spaces that <Tab> in file uses'
+" sts = 'number of spaces that <Tab> uses while editing'
+" sw = 'number of spaces to use for (auto)indent step'
+
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
@@ -587,9 +611,8 @@ let python_highlight_all = 1
 
 
 " typescript
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab autoindent
 let g:yats_host_keyword = 1
-
-
 
 "*****************************************************************************
 "*****************************************************************************
