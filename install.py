@@ -112,7 +112,9 @@ class Neovim:
         subprocess.run(['git', 'clone',
                         'https://github.com/neovim/neovim', self.installPath])
         print('Making neovim')
-        subprocess.run(['make', '--directory', self.installPath, 'CMAKE_BUILD_TYPE=Release'])
+        subprocess.run(['make',
+                        '--directory', self.installPath,
+                        'CMAKE_BUILD_TYPE=Release'])
         print('Installing neovim')
         subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
 
