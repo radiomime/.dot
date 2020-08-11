@@ -47,6 +47,11 @@ let g:ale_fixers = {
 " End of TODO
 
 """"""""""
+" Commands
+"""
+Plug 'tpope/vim-abolish'
+
+""""""""""
 " Unknown
 """
 Plug 'scrooloose/nerdtree'
