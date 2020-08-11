@@ -1,4 +1,4 @@
-" vim-bootstrap 
+" vim-bootstrap
 
 "*****************************************************************************
 "" install vim-plug core
@@ -31,6 +31,20 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " Linting
 """
 Plug 'dense-analysis/ale'
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\}
+
+" TODO: Move to ftplugin files
+" In ~/.vim/ftplugin/javascript.vim, or somewhere similar.
+" Fix files with prettier, and then ESLint.
+" let b:ale_fixers = ['prettier', 'eslint']
+" End of TODO
 
 """"""""""
 " Unknown
@@ -206,7 +220,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 
