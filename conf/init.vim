@@ -49,7 +49,15 @@ let g:ale_fixers = {
 """"""""""
 " Commands
 """
+" Vim abolish to abbreviate, substitute, and coerce
 Plug 'tpope/vim-abolish'
+
+""""""""""
+" Helpers
+"""
+" Hints leader key bindings
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 """"""""""
 " Unknown
@@ -180,6 +188,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" assume the /g flag on :s substitutions to replace all matches in a line:
+set gdefault
+
 set fileformats=unix,dos,mac
 
 if exists('$SHELL')
@@ -305,7 +316,7 @@ nnoremap <silent> <leader>sh :terminal<CR>
 "" Commands
 "*****************************************************************************
 " remove trailing whitespaces
-command! FixWhitespace :%s/\s\+$//e
+" command! FixWhitespace :%s/\s\+$//e
 
 "*****************************************************************************
 "" Functions
@@ -400,6 +411,9 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" reload vimrc
+nnoremap <leader>so :source $MYVIMRC<CR>
 
 "" Tabs
 nnoremap <Tab> gt
