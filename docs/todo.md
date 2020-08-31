@@ -61,3 +61,13 @@ Should help with leaderkey usage --ethan
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 ```
+
+### tmux plugins
+
+```
+set -g @plugin 'tmux-plugins/tmux-open'
+set -g @plugin 'wfxr/tmux-fzf-url'
+set -g @plugin 'egel/tmux-gruvbox'
+set -g @plugin 'laktak/extrakto'
+set -g @plugin 'tmux-plugins/tmux-yank'
+```
