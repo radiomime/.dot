@@ -60,6 +60,10 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 """"""""""
+" visualize
+"""
+
+""""""""""
 " Unknown
 """
 Plug 'scrooloose/nerdtree'
@@ -606,9 +610,8 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
+  autocmd FileType javascript setlocal shiftwidth=2|setlocal tabstop=2|setlocal expandtab autoindent softtabstop=0
 augroup END
-
 
 " python
 " vim-python
@@ -641,7 +644,6 @@ let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
-
 
 " typescript
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab autoindent

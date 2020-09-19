@@ -9,6 +9,10 @@ Checkout
 * https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 * https://vim.fandom.com/wiki/File_type_plugins
 
+### Add poetry to install
+
+add it
+
 ### Editor speed
 
 Chris A sent this over:
@@ -49,6 +53,21 @@ The first run of yarn lint or save in vim that runs the fixer is
 still slowish, but once the eslint daemon is started, every save
 after was super quick compared to what it was for me.
 ```
+
+### Vim Markup
+
+Checkout vim markup
+
+### Vim UML Markup
+
+Checkout:
+1. https://github.com/bramp/js-sequence-diagrams
+2. https://vimawesome.com/plugin/markdown-preview-nvim
+    * Seems like a really good option. Markdown && js-sequence-diagrams
+
+Two clear options:
+1. https://github.com/scrooloose/vim-slumlord
+2. https://github.com/xavierchow/vim-sequence-diagram
 
 ### Indent line plugin
 What is it? Gave me some weird issues regarding whitespace in my readme files
