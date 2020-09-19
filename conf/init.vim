@@ -1,4 +1,4 @@
-" vim-bootstrap 
+" vim-bootstrap
 
 "*****************************************************************************
 "" install vim-plug core
@@ -31,6 +31,37 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " Linting
 """
 Plug 'dense-analysis/ale'
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\}
+
+" TODO: Move to ftplugin files
+" In ~/.vim/ftplugin/javascript.vim, or somewhere similar.
+" Fix files with prettier, and then ESLint.
+" let b:ale_fixers = ['prettier', 'eslint']
+" End of TODO
+
+""""""""""
+" Commands
+"""
+" Vim abolish to abbreviate, substitute, and coerce
+Plug 'tpope/vim-abolish'
+
+""""""""""
+" Helpers
+"""
+" Hints leader key bindings
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+""""""""""
+" visualize
+"""
 
 """"""""""
 " Unknown
@@ -161,6 +192,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" assume the /g flag on :s substitutions to replace all matches in a line:
+set gdefault
+
 set fileformats=unix,dos,mac
 
 if exists('$SHELL')
@@ -206,7 +240,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 
@@ -286,7 +320,7 @@ nnoremap <silent> <leader>sh :terminal<CR>
 "" Commands
 "*****************************************************************************
 " remove trailing whitespaces
-command! FixWhitespace :%s/\s\+$//e
+" command! FixWhitespace :%s/\s\+$//e
 
 "*****************************************************************************
 "" Functions
@@ -381,6 +415,9 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" reload vimrc
+nnoremap <leader>so :source $MYVIMRC<CR>
 
 "" Tabs
 nnoremap <Tab> gt
@@ -573,9 +610,8 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
+  autocmd FileType javascript setlocal shiftwidth=2|setlocal tabstop=2|setlocal expandtab autoindent softtabstop=0
 augroup END
-
 
 " python
 " vim-python
@@ -608,7 +644,6 @@ let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
-
 
 " typescript
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab autoindent
