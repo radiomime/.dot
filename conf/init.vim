@@ -38,6 +38,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
+\   'python': ['eslint'],
 \}
 
 " TODO: Move to ftplugin files
@@ -64,7 +65,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 """
 
 """"""""""
-" Unknown
+" Miscellaneous // Unknown
 """
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -135,7 +136,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
 "*****************************************************************************
-"" Custom bundles
+"" Custom Commands
 "*****************************************************************************
 " PU to update plugsins && upgrade vim-plug
 command! PU PlugUpdate | PlugUpgrade
@@ -243,11 +244,14 @@ else
 
 endif
 
-
-
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
-set scrolloff=3
+set guicursor=a:blinkon0
+set scrolloff=0
+
+"" horizontal scrolling and line wrapping
+set wrap
+" set nowrap
+" set sidescroll=16
 
 "" Status bar
 set laststatus=2
