@@ -45,6 +45,7 @@ def uninstall():
     dots.removeSymlinks()
 
     # uninstall packages
+    packages.Packages().uninstall()
 
 def main(argv):
     print('Warn: Install scripts will run some install commands as sudo')
