@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from sys import platform
+from shutil import which
 
 def getSys():
     if platform == "linux" or platform == "linux2":
@@ -11,6 +12,15 @@ def getSys():
         return 'windows'
     else:
         return 'unknown'
+
+def getPyInterpreter():
+    if which('python3') is not None:
+        return 'python3'
+    elif which('python') is not None:
+        return 'python'
+    else:
+        print('Expected python to be installed!')
+        return None
 
 def main(argv):
     print('module for common utilities')

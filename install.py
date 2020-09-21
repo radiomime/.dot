@@ -36,7 +36,7 @@ def install():
 def uninstall():
     # Uninstall NeoVim
     neo = dot.Neovim(util.getSys())
-    print('not actually uninstalling neovim')
+    print('*** not actually uninstalling neovim')
     print('uninstall neovim files?? still need to do')
     # neo.uninstall()
 

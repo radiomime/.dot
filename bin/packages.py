@@ -9,18 +9,25 @@ import time
 import subprocess
 import os
 
-from .util import *
+from .util import (
+    getPyInterpreter,
+    getSys
+)
+
+class Node:
+    def __init__(self):
+        print('I should install node!!!')
+        print('I should also install npm')
+        print('I should also install useful global npm packages')
+        # Install n, for instance
+        # update && upgrade node && npm
 
 class Poetry:
     def __init__(self):
         print('*** performing actions for Poetry package')
-        if which('python3') is not None:
-            self.pyInterpreter = 'python3'
-        elif which('python') is not None:
-            self.pyInterpreter = 'python'
-        else:
-            print('Expected python to be installed!')
-            self.pyInterpreter = None
+
+        self.pyInterpreter = getPyInterpreter()
+
 
         subprocess.run(['curl',
                         '-sSL',
@@ -34,7 +41,7 @@ class Poetry:
     def install(self):
         if not self.checkInstall():
             subprocess.run([self.pyInterpreter,
-                            'get-poetry.py'])
+                            'get-poetry.py', '-y'])
             subprocess.run(['poetry', '--version'])
         self.update()
 
