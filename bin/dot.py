@@ -88,6 +88,17 @@ class Neovim:
         print('Config for nvim at:', self.configDir)
         subprocess.run(['mkdir', '-p', self.configDir])
 
+    def providers(self):
+        print('installing providers')
+
+        subprocess.run(['python3',
+                        '-m',
+                        'pip',
+                        'install',
+                        '--user',
+                        '--upgrade',
+                        'pynvim'])
+
     def install(self):
         # Research, should I be on the stable branch? `git checkout stable`
         print('Cloning neovim directory')
