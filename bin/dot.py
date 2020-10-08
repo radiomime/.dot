@@ -111,6 +111,16 @@ class Neovim:
         print('Installing neovim')
         subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
 
+        print('installing providers')
+
+        print('you need pip for this!')
+        # TODO: add this somewhere logical:
+        # wget https://bootstrap.pypa.io/get-pip.py
+        # sudo python3.6 get-pip.py
+
+        print('TODO: Make a neovim update, install / update providers there')
+        print('TODO: also, providers work with python2?')
+
     def uninstall(self):
         print('Uninstalling nvim binary')
         subprocess.run(['sudo', 'rm', '/usr/local/bin/nvim'])

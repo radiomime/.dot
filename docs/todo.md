@@ -9,9 +9,33 @@ Checkout
 * https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 * https://vim.fandom.com/wiki/File_type_plugins
 
+### npm to install
+
+### snap to install
+
+### Good with fugitive
+https://github.com/idanarye/vim-merginal
+
+### docker and docker-compose to install
+
+Remember to add the sudoers user mod so no sudo is needed for the user
+
+https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+
+https://github.com/docker/compose/releases
+
 ### Add poetry to install
 
 add it
+
+### Checkout (for typescript)
+
+https://github.com/Quramy/tsuquyomi
+
+### jupyter?
+```
+pip3 install jupyterlab
+```
 
 ### Editor speed
 

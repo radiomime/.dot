@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from sys import platform
 from shutil import which
+import requests
 
 def getSys():
     if platform == "linux" or platform == "linux2":
@@ -21,6 +22,14 @@ def getPyInterpreter():
     else:
         print('Expected python to be installed!')
         return None
+
+def getLatestGithubRepo(repoPath):
+    response = requests.get("".join([
+        "https://api.github.com/repos/",
+        repoPath,
+        "/releases/latest"
+    ])).json()
+    return response
 
 def main(argv):
     print('module for common utilities')
