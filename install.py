@@ -2,9 +2,13 @@
 import argparse
 import sys
 
-import bin.util as util
-import bin.dot as dot
-import bin.packages as packages
+import lib.util as util
+import lib.dot as dot
+
+import lib.docker as docker
+
+# import lib.packages as packages
+# import lib.packages as packages
 
 # from os.path import expanduser
 # from os.path import abspath
@@ -32,8 +36,10 @@ def install():
     dots.createSymlinks()
 
     # install packages
-    pkgs = packages.Packages()
-    pkgs.install()
+    # pkgs = packages.Packages()
+    # pkgs.install()
+
+    docker.Docker().install()
 
 def uninstall():
     # Uninstall NeoVim
