@@ -88,9 +88,17 @@ class Neovim:
         print('Config for nvim at:', self.configDir)
         subprocess.run(['mkdir', '-p', self.configDir])
 
-    def providers(self):
+    def getPip(self):
         print('installing providers')
+        subprocess.run(['sudo',
+                        'apt',
+                        'install',
+                        '-y',
+                        'python3-pip',
+                        ])
 
+    def getProviders(self):
+        print('installing providers')
         subprocess.run(['python3',
                         '-m',
                         'pip',
@@ -111,15 +119,8 @@ class Neovim:
         print('Installing neovim')
         subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
 
-        print('installing providers')
-
-        print('you need pip for this!')
-        # TODO: add this somewhere logical:
-        # wget https://bootstrap.pypa.io/get-pip.py
-        # sudo python3.6 get-pip.py
-
-        print('TODO: Make a neovim update, install / update providers there')
-        print('TODO: also, providers work with python2?')
+        self.getPip()
+        self.getProviders()
 
     def uninstall(self):
         print('Uninstalling nvim binary')

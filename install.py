@@ -13,6 +13,8 @@ import bin.packages as packages
 # import os
 # from sys import platform
 
+# TODO: Uninstalls everywhere
+
 def install():
     # install neovim
     neo = dot.Neovim(util.getSys())

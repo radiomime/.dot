@@ -9,6 +9,7 @@ import time
 import subprocess
 import os
 import requests
+import getpass
 
 from .util import (
     getPyInterpreter,
@@ -24,6 +25,17 @@ class Node:
         # Install n, for instance
         # update && upgrade node && npm
 
+class Snap:
+    def __init__(self):
+        print('*** performing actions for Go package')
+        self.os = getSys()
+
+    def install(self):
+        subprocess.run(['sudo',
+                        'apt',
+                        'install',
+                        'snapd',
+                        ])
 class Go:
     def __init__(self):
         print('*** performing actions for Go package')
@@ -81,6 +93,8 @@ class Poetry:
         if not self.checkInstall():
             subprocess.run([self.pyInterpreter,
                             'get-poetry.py', '-y'])
+            subprocess.run(['sh',
+                            '.', '~/.poetry/env'])
             subprocess.run(['poetry', '--version'])
         self.update()
 
@@ -97,6 +111,97 @@ class Poetry:
     def __del__(self):
         subprocess.run(['rm',
                         'get-poetry.py'])
+
+class Docker:
+    def __init__(self):
+        print('\n*** Docker')
+        self.os = getSys()
+        self.user = getpass.getuser()
+
+        print('*** privileged user:', self.user)
+
+    # TODO: mac install
+    # TODO: uninstall
+    # TODO: mac uninstall
+    #
+    def linuxInstall(self):
+        # subprocess.run([
+        #     'sudo',
+        #     'snap',
+        #     'install',
+        #     'docker',
+        # ])
+
+        # subprocess.run([
+        #     'sudo',
+        #     'snap',
+        #     'install',
+        #     'docker',
+        # ])
+
+        # subprocess.run([
+        #     'sudo',
+        #     'groupadd',
+        #     'docker',
+        # ])
+
+
+        # TODO: Should I manually install?
+        # Could guarantee more recent versions
+        # subprocess.run(['sudo',
+        #                 'apt',
+        #                 'update',
+        #                 ])
+        # subprocess.run(['sudo',
+        #                 'apt',
+        #                 'install',
+        #                 'apt-transport-https',
+        #                 'ca-certificates',
+        #                 'curl',
+        #                 'gnupg-agent',
+        #                 'software-properties-common',
+        #                 ])
+
+    def addUser(self):
+        subprocess.run([
+            'sudo',
+            'usermod',
+            '-aG',
+            'docker',
+            self.user
+        ])
+
+    def install(self):
+        self.linuxInstall()
+
+class Minikube:
+    def __init__(self):
+        print('*** TODO: Minikube')
+        self.os = getSys()
+
+        subprocess.run(['curl',
+                        '-sSL',
+                        'https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb',
+                        '-o', 'minikube_latest_amd64.deb'
+                        ])
+
+    def __del__(self):
+        subprocess.run(['rm',
+                        'minikube_latest_amd64.deb'])
+    # TODO: mac install
+    # TODO: uninstall
+    # TODO: mac uninstall
+    def linuxInstall(self):
+        print('getting terraform package')
+        subprocess.run([
+            'sudo',
+            'dpkg',
+            '-i',
+            'minikube_latest_amd64.deb'
+        ])
+
+    def install(self):
+        self.linuxInstall()
 
 class Terraform:
     # TODO: clean up some of this functionality
@@ -184,9 +289,15 @@ class Packages:
         print('not updating and upgrading packages')
         # self.uu();
 
+        Docker().install()
+        Minikube().install()
+        # Kubectl().install()
+        # Npm().install()
+
+        Snap().install()
         Poetry().install()
         Go().install()
-        Terraform().install()
+        # Terraform().install()
 
     def uninstall(self):
         Poetry().uninstall()
