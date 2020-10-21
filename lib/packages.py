@@ -19,6 +19,8 @@ from .util import (
     getLatestGithubRepo,
 )
 
+# TODO: get everything out of this file!
+
 class Node:
     def __init__(self):
         print('I should install node!!!')
