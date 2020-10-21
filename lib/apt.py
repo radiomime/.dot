@@ -21,11 +21,21 @@ class Apt:
         self.user = getpass.getuser()
 
     def update(self):
+        print('*** apt update')
         subprocess.run([
             'sudo',
             'apt-get',
             '-qq',
             'update',
+        ])
+
+    def upgrade(self):
+        print('*** apt upgrade')
+        subprocess.run([
+            'sudo',
+            'apt-get',
+            '-qq',
+            'upgrade',
         ])
 
     def install(self, pkg):
