@@ -9,6 +9,7 @@ import lib.dot as dot
 from lib.docker import Docker
 from lib.minikube import Minikube
 from lib.kubectl import Kubectl
+from lib.bat import Bat
 
 # from lib.docker import Docker
 
@@ -54,6 +55,7 @@ def install():
     Docker().install()
     Minikube().install()
     Kubectl().install()
+    Bat().install()
 
 def uninstall():
     # Uninstall NeoVim

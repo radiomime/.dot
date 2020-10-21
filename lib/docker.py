@@ -68,7 +68,6 @@ class Docker:
         # compose
         composeVersion = getLatestGithubRepo('docker/compose')['name']
 
-        print(getLatestGithubRepo('docker/compose')['name'])
         repo = "".join([
             "https://github.com/docker/compose/releases/download/",
             composeVersion,
