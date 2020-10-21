@@ -30,7 +30,7 @@ class Dotfiles:
         }
 
     def symlink(self, src, lnk):
-        print('Linking:', lnk, 'to\n\t', src)
+        # print('Linking:', lnk, 'to\n\t', src)
         subprocess.run(['ln', '-sfn', src, lnk])
 
     def createSymlinks(self):

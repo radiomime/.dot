@@ -31,17 +31,25 @@ class Docker:
         self.user = getpass.getuser()
         self.path = '/usr/local/bin'
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         # apt dependencies
         apt = Apt()
 
         apt.update()
 
-        apt.install('apt-transport-https')
-        apt.install('ca-certificates')
-        apt.install('curl')
-        apt.install('gnupg-agent')
-        apt.install('software-properties-common')
+        apt.install([
+            'apt-transport-https',
+            'ca-certificates',
+            'curl',
+            'gnupg-agent',
+            'software-properties-common',
+        ])
+
+        # apt.install('apt-transport-https')
+        # apt.install('ca-certificates')
+        # apt.install('curl')
+        # apt.install('gnupg-agent')
+        # apt.install('software-properties-common')
 
         # add official docker gpg key
         apt.addGpgKey('https://download.docker.com/linux/ubuntu/gpg')
@@ -49,10 +57,6 @@ class Docker:
         print('docker gpg verification below')
         apt.gpgFingerprint('0EBFCD88')
 
-        print(distro.linux_distribution()[2])
-        # print(platform.dist())
-        # print(platform.linux_distribution)
-        # print(
         apt.addAptRepo(
             " ".join([
                 "deb [arch=amd64] https://download.docker.com/linux/ubuntu",
@@ -61,9 +65,11 @@ class Docker:
             ])
         )
 
-        apt.install('docker-ce')
-        apt.install('docker-ce-cli')
-        apt.install('containerd.io')
+        apt.install([
+            'docker-ce',
+            'docker-ce-cli',
+            'containerd.io',
+        ])
 
         # compose
         composeVersion = getLatestGithubRepo('docker/compose')['name']
@@ -104,7 +110,7 @@ class Docker:
 
     def install(self):
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
             self.addUser()
         else:
             print('no install instructions for', self.os)

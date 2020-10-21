@@ -53,9 +53,9 @@ def install():
     # pkgs.install()
 
     Docker().install()
-    Minikube().install()
-    Kubectl().install()
-    Bat().install()
+    # Minikube().install()
+    # Kubectl().install()
+    # Bat().install()
 
 def uninstall():
     # Uninstall NeoVim

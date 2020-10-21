@@ -38,24 +38,29 @@ class Apt:
             'upgrade',
         ])
 
-    def install(self, pkg):
-        print('installing', pkg)
+    def install(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [ pkgs ]
 
-        subprocess.run([
+        cmd = [
             'sudo',
             'apt-get',
             '-qq',
             'install',
             '-y',
-            pkg,
-        ], stdout=open(os.devnull, 'wb'))
+        ]
+        cmd.extend(pkgs)
+
+        print('installing:', pkgs)
+        subprocess.run(cmd)
+
+
 
 
     def uninstall(self, pkg):
-        print('uninstalling', pkg)
+        print('uninstall not yet implemented', pkg)
 
     def addGpgKey(self, link):
-        # 'https://download.docker.com/linux/debian/gpg',
         print('adding gpg key from:', link)
         subprocess.run([
             'curl',
