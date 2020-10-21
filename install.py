@@ -5,7 +5,11 @@ import sys
 import lib.util as util
 import lib.dot as dot
 
-import lib.docker as docker
+# import lib.docker as docker
+from lib.docker import Docker
+
+# from lib.docker import Docker
+
 
 # import lib.packages as packages
 # import lib.packages as packages
@@ -19,7 +23,7 @@ import lib.docker as docker
 
 # TODO: Uninstalls everywhere
 
-def install():
+def neovim():
     # install neovim
     neo = dot.Neovim(util.getSys())
     neo.createConfigDir()
@@ -31,6 +35,12 @@ def install():
     else:
         print('Neovim is already installed')
 
+    return neo
+
+def install():
+    # install neovim
+    neo = neovim()
+
     # symlink dotfiles
     dots = dot.Dotfiles(neo.getConfigDir())
     dots.createSymlinks()
@@ -39,7 +49,7 @@ def install():
     # pkgs = packages.Packages()
     # pkgs.install()
 
-    docker.Docker().install()
+    Docker().install()
 
 def uninstall():
     # Uninstall NeoVim
