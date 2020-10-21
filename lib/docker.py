@@ -68,9 +68,6 @@ class Docker:
         # compose
         composeVersion = getLatestGithubRepo('docker/compose')['name']
 
-# sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-        # docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)
         print(getLatestGithubRepo('docker/compose')['name'])
         repo = "".join([
             "https://github.com/docker/compose/releases/download/",
@@ -94,7 +91,7 @@ class Docker:
             'sudo',
             'chmod',
             '+x',
-            "".join([self.path + '/' + '/docker-compose']),
+            "".join([self.path + '/' + 'docker-compose']),
         ])
 
     def addUser(self):

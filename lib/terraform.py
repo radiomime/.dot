@@ -17,6 +17,8 @@ from .util import (
     getLatestGithubRepo,
 )
 
+# TODO: fix: installing in /usr/bin/root with matt:matt as owner
+
 class Terraform:
     # TODO: clean up some of this functionality
     def __init__(self):

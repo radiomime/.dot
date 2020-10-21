@@ -12,7 +12,7 @@ from .apt import Apt
 
 class Minikube:
     def __init__(self):
-        print('*** minikube')
+        print('*** installing minikube')
         self.os = getSys()
 
         subprocess.run([
