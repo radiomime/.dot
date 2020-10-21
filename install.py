@@ -7,6 +7,7 @@ import lib.dot as dot
 
 # import lib.docker as docker
 from lib.docker import Docker
+from lib.minikube import Minikube
 
 # from lib.docker import Docker
 
@@ -50,6 +51,7 @@ def install():
     # pkgs.install()
 
     Docker().install()
+    Minikube().install()
 
 def uninstall():
     # Uninstall NeoVim
