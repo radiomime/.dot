@@ -17,6 +17,8 @@ from .util import (
     getLatestGithubRepo,
 )
 
+from .snap import Snap
+
 class Go:
     def __init__(self):
         print('*** performing actions for Go package')

@@ -17,14 +17,17 @@ from .util import (
     getLatestGithubRepo,
 )
 
+from apt import Apt
+
 class Snap:
     def __init__(self):
         print('*** performing actions for Go package')
         self.os = getSys()
 
     def install(self):
-        subprocess.run(['sudo',
-                        'apt',
-                        'install',
-                        'snapd',
-                        ])
+        subprocess.run([
+            'sudo',
+            'apt',
+            'install',
+            'snapd',
+        ])

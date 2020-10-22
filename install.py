@@ -13,6 +13,8 @@ from lib.bat import Bat
 from lib.go import Go
 from lib.poetry import Poetry
 
+# from lib.apt import Apt
+
 # from lib.docker import Docker
 
 
