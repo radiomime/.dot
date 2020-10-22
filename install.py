@@ -10,6 +10,8 @@ from lib.docker import Docker
 from lib.minikube import Minikube
 from lib.kubectl import Kubectl
 from lib.bat import Bat
+from lib.go import Go
+from lib.poetry import Poetry
 
 # from lib.docker import Docker
 
@@ -40,6 +42,19 @@ def neovim():
 
     return neo
 
+def pkgs():
+    print('*** installing packages')
+
+    # Docker and k8s. Order matters
+    Docker().install()
+    Minikube().install()
+    Kubectl().install()
+
+    # independent packages
+    Bat().install()
+    Go().install()
+    Poetry().install()
+
 def install():
     # install neovim
     neo = neovim()
@@ -48,14 +63,8 @@ def install():
     dots = dot.Dotfiles(neo.getConfigDir())
     dots.createSymlinks()
 
-    # install packages
-    # pkgs = packages.Packages()
-    # pkgs.install()
+    pkgs()
 
-    Docker().install()
-    # Minikube().install()
-    # Kubectl().install()
-    # Bat().install()
 
 def uninstall():
     # Uninstall NeoVim

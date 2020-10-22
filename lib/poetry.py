@@ -2,15 +2,12 @@
 from sys import platform
 import json
 import sys
-from os.path import expanduser
-from os.path import abspath
 from shutil import which
 import time
 import subprocess
 import os
-import requests
-import getpass
 
+from .apt import Apt
 from .util import (
     getPyInterpreter,
     getSys,
@@ -22,32 +19,38 @@ class Poetry:
         print('*** performing actions for Poetry package')
 
         self.pyInterpreter = getPyInterpreter()
-
-
-        subprocess.run(['curl',
-                        '-sSL',
-                        'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py',
-                        '-o', 'get-poetry.py'])
+        subprocess.run([
+            'curl',
+            '-sSL',
+            ''.join([
+                'https://raw.githubusercontent.com/',
+                'python-poetry/poetry/master/get-poetry.py',
+            ]),
+            '-o', 'get-poetry.py'])
         self.os = getSys()
-
-    def aptDependencies(self):
-        #TODO: add this? Should this be here?
-        subprocess.run(['sudo',
-                        'apt',
-                        'install',
-                        'python3-venv'])
 
     def checkInstall(self):
         return which('poetry') is not None
 
-    def install(self):
+    def __linuxInstall(self):
+        # apt dependencies
+        apt = Apt()
+        apt.install('python3-venv')
+
         if not self.checkInstall():
             subprocess.run([self.pyInterpreter,
                             'get-poetry.py', '-y'])
             subprocess.run(['sh',
                             '.', '~/.poetry/env'])
             subprocess.run(['poetry', '--version'])
+
         self.update()
+
+    def install(self):
+        if self.os == 'linux':
+            self.__linuxInstall()
+        else:
+            print('no install instructions for', self.os)
 
     def update(self):
         if self.checkInstall():
@@ -55,10 +58,14 @@ class Poetry:
 
     def uninstall(self):
         if self.checkInstall():
-            subprocess.run([self.pyInterpreter,
-                            'get-poetry.py',
-                            '--uninstall'])
+            subprocess.run([
+                self.pyInterpreter,
+                'get-poetry.py',
+                '--uninstall',
+            ])
 
     def __del__(self):
-        subprocess.run(['rm',
-                        'get-poetry.py'])
+        subprocess.run([
+            'rm',
+            'get-poetry.py',
+        ])

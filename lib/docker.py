@@ -1,4 +1,3 @@
-from sys import platform
 import json
 import sys
 from os.path import expanduser
@@ -9,7 +8,6 @@ import subprocess
 import os
 import requests
 import getpass
-import platform
 import distro
 
 from .util import (
@@ -44,12 +42,6 @@ class Docker:
             'gnupg-agent',
             'software-properties-common',
         ])
-
-        # apt.install('apt-transport-https')
-        # apt.install('ca-certificates')
-        # apt.install('curl')
-        # apt.install('gnupg-agent')
-        # apt.install('software-properties-common')
 
         # add official docker gpg key
         apt.addGpgKey('https://download.docker.com/linux/ubuntu/gpg')
