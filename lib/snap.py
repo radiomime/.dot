@@ -17,7 +17,7 @@ from .util import (
     getLatestGithubRepo,
 )
 
-from apt import Apt
+from .apt import Apt
 
 class Snap:
     def __init__(self):
@@ -29,5 +29,6 @@ class Snap:
             'sudo',
             'apt',
             'install',
+            '-y',
             'snapd',
         ])

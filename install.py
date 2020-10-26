@@ -11,6 +11,7 @@ from lib.minikube import Minikube
 from lib.kubectl import Kubectl
 from lib.bat import Bat
 from lib.go import Go
+from lib.snap import Snap
 from lib.poetry import Poetry
 
 # from lib.apt import Apt
@@ -46,6 +47,8 @@ def neovim():
 
 def pkgs():
     print('*** installing packages')
+
+    Snap().install()
 
     # Docker and k8s. Order matters
     Docker().install()
