@@ -13,6 +13,7 @@ from lib.bat import Bat
 from lib.go import Go
 from lib.snap import Snap
 from lib.poetry import Poetry
+from lib.terraform import Terraform
 
 # from lib.apt import Apt
 
@@ -48,6 +49,11 @@ def neovim():
 def pkgs():
     print('*** installing packages')
 
+    # independent packages
+    Bat().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
     Snap().install()
 
     # Docker and k8s. Order matters
@@ -55,10 +61,6 @@ def pkgs():
     Minikube().install()
     Kubectl().install()
 
-    # independent packages
-    Bat().install()
-    Go().install()
-    Poetry().install()
 
 def install():
     # install neovim
