@@ -57,7 +57,6 @@ class Bat:
         ])
 
         subprocess.run([
-            # 'sudo',
             'curl',
             '-fsSL',
             repo,
