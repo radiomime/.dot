@@ -483,6 +483,10 @@ endif
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
+  " set clipboard+=unnamed,unnamedplus
+  " set clipboard+=unnamedplus
+  " set clipboard+=unnamedplus
+  " set clipboard^=unnamed,unnamedplus
 endif
 
 noremap YY "+y<CR>
