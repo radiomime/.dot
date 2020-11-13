@@ -63,6 +63,10 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 """"""""""
 " visualize
 """
+" Markdown Preview
+" Dependencies: nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 
 """"""""""
 " Miscellaneous // Unknown
