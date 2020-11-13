@@ -66,3 +66,21 @@ class Node:
         apt.install([
             'nodejs'
         ])
+
+    def installGlobalPkgs(self, pkgs):
+        if (not self.checkInstall):
+            print("Node is not installed, so global packages cannot be added")
+            return
+        if not isinstance(pkgs, list):
+            pkgs = [ pkgs ]
+
+        cmd = [
+            'sudo',
+            'npm',
+            'install',
+            '-g',
+        ]
+        cmd.extend(pkgs)
+
+        print('installing:', pkgs)
+        subprocess.run(cmd)

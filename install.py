@@ -15,6 +15,7 @@ from lib.snap import Snap
 from lib.poetry import Poetry
 from lib.terraform import Terraform
 from lib.node import Node
+from lib.yarn import Yarn
 
 # from lib.apt import Apt
 
@@ -57,6 +58,7 @@ def pkgs():
     Terraform().install()
     Snap().install()
     Node().install()
+    Yarn().install()
 
     # Docker and k8s. Order matters
     Docker().install()
