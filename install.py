@@ -16,6 +16,7 @@ from lib.poetry import Poetry
 from lib.terraform import Terraform
 from lib.node import Node
 from lib.yarn import Yarn
+from lib.mitmproxy import Mitmproxy
 
 # from lib.apt import Apt
 
@@ -52,18 +53,19 @@ def pkgs():
     print('*** installing packages')
 
     # independent packages
-    Bat().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Snap().install()
-    Node().install()
-    Yarn().install()
+    Mitmproxy().install()
+    # Bat().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Snap().install()
+    # Node().install()
+    # Yarn().install()
 
-    # Docker and k8s. Order matters
-    Docker().install()
-    Minikube().install()
-    Kubectl().install()
+    # # Docker and k8s. Order matters
+    # Docker().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def install():
