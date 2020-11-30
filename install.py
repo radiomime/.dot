@@ -54,18 +54,18 @@ def pkgs():
 
     # independent packages
     Mitmproxy().install()
-    # Bat().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Snap().install()
-    # Node().install()
-    # Yarn().install()
+    Bat().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Snap().install()
+    Node().install()
+    Yarn().install()
 
     # # Docker and k8s. Order matters
-    # Docker().install()
-    # Minikube().install()
-    # Kubectl().install()
+    Docker().install()
+    Minikube().install()
+    Kubectl().install()
 
 
 def install():
