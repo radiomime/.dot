@@ -112,3 +112,12 @@ wacom() {
     xsetwacom --get "Wacom Intuos BT S Pad pad" button 3
     xsetwacom --get "Wacom Intuos BT S Pad pad" button 4
 }
+
+uu() {
+    # Update on linux
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        printf "Updating packages\n" \
+            && sudo apt-get update -y \
+            && sudo apt-get upgrade -y
+    fi
+}
