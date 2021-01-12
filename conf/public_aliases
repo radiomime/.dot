@@ -19,7 +19,7 @@ alias nm='sudo nmap -sn 192.168.1.1/24'                                 # use nm
 alias x='chmod +x'
 alias cl="clear; ls -alh"
 alias c="clear"
-alias wanip='dig @resolver1.opendns.com ANY myip.opendns.com +short'    # get current WAN ip of machine 
+alias wanip='dig @resolver1.opendns.com ANY myip.opendns.com +short'    # get current WAN ip of machine
 alias rmswp='find . -type f -name "*.sw[klmnop]" -delete'               # TODO: get comment from wystan
 vm () { text=$(man "$@") && echo "$text" | vim -R +":set ft=man" - ;  } # open man page in vim
 pop() { sed -i '' -e '$ d' $1 ; }  # Remove the last line of a file ( pop ~/.ssn/known_hosts )
@@ -38,11 +38,11 @@ gc() { git commit -m "$@" ; } # Example: gc "Updated the comments"
 alias gp='git push'         # This one is pretty straight forward.
 alias gs='git status'
 
-tn() { tmux new -s $1 ; } 
-ta() { tmux a -t $1 ; }   
-ts() { tmux ls ; }        
+tn() { tmux new -s $1 ; }
+ta() { tmux a -t $1 ; }
+ts() { tmux ls ; }
 
-inst() { 
+inst() {
     platform='unknown'
     unamestr=`uname`
     if [[ "$unamestr" == 'Linux' ]]; then
@@ -72,3 +72,43 @@ alias dlogs="docker logs -f"
 
 #AWS ECS
 alias ecslogin="aws ecr get-login --no-include-email --region us-east-1 | bash"
+
+# Wacom Tablet Setup
+wacom() {
+    # Only run on linux
+    if [[ "$OSTYPE" != "linux-gnu"* ]]; then
+        exit
+    fi
+
+    # Only run if wacom command is there
+    if ! command -v xsetwacom &> /dev/null
+    then
+        echo "COMMAND could not be found"
+    fi
+
+    xsetwacom --list devices
+
+    # Configure pen settings
+    xsetwacom --set "Wacom Intuos BT S Pen stylus" button 1 "button +1"  # touching pad
+    xsetwacom --set "Wacom Intuos BT S Pen stylus" button 2 "button +2"  # button 1 stylus
+    xsetwacom --set "Wacom Intuos BT S Pen stylus" button 3 "key ctrl z" # button 2 stylus
+
+    # Print settings
+    printf "\n*** Pen Button mappings"
+    xsetwacom --get "Wacom Intuos BT S Pen stylus" button 1
+    xsetwacom --get "Wacom Intuos BT S Pen stylus" button 2
+    xsetwacom --get "Wacom Intuos BT S Pen stylus" button 3
+
+    # Configure pad settings
+    xsetwacom --set "Wacom Intuos BT S Pad pad" button 1 "key ctrl +"
+    xsetwacom --set "Wacom Intuos BT S Pad pad" button 2 "key ctrl -"
+    xsetwacom --set "Wacom Intuos BT S Pad pad" button 3 "key p"
+    xsetwacom --set "Wacom Intuos BT S Pad pad" button 4 "key l"
+
+    # Print settings
+    printf "\n*** Pad Button mappings"
+    xsetwacom --get "Wacom Intuos BT S Pad pad" button 1
+    xsetwacom --get "Wacom Intuos BT S Pad pad" button 2
+    xsetwacom --get "Wacom Intuos BT S Pad pad" button 3
+    xsetwacom --get "Wacom Intuos BT S Pad pad" button 4
+}
