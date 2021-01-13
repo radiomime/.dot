@@ -67,7 +67,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " Dependencies: nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-nnoremap <leader>mdp :MarkdownPreview<Return>
+nnoremap <leader>md :MarkdownPreview<Return>
 
 
 """"""""""
