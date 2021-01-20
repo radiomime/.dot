@@ -8,6 +8,10 @@ import time
 import subprocess
 import os
 
+from lib.util import (
+    getSys,
+)
+
 class Dotfiles:
     def __init__(self, configDir=abspath(expanduser('~/.config/nvim'))):
         self.configDir = configDir
@@ -44,13 +48,39 @@ class Dotfiles:
 
 class Neovim:
     def __init__(self, system='unknown'):
-        self.system  = system
-        self.path    =  abspath(expanduser('.'))
+        self.system      = getSys()
+        self.path        =  abspath(expanduser('.'))
         self.installPath = '/tmp/dot-neovim-' + str(time.time_ns())
-        self.configDir = abspath(expanduser('~/.config/nvim'))
-        # print('system:', self.system)
-        # print('path:', self.path)
-        # print('installPath:', self.installPath)
+        self.configDir   = abspath(expanduser('~/.config/nvim'))
+
+    def install(self):
+        print('*** installing neovim')
+        if self.os == 'linux':
+            self.linuxInstall()
+        else:
+            print('no install instructions for', self.os)
+
+    def linuxInstall(self):
+        # Research, should I be on the stable branch? `git checkout stable`
+        print('Cloning neovim directory')
+        subprocess.run(['git', 'clone',
+                        'https://github.com/neovim/neovim', self.installPath])
+        print('Making neovim')
+        subprocess.run(['make',
+                        '--directory', self.installPath,
+                        'CMAKE_BUILD_TYPE=Release'])
+
+        print('Installing neovim')
+        subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
+
+        self.getPip()
+        self.getProviders()
+
+    def uninstall(self):
+        print('Uninstalling nvim binary')
+        subprocess.run(['sudo', 'rm', '/usr/local/bin/nvim'])
+        print('Uninstalling nvim local share')
+        subprocess.run(['sudo', 'rm', '-rf', '/usr/local/share/nvim'])
 
     def getConfigDir(self):
         return self.configDir
@@ -76,13 +106,13 @@ class Neovim:
 
         elif self.system == 'osx':
             print('Untested: Running with OSX')
-            subprocess.run(['sudo', 'brew', 'install',
-                            'ninja',
-                            'libtool',
-                            'automake',
-                            'cmake',
-                            'pkg-config',
-                            'gettext'])
+            # subprocess.run(['sudo', 'brew', 'install',
+            #                 'ninja',
+            #                 'libtool',
+            #                 'automake',
+            #                 'cmake',
+            #                 'pkg-config',
+            #                 'gettext'])
 
     def createConfigDir(self):
         print('Config for nvim at:', self.configDir)
@@ -107,26 +137,6 @@ class Neovim:
                         '--upgrade',
                         'pynvim'])
 
-    def install(self):
-        # Research, should I be on the stable branch? `git checkout stable`
-        print('Cloning neovim directory')
-        subprocess.run(['git', 'clone',
-                        'https://github.com/neovim/neovim', self.installPath])
-        print('Making neovim')
-        subprocess.run(['make',
-                        '--directory', self.installPath,
-                        'CMAKE_BUILD_TYPE=Release'])
-        print('Installing neovim')
-        subprocess.run(['sudo', 'make', '--directory', self.installPath, 'install'])
-
-        self.getPip()
-        self.getProviders()
-
-    def uninstall(self):
-        print('Uninstalling nvim binary')
-        subprocess.run(['sudo', 'rm', '/usr/local/bin/nvim'])
-        print('Uninstalling nvim local share')
-        subprocess.run(['sudo', 'rm', '-rf', '/usr/local/share/nvim'])
 
 
 

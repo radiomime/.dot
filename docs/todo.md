@@ -24,6 +24,13 @@ https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
 
 https://github.com/docker/compose/releases
 
+### Mac compatability
+
+Runnable on mac
+
+### Uninstalls
+Put unintalls everywhere
+
 ### Add poetry to install
 
 add it
