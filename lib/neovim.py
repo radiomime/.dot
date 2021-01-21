@@ -125,7 +125,40 @@ class Neovim:
         print('installing neovim for osx')
         brew = Brew()
         brew.update()
-        brew.install('neovim')
+        # brew.install('neovim')
+        brew.install([
+            'ninja',
+            'libtool',
+            'automake',
+            'cmake',
+            'pkg-config',
+            'gettext',
+        ])
+
+        print('Cloning neovim directory')
+        subprocess.run([
+            'git',
+            'clone',
+            'https://github.com/neovim/neovim',
+            self.installPath,
+        ])
+
+        print('Making neovim')
+        subprocess.run([
+            'make',
+            '--directory',
+            self.installPath,
+            'CMAKE_BUILD_TYPE=Release',
+        ])
+
+        print('Installing neovim')
+        subprocess.run([
+            'sudo',
+            'make',
+            '--directory',
+            self.installPath,
+            'install',
+        ])
 
     def uninstall(self):
         if self.os == 'linux':
