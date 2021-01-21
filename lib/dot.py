@@ -12,7 +12,7 @@ from lib.util import (
     getSys,
 )
 
-class Dotfiles:
+class Dot:
     def __init__(self, configDir=abspath(expanduser('~/.config/nvim'))):
         self.configDir = configDir
         self.files  = {

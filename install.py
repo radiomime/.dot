@@ -3,20 +3,23 @@ import argparse
 import sys
 
 # import lib.util as util
-import lib.dot as dot
+# import lib.dot as dot
 
 # import lib.docker as docker
-# from lib.docker import Docker
-# from lib.minikube import Minikube
-# from lib.kubectl import Kubectl
-# from lib.bat import Bat
-# from lib.go import Go
-# from lib.snap import Snap
-# from lib.poetry import Poetry
-# from lib.terraform import Terraform
-# from lib.node import Node
-# from lib.yarn import Yarn
-# from lib.mitmproxy import Mitmproxy
+from lib.dot import Dot
+from lib.neovim import Neovim
+
+from lib.docker import Docker
+from lib.minikube import Minikube
+from lib.kubectl import Kubectl
+from lib.bat import Bat
+from lib.go import Go
+from lib.snap import Snap
+from lib.poetry import Poetry
+from lib.terraform import Terraform
+from lib.node import Node
+from lib.yarn import Yarn
+from lib.mitmproxy import Mitmproxy
 from lib.prereqs import Prereqs
 
 # from lib.apt import Apt
@@ -30,61 +33,45 @@ from lib.prereqs import Prereqs
 # import os
 # from sys import platform
 
-
-def neovim():
-    # install neovim
-    # neo = dot.Neovim(util.getSys())
-    neo = dot.Neovim()
-    neo.createConfigDir()
-    if not neo.checkInstall():
-        print('Installing neovim')
-        neo.installRequirements()
-        neo.install()
-        # neo.createConfigDir()
-    else:
-        print('Neovim is already installed')
-
-    return neo
-
-def pkgs():
-    print('*** installing packages')
-
-    # independent packages
-    Mitmproxy().install()
-    Bat().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Snap().install()
-    Node().install()
-    Yarn().install()
-
-    # Docker and k8s. Order matters
-    Docker().install()
-    Minikube().install()
-    Kubectl().install()
-
 def prereqs():
-    print('installing prereqs')
+    # Should this be here? Not sure. Python is already needed, but maybe
+    # some python upgrade or something?
+    # TODO: revisit this when reflashing mac at some point
+    print('prerequisite install is not supported yet')
     Prereqs().install()
 
 def install():
+    Neovim().install()
     # install neovim
-    neo = neovim()
+    # neo = neovim()
+    # install neovim
 
     # symlink dotfiles
     # dots = dot.Dotfiles(neo.getConfigDir())
     # dots.createSymlinks()
 
-    # pkgs()
+    # print('*** installing packages')
+    # # independent packages
+    # Mitmproxy().install()
+    # Bat().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Snap().install()
+    # Node().install()
+    # Yarn().install()
 
+    # # Docker and k8s. Order matters
+    # Docker().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 def uninstall():
     # Uninstall NeoVim
     # neo = dot.Neovim(util.getSys())
     print('*** not actually uninstalling neovim')
     print('uninstall neovim files?? still need to do')
-    # neo.uninstall()
+    neo.uninstall()
 
     # # remove symlinks to dotfiles
     # dots = dot.Dotfiles(neo.getConfigDir())
