@@ -9,6 +9,7 @@ import subprocess
 import os
 
 from .apt import Apt
+from .brew import Brew
 from lib.util import (
     getSys,
     pkgInstalled
@@ -45,13 +46,13 @@ class Neovim:
             return
 
         if self.os == 'linux':
-            print('I should, but am not, installing neovim for linux')
             self.__linuxInstall()
         elif self.os == 'osx':
-            print('todo: creating install instructions for', self.os)
+            self.__osxInstall()
         else:
             print('no install instructions for', self.os)
             return
+
 
         if pkgInstalled('nvim'):
             print('Installing providers for neovim')
@@ -60,7 +61,10 @@ class Neovim:
 
     def __linuxInstall(self):
         print('Installing neovim dependencies')
-        Apt().update().install([
+        apt = Apt()
+
+        apt.update()
+        apt.install([
             'ninja-build',
             'gettext',
             'libtool',
@@ -99,7 +103,7 @@ class Neovim:
         ])
 
         print('Installing pip')
-        Apt.update().install('python3-pip')
+        apt.install('python3-pip')
 
     def __linuxUninstall(self):
         print('Uninstalling nvim binary')
@@ -116,6 +120,11 @@ class Neovim:
             '-rf',
             '/usr/local/share/nvim',
         ])
+
+    def __osxInstall(self):
+        print('installing neovim for osx')
+        brew = Brew()
+        brew.update()
 
     def uninstall(self):
         if self.os == 'linux':

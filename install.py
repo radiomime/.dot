@@ -67,11 +67,8 @@ def install():
     # Kubectl().install()
 
 def uninstall():
-    # Uninstall NeoVim
-    # neo = dot.Neovim(util.getSys())
-    print('*** not actually uninstalling neovim')
-    print('uninstall neovim files?? still need to do')
-    neo.uninstall()
+    print('uninstalling neovim')
+    Neovim().uninstall()
 
     # # remove symlinks to dotfiles
     # dots = dot.Dotfiles(neo.getConfigDir())
