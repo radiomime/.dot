@@ -33,9 +33,11 @@ class Neovim:
         self.path        =  abspath(expanduser('.'))
         self.installPath = '/tmp/dot-neovim-' + str(time.time_ns())
 
-        self.configDir   = None
         if (self.os == 'osx' or self.os == 'linux'):
-            self.configDir   = abspath(expanduser('~/.config/nvim'))
+            configDir = abspath(expanduser('~/.config/nvim'))
+
+            print('Config for nvim at:', configDir)
+            subprocess.run(['mkdir', '-p', configDir])
 
     def install(self):
         if pkgInstalled('nvim'):
@@ -44,17 +46,19 @@ class Neovim:
 
         if self.os == 'linux':
             print('I should, but am not, installing neovim for linux')
-            # self.linuxInstall()
+            self.__linuxInstall()
         elif self.os == 'osx':
             print('todo: creating install instructions for', self.os)
         else:
             print('no install instructions for', self.os)
             return
 
-        self.getPip()
-        self.getProviders()
+        if pkgInstalled('nvim'):
+            print('Installing providers for neovim')
+            self.__getProviders()
 
-    def linuxInstall(self):
+
+    def __linuxInstall(self):
         print('Installing neovim dependencies')
         Apt().update().install([
             'ninja-build',
@@ -94,7 +98,10 @@ class Neovim:
             'install',
         ])
 
-    def linuxUninstall(self):
+        print('Installing pip')
+        Apt.update().install('python3-pip')
+
+    def __linuxUninstall(self):
         print('Uninstalling nvim binary')
         subprocess.run([
             'sudo',
@@ -112,7 +119,7 @@ class Neovim:
 
     def uninstall(self):
         if self.os == 'linux':
-            self.linuxUninstall()
+            self.__linuxUninstall()
         elif self.os == 'osx':
             print('NO UNINSTALL DIRECTIONS FOR: ', self.os)
         else:
@@ -123,20 +130,8 @@ class Neovim:
     def getConfigDir(self):
         return self.configDir
 
-    def createConfigDir(self):
-        print('Config for nvim at:', self.configDir)
-        subprocess.run(['mkdir', '-p', self.configDir])
 
-    def getPip(self):
-        print('installing providers')
-        subprocess.run(['sudo',
-                        'apt',
-                        'install',
-                        '-y',
-                        'python3-pip',
-                        ])
-
-    def getProviders(self):
+    def __getProviders(self):
         print('installing providers')
         subprocess.run(['python3',
                         '-m',

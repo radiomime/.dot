@@ -71,7 +71,7 @@ class Terraform:
 
     def install(self):
         # Install will also update
-        if self.os is 'linux':
+        if self.os == 'linux':
             self.linuxInstall()
         else:
             print('no install instructions for OS')
