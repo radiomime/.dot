@@ -2,7 +2,7 @@
 import argparse
 import sys
 
-import lib.util as util
+# import lib.util as util
 import lib.dot as dot
 
 # import lib.docker as docker
@@ -81,7 +81,7 @@ def install():
 
 def uninstall():
     # Uninstall NeoVim
-    neo = dot.Neovim(util.getSys())
+    # neo = dot.Neovim(util.getSys())
     print('*** not actually uninstalling neovim')
     print('uninstall neovim files?? still need to do')
     # neo.uninstall()
