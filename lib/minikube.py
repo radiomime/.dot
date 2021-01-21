@@ -30,7 +30,7 @@ class Minikube:
         subprocess.run(['rm',
                         'minikube_latest_amd64.deb'])
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         subprocess.run([
             'sudo',
             'dpkg',
@@ -40,7 +40,7 @@ class Minikube:
 
     def install(self):
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
         else:
             print('no install instructions for', self.os)
 

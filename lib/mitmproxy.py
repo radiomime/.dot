@@ -35,7 +35,7 @@ class Mitmproxy:
     def install(self):
         print('*** installing mitmproxy')
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
         else:
             print('no install instructions for', self.os)
 
@@ -45,7 +45,7 @@ class Mitmproxy:
         else:
             print('no uninstall instructions for', self.os)
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         mitmproxyVersion = getLatestGithubRepo('mitmproxy/mitmproxy')['tag_name'][1:]
         print(mitmproxyVersion)
         mitmTarball = "".join([

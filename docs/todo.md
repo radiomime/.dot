@@ -11,6 +11,10 @@ Checkout
 
 ### npm to install
 
+### Make this into an inheritance problem!
+Look at the package isntallations. So many of them are the same. They all have
+linuxInstall(), etc private methods and install()/uninstall()
+
 ### snap to install
 
 ### Good with fugitive

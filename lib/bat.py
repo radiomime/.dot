@@ -35,7 +35,7 @@ class Bat:
     def install(self):
         print('*** installing bat')
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
         else:
             print('no install instructions for', self.os)
 
@@ -45,7 +45,7 @@ class Bat:
         else:
             print('no uninstall instructions for', self.os)
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         batVersion = getLatestGithubRepo('sharkdp/bat')['name']
 
         repo = "".join([

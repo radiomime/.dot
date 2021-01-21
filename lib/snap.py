@@ -24,7 +24,7 @@ class Snap:
         print('*** performing actions for Go package')
         self.os = getSys()
 
-    def install(self):
+    def __linuxInstall(self):
         subprocess.run([
             'sudo',
             'apt',
@@ -32,3 +32,10 @@ class Snap:
             '-y',
             'snapd',
         ])
+
+    def install(self):
+        print('*** installing', __name__)
+        if self.os == 'linux':
+            self.__linuxInstall()
+        else:
+            print('no install instructions for', self.os)

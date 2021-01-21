@@ -32,6 +32,12 @@ class Poetry:
     def checkInstall(self):
         return which('poetry') is not None
 
+    def install(self):
+        if self.os == 'linux':
+            self.__linuxInstall()
+        else:
+            print('no install instructions for', self.os)
+
     def __linuxInstall(self):
         # apt dependencies
         apt = Apt()
@@ -46,11 +52,6 @@ class Poetry:
 
         self.update()
 
-    def install(self):
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for', self.os)
 
     def update(self):
         if self.checkInstall():

@@ -2,10 +2,6 @@
 import argparse
 import sys
 
-# import lib.util as util
-# import lib.dot as dot
-
-# import lib.docker as docker
 from lib.dot import Dot
 from lib.neovim import Neovim
 
@@ -41,30 +37,32 @@ def prereqs():
     Prereqs().install()
 
 def install():
+    print('*** installing neovim and dotfiles')
     Neovim().install()
     Dot().install()
 
-    # print('*** installing packages')
+    print('*** installing packages')
     # # independent packages
-    # Mitmproxy().install()
-    # Bat().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Snap().install()
-    # Node().install()
-    # Yarn().install()
+    Mitmproxy().install()
+    Bat().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Snap().install()
+    Node().install()
+    Yarn().install()
 
-    # # Docker and k8s. Order matters
-    # Docker().install()
-    # Minikube().install()
-    # Kubectl().install()
+    # Docker and k8s. Order matters
+    Docker().install()
+    Minikube().install()
+    Kubectl().install()
 
 def uninstall():
     print('uninstalling neovim')
     Neovim().uninstall()
     Dot().uninstall()
 
+    print('*** Warn: Package installs are not currently supported')
     # # uninstall packages
     # packages.Packages().uninstall()
 

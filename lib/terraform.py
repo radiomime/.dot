@@ -32,7 +32,7 @@ class Terraform:
     def checkInstall(self):
         return which('terraform') is not None
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         print('getting terraform package')
         # https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
         # latest = getLatestGithubRepo('hashicorp/terraform')
@@ -72,7 +72,7 @@ class Terraform:
     def install(self):
         # Install will also update
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
         else:
             print('no install instructions for OS')
 

@@ -33,11 +33,11 @@ class Node:
     def install(self):
         print('*** installing node from deb.nodesource.com')
         if self.os == 'linux':
-            self.linuxInstall()
+            self.__linuxInstall()
         else:
             print('no install instructions for', self.os)
 
-    def linuxInstall(self):
+    def __linuxInstall(self):
         if (self.checkInstall):
             return
 

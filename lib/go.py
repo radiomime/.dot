@@ -28,6 +28,12 @@ class Go:
         return which('go') is not None
 
     def install(self):
+        if self.os == 'linux':
+            self.__linuxInstall()
+        else:
+            print('no install instructions for', self.os)
+
+    def __linuxInstall(self):
         if not self.checkInstall():
             subprocess.run(['sudo',
                             'snap',
