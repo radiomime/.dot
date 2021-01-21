@@ -17,6 +17,7 @@ from lib.terraform import Terraform
 from lib.node import Node
 from lib.yarn import Yarn
 from lib.mitmproxy import Mitmproxy
+from lib.prereqs import Prereqs
 
 # from lib.apt import Apt
 # from lib.docker import Docker
@@ -28,6 +29,7 @@ from lib.mitmproxy import Mitmproxy
 # import subprocess
 # import os
 # from sys import platform
+
 
 def neovim():
     # install neovim
@@ -62,6 +64,9 @@ def pkgs():
     Minikube().install()
     Kubectl().install()
 
+def prereqs():
+    print('installing prereqs')
+    Prereqs().install()
 
 def install():
     # install neovim
@@ -103,8 +108,15 @@ def main(argv):
                         action='store_true',
                         required=False)
 
+    parser.add_argument("-p", "--prereqs",
+                        help="install prerequisite packages",
+                        action='store_true',
+                        required=False)
+
     args = parser.parse_args()
-    if args.uninstall:
+    if args.prereqs:
+        prereqs()
+    elif args.uninstall:
         uninstall()
     else:
         install()

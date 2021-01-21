@@ -3,6 +3,9 @@ from sys import platform
 from shutil import which
 import requests
 
+def pkgInstalled(name):
+    return which(name) is not None
+
 def getSys():
     if platform == "linux" or platform == "linux2":
         return 'linux'
