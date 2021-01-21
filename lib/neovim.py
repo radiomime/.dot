@@ -125,6 +125,7 @@ class Neovim:
         print('installing neovim for osx')
         brew = Brew()
         brew.update()
+        brew.install('neovim')
 
     def uninstall(self):
         if self.os == 'linux':

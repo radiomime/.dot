@@ -19,3 +19,22 @@ class Brew:
             'brew',
             'update',
         ])
+
+    def upgrade(self):
+        subprocess.run([
+            'brew',
+            'upgrade',
+        ])
+
+    def install(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [ pkgs ]
+
+        cmd = [
+            'brew',
+            'install',
+        ]
+        cmd.extend(pkgs)
+
+        print('installing:', pkgs)
+        subprocess.run(cmd)
