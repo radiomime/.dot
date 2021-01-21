@@ -44,10 +44,6 @@ def install():
     Neovim().install()
     Dot().install()
 
-    # symlink dotfiles
-    # dots = dot.Dotfiles(neo.getConfigDir())
-    # dots.createSymlinks()
-
     # print('*** installing packages')
     # # independent packages
     # Mitmproxy().install()
@@ -67,10 +63,7 @@ def install():
 def uninstall():
     print('uninstalling neovim')
     Neovim().uninstall()
-
-    # # remove symlinks to dotfiles
-    # dots = dot.Dotfiles(neo.getConfigDir())
-    # dots.removeSymlinks()
+    Dot().uninstall()
 
     # # uninstall packages
     # packages.Packages().uninstall()

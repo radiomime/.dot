@@ -32,8 +32,24 @@ class Dot:
             # "../conf/skeletons": "~/.vim/skeletons",
             # "../conf/fzf_functions": "~/.fzf_functions",
             # "../conf/vimrc_full": "~/.vimrc",
-            # "../conf/gitconfig": "~/.gitconfig",
         }
+
+
+    def install(self):
+        if self.os == 'linux' or self.os == 'osx':
+            print('symlinking dotfiles')
+            self.__createSymlinks()
+        else:
+            print('no install instructions for', self.os)
+            return
+
+    def uninstall(self):
+        if self.os == 'linux' or self.os == 'osx':
+            print('symlinking dotfiles')
+            self.__removeSymlinks()
+        else:
+            print('no install instructions for', self.os)
+            return
 
     def __symlink(self, src, lnk):
         subprocess.run(['ln', '-sfn', src, lnk])
@@ -45,16 +61,7 @@ class Dot:
                 abspath(expanduser(dst))
             )
 
-    def install(self):
-        if self.os == 'linux' or self.os == 'osx':
-            print('symlinking dotfiles')
-            self.__createSymlinks()
-        else:
-            print('no install instructions for', self.os)
-            return
-
-
-    def removeSymlinks(self):
+    def __removeSymlinks(self):
         for src, dst in self.files.items():
             print('removing symlink at', abspath(expanduser(dst)))
             subprocess.run(['rm', abspath(expanduser(dst))])
