@@ -38,6 +38,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
+\   'python': ['eslint'],
 \}
 
 " TODO: Move to ftplugin files
@@ -62,9 +63,15 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 """"""""""
 " visualize
 """
+" Markdown Preview
+" Dependencies: nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+nnoremap <leader>md :MarkdownPreview<Return>
+
 
 """"""""""
-" Unknown
+" Miscellaneous // Unknown
 """
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -135,7 +142,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
 "*****************************************************************************
-"" Custom bundles
+"" Custom Commands
 "*****************************************************************************
 " PU to update plugsins && upgrade vim-plug
 command! PU PlugUpdate | PlugUpgrade
@@ -243,11 +250,14 @@ else
 
 endif
 
-
-
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
-set scrolloff=3
+set guicursor=a:blinkon0
+set scrolloff=0
+
+"" horizontal scrolling and line wrapping
+set wrap
+" set nowrap
+" set sidescroll=16
 
 "" Status bar
 set laststatus=2
@@ -479,6 +489,10 @@ endif
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
+  " set clipboard+=unnamed,unnamedplus
+  " set clipboard+=unnamedplus
+  " set clipboard+=unnamedplus
+  " set clipboard^=unnamed,unnamedplus
 endif
 
 noremap YY "+y<CR>
@@ -595,6 +609,15 @@ augroup END
 " ale
 :call extend(g:ale_linters, {
     \"go": ['golint', 'go vet'], })
+
+"*****************************************************************************
+"" Makefile Rules
+"*****************************************************************************
+if has("autocmd")
+    " If the filetype is Makefile then we need to use tabs
+    " So do not expand tabs into space.
+    autocmd FileType make   set noexpandtab
+endif
 
 "*****************************************************************************
 "" Javascript Rules
