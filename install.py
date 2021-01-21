@@ -6,17 +6,17 @@ import sys
 import lib.dot as dot
 
 # import lib.docker as docker
-from lib.docker import Docker
-from lib.minikube import Minikube
-from lib.kubectl import Kubectl
-from lib.bat import Bat
-from lib.go import Go
-from lib.snap import Snap
-from lib.poetry import Poetry
-from lib.terraform import Terraform
-from lib.node import Node
-from lib.yarn import Yarn
-from lib.mitmproxy import Mitmproxy
+# from lib.docker import Docker
+# from lib.minikube import Minikube
+# from lib.kubectl import Kubectl
+# from lib.bat import Bat
+# from lib.go import Go
+# from lib.snap import Snap
+# from lib.poetry import Poetry
+# from lib.terraform import Terraform
+# from lib.node import Node
+# from lib.yarn import Yarn
+# from lib.mitmproxy import Mitmproxy
 from lib.prereqs import Prereqs
 
 # from lib.apt import Apt
