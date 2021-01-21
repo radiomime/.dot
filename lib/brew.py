@@ -38,3 +38,16 @@ class Brew:
 
         print('installing:', pkgs)
         subprocess.run(cmd)
+
+    def uninstall(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [ pkgs ]
+
+        cmd = [
+            'brew',
+            'uninstall',
+        ]
+        cmd.extend(pkgs)
+
+        print('installing:', pkgs)
+        subprocess.run(cmd)

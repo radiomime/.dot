@@ -42,9 +42,7 @@ def prereqs():
 
 def install():
     Neovim().install()
-    # install neovim
-    # neo = neovim()
-    # install neovim
+    Dot().install()
 
     # symlink dotfiles
     # dots = dot.Dotfiles(neo.getConfigDir())
