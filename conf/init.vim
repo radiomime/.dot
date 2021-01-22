@@ -1,8 +1,67 @@
-" vim-bootstrap
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Basic Setup
+""""""""""""""""""""""""""""""
+echom "basic"
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
 
-"*****************************************************************************
-"" install vim-plug core
-"*****************************************************************************
+
+"" Fix backspace indent
+set backspace=indent,eol,start
+
+"" Tabs. May be overridden by autocmd rules
+" ts = 'number of spaces that <Tab> in file uses'
+" sts = 'number of spaces that <Tab> uses while editing'
+" sw = 'number of spaces to use for (auto)indent step'
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+
+set smartindent
+set autoindent
+
+"" Map leader to <space>
+let mapleader=' '
+let maplocalleader=','
+
+"" Enable hidden buffers
+set hidden
+
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" assume the /g flag on :s substitutions to replace all matches in a line
+set gdefault
+
+set fileformats=unix,dos,mac
+
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
+
+""""""""""
+" No gross swap files
+"""""
+call mkdir($HOME."/.config/nvim/undodir", "p")
+set noswapfile
+set nobackup
+set undodir=~/.config/nvim/undodir
+set undofile
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" install vim-plug
+""""""""""""""""""""""""""""""
+echom "installing vim-plug"
+
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "c,go,javascript,python,typescript"
@@ -21,62 +80,42 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-"*****************************************************************************
-"" plug install packages
-"*****************************************************************************
-" Required:
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" install plugins
+""""""""""""""""""""""""""""""
+echom "installing plugins"
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-""""""""""
-" Linting
-"""
+" linting
 Plug 'dense-analysis/ale'
 
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'python': ['eslint'],
-\}
-
-" TODO: Move to ftplugin files
-" In ~/.vim/ftplugin/javascript.vim, or somewhere similar.
-" Fix files with prettier, and then ESLint.
-" let b:ale_fixers = ['prettier', 'eslint']
-" End of TODO
-
-""""""""""
-" Commands
-"""
-" Vim abolish to abbreviate, substitute, and coerce
+" to abbreviate, substitute, and coerce
 Plug 'tpope/vim-abolish'
 
-""""""""""
-" Helpers
-"""
-" Hints leader key bindings
+" hints leader key bindings
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
-""""""""""
-" visualize
-"""
-" Markdown Preview
-" Dependencies: nodejs and yarn
+" markdown preview: " Dependencies: nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-nnoremap <leader>md :MarkdownPreview<Return>
+" session management
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 
+" git
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tpope/vim-fugitive'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 """"""""""
-" Miscellaneous // Unknown
+" Miscellaneous && Unknown
 """
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
@@ -87,30 +126,24 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
 let g:make = 'gmake'
 if exists('make')
         let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
 
-"" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 
+""""""""""""""""""""""""""""""
+" Snippets
+""""""""""
 "" Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
+
 
 "*****************************************************************************
 "" Custom bundles
@@ -146,83 +179,108 @@ Plug 'HerringtonDarkholme/yats.vim'
 "*****************************************************************************
 " PU to update plugsins && upgrade vim-plug
 command! PU PlugUpdate | PlugUpgrade
-
+nnoremap <leader>uu :PU<Return>
 
 "*****************************************************************************
+" End of plugins
 "*****************************************************************************
-
-"" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
 
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" configure and map plugins
+""""""""""""""""""""""""""""""
+echom "configuring plugins"
+
+""""""""""
+" ale
+"""
+" TODO: move all of these to ftplugins as ale docs suggest
+" include prettier on js fixers?
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'python': ['eslint'],
+\}
+
+""""""""""
+" which-key for leader hinting
+"""
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+""""""""""
+" markdown preview
+"""
+nnoremap <leader>md :MarkdownPreview<Return>
+
+""""""""""
+" session management with vim-session
+"""
+let g:session_directory = "~/.config/nvim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+""""""""""
+" fugitive git bindings
+"""
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" END: configure and map plugins
+""""""""""""""""""""""""""""""
 
 " Required:
 filetype plugin indent on
 
 
-"*****************************************************************************
-"" Basic Setup
-"*****************************************************************************"
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" navigation
+""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" editing
+""""""""""""""""""""""""""""""
 
-"" Fix backspace indent
-set backspace=indent,eol,start
-
-"" Tabs. May be overridden by autocmd rules
-" ts = 'number of spaces that <Tab> in file uses'
-" sts = 'number of spaces that <Tab> uses while editing'
-" sw = 'number of spaces to use for (auto)indent step'
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-
-set smartindent
-set autoindent
-
-"" Map leader to <space>
-let mapleader=' '
-let maplocalleader=','
-
-"" Enable hidden buffers
-set hidden
-
-"" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" assume the /g flag on :s substitutions to replace all matches in a line:
-set gdefault
-
-set fileformats=unix,dos,mac
-
-if exists('$SHELL')
-    set shell=$SHELL
-else
-    set shell=/bin/sh
-endif
-
-" session management
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
-"*****************************************************************************
-"" Visual Settings
-"*****************************************************************************
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" visual settings
+""""""""""""""""""""""""""""""
 syntax on
 set ruler
 set number relativenumber
 set numberwidth=4
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" autocommand
+""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""WORKING""""""""""""""""""""""""
+"""""""""""""""""""""""FROM""""""""""""""""""""""""
+"""""""""""""""""""""""""HERE""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"*****************************************************************************
+"" Visual Settings
+"*****************************************************************************
 
 let no_buffers_menu=1
 silent! colorscheme molokai
@@ -250,12 +308,17 @@ endif
 
 "" Disable the blinking cursor.
 set guicursor=a:blinkon0
-set scrolloff=0
+
+""""""""""
+" scrolling
+"""
+" center cursor in screen vertically while scrolling
+set scrolloff=50
 
 "" horizontal scrolling and line wrapping
-set wrap
-" set nowrap
-" set sidescroll=16
+set nowrap
+set sidescroll=1
+set sidescrolloff=20
 
 "" Status bar
 set laststatus=2
@@ -270,10 +333,6 @@ set titlestring=%F
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
@@ -392,6 +451,11 @@ nnoremap : ;
 nnoremap j gjzz
 nnoremap k gkzz
 
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Always keep text centered
 nnoremap } }zz
 nnoremap { {zz
@@ -410,24 +474,8 @@ nnoremap <C-]> <C-]>zz
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
-"" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-
-" session management
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
 " reload vimrc
-nnoremap <leader>so :source $MYVIMRC<CR>
+nnoremap <leader><Return> :source $MYVIMRC<CR>
 
 "" Tabs
 nnoremap <Tab> gt
@@ -481,7 +529,8 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " Disable visualbell
-set noerrorbells visualbell t_vb=
+set noerrorbells novisualbell t_vb=
+" set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
