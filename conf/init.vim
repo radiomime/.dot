@@ -246,8 +246,6 @@ else
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
-
-
 endif
 
 "" Disable the blinking cursor.
@@ -346,7 +344,9 @@ endif
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
-"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
+"" The PC is fast enough
+"" do syntax highlight syncing from start unless 200 lines
+
 augroup vimrc-sync-fromstart
   autocmd!
   autocmd BufEnter * :syntax sync maxlines=200
