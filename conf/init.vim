@@ -271,26 +271,6 @@ set numberwidth=4
 " guide line for column length
 set colorcolumn=79
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-" Always keep text centered
-" nnoremap j gjzz
-" nnoremap k gkzz
-" nnoremap n nzzzv
-" nnoremap N Nzzzv
-" nnoremap } }zz
-" nnoremap { {zz
-" nnoremap G Gzz
-" nnoremap n nzz
-" nnoremap N Nzz
-" nnoremap * *zz
-" nnoremap # #zz
-" nnoremap g* g*zz
-" nnoremap g# g#zz
-" nnoremap <C-O> <C-O>zz
-" nnoremap <C-I> <C-I>zz
-" nnoremap <C-]> <C-]>zz
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
 """"""""""""""""""""""""""""""
