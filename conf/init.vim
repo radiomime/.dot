@@ -1,31 +1,25 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Basic Setup
+" sets and basics
+" TODO: remove things covered by tpope/sensible
 """"""""""""""""""""""""""""""
-echom "basic"
-"" Encoding
+echom "basic sets"
+
+" Map leader to <space>
+let mapleader=' '
+let maplocalleader=','
+
+" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-
-"" Fix backspace indent
+" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Tabs. May be overridden by autocmd rules
-" ts = 'number of spaces that <Tab> in file uses'
-" sts = 'number of spaces that <Tab> uses while editing'
-" sw = 'number of spaces to use for (auto)indent step'
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-
+"
 set smartindent
 set autoindent
-
-"" Map leader to <space>
-let mapleader=' '
-let maplocalleader=','
+set loadplugins
 
 "" Enable hidden buffers
 set hidden
@@ -85,6 +79,8 @@ endif
 """"""""""""""""""""""""""""""
 echom "installing plugins"
 call plug#begin(expand('~/.config/nvim/plugged'))
+" sensible
+Plug 'tpope/vim-sensible'
 
 " linting
 Plug 'dense-analysis/ale'
@@ -254,14 +250,46 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " editing
 """"""""""""""""""""""""""""""
+"" Tabs. May be overridden by autocmd rules
+" ts = 'number of spaces that <Tab> in file uses'
+" sts = 'number of spaces that <Tab> uses while editing'
+" sw = 'number of spaces to use for (auto)indent step'
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " visual settings
 """"""""""""""""""""""""""""""
 syntax on
 set ruler
+" line numbers
 set number relativenumber
 set numberwidth=4
+
+" guide line for column length
+set colorcolumn=79
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+" Always keep text centered
+" nnoremap j gjzz
+" nnoremap k gkzz
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
+" nnoremap } }zz
+" nnoremap { {zz
+" nnoremap G Gzz
+" nnoremap n nzz
+" nnoremap N Nzz
+" nnoremap * *zz
+" nnoremap # #zz
+" nnoremap g* g*zz
+" nnoremap g# g#zz
+" nnoremap <C-O> <C-O>zz
+" nnoremap <C-I> <C-I>zz
+" nnoremap <C-]> <C-]>zz
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
@@ -318,7 +346,7 @@ set scrolloff=50
 "" horizontal scrolling and line wrapping
 set nowrap
 set sidescroll=1
-set sidescrolloff=20
+set sidescrolloff=10
 
 "" Status bar
 set laststatus=2
@@ -448,27 +476,27 @@ nnoremap : ;
 "     lines. Useful for text wrapping
 " TODO: Checkout: set scrolloff=50, or set scrolloff=999
 "   * Should do the same as the zz
-nnoremap j gjzz
-nnoremap k gkzz
+" nnoremap j gjzz
+" nnoremap k gkzz
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" " Search mappings: These will make it so that going to the next one in a
+" " search will center on the line it's found in.
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
 
-" Always keep text centered
-nnoremap } }zz
-nnoremap { {zz
-nnoremap G Gzz
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-nnoremap <C-O> <C-O>zz
-nnoremap <C-I> <C-I>zz
-nnoremap <C-]> <C-]>zz
+" " Always keep text centered
+" nnoremap } }zz
+" nnoremap { {zz
+" nnoremap G Gzz
+" nnoremap n nzz
+" nnoremap N Nzz
+" nnoremap * *zz
+" nnoremap # #zz
+" nnoremap g* g*zz
+" nnoremap g# g#zz
+" nnoremap <C-O> <C-O>zz
+" nnoremap <C-I> <C-I>zz
+" nnoremap <C-]> <C-]>zz
 
 "" Split
 noremap <Leader>h :<C-u>split<CR>

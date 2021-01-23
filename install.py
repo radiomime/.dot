@@ -86,14 +86,21 @@ def main(argv):
                         action='store_true',
                         required=False)
 
+    parser.add_argument("-d", "--dry",
+                        help="dry run: useful for seeing checking base errors",
+                        action='store_true',
+                        required=False)
+
     args = parser.parse_args()
     if args.prereqs:
         prereqs()
     elif args.uninstall:
         uninstall()
+    elif args.dry:
+        print('exiting without running anything')
+        exit()
     else:
         install()
-
 
 if __name__ == "__main__":
     main(sys.argv)

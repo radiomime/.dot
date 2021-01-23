@@ -17,13 +17,28 @@ class Dot:
         self.configDir = configDir
         self.os        = getSys()
 
+        # directories which need to exist
+        self.dirs = [
+            self.configDir + "/undodir"
+        ]
+
+        # dotfiles to link
         self.files  = {
+            # neovim files
             './conf/init.vim': self.configDir + "/init.vim",
+            './conf/plugin': self.configDir + "/plugin",
+
+            # git
             './conf/gitconfig': '~/.gitconfig',
-            './conf/bashrc': '~/.bashrc',
+
+            # bash
             './conf/bashrc': '~/.bashrc',
             './conf/public_aliases': '~/.public_aliases',
+
+            # tmux
             './conf/tmux.conf': '~/.tmux.conf',
+
+            # various
             './conf/fzf_functions': '~/.fzf_functions',
             './conf/functions': '~/.functions',
             # self.configDir = abspath(expanduser('~/.config/nvim'))
@@ -38,6 +53,7 @@ class Dot:
     def install(self):
         if self.os == 'linux' or self.os == 'osx':
             print('symlinking dotfiles')
+            self.__createDirs()
             self.__createSymlinks()
         else:
             print('no install instructions for', self.os)
@@ -53,6 +69,14 @@ class Dot:
 
     def __symlink(self, src, lnk):
         subprocess.run(['ln', '-sfn', src, lnk])
+
+    def __mkdir(self, directory):
+        subprocess.run(['mkdir', '-p', directory])
+
+    def __createDirs(self):
+        for d in self.dirs:
+            self.__mkdir(d)
+
 
     def __createSymlinks(self):
         for src, dst in self.files.items():
