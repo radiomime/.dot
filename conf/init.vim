@@ -16,12 +16,7 @@ set fileencodings=utf-8
 " Fix backspace indent
 set backspace=indent,eol,start
 
-"
-set smartindent
-set autoindent
-set loadplugins
-
-"" Enable hidden buffers
+" Enable hidden buffers
 set hidden
 
 "" Searching
@@ -30,11 +25,17 @@ set incsearch
 set ignorecase
 set smartcase
 
-" assume the /g flag on :s substitutions to replace all matches in a line
+" assume the /g flag on grep
 set gdefault
 
+" indent
+set smartindent
+set autoindent
+
+" list of formats to look for
 set fileformats=unix,dos,mac
 
+" set shell
 if exists('$SHELL')
     set shell=$SHELL
 else
@@ -42,11 +43,12 @@ else
 endif
 
 """"""""""
-" No gross swap files
+" No swap files
 """""
-call mkdir($HOME."/.config/nvim/undodir", "p")
 set noswapfile
 set nobackup
+" Undo file for persistent undos
+call mkdir($HOME."/.config/nvim/undodir", "p")
 set undodir=~/.config/nvim/undodir
 set undofile
 
@@ -125,10 +127,9 @@ Plug 'sheerun/vim-polyglot'
 
 let g:make = 'gmake'
 if exists('make')
-        let g:make = 'make'
+  let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
-
 
 """"""""""""""""""""""""""""""
 " Snippets
@@ -173,9 +174,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 "*****************************************************************************
 "" Custom Commands
 "*****************************************************************************
-" PU to update plugsins && upgrade vim-plug
-command! PU PlugUpdate | PlugUpgrade
-nnoremap <leader>uu :PU<Return>
 
 "*****************************************************************************
 " End of plugins
@@ -187,6 +185,12 @@ call plug#end()
 " configure and map plugins
 """"""""""""""""""""""""""""""
 echom "configuring plugins"
+
+""""""""""
+" vim-plug
+"""
+command! PU PlugUpdate | PlugUpgrade
+nnoremap <leader>uu :PU<Return>
 
 """"""""""
 " ale
