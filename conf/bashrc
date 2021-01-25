@@ -9,7 +9,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Luke Smith inspired bashrc stuff
 # Enable vim mode in bash
-set -o vi 
+set -o vi
 bind '"jk":"\e"' # set jk to escape
 
 shopt -s autocd # just type a directory to cd into it
@@ -149,3 +149,6 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 complete -C /usr/local/bin/terraform terraform
+
+# bat
+export BAT_THEME="TwoDark"
