@@ -116,8 +116,14 @@ wacom() {
 uu() {
     # Update on linux
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        printf "Updating packages\n" \
+        printf "Updating packages for linux\n" \
             && sudo apt-get update -y \
             && sudo apt-get upgrade -y
+    fi
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        printf "Updating packages for OS X\n" \
+            && brew update \
+            && brew upgrade
     fi
 }
