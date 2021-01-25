@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" sets and basics
+" sanity sets
 " TODO: remove things covered by tpope/sensible
 """"""""""""""""""""""""""""""
 echom "basic sets"
@@ -19,19 +19,6 @@ set backspace=indent,eol,start
 " Enable hidden buffers
 set hidden
 
-"" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" assume the /g flag on grep
-set gdefault
-
-" indent
-set smartindent
-set autoindent
-
 " list of formats to look for
 set fileformats=unix,dos,mac
 
@@ -42,16 +29,17 @@ else
     set shell=/bin/sh
 endif
 
-""""""""""
 " No swap files
-"""""
 set noswapfile
 set nobackup
+
 " Undo file for persistent undos
 call mkdir($HOME."/.config/nvim/undodir", "p")
 set undodir=~/.config/nvim/undodir
 set undofile
 
+" filetype sanity
+filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " install vim-plug
@@ -243,13 +231,18 @@ noremap <Leader>gr :Gremove<CR>
 " END: configure and map plugins
 """"""""""""""""""""""""""""""
 
-" Required:
-filetype plugin indent on
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " navigation
 """"""""""""""""""""""""""""""
+
+" Searching
+set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" assume the /g flag on grep
+set gdefault
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " editing
@@ -263,17 +256,40 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
+" indent
+set smartindent
+set autoindent
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" visual settings
+" visual
 """"""""""""""""""""""""""""""
+" sanity
 syntax on
 set ruler
+
+" colorscheme
+silent! colorscheme molokai
+
 " line numbers
 set number relativenumber
 set numberwidth=4
 
 " guide line for column length
 set colorcolumn=79
+
+" Disable the blinking cursor.
+set guicursor=a:blinkon0
+
+" center cursor in screen vertically while scrolling
+set scrolloff=50
+
+"" horizontal scrolling and line wrapping
+set nowrap
+set sidescroll=1
+set sidescrolloff=10
+
+"" Status bar
+set laststatus=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
@@ -294,45 +310,35 @@ set colorcolumn=79
 "*****************************************************************************
 
 let no_buffers_menu=1
-silent! colorscheme molokai
 
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
+echom "is a gui running?"
 if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
+    echom "a gui is running!"
+    if has("gui_mac") || has("gui_macvim")
+        set guifont=Menlo:h12
+        set transparency=7
+    endif
 else
-  let g:CSApprox_loaded = 1
+    echom "a gui is not running!"
+    let g:CSApprox_loaded = 1
 
-  " IndentLine
-  let g:indentLine_setConceal = 0
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
+    " IndentLine
+    let g:indentLine_setConceal = 0
+    let g:indentLine_enabled = 1
+    let g:indentLine_concealcursor = 0
+    let g:indentLine_char = '┆'
+    let g:indentLine_faster = 1
 endif
 
-"" Disable the blinking cursor.
-set guicursor=a:blinkon0
 
 """"""""""
 " scrolling
 """
-" center cursor in screen vertically while scrolling
-set scrolloff=50
-
-"" horizontal scrolling and line wrapping
-set nowrap
-set sidescroll=1
-set sidescrolloff=10
-
-"" Status bar
-set laststatus=2
 
 "" Use modeline overrides
 set modeline
