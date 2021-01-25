@@ -151,4 +151,5 @@ fi
 complete -C /usr/local/bin/terraform terraform
 
 # bat
+# bat --list-themes for more
 export BAT_THEME="TwoDark"
