@@ -236,9 +236,21 @@ noremap <Leader>gr :Gremove<CR>
 """
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
+nnoremap <silent> <leader>e :Files<CR>
+" nnoremap <silent> <leader>e :FZF -m<CR>
 nnoremap <leader>y :History:<CR>
 nnoremap <leader>ft :Filetypes<CR>
+
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" fzf.vim
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let $fzf_default_command = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
+" let $fzf_default_command = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+""find * -path '*/\.*'" + " -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+""command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
