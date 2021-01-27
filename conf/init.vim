@@ -5,7 +5,7 @@
 echom "basic sets"
 
 " Map leader to <space>
-let mapleader=' '
+let mapleader='\<Space>'
 let maplocalleader=','
 
 " Encoding
@@ -84,10 +84,14 @@ Plug 'tpope/vim-sensible'
 " ale linting
 Plug 'dense-analysis/ale'
 
+" linting and fixing for swift
+Plug 'sbdchd/neoformat'
+
 " to abbreviate, substitute, and coerce
 Plug 'tpope/vim-abolish'
 
 " hints leader key bindings
+" requires timeout on (default on @ 1000ms)
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " markdown preview: " Dependencies: nodejs and yarn
@@ -132,21 +136,6 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
-
-"TEST ASWIFT
-" Plug 'jph00/swift-apple'
-
-" swift linting
-" Plug 'keith/swift.vim'
-" Plug 'vim-syntastic/syntastic'
-" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
-Plug 'sbdchd/neoformat'
-
-augroup testgroup
-    autocmd!
-    autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
-augroup END
 
 "*****************************************************************************
 "" Custom bundles
@@ -201,60 +190,23 @@ nnoremap <leader>uu :PU<Return>
 " ale
 """
 " TODO: move all of these to ftplugins as ale docs suggest
-" include prettier on js fixers?
-" function Meow(buffer)
-"     echom a:buffer
-"     echom "Meow!"
-"     execute '!' 'touch' '~/tester.foo'
-" endfunction
+" TODO: include prettier on js fixers?
+
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
             \   'javascript': ['eslint'],
             \   'typescript': ['eslint'],
-            \   'python': ['eslint'],
-            \   'swift': ['swiftformat'],
+            \   'python': ['remove_trailing_lines', 'eslint'],
             \}
 
-" let g:ale_linters = {
-"             \   'swift': ['swiftpm'],
-"             \}
-" brew install swiftformat
-" brew install swift-format
-" brew install swiftlint
-
-" " ale
+" ale
 " call extend(g:ale_linters, {
 "     \'python': ['flake8'], })
-
-let g:vim_swift_format_use_ale = 1
 " nmap <silent> <C-e> <Plug>(ale_next_wrap)
-"
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
-
-" \   'swift': ['swiftformat'],
-" brew install swiftformat
-" brew install swiftlint
-" brew install swift-format
-" brew install --build-from-source swift-format
-
-
-""""""""""
-" swiftlint and syntastic
-"""
-" " Let swift checker run
-" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 
 """"""""""
 " which-key for leader hinting
@@ -306,7 +258,6 @@ nnoremap <silent> <Leader>C        :Colors<CR>
 nnoremap <leader>y :History:<CR>
 nnoremap <leader>ft :Filetypes<CR>
 
-" nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 " nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
 " nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
 " xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
@@ -320,6 +271,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $fzf_default_command =
             \"find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
@@ -405,6 +357,21 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
 """"""""""""""""""""""""""""""
+augroup swiftformat
+    autocmd!
+    autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
+augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" dev
+" A place for playing around
+""""""""""""""""""""""""""""""
+" TODO: how do i exit terminal mode?
+" tnoremap <Esc> <C-\>_<C-N>
+
+" terminal emulation
+" nnoremap <silent> <leader>sh :terminal<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -507,8 +474,6 @@ set laststatus=2
 "let Grep_Skip_Files = '*.log *.db'
 "let Grep_Skip_Dirs = '.git node_modules'
 
-"" terminal emulation
-"nnoremap <silent> <leader>sh :terminal<CR>
 
 
 ""*****************************************************************************

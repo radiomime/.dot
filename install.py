@@ -17,6 +17,7 @@ from lib.node import Node
 from lib.yarn import Yarn
 from lib.mitmproxy import Mitmproxy
 from lib.prereqs import Prereqs
+from lib.swiftformat import SwiftFormat
 
 # from lib.apt import Apt
 # from lib.docker import Docker
@@ -51,6 +52,7 @@ def install():
     Snap().install()
     Node().install()
     Yarn().install()
+    SwiftFormat().install()
 
     # Docker and k8s. Order matters
     Docker().install()
