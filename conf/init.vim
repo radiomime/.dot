@@ -52,16 +52,16 @@ let g:vim_bootstrap_langs = "c,go,javascript,python,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
-  if !executable("curl")
-    echoerr "You have to install curl or first install vim-plug yourself!"
-    execute "q!"
-  endif
-  echo "Installing Vim-Plug..."
-  echo ""
-  silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  let g:not_finish_vimplug = "yes"
+    if !executable("curl")
+        echoerr "You have to install curl or first install vim-plug yourself!"
+        execute "q!"
+    endif
+    echo "Installing Vim-Plug..."
+    echo ""
+    silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    let g:not_finish_vimplug = "yes"
 
-  autocmd VimEnter * PlugInstall
+    autocmd VimEnter * PlugInstall
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -81,7 +81,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " sensible
 Plug 'tpope/vim-sensible'
 
-" linting
+" ale linting
 Plug 'dense-analysis/ale'
 
 " to abbreviate, substitute, and coerce
@@ -133,6 +133,20 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 
+"TEST ASWIFT
+" Plug 'jph00/swift-apple'
+
+" swift linting
+" Plug 'keith/swift.vim'
+" Plug 'vim-syntastic/syntastic'
+" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
+Plug 'sbdchd/neoformat'
+
+augroup testgroup
+    autocmd!
+    autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
+augroup END
 
 "*****************************************************************************
 "" Custom bundles
@@ -188,13 +202,59 @@ nnoremap <leader>uu :PU<Return>
 """
 " TODO: move all of these to ftplugins as ale docs suggest
 " include prettier on js fixers?
+" function Meow(buffer)
+"     echom a:buffer
+"     echom "Meow!"
+"     execute '!' 'touch' '~/tester.foo'
+" endfunction
+
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'python': ['eslint'],
-\}
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'javascript': ['eslint'],
+            \   'typescript': ['eslint'],
+            \   'python': ['eslint'],
+            \   'swift': ['swiftformat'],
+            \}
+
+" let g:ale_linters = {
+"             \   'swift': ['swiftpm'],
+"             \}
+" brew install swiftformat
+" brew install swift-format
+" brew install swiftlint
+
+" " ale
+" call extend(g:ale_linters, {
+"     \'python': ['flake8'], })
+
+let g:vim_swift_format_use_ale = 1
+" nmap <silent> <C-e> <Plug>(ale_next_wrap)
+"
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+
+" \   'swift': ['swiftformat'],
+" brew install swiftformat
+" brew install swiftlint
+" brew install swift-format
+" brew install --build-from-source swift-format
+
+
+""""""""""
+" swiftlint and syntastic
+"""
+" " Let swift checker run
+" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 """"""""""
 " which-key for leader hinting
@@ -235,22 +295,31 @@ noremap <Leader>gr :Gremove<CR>
 " https://github.com/junegunn/fzf.vim#commands
 """
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :Files<CR>
-" nnoremap <silent> <leader>e :FZF -m<CR>
+" Nerdtree integration here?
+" nnoremap <silent> <expr> <Leader>e (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <Leader>L :Lines<CR>
+nnoremap <silent> <Leader>C        :Colors<CR>
+
 nnoremap <leader>y :History:<CR>
 nnoremap <leader>ft :Filetypes<CR>
+
+" nnoremap <silent> <Leader><Enter>  :Buffers<CR>
+" nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
+" nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
+" xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
+" nnoremap <silent> <Leader>`        :Marks<CR>
+
 
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " fzf.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $fzf_default_command = "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-" let $fzf_default_command = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-""find * -path '*/\.*'" + " -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-""command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)"
+let $fzf_default_command =
+            \"find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
