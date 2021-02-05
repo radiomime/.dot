@@ -5,7 +5,7 @@
 echom "basic sets"
 
 " Map leader to <space>
-let mapleader='\<Space>'
+let mapleader=' '
 let maplocalleader=','
 
 " Encoding
