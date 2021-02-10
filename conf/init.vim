@@ -109,6 +109,24 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+
+"""" FIX BELOW
+" terminal
+Plug 'vimlab/split-term.vim'
+
+" start page
+Plug 'mhinz/vim-startify'
+
+" better find
+Plug 'unblevable/quick-scope'
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 """"""""""
 " Miscellaneous && Unknown
 """
@@ -272,6 +290,32 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $fzf_default_command =
             \"find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
+""""""""""
+" split term
+"""
+" terminal below when executing :Term
+set splitbelow
+nnoremap <leader>sh :VTerm<CR>
+
+""""""""""
+" startify
+"""
+let g:startify_change_to_dir = 0
+let g:startify_bookmarks = [
+    \ { 'i' : '~/.config/nvim/init.vim' },
+    \ ]
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   Files']            },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ ]
+let g:startify_custom_header = []
+nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
+
+""""""""""
+" quick scope
+"""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
@@ -322,6 +366,23 @@ set expandtab
 " indent
 set smartindent
 set autoindent
+
+" copy/paste/cut to system clipboard
+" if has('unnamedplus')
+"     echom "copy/paste to system clipboard"
+"     " set clipboard=unnamedplus
+"     " set clipboard+=unnamed,unnamedplus
+"     " set clipboard+=unnamedplus
+"     " set clipboard+=unnamedplus
+"     " set clipboard^=unnamed,unnamedplus
+" endif
+"if has('unnamedplus')
+"  set clipboard=unnamed,unnamedplus
+"  " set clipboard+=unnamed,unnamedplus
+"  " set clipboard+=unnamedplus
+"  " set clipboard+=unnamedplus
+"  " set clipboard^=unnamed,unnamedplus
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " visual
