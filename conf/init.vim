@@ -385,6 +385,7 @@ let $fzf_default_command =
 " terminal below when executing :Term
 set splitbelow
 nnoremap <leader>sh :VTerm<CR>
+tnoremap JK <C-\><C-n>
 
 """"""""""
 " startify
