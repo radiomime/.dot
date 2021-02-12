@@ -237,7 +237,6 @@ let g:ale_fixers = {
 """"""""""
 " which-key for leader hinting
 """
-
 nnoremap <silent> <leader>      :<c-u>WhichKey ' '<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
@@ -245,23 +244,29 @@ nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
 let g:which_key_map =  {}
 let g:which_key_sep = '→'
-
+let g:which_key_position='topleft'
+let g:which_key_vertical = 1
+let g:which_key_centered = 0
 let g:which_key_use_floating_win = 0
 let g:which_key_floating_relative_win = 0
-let g:which_key_position='topleft'
-let g:which_key_centered = 1
 
 let g:which_key_map.x = [ ':echo "hello!"', 'test hello']
 
 let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
 let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
 let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
-" let g:which_key_map.u.u = [ ':PlugClean' , 'plug clean & update' ]
 
-
-" let g:which_key_map.g = {
-"       \ 'name' : '+git' ,
-"       \ '/' : [':History/'     , 'history'],
+let g:which_key_map.g = {
+       \ 'name' : '+git' ,
+       \ 'a'  : [':Gwrite/'      , 'add'],
+       \ 'c'  : [':Gcommit/'     , 'commit'],
+       \ 'sh' : [':Gpush/'       , 'push'],
+       \ 'll' : [':Gpull/'       , 'pull'],
+       \ 's'  : [':Gstatus/'     , 'git commit'],
+       \ 'b'  : [':Gvdiff/'      , 'git commit'],
+       \ 'd'  : [':Gblame/'      , 'git commit'],
+       \ 'r'  : [':Gremove/'     , 'git commit'],
+       \ }
 "       \ ';' : [':Commands'     , 'commands'],
 "       \ 'a' : [':Ag'           , 'text Ag'],
 "       \ 'b' : [':BLines'       , 'current buffer'],
@@ -285,10 +290,8 @@ let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 "       \ 'w' : [':Windows'      , 'search windows'],
 "       \ 'y' : [':Filetypes'    , 'file types'],
 "       \ 'z' : [':FZF'          , 'FZF'],
-"       \ }
 
 call which_key#register(' ', "g:which_key_map")
-" autocmd VimEnter * call which_key#register(' ', "g:which_key_map")
 
 
 " nnoremap <silent> <leader> :WhichKey ' '<CR>
