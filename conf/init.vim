@@ -5,7 +5,8 @@
 echom "basic sets"
 
 " Map leader to <space>
-let mapleader=' '
+" let mapleader=' '
+let g:mapleader = "\<Space>"
 let maplocalleader=','
 
 " Encoding
@@ -92,7 +93,7 @@ Plug 'tpope/vim-abolish'
 
 " hints leader key bindings
 " requires timeout on (default on @ 1000ms)
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'liuchengxu/vim-which-key'
 
 " markdown preview: " Dependencies: nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -191,6 +192,13 @@ Plug 'tomasr/molokai'
 " End of plugins
 "*****************************************************************************
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" test plugins
+""""""""""""""""""""""""""""""
+" maybe some cool branch things?
+Plug 'idanarye/vim-merginal'
+
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,7 +210,7 @@ echom "configuring plugins"
 " vim-plug
 """
 command! PU PlugClean | PlugUpdate | PlugUpgrade
-nnoremap <leader>uu :PU<Return>
+" nnoremap <leader>uu :PU<Return>
 
 """"""""""
 " ale
@@ -229,7 +237,85 @@ let g:ale_fixers = {
 """"""""""
 " which-key for leader hinting
 """
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+nnoremap <silent> <leader>      :<c-u>WhichKey ' '<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+" autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')
+
+let g:which_key_map =  {}
+let g:which_key_sep = '→'
+
+let g:which_key_use_floating_win = 0
+let g:which_key_floating_relative_win = 0
+let g:which_key_position='topleft'
+let g:which_key_centered = 1
+
+let g:which_key_map.x = [ ':echo "hello!"', 'test hello']
+
+let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
+let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
+let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
+" let g:which_key_map.u.u = [ ':PlugClean' , 'plug clean & update' ]
+
+
+" let g:which_key_map.g = {
+"       \ 'name' : '+git' ,
+"       \ '/' : [':History/'     , 'history'],
+"       \ ';' : [':Commands'     , 'commands'],
+"       \ 'a' : [':Ag'           , 'text Ag'],
+"       \ 'b' : [':BLines'       , 'current buffer'],
+"       \ 'B' : [':Buffers'      , 'open buffers'],
+"       \ 'c' : [':Commits'      , 'commits'],
+"       \ 'C' : [':BCommits'     , 'buffer commits'],
+"       \ 'f' : [':Files'        , 'files'],
+"       \ 'g' : [':GFiles'       , 'git files'],
+"       \ 'G' : [':GFiles?'      , 'modified git files'],
+"       \ 'h' : [':History'      , 'file history'],
+"       \ 'H' : [':History:'     , 'command history'],
+"       \ 'l' : [':Lines'        , 'lines'] ,
+"       \ 'm' : [':Marks'        , 'marks'] ,
+"       \ 'M' : [':Maps'         , 'normal maps'] ,
+"       \ 'p' : [':Helptags'     , 'help tags'] ,
+"       \ 'P' : [':Tags'         , 'project tags'],
+"       \ 's' : [':Snippets'     , 'snippets'],
+"       \ 'S' : [':Colors'       , 'color schemes'],
+"       \ 't' : [':Rg'           , 'text Rg'],
+"       \ 'T' : [':BTags'        , 'buffer tags'],
+"       \ 'w' : [':Windows'      , 'search windows'],
+"       \ 'y' : [':Filetypes'    , 'file types'],
+"       \ 'z' : [':FZF'          , 'FZF'],
+"       \ }
+
+call which_key#register(' ', "g:which_key_map")
+" autocmd VimEnter * call which_key#register(' ', "g:which_key_map")
+
+
+" nnoremap <silent> <leader> :WhichKey ' '<CR>
+" call which_key#register('<Space>', "g:which_key_map")
+
+" let g:which_key_map =  {}
+" let g:which_key_map.b = { 'name' : '+file' }
+" let g:which_key_map['w'] = {
+"       \ 'name' : '+windows' ,
+"       \ 'w' : ['<C-W>w'     , 'other-window']          ,
+"       \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+"       \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+"       \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+"       \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+"       \ 'h' : ['<C-W>h'     , 'window-left']           ,
+"       \ 'j' : ['<C-W>j'     , 'window-below']          ,
+"       \ 'l' : ['<C-W>l'     , 'window-right']          ,
+"       \ 'k' : ['<C-W>k'     , 'window-up']             ,
+"       \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+"       \ 'J' : [':resize +5'  , 'expand-window-below']   ,
+"       \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+"       \ 'K' : [':resize -5'  , 'expand-window-up']      ,
+"       \ '=' : ['<C-W>='     , 'balance-window']        ,
+"       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+"       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+"       \ '?' : ['Windows'    , 'fzf-window']            ,
+"       \ }
 
 """"""""""
 " markdown preview
@@ -428,6 +514,7 @@ augroup END
 " dev
 " A place for playing around
 """"""""""""""""""""""""""""""
+
 " TODO: how do i exit terminal mode?
 " tnoremap <Esc> <C-\>_<C-N>
 
