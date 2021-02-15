@@ -513,6 +513,22 @@ augroup swiftformat
     autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
 augroup END
 
+function! s:setupWrapping()
+    set textwidth=79
+    " set wrapmargin=2
+endfunction
+
+function! s:autoformat()
+    let l:save_pos = getpos(".")
+    exec 'normal! gggqG'
+    call setpos('.', save_pos)
+endfunction
+
+augroup markdownWrapping
+  autocmd!
+  autocmd BufRead,BufNewFile *.md call s:setupWrapping()
+  autocmd BufWritePre *.md call s:autoformat()
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " dev
