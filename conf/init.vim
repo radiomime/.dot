@@ -265,6 +265,7 @@ let g:which_key_map.g = {
        \    'name'  : '+remote',
        \    's'     : [':Git push'    , 'push'],
        \    'l'     : [':Git pull'    , 'pull'],
+       \    'u'     : [':Git -c push.default=current push' , 'push upstream'],
        \ },
        \ }
 
