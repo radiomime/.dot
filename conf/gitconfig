@@ -5,6 +5,3 @@
 	commit = no
 [pull]
 	ff = only
-[user]
-	name = Matthew Wright
-	email = wright.matthew91@gmail.com
