@@ -268,6 +268,16 @@ let g:which_key_map.g = {
        \ },
        \ }
 
+let g:which_key_map.f = {
+       \ 'name' : '+fuzzy' ,
+       \ 'f'    : [':GFiles'           , 'open a file: respect git ignore'],
+       \ 'e'    : [':Files'            , 'open a file'],
+       \ 'b'    : [':Buffers'          , 'open a buffer'],
+       \ 'l'    : [':Lines'            , 'find a line'],
+       \ 'h'    : [':History'          , 'search file history'],
+       \ 't'    : [':Filetypes'        , 'filetypes'],
+       \ }
+
 call which_key#register(' ', "g:which_key_map")
 
 
@@ -331,16 +341,16 @@ nnoremap <leader>sc :CloseSession<CR>
 " https://github.com/junegunn/fzf.vim#commands
 """
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>e :Files<CR>
+" nnoremap <silent> <leader>e :Files<CR>
 " Nerdtree integration here?
 " nnoremap <silent> <expr> <Leader>e (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <Leader>L :Lines<CR>
+" nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <Leader>C        :Colors<CR>
 
-nnoremap <leader>y :History:<CR>
-nnoremap <leader>ft :Filetypes<CR>
+" nnoremap <leader>y :History:<CR>
+" nnoremap <leader>ft :Filetypes<CR>
 
 " nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
 " nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
@@ -348,13 +358,24 @@ nnoremap <leader>ft :Filetypes<CR>
 " nnoremap <silent> <Leader>`        :Marks<CR>
 
 
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 
 " fzf.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $fzf_default_command =
-            \"find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden
+            \ -g '!.git/*'
+            \ -g '!__pycache__/*'
+            \ "
+            " \" -g '!.git/*'"
+" let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+" let $FZF_DEFAULT_COMMAND =
+"             \"find * -path '*/\.*'"
+"             \" -prune -o -path 'node_modules/**'"
+"             \" -prune -o -path '__pycache__/**'"
+"             \" -prune -o -path 'target/**'"
+"             \" -prune -o -path 'dist/**'"
+"             \" -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 """"""""""
 " split term
