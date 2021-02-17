@@ -250,46 +250,23 @@ let g:which_key_centered = 0
 let g:which_key_use_floating_win = 0
 let g:which_key_floating_relative_win = 0
 
-let g:which_key_map.x = [ ':echo "hello!"', 'test hello']
-
 let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
 let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
 let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 
 let g:which_key_map.g = {
        \ 'name' : '+git' ,
-       \ 'a'  : [':Gwrite/'      , 'add'],
-       \ 'c'  : [':Gcommit/'     , 'commit'],
-       \ 'sh' : [':Gpush/'       , 'push'],
-       \ 'll' : [':Gpull/'       , 'pull'],
-       \ 's'  : [':Gstatus/'     , 'git commit'],
-       \ 'b'  : [':Gvdiff/'      , 'git commit'],
-       \ 'd'  : [':Gblame/'      , 'git commit'],
-       \ 'r'  : [':Gremove/'     , 'git commit'],
+       \ 'a'    : [':Gwrite/'           , 'add'],
+       \ 'c'    : [':Git commit'        , 'commit'],
+       \ 's'    : [':Gstatus'           , 'git status'],
+       \ 'd'    : [':Gvdiff/'           , 'git vertical diff'],
+       \ 'b'    : [':Gblame'            , 'git blame'],
+       \ 'r'    : {
+       \    'name'  : '+remote',
+       \    's'     : [':Git push'    , 'push'],
+       \    'l'     : [':Git pull'    , 'pull'],
+       \ },
        \ }
-"       \ ';' : [':Commands'     , 'commands'],
-"       \ 'a' : [':Ag'           , 'text Ag'],
-"       \ 'b' : [':BLines'       , 'current buffer'],
-"       \ 'B' : [':Buffers'      , 'open buffers'],
-"       \ 'c' : [':Commits'      , 'commits'],
-"       \ 'C' : [':BCommits'     , 'buffer commits'],
-"       \ 'f' : [':Files'        , 'files'],
-"       \ 'g' : [':GFiles'       , 'git files'],
-"       \ 'G' : [':GFiles?'      , 'modified git files'],
-"       \ 'h' : [':History'      , 'file history'],
-"       \ 'H' : [':History:'     , 'command history'],
-"       \ 'l' : [':Lines'        , 'lines'] ,
-"       \ 'm' : [':Marks'        , 'marks'] ,
-"       \ 'M' : [':Maps'         , 'normal maps'] ,
-"       \ 'p' : [':Helptags'     , 'help tags'] ,
-"       \ 'P' : [':Tags'         , 'project tags'],
-"       \ 's' : [':Snippets'     , 'snippets'],
-"       \ 'S' : [':Colors'       , 'color schemes'],
-"       \ 't' : [':Rg'           , 'text Rg'],
-"       \ 'T' : [':BTags'        , 'buffer tags'],
-"       \ 'w' : [':Windows'      , 'search windows'],
-"       \ 'y' : [':Filetypes'    , 'file types'],
-"       \ 'z' : [':FZF'          , 'FZF'],
 
 call which_key#register(' ', "g:which_key_map")
 
@@ -340,14 +317,14 @@ nnoremap <leader>sc :CloseSession<CR>
 """"""""""
 " fugitive git bindings
 """
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+" noremap <Leader>ga :Gwrite<CR>
+" noremap <Leader>gc :Gcommit<CR>
+" noremap <Leader>gsh :Gpush<CR>
+" noremap <Leader>gll :Gpull<CR>
+" noremap <Leader>gs :Gstatus<CR>
+" noremap <Leader>gb :Gblame<CR>
+" noremap <Leader>gd :Gvdiff<CR>
+" noremap <Leader>gr :Gremove<CR>
 
 """"""""""
 " fzf bindings
@@ -513,21 +490,30 @@ augroup swiftformat
     autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
 augroup END
 
-function! s:setupWrapping()
+function! s:setupMarkdownFormat()
     set textwidth=79
     " set wrapmargin=2
 endfunction
 
-function! s:autoformat()
-    let l:save_pos = getpos(".")
-    exec 'normal! gggqG'
-    call setpos('.', save_pos)
+function! s:markdownFormat()
+    " show underbars and asterisks for formating
+    let g:vim_markdown_conceal = 0
+    let g:vim_markdown_conceal_code_blocks = 0
+    " let g:vim_markdown_math = 1
+    " let g:vim_markdown_frontmatter = 1
+
+    " format on save
+    echom "gq} edits until the end of the file"
+
+    " let l:save_pos = getpos(".")
+    " exec 'normal! gggqG'
+    " call setpos('.', save_pos)
 endfunction
 
 augroup markdownWrapping
   autocmd!
-  autocmd BufRead,BufNewFile *.md call s:setupWrapping()
-  autocmd BufWritePre *.md call s:autoformat()
+  autocmd BufRead,BufNewFile *.md call s:setupMarkdownFormat()
+  autocmd BufWritePre *.md call s:markdownFormat()
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
