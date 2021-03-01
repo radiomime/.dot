@@ -261,6 +261,12 @@ let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 
 let g:which_key_map.z = [ ':ZoomToggle', 'zoom current pane']
 
+function SetGitUpstream()
+    let current_branch = system('git branch --show-current')
+    let git_upstream_output = system("git branch --set-upstream-to=origin/" . current_branch)
+    echo git_upstream_output
+endfunction
+
 let g:which_key_map.g = {
        \ 'name' : '+git' ,
        \ 'a'    : [':Gwrite/'           , 'add'],
@@ -271,9 +277,9 @@ let g:which_key_map.g = {
        \ 'b'    : [':Merginal'          , 'git branches'],
        \ 'r'    : {
        \    'name'  : '+remote',
-       \    's'     : [':Git push'      , 'push'],
-       \    'l'     : [':Git pull'      , 'pull'],
-       \    'u'     : [':Git -c push.default=current push' , 'push upstream'],
+       \    's'     : [':Git -c push.default=current push' , 'push'],
+       \    'l'     : [':Git pull'                         , 'pull'],
+       \    'u'     : [':call SetGitUpstream()'            , 'set upstream'],
        \ },
        \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
