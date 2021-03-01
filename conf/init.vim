@@ -283,8 +283,6 @@ let g:which_key_map.g = {
        \ },
        \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
-" \    'r'     : [':echom "git branch --set-upstream-to=origin/<branch> feat/upstream-git-leader"'      , 'pull'],
-       " \    'r'     : [':echom $(:! git branch --show-current)'      , 'pull'],
 
 let g:which_key_map.f = {
        \ 'name' : '+fuzzy' ,
