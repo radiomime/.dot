@@ -7,14 +7,37 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Luke Smith inspired bashrc stuff
-# Enable vim mode in bash
-set -o vi 
-bind '"jk":"\e"' # set jk to escape
+##########
+# vim mode in bash
+# checkout Luke Smith for some inspiration
+###
+set -o vi
+bind '"jk":"\e"'
 
+##########
+# auto cd
+###
 shopt -s autocd # just type a directory to cd into it
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]:\[\033[0;31m\]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ \[\033[m\]"
+##########
+# command prompt
+###
+PROMPT_DIRTRIM=1
+
+PS1=""
+# PS1+="\[\033[0;34m\]\w"
+# PS1+="\[\033[0;00m\]:"
+# PS1+="\[\033[0;31m\]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)"
+# PS1+="\n"
+PS1+="\[\033[0;36m\]\u"
+PS1+="\[\033[0;00m\]@"
+PS1+="\[\033[0;32m\]\h"
+PS1+="\[\033[0;00m\]:"
+PS1+="\[\033[0;35m\]\w"
+PS1+="\[\033[0;00m\]:$ "
+PS1+="\[\033[m\]"
+export PS1=$PS1
+
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxeggdabagacad
 
@@ -149,3 +172,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 complete -C /usr/local/bin/terraform terraform
+
+# bat
+# bat --list-themes for more
+export BAT_THEME="TwoDark"

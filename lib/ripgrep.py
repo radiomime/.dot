@@ -1,38 +1,20 @@
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
 import subprocess
-import os
-import requests
-import getpass
-import platform
-import distro
 
+from .apt import Apt
 from .util import (
-    getPyInterpreter,
     getSys,
     getLatestGithubRepo,
 )
 
-from .apt import Apt
 
-#
-# TODO: mac install
-# TODO: uninstall
-# TODO: mac uninstall
-#
-class Bat:
+class Ripgrep:
     def __init__(self):
         self.os = getSys()
-        self.user = getpass.getuser()
-        self.path = "/usr/local/bin"
+        # self.user = getpass.getuser()
+        # self.path = "/usr/local/bin"
 
     def install(self):
-        print("*** installing bat")
+        print("*** installing ripgrep")
         if self.os == "linux":
             self.__linuxInstall()
         else:
@@ -45,15 +27,15 @@ class Bat:
             print("no uninstall instructions for", self.os)
 
     def __linuxInstall(self):
-        batVersion = getLatestGithubRepo("sharkdp/bat")["name"]
+        ripgrepVersion = getLatestGithubRepo("BurntSushi/ripgrep")["name"]
 
         repo = "".join(
             [
-                "https://github.com/sharkdp/bat/releases/download/",
-                batVersion,
+                "https://github.com/BurntSushi/ripgrep/releases/download/",
+                ripgrepVersion,
                 "/",
-                "bat_",
-                batVersion[1:],
+                "ripgrep_",
+                ripgrepVersion[:],
                 "_amd64.deb",
             ]
         )
@@ -64,7 +46,7 @@ class Bat:
                 "-fsSL",
                 repo,
                 "-o",
-                "".join("bat_amd64.deb"),
+                "".join("ripgrep_amd64.deb"),
             ]
         )
 
@@ -73,13 +55,13 @@ class Bat:
                 "sudo",
                 "dpkg",
                 "-i",
-                "bat_amd64.deb",
+                "ripgrep_amd64.deb",
             ]
         )
 
         subprocess.run(
             [
                 "rm",
-                "bat_amd64.deb",
+                "ripgrep_amd64.deb",
             ]
         )

@@ -6,6 +6,7 @@ m() { touch $1; open -a MacVim.app $1 ; }
 # Navigation to base directories
 alias n='cd ~/.notes'
 alias s='cd ~/.sandbox'
+alias mk='mkdir -pv'
 
 alias v="nvim"
 vls() { vim -S ~/.vim/sessions/$1.vim; }
@@ -116,8 +117,14 @@ wacom() {
 uu() {
     # Update on linux
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        printf "Updating packages\n" \
+        printf "Updating packages for linux\n" \
             && sudo apt-get update -y \
             && sudo apt-get upgrade -y
+    fi
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        printf "Updating packages for OS X\n" \
+            && brew update \
+            && brew upgrade
     fi
 }
