@@ -261,6 +261,12 @@ let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 
 let g:which_key_map.z = [ ':ZoomToggle', 'zoom current pane']
 
+function SetGitUpstream()
+    let current_branch = system('git branch --show-current')
+    let git_upstream_output = system("git branch --set-upstream-to=origin/" . current_branch)
+    echo git_upstream_output
+endfunction
+
 let g:which_key_map.g = {
        \ 'name' : '+git' ,
        \ 'a'    : [':Gwrite/'           , 'add'],
@@ -273,9 +279,12 @@ let g:which_key_map.g = {
        \    'name'  : '+remote',
        \    's'     : [':Git -c push.default=current push' , 'push'],
        \    'l'     : [':Git pull'      , 'pull'],
+       \    'u'     : [':call SetGitUpstream()'   , 'test'],
        \ },
        \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
+" \    'r'     : [':echom "git branch --set-upstream-to=origin/<branch> feat/upstream-git-leader"'      , 'pull'],
+       " \    'r'     : [':echom $(:! git branch --show-current)'      , 'pull'],
 
 let g:which_key_map.f = {
        \ 'name' : '+fuzzy' ,
