@@ -105,6 +105,8 @@ Plug 'xolox/vim-session'
 " git
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal' " branching help
+Plug 'rbong/vim-flog'        " pretty tree
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -196,7 +198,6 @@ Plug 'tomasr/molokai'
 " test plugins
 """"""""""""""""""""""""""""""
 " maybe some cool branch things?
-Plug 'idanarye/vim-merginal'
 
 
 call plug#end()
@@ -229,6 +230,10 @@ let g:ale_fixers = {
             \   'python': ['black'],
             \}
 
+let g:ale_linters = {
+            \   'python': ['flake8'],
+            \}
+
 " ale
 " call extend(g:ale_linters, {
 "     \'python': ['flake8'], })
@@ -254,29 +259,33 @@ let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
 let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
 let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 
+let g:which_key_map.z = [ ':ZoomToggle', 'zoom current pane']
+
 let g:which_key_map.g = {
        \ 'name' : '+git' ,
        \ 'a'    : [':Gwrite/'           , 'add'],
        \ 'c'    : [':Git commit'        , 'commit'],
        \ 's'    : [':Gstatus'           , 'git status'],
        \ 'd'    : [':Gvdiff/'           , 'git vertical diff'],
-       \ 'b'    : [':Gblame'            , 'git blame'],
+       \ 't'    : [':Flog'              , 'show git tree'],
+       \ 'b'    : [':Merginal'          , 'git branches'],
        \ 'r'    : {
        \    'name'  : '+remote',
-       \    's'     : [':Git push'    , 'push'],
-       \    'l'     : [':Git pull'    , 'pull'],
+       \    's'     : [':Git push'      , 'push'],
+       \    'l'     : [':Git pull'      , 'pull'],
        \    'u'     : [':Git -c push.default=current push' , 'push upstream'],
        \ },
+       \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
 
 let g:which_key_map.f = {
        \ 'name' : '+fuzzy' ,
-       \ 'f'    : [':GFiles'           , 'open a file: respect git ignore'],
-       \ 'e'    : [':Files'            , 'open a file'],
-       \ 'b'    : [':Buffers'          , 'open a buffer'],
-       \ 'l'    : [':Lines'            , 'find a line'],
-       \ 'h'    : [':History'          , 'search file history'],
-       \ 't'    : [':Filetypes'        , 'filetypes'],
+       \ 'f'    : [':GFiles'            , 'open a file: respect git ignore'],
+       \ 'e'    : [':Files'             , 'open a file'],
+       \ 'b'    : [':Buffers'           , 'open a buffer'],
+       \ 'l'    : [':Lines'             , 'find a line'],
+       \ 'h'    : [':History'           , 'search file history'],
+       \ 't'    : [':Filetypes'         , 'filetypes'],
        \ }
 
 call which_key#register(' ', "g:which_key_map")
@@ -324,6 +333,16 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+""""""""""
+" git
+"""
+" flog
+let g:flog_default_arguments = {
+            \ 'max_count': 2000,
+            \ 'all': 1,
+            \ 'date': 'short',
+            \ }
 
 """"""""""
 " fugitive git bindings
@@ -503,6 +522,24 @@ set sidescrolloff=10
 
 "" Status bar
 set laststatus=2
+
+" zoom a pane
+" nmap <Leader>zo :tabnew %<CR>
+" nmap <Leader>zc :tabclose<CR>
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+" nnoremap <silent> <C-A> :ZoomToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
