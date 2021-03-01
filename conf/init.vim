@@ -278,8 +278,8 @@ let g:which_key_map.g = {
        \ 'r'    : {
        \    'name'  : '+remote',
        \    's'     : [':Git -c push.default=current push' , 'push'],
-       \    'l'     : [':Git pull'      , 'pull'],
-       \    'u'     : [':call SetGitUpstream()'   , 'test'],
+       \    'l'     : [':Git pull'                         , 'pull'],
+       \    'u'     : [':call SetGitUpstream()'            , 'set upstream'],
        \ },
        \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
