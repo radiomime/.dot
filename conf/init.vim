@@ -271,9 +271,8 @@ let g:which_key_map.g = {
        \ 'b'    : [':Merginal'          , 'git branches'],
        \ 'r'    : {
        \    'name'  : '+remote',
-       \    's'     : [':Git push'      , 'push'],
+       \    's'     : [':Git -c push.default=current push' , 'push'],
        \    'l'     : [':Git pull'      , 'pull'],
-       \    'u'     : [':Git -c push.default=current push' , 'push upstream'],
        \ },
        \ 'l'    : [':Gblame'            , 'git blame'],
        \ }
