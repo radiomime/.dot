@@ -2,6 +2,12 @@
 
 Things to checkout, incorporate, etc.
 
+## popos specific gui plugins?
+
+
+* indicator-sensors
+* `https://github.com/kgshank/gse-sound-output-device-chooser`
+
 ### Move filetype specific things to ftplugin
 
 Checkout
