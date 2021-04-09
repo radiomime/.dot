@@ -410,10 +410,12 @@ let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND="rg --files --hidden
-            \ -g '!.git/*'
-            \ -g '!__pycache__/*'
+            \ -g "!{node_modules,.git,__pycache__}"
+            \ '--no-ignore-vcs'
             \ "
             " \" -g '!.git/*'"
+            " \ -g '!.git/*'
+            " \ -g '!__pycache__/*'
 " let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 " let $FZF_DEFAULT_COMMAND =
 "             \"find * -path '*/\.*'"
