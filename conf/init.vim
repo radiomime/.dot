@@ -118,6 +118,9 @@ Plug 'wesQ3/vim-windowswap'
 " tabularize for alignment
 Plug 'godlygeek/tabular'
 
+" pretty json
+Plug 'tpope/vim-jdaddy'
+
 """" FIX BELOW
 " terminal
 Plug 'vimlab/split-term.vim'
@@ -232,8 +235,20 @@ let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
             \   'javascript': ['eslint'],
             \   'typescript': ['eslint'],
-            \   'python': ['black'],
+            \   'python': ['black', 'isort'],
             \}
+
+" g:ale_python_black_options = '--line-length 80'
+
+" 'python': ['black'],
+" \   'python': ['add_blank_lines_for_python_control_statements','autoimport','autopep8','isort',''],
+" 'add_blank_lines_for_python_control_statements' - Add blank lines before control statements.
+" 'autoimport' - Fix import issues with autoimport.
+" 'autopep8' - Fix PEP8 issues with autopep8.
+" 'black' - Fix PEP8 issues with black.
+" 'isort' - Sort Python imports with isort.
+" 'reorder-python-imports' - Sort Python imports with reorder-python-imports.
+" 'yapf' - Fix Python files with yapf.
 
 let g:ale_linters = {
             \   'python': ['flake8'],
@@ -604,7 +619,10 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " dev
 " A place for playing around
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
+"Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+" let g:indent_blankline_show_current_context = v:true
+" let g:indent_blankline_show_current_context = v:true
 
 " TODO: how do i exit terminal mode?
 " tnoremap <Esc> <C-\>_<C-N>
