@@ -3,3 +3,5 @@
 [merge]
 	ff = no
 	commit = no
+[pull]
+	ff = yes
