@@ -43,6 +43,10 @@ tn() { tmux new -s $1 ; }
 ta() { tmux a -t $1 ; }
 ts() { tmux ls ; }
 
+csvprint () {
+    cat $1 | column -s, -t | bat
+}
+
 inst() {
     platform='unknown'
     unamestr=`uname`
@@ -57,6 +61,11 @@ inst() {
     else
         sudo apt-get install -y $1
     fi
+}
+
+gi () {
+    curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;
+    printf "\n"
 }
 
 #Useful
