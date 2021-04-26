@@ -39,6 +39,9 @@ call mkdir($HOME."/.config/nvim/undodir", "p")
 set undodir=~/.config/nvim/undodir
 set undofile
 
+" source vimrc in current dir when opening project
+set exrc
+
 " filetype sanity
 filetype plugin indent on
 
@@ -120,6 +123,9 @@ Plug 'godlygeek/tabular'
 
 " pretty json
 Plug 'tpope/vim-jdaddy'
+
+" lsp
+Plug 'neovim/nvim-lspconfig'
 
 """" FIX BELOW
 " terminal
@@ -238,6 +244,10 @@ let g:ale_fixers = {
             \   'python': ['black', 'isort'],
             \}
 
+let g:ale_linters = {
+            \   'python': ['flake8'],
+            \}
+
 " g:ale_python_black_options = '--line-length 80'
 
 " 'python': ['black'],
@@ -250,9 +260,6 @@ let g:ale_fixers = {
 " 'reorder-python-imports' - Sort Python imports with reorder-python-imports.
 " 'yapf' - Fix Python files with yapf.
 
-let g:ale_linters = {
-            \   'python': ['flake8'],
-            \}
 
 " ale
 " call extend(g:ale_linters, {
@@ -457,6 +464,7 @@ nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 " END: configure and map plugins
 """"""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " mappings
 """"""""""""""""""""""""""""""
@@ -583,6 +591,20 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 " nnoremap <silent> <C-A> :ZoomToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" lsp-config
+""""""""""""""""""""""""""""""
+" echom "installing vim-plug"
+" lsp
+" LspInstall tsserver
+" Plug 'neovim/nvim-lspconfig'
+" require 'nvim_lsp'.tsserver.setup{}
+" sudo apt-get install clangd-9
+
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
