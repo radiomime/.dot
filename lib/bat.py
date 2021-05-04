@@ -1,24 +1,20 @@
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
-import subprocess
-import os
-import requests
 import getpass
+import json
+import os
 import platform
-import distro
+import subprocess
+import sys
+import time
+from os.path import abspath, expanduser
+from shutil import which
+from sys import platform
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
+import distro
+import requests
 
 from .apt import Apt
+from .util import getLatestGithubRepo, getPyInterpreter, getSys
+
 
 #
 # TODO: mac install

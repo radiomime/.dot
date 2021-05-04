@@ -2,23 +2,22 @@
 import argparse
 import sys
 
-from lib.dot import Dot
-from lib.neovim import Neovim
-
-from lib.docker import Docker
-from lib.minikube import Minikube
-from lib.kubectl import Kubectl
 from lib.bat import Bat
-from lib.ripgrep import Ripgrep
+from lib.docker import Docker
+from lib.dot import Dot
 from lib.go import Go
-from lib.snap import Snap
-from lib.poetry import Poetry
-from lib.terraform import Terraform
-from lib.node import Node
-from lib.yarn import Yarn
+from lib.kubectl import Kubectl
+from lib.minikube import Minikube
 from lib.mitmproxy import Mitmproxy
+from lib.neovim import Neovim
+from lib.node import Node
+from lib.poetry import Poetry
 from lib.prereqs import Prereqs
+from lib.ripgrep import Ripgrep
+from lib.snap import Snap
 from lib.swiftformat import SwiftFormat
+from lib.terraform import Terraform
+from lib.yarn import Yarn
 
 # from lib.apt import Apt
 # from lib.docker import Docker
