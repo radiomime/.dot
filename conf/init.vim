@@ -602,8 +602,15 @@ command! ZoomToggle call s:ZoomToggle()
 " require 'nvim_lsp'.tsserver.setup{}
 " sudo apt-get install clangd-9
 
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
+
+""""""""""
+" requires: python3 -m pip install 'python-language-server[all]'
+"""
 lua << EOF
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.pyls.setup{}
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
