@@ -13,30 +13,11 @@ from lib.mitmproxy import Mitmproxy
 from lib.neovim import Neovim
 from lib.node import Node
 from lib.poetry import Poetry
-from lib.prereqs import Prereqs
 from lib.ripgrep import Ripgrep
 from lib.snap import Snap
 from lib.swiftformat import SwiftFormat
 from lib.terraform import Terraform
 from lib.yarn import Yarn
-
-# from lib.apt import Apt
-# import lib.packages as packages
-# import lib.packages as packages
-# from os.path import expanduser
-# from os.path import abspath
-# import time
-# import subprocess
-# import os
-# from sys import platform
-
-
-def prereqs():
-    # Should this be here? Not sure. Python is already needed, but maybe
-    # some python upgrade or something?
-    # TODO: revisit this when reflashing mac at some point
-    print("prerequisite install is not supported yet")
-    Prereqs().install()
 
 
 def install():
@@ -78,7 +59,6 @@ def uninstall():
 def main(argv):
     print("Warn: Install scripts will run some install commands as sudo")
 
-    # parse command line arguments
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -94,14 +74,6 @@ def main(argv):
     )
 
     parser.add_argument(
-        "-p",
-        "--prereqs",
-        help="install prerequisite packages",
-        action="store_true",
-        required=False,
-    )
-
-    parser.add_argument(
         "-d",
         "--dry",
         help="dry run: useful for seeing checking base errors",
@@ -110,9 +82,7 @@ def main(argv):
     )
 
     args = parser.parse_args()
-    if args.prereqs:
-        prereqs()
-    elif args.uninstall:
+    if args.uninstall:
         uninstall()
     elif args.dry:
         print("exiting without running anything")
