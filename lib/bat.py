@@ -1,19 +1,6 @@
-import getpass
-import json
-import os
-import platform
 import subprocess
-import sys
-import time
-from os.path import abspath, expanduser
-from shutil import which
-from sys import platform
 
-import distro
-import requests
-
-from .apt import Apt
-from .util import getLatestGithubRepo, getPyInterpreter, getSys
+from .util import getLatestGithubRepo, getSys
 
 
 #
@@ -24,8 +11,6 @@ from .util import getLatestGithubRepo, getPyInterpreter, getSys
 class Bat:
     def __init__(self):
         self.os = getSys()
-        self.user = getpass.getuser()
-        self.path = "/usr/local/bin"
 
     def install(self):
         print("*** installing bat")

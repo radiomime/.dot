@@ -6,6 +6,7 @@ from lib.bat import Bat
 from lib.docker import Docker
 from lib.dot import Dot
 from lib.go import Go
+from lib.kitty import Kitty
 from lib.kubectl import Kubectl
 from lib.minikube import Minikube
 from lib.mitmproxy import Mitmproxy
@@ -46,31 +47,33 @@ def install():
 
     print("*** installing packages")
     # # independent packages
-    Mitmproxy().install()
-    Bat().install()
-    Ripgrep().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Snap().install()
-    Node().install()
-    Yarn().install()
-    SwiftFormat().install()
+    # Mitmproxy().install()
+    # Bat().install()
+    # Ripgrep().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Snap().install()
+    # Node().install()
+    # Yarn().install()
+    # SwiftFormat().install()
+    Kitty().install()
 
     # Docker and k8s. Order matters
-    Docker().install()
-    Minikube().install()
-    Kubectl().install()
+    # Docker().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def uninstall():
-    print("uninstalling neovim")
-    Neovim().uninstall()
-    Dot().uninstall()
+    # Neovim().uninstall()
+    # Dot().uninstall()
 
-    print("*** Warn: Package installs are not currently supported")
+    print("*** Warn: Package uninstalls are not currently supported")
     # # uninstall packages
     # packages.Packages().uninstall()
+
+    Kitty().uninstall()
 
 
 def main(argv):
