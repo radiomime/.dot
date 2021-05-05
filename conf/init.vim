@@ -512,21 +512,10 @@ set smartindent
 set autoindent
 
 " copy/paste/cut to system clipboard
-" if has('unnamedplus')
-"     echom "copy/paste to system clipboard"
-"     " set clipboard=unnamedplus
-"     " set clipboard+=unnamed,unnamedplus
-"     " set clipboard+=unnamedplus
-"     " set clipboard+=unnamedplus
-"     " set clipboard^=unnamed,unnamedplus
-" endif
-"if has('unnamedplus')
-"  set clipboard=unnamed,unnamedplus
-"  " set clipboard+=unnamed,unnamedplus
-"  " set clipboard+=unnamedplus
-"  " set clipboard+=unnamedplus
-"  " set clipboard^=unnamed,unnamedplus
-"endif
+if has('unnamedplus')
+    echom "copy/paste to system clipboard"
+    set clipboard=unnamedplus
+endif
 
 " cucumber tables: let | align up and down
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a

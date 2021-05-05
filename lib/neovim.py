@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
-from sys import platform
-
-import sys
-from os.path import expanduser
-from os.path import abspath
-import time
 import subprocess
-import os
+import time
+from os.path import abspath, expanduser
+
+from lib.util import getSys, pkgInstalled
 
 from .apt import Apt
 from .brew import Brew
-from lib.util import getSys, pkgInstalled
 
 
 class Neovim:
@@ -57,6 +53,7 @@ class Neovim:
                 "automake",
                 "cmake",
                 "g++",
+                "xclip",
                 "pkg-config",
                 "unzip",
             ]
