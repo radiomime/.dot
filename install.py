@@ -21,7 +21,6 @@ from lib.terraform import Terraform
 from lib.yarn import Yarn
 
 # from lib.apt import Apt
-# from lib.docker import Docker
 # import lib.packages as packages
 # import lib.packages as packages
 # from os.path import expanduser
@@ -47,30 +46,30 @@ def install():
 
     print("*** installing packages")
     # # independent packages
-    # Mitmproxy().install()
-    # Bat().install()
-    # Ripgrep().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Snap().install()
-    # Node().install()
-    # Yarn().install()
-    # SwiftFormat().install()
+    Mitmproxy().install()
+    Bat().install()
+    Ripgrep().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Snap().install()
+    Node().install()
+    Yarn().install()
+    SwiftFormat().install()
     Kitty().install()
 
     # Docker and k8s. Order matters
-    # Docker().install()
-    # Minikube().install()
-    # Kubectl().install()
+    Docker().install()
+    Minikube().install()
+    Kubectl().install()
 
 
 def uninstall():
-    # Neovim().uninstall()
-    # Dot().uninstall()
+    Neovim().uninstall()
+    Dot().uninstall()
 
     print("*** Warn: Package uninstalls are not currently supported")
-    # # uninstall packages
+    # uninstall packages
     # packages.Packages().uninstall()
 
     Kitty().uninstall()
