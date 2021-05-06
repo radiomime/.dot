@@ -39,6 +39,9 @@ call mkdir($HOME."/.config/nvim/undodir", "p")
 set undodir=~/.config/nvim/undodir
 set undofile
 
+" source vimrc in current dir when opening project
+set exrc
+
 " filetype sanity
 filetype plugin indent on
 
@@ -120,6 +123,9 @@ Plug 'godlygeek/tabular'
 
 " pretty json
 Plug 'tpope/vim-jdaddy'
+
+" lsp
+Plug 'neovim/nvim-lspconfig'
 
 """" FIX BELOW
 " terminal
@@ -238,6 +244,10 @@ let g:ale_fixers = {
             \   'python': ['black', 'isort'],
             \}
 
+let g:ale_linters = {
+            \   'python': ['flake8'],
+            \}
+
 " g:ale_python_black_options = '--line-length 80'
 
 " 'python': ['black'],
@@ -250,9 +260,6 @@ let g:ale_fixers = {
 " 'reorder-python-imports' - Sort Python imports with reorder-python-imports.
 " 'yapf' - Fix Python files with yapf.
 
-let g:ale_linters = {
-            \   'python': ['flake8'],
-            \}
 
 " ale
 " call extend(g:ale_linters, {
@@ -410,10 +417,12 @@ let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND="rg --files --hidden
-            \ -g '!.git/*'
-            \ -g '!__pycache__/*'
+            \ -g '!{node_modules,.git,__pycache__}'
+            \ '--no-ignore-vcs'
             \ "
             " \" -g '!.git/*'"
+            " \ -g '!.git/*'
+            " \ -g '!__pycache__/*'
 " let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 " let $FZF_DEFAULT_COMMAND =
 "             \"find * -path '*/\.*'"
@@ -454,6 +463,7 @@ nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
 """"""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " mappings
@@ -502,21 +512,10 @@ set smartindent
 set autoindent
 
 " copy/paste/cut to system clipboard
-" if has('unnamedplus')
-"     echom "copy/paste to system clipboard"
-"     " set clipboard=unnamedplus
-"     " set clipboard+=unnamed,unnamedplus
-"     " set clipboard+=unnamedplus
-"     " set clipboard+=unnamedplus
-"     " set clipboard^=unnamed,unnamedplus
-" endif
-"if has('unnamedplus')
-"  set clipboard=unnamed,unnamedplus
-"  " set clipboard+=unnamed,unnamedplus
-"  " set clipboard+=unnamedplus
-"  " set clipboard+=unnamedplus
-"  " set clipboard^=unnamed,unnamedplus
-"endif
+if has('unnamedplus')
+    echom "copy/paste to system clipboard"
+    set clipboard=unnamedplus
+endif
 
 " cucumber tables: let | align up and down
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -581,6 +580,27 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 " nnoremap <silent> <C-A> :ZoomToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" lsp-config
+""""""""""""""""""""""""""""""
+" echom "installing vim-plug"
+" lsp
+" LspInstall tsserver
+" Plug 'neovim/nvim-lspconfig'
+" require 'nvim_lsp'.tsserver.setup{}
+" sudo apt-get install clangd-9
+
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
+
+""""""""""
+" requires: python3 -m pip install 'python-language-server[all]'
+"""
+lua << EOF
+require'lspconfig'.pyls.setup{}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
