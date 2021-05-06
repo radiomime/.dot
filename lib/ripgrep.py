@@ -1,67 +1,61 @@
 import subprocess
 
-from .apt import Apt
-from .util import (
-    getSys,
-    getLatestGithubRepo,
-)
+from .abs_package import Package
+from .util import github_release_metadata, is_installed
+
+# from .apt import Apt
+# from .util import getLatestGithubRepo, getSys
 
 
-class Ripgrep:
+class Ripgrep(Package):
     def __init__(self):
-        self.os = getSys()
+        super().__init__()
+        # self.os = getSys()
         # self.user = getpass.getuser()
         # self.path = "/usr/local/bin"
 
-    def install(self):
-        print("*** installing ripgrep")
-        if self.os == "linux":
-            self.__linuxInstall()
-        else:
-            print("no install instructions for", self.os)
+    def is_installed(self):
+        return is_installed("rg")
 
-    def uninstall(self):
-        if self.os == "linux":
-            print("no uninstall instructions for", self.os)
-        else:
-            print("no uninstall instructions for", self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "rg",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "ripgrep":
+                return words[1]
 
-    def __linuxInstall(self):
-        ripgrepVersion = getLatestGithubRepo("BurntSushi/ripgrep")["name"]
+        # should never be hit
+        return None
 
-        repo = "".join(
+    def linux_install(self):
+        ripgrep_md = github_release_metadata("BurntSushi/ripgrep")
+        ripgrep_latest_version = ripgrep_md["name"]
+
+        deb = "".join(
             [
                 "https://github.com/BurntSushi/ripgrep/releases/download/",
-                ripgrepVersion,
+                ripgrep_latest_version,
                 "/",
                 "ripgrep_",
-                ripgrepVersion[:],
+                ripgrep_latest_version[:],
                 "_amd64.deb",
             ]
         )
 
-        subprocess.run(
-            [
-                "curl",
-                "-fsSL",
-                repo,
-                "-o",
-                "".join("ripgrep_amd64.deb"),
-            ]
-        )
+        self.install_pkg_from_deb(deb)
 
+    def linux_uninstall(self):
         subprocess.run(
             [
                 "sudo",
                 "dpkg",
-                "-i",
-                "ripgrep_amd64.deb",
-            ]
-        )
-
-        subprocess.run(
-            [
-                "rm",
-                "ripgrep_amd64.deb",
+                "--remove",
+                "ripgrep",
             ]
         )
