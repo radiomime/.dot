@@ -1,66 +1,54 @@
 import subprocess
 
-from .util import getLatestGithubRepo, getSys
+from .abs_package import Package
+from .util import github_release_metadata, is_installed
 
 
-#
-# TODO: mac install
-# TODO: uninstall
-# TODO: mac uninstall
-#
-class Bat:
+class Bat(Package):
     def __init__(self):
-        self.os = getSys()
+        super().__init__()
 
-    def install(self):
-        print("*** installing bat")
-        if self.os == "linux":
-            self.__linuxInstall()
-        else:
-            print("no install instructions for", self.os)
+    def is_installed(self):
+        return is_installed("bat")
 
-    def uninstall(self):
-        if self.os == "linux":
-            print("no uninstall instructions for", self.os)
-        else:
-            print("no uninstall instructions for", self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "bat",
+                "--version",
+            ]
+        )
 
-    def __linuxInstall(self):
-        batVersion = getLatestGithubRepo("sharkdp/bat")["name"]
+        output = output.decode("utf-8")
+        words = output.split(" ")
+        if words[0] == "bat":
+            return words[1]
 
-        repo = "".join(
+        # should never be hit
+        return None
+
+    def linux_install(self):
+        bat_md = github_release_metadata("sharkdp/bat")
+        bat_latest_version = bat_md["name"]
+
+        deb = "".join(
             [
                 "https://github.com/sharkdp/bat/releases/download/",
-                batVersion,
+                bat_latest_version,
                 "/",
                 "bat_",
-                batVersion[1:],
+                bat_latest_version[1:],
                 "_amd64.deb",
             ]
         )
+        self.install_pkg_from_deb(deb)
 
-        subprocess.run(
-            [
-                "curl",
-                "-fsSL",
-                repo,
-                "-o",
-                "".join("bat_amd64.deb"),
-            ]
-        )
-
+    def linux_uninstall(self):
         subprocess.run(
             [
                 "sudo",
                 "dpkg",
-                "-i",
-                "bat_amd64.deb",
-            ]
-        )
-
-        subprocess.run(
-            [
-                "rm",
-                "bat_amd64.deb",
+                "--remove",
+                "bat",
             ]
         )
