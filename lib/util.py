@@ -9,6 +9,10 @@ def is_installed(name):
     return which(name) is not None
 
 
+def bin_loc(name):
+    return which(name)
+
+
 def get_os():
     if platform == "linux" or platform == "linux2":
         return "linux"

@@ -2,7 +2,7 @@ import subprocess
 
 from .abs_package import Package
 from .apt import Apt
-from .util import github_release_metadata, is_installed
+from .util import bin_loc, github_release_metadata, is_installed
 
 
 class Fish(Package):
@@ -28,11 +28,25 @@ class Fish(Package):
         # should never be hit
         return None
 
+    def __change_shell(self, shell="fish"):
+        print("changing to fish shell")
+        bin_loc(shell)
+
+        subprocess.run(
+            [
+                "chsh",
+                "-s",
+                shell,
+            ]
+        )
+
     def linux_install(self):
         apt = Apt()
         apt.add_apt_repo("ppa:fish-shell/release-3")
         apt.update()
         apt.install("fish")
+
+        self.__change_shell()
 
     def linux_uninstall(self):
         apt = Apt()
