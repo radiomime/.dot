@@ -5,40 +5,64 @@ from os.path import abspath, expanduser
 
 from lib.util import getSys, pkgInstalled
 
+from .abs_package import Package
 from .apt import Apt
 from .brew import Brew
+from .pip import Pip
+from .util import github_release_metadata, is_installed
 
 
-class Neovim:
+class Neovim(Package):
     def __init__(self):
-        self.os = getSys()
-        self.path = abspath(expanduser("."))
-        self.installPath = "/tmp/dot-neovim-" + str(time.time_ns())
+        super().__init__()
+
+        # self.path = abspath(expanduser("."))
+        self.install_path = "/tmp/dot-neovim-" + str(time.time_ns())
 
         if self.os == "osx" or self.os == "linux":
             configDir = abspath(expanduser("~/.config/nvim"))
 
             print("Config for nvim at:", configDir)
-            subprocess.run(["mkdir", "-p", configDir])
+            subprocess.run(["mkdir", "-pv", configDir])
 
-    def install(self):
-        if pkgInstalled("nvim"):
-            print("Neovim is already installed")
-            return
+    def is_installed(self):
+        return is_installed("nvim")
 
-        if self.os == "linux":
-            self.__linuxInstall()
-        elif self.os == "osx":
-            self.__osxInstall()
-        else:
-            print("no install instructions for", self.os)
-            return
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "nvim",
+                "--version",
+            ]
+        )
 
-        if pkgInstalled("nvim"):
-            print("Installing providers for neovim")
-            self.__getProviders()
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "NVIM":
+                return words[1]
 
-    def __linuxInstall(self):
+        # should never be hit
+        return None
+
+    # def install(self):
+    #     # if pkgInstalled("nvim"):
+    #     #     print("Neovim is already installed")
+    #     #     return
+
+    #     # if self.os == "linux":
+    #     #     self.__linuxInstall()
+    #     # elif self.os == "osx":
+    #     #     self.__osxInstall()
+    #     # else:
+    #     #     print("no install instructions for", self.os)
+    #     #     return
+
+    #     # if pkgInstalled("nvim"):
+    #     #     print("Installing providers for neovim")
+    #     #     self.__install_providers()
+
+    def linux_install(self):
         print("Installing neovim dependencies")
         apt = Apt()
 
@@ -65,7 +89,7 @@ class Neovim:
                 "git",
                 "clone",
                 "https://github.com/neovim/neovim",
-                self.installPath,
+                self.install_path,
             ]
         )
 
@@ -74,7 +98,7 @@ class Neovim:
             [
                 "make",
                 "--directory",
-                self.installPath,
+                self.install_path,
                 "CMAKE_BUILD_TYPE=Release",
             ]
         )
@@ -85,15 +109,16 @@ class Neovim:
                 "sudo",
                 "make",
                 "--directory",
-                self.installPath,
+                self.install_path,
                 "install",
             ]
         )
 
         print("Installing pip")
         apt.install("python3-pip")
+        self.__install_providers()
 
-    def __linuxUninstall(self):
+    def linux_uninstall(self):
         print("Uninstalling nvim binary")
         subprocess.run(
             [
@@ -113,7 +138,7 @@ class Neovim:
             ]
         )
 
-    def __osxInstall(self):
+    def osx_install(self):
         print("installing neovim for osx")
         brew = Brew()
         brew.update()
@@ -135,7 +160,7 @@ class Neovim:
                 "git",
                 "clone",
                 "https://github.com/neovim/neovim",
-                self.installPath,
+                self.install_path,
             ]
         )
 
@@ -144,7 +169,7 @@ class Neovim:
             [
                 "make",
                 "--directory",
-                self.installPath,
+                self.install_path,
                 "CMAKE_BUILD_TYPE=Release",
             ]
         )
@@ -155,12 +180,14 @@ class Neovim:
                 "sudo",
                 "make",
                 "--directory",
-                self.installPath,
+                self.install_path,
                 "install",
             ]
         )
 
-    def __osxUninstall(self):
+        self.__install_providers()
+
+    def osx_uninstall(self):
         print("Uninstalling nvim binary")
         subprocess.run(
             [
@@ -180,17 +207,9 @@ class Neovim:
             ]
         )
 
-    def uninstall(self):
-        if self.os == "linux":
-            self.__linuxUninstall()
-        elif self.os == "osx":
-            self.__osxUninstall()
-        else:
-            print("no install instructions for", self.os)
-            return
-
-    def __getProviders(self):
+    def __install_providers(self):
         print("installing providers")
-        subprocess.run(
-            ["python3", "-m", "pip", "install", "--user", "--upgrade", "pynvim"]
-        )
+        Pip().install("pynvim")
+        # subprocess.run(
+        #     ["python3", "-m", "pip", "install", "--user", "--upgrade", "pynvim"]
+        # )
