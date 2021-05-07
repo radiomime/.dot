@@ -56,6 +56,9 @@ https://github.com/Quramy/tsuquyomi
 pip3 install jupyterlab
 ```
 
+### fuzzyfinder
+from command line? rust implementation?
+
 ### Editor speed
 
 Chris A sent this over:
