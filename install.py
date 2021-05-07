@@ -2,22 +2,24 @@
 import argparse
 import sys
 
-from lib.bat import Bat
-from lib.docker import Docker
-from lib.dot import Dot
-from lib.go import Go
-from lib.kitty import Kitty
-from lib.kubectl import Kubectl
-from lib.minikube import Minikube
-from lib.mitmproxy import Mitmproxy
-from lib.neovim import Neovim
-from lib.node import Node
-from lib.poetry import Poetry
-from lib.ripgrep import Ripgrep
-from lib.snap import Snap
-from lib.swiftformat import SwiftFormat
-from lib.terraform import Terraform
-from lib.yarn import Yarn
+# import lib
+from lib import Bat, Docker, Dot, Mitmproxy, Neovim, Ripgrep
+
+# from lib.docker import Docker
+# from lib.dot import Dot
+# from lib.go import Go
+# from lib.kitty import Kitty
+# from lib.kubectl import Kubectl
+# from lib.minikube import Minikube
+# from lib.mitmproxy import Mitmproxy
+# from lib.neovim import Neovim
+# from lib.node import Node
+# from lib.poetry import Poetry
+# from lib.ripgrep import Ripgrep
+# from lib.snap import Snap
+# from lib.swiftformat import SwiftFormat
+# from lib.terraform import Terraform
+# from lib.yarn import Yarn
 
 
 def install():
@@ -26,34 +28,42 @@ def install():
     Dot().install()
 
     print("*** installing packages")
-    # # independent packages
     Mitmproxy().install()
     Bat().install()
     Ripgrep().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Snap().install()
-    Node().install()
-    Yarn().install()
-    SwiftFormat().install()
-    Kitty().install()
 
-    # Docker and k8s. Order matters
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Snap().install()
+    # Node().install()
+    # Yarn().install()
+    # SwiftFormat().install()
+    # Kitty().install()
+
+    # # Docker and k8s. Order matters
     Docker().install()
-    Minikube().install()
-    Kubectl().install()
+
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def uninstall():
+    print("uninstalling things")
     Neovim().uninstall()
     Dot().uninstall()
 
-    print("*** Warn: Package uninstalls are not currently supported")
+    Mitmproxy().uninstall()
+    Bat().uninstall()
+    Ripgrep().uninstall()
+
+    # Docker().uninstall()
+
+    # print("*** Warn: Package uninstalls are not currently supported")
     # uninstall packages
     # packages.Packages().uninstall()
 
-    Kitty().uninstall()
+    # Kitty().uninstall()
 
 
 def main(argv):
