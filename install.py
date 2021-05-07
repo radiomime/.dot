@@ -3,7 +3,7 @@ import argparse
 import sys
 
 # import lib
-from lib import Bat, Docker, Dot, Mitmproxy, Neovim, Ripgrep
+from lib import Bat, Docker, Dot, Fish, Kitty, Mitmproxy, Neovim, Ripgrep
 
 # from lib.docker import Docker
 # from lib.dot import Dot
@@ -31,6 +31,8 @@ def install():
     Mitmproxy().install()
     Bat().install()
     Ripgrep().install()
+    Kitty().install()
+    Fish().install()
 
     # Go().install()
     # Poetry().install()
@@ -39,7 +41,6 @@ def install():
     # Node().install()
     # Yarn().install()
     # SwiftFormat().install()
-    # Kitty().install()
 
     # # Docker and k8s. Order matters
     Docker().install()
@@ -50,20 +51,21 @@ def install():
 
 def uninstall():
     print("uninstalling things")
-    Neovim().uninstall()
     Dot().uninstall()
 
     Mitmproxy().uninstall()
     Bat().uninstall()
     Ripgrep().uninstall()
+    Kitty().uninstall()
+    Fish().uninstall()
 
+    # Below are weird to un/reinstall. Good opportunity for an upgrade
+    # Neovim().uninstall()
     # Docker().uninstall()
 
     # print("*** Warn: Package uninstalls are not currently supported")
     # uninstall packages
     # packages.Packages().uninstall()
-
-    # Kitty().uninstall()
 
 
 def main(argv):
