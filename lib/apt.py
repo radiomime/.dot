@@ -83,6 +83,7 @@ class Apt:
             [
                 "sudo",
                 "add-apt-repository",
+                "-y",
                 repo,
             ],
             stdout=open(os.devnull, "wb"),
