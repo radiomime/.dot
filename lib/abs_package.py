@@ -8,9 +8,7 @@ from .util import get_os
 class Package(ABC):
     def __init__(self):
         self.os = get_os()
-
         self.user = getpass.getuser()
-        # self.path = "/usr/local/bin"
         self.path = "/usr/local/bin"
 
     def __del__(self):
