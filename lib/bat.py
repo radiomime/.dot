@@ -22,7 +22,7 @@ class Bat(Package):
         output = output.decode("utf-8")
         words = output.split(" ")
         if words[0] == "bat":
-            return words[1]
+            return words[1].strip()
 
         # should never be hit
         return None
