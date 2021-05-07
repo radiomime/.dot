@@ -4,20 +4,24 @@ from os.path import abspath, expanduser
 
 from lib.util import getSys
 
+from .abs_package import Package
 
-class Dot:
-    def __init__(self, configDir=abspath(expanduser("~/.config/nvim"))):
-        self.configDir = configDir
-        self.os = getSys()
+# from .util import github_release_metadata, is_installed
+
+
+class Dot(Package):
+    def __init__(self, config_dir=abspath(expanduser("~/.config/nvim"))):
+        super().__init__()
+        self.config_dir = config_dir
 
         # directories which need to exist
-        self.dirs = [self.configDir + "/undodir"]
+        self.dirs = [self.config_dir + "/undodir"]
 
         # dotfiles to link
         self.files = {
             # neovim files
-            "./conf/init.vim": self.configDir + "/init.vim",
-            "./conf/plugin": self.configDir + "/plugin",
+            "./conf/init.vim": self.config_dir + "/init.vim",
+            "./conf/plugin": self.config_dir + "/plugin",
             # git
             "./conf/gitconfig": "~/.gitconfig",
             # bash
@@ -30,30 +34,34 @@ class Dot:
             # various
             "./conf/fzf_functions": "~/.fzf_functions",
             "./conf/functions": "~/.functions",
-            # self.configDir = abspath(expanduser('~/.config/nvim'))
-            # abspath('./conf/generate.vim'): self.configDir + "/generate.vim",
-            # "../conf/vim_colors": "~/.vim/colors",
-            # "../conf/skeletons": "~/.vim/skeletons",
-            # "../conf/fzf_functions": "~/.fzf_functions",
-            # "../conf/vimrc_full": "~/.vimrc",
         }
 
-    def install(self):
-        if self.os == "linux" or self.os == "osx":
-            print("symlinking dotfiles")
-            self.__createDirs()
-            self.__createSymlinks()
-        else:
-            print("no install instructions for", self.os)
-            return
+    def is_installed(self):
+        return False
 
-    def uninstall(self):
-        if self.os == "linux" or self.os == "osx":
-            print("symlinking dotfiles")
-            self.__removeSymlinks()
-        else:
-            print("no install instructions for", self.os)
-            return
+    def get_version(self):
+        return None
+
+    def __install(self):
+        print("symlinking dotfiles")
+        self.__create_dirs()
+        self.__create_symlinks()
+
+    def __uninstall(self):
+        print("symlinking dotfiles")
+        self.__remove_symlinks()
+
+    def linux_install(self):
+        self.__install
+
+    def osx_install(self):
+        self.__install
+
+    def linux_uninstall(self):
+        self.__uninstall
+
+    def osx_uninstall(self):
+        self.__uninstall
 
     def __symlink(self, src, lnk):
         subprocess.run(["ln", "-sfn", src, lnk])
@@ -61,15 +69,15 @@ class Dot:
     def __mkdir(self, directory):
         subprocess.run(["mkdir", "-p", directory])
 
-    def __createDirs(self):
+    def __create_dirs(self):
         for d in self.dirs:
             self.__mkdir(d)
 
-    def __createSymlinks(self):
+    def __create_symlinks(self):
         for src, dst in self.files.items():
             self.__symlink(abspath(expanduser(src)), abspath(expanduser(dst)))
 
-    def __removeSymlinks(self):
+    def __remove_symlinks(self):
         for src, dst in self.files.items():
             print("removing symlink at", abspath(expanduser(dst)))
             subprocess.run(["rm", abspath(expanduser(dst))])
