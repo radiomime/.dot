@@ -3,16 +3,10 @@ import subprocess
 from .abs_package import Package
 from .util import github_release_metadata, is_installed
 
-# from .apt import Apt
-# from .util import getLatestGithubRepo, getSys
-
 
 class Ripgrep(Package):
     def __init__(self):
         super().__init__()
-        # self.os = getSys()
-        # self.user = getpass.getuser()
-        # self.path = "/usr/local/bin"
 
     def is_installed(self):
         return is_installed("rg")
