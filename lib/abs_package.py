@@ -1,3 +1,4 @@
+import getpass
 import subprocess
 from abc import ABC, abstractmethod
 
@@ -8,7 +9,7 @@ class Package(ABC):
     def __init__(self):
         self.os = get_os()
 
-        # self.user = getpass.getuser()
+        self.user = getpass.getuser()
         # self.path = "/usr/local/bin"
         self.path = "/usr/local/bin"
 
@@ -30,7 +31,12 @@ class Package(ABC):
         pass
 
     def install(self):
-        print(f"*** attempt to install {self.__class__.__name__}")
+        print(f"\n*** attempt to install {self.__class__.__name__}")
+
+        if self.is_installed():
+            print(f"{self.__class__.__name__} is already installed")
+            return
+
         if self.os == "linux":
             self.linux_install()
         elif self.os == "osx":
@@ -39,7 +45,7 @@ class Package(ABC):
             print("no install instructions for", self.os)
 
     def uninstall(self):
-        print(f"*** attempt to uninstall {self.__class__.__name__}")
+        print(f"\n*** attempt to uninstall {self.__class__.__name__}")
         if self.os == "linux":
             self.linux_uninstall()
         elif self.os == "osx":
@@ -86,5 +92,54 @@ class Package(ABC):
             [
                 "rm",
                 tarball_out,
+            ]
+        )
+
+    def install_pkg_from_deb(self, address):
+        deb_out = "tmp.deb"
+
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                address,
+                "-o",
+                deb_out,
+            ]
+        )
+
+        subprocess.run(
+            [
+                "sudo",
+                "dpkg",
+                "-i",
+                deb_out,
+            ]
+        )
+
+        subprocess.run(
+            [
+                "rm",
+                deb_out,
+            ]
+        )
+
+    def install_binary_from_address(self, address, binary_name):
+        subprocess.run(
+            [
+                "sudo",
+                "curl",
+                "-fsSL",
+                address,
+                "-o",
+                f"{self.path}/{binary_name}",
+            ]
+        )
+        subprocess.run(
+            [
+                "sudo",
+                "chmod",
+                "+x",
+                f"{self.path}/{binary_name}",
             ]
         )
