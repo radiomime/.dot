@@ -27,7 +27,13 @@ def get_os():
 
 def github_release_metadata(repoPath):
     response = requests.get(
-        "".join(["https://api.github.com/repos/", repoPath, "/releases/latest"])
+        "".join(
+            [
+                "https://api.github.com/repos/",
+                repoPath,
+                "/releases/latest",
+            ]
+        )
     ).json()
     return response
 
