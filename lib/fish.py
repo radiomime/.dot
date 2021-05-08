@@ -30,15 +30,16 @@ class Fish(Package):
 
     def __change_shell(self, shell="fish"):
         print("changing to fish shell")
-        bin_loc(shell)
-
-        subprocess.run(
-            [
-                "chsh",
-                "-s",
-                shell,
-            ]
-        )
+        shell = bin_loc(shell)
+        if type(shell) is not None:
+            shell = str(shell)  # bad linting errors fix
+            subprocess.run(
+                [
+                    "chsh",
+                    "-s",
+                    shell,
+                ]
+            )
 
     def linux_install(self):
         apt = Apt()
