@@ -9,6 +9,7 @@ from .kitty import Kitty
 from .mitmproxy import Mitmproxy
 from .neovim import Neovim
 from .ripgrep import Ripgrep
+from .tldr import Tldr
 
 # from .data_source import DataSource
 # from .file_io import FileIO

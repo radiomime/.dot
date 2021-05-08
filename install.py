@@ -3,7 +3,7 @@ import argparse
 import sys
 
 # import lib
-from lib import Bat, Docker, Dot, Fish, Kitty, Mitmproxy, Neovim, Ripgrep
+from lib import Bat, Docker, Dot, Fish, Kitty, Mitmproxy, Neovim, Ripgrep, Tldr
 
 # from lib.docker import Docker
 # from lib.dot import Dot
@@ -33,6 +33,7 @@ def install():
     Ripgrep().install()
     Kitty().install()
     Fish().install()
+    Tldr().install()
 
     # Go().install()
     # Poetry().install()
@@ -58,6 +59,7 @@ def uninstall():
     Ripgrep().uninstall()
     Kitty().uninstall()
     Fish().uninstall()
+    Tldr().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # Neovim().uninstall()
