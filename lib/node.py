@@ -1,23 +1,19 @@
 #!/usr/bin/env python3
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
-import subprocess
-import os
-import requests
 import getpass
+import json
+import os
+import subprocess
+import sys
+import time
+from os.path import abspath, expanduser
+from shutil import which
+from sys import platform
+
+import requests
 
 from .apt import Apt
+from .util import getLatestGithubRepo, getPyInterpreter, getSys
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
 
 class Node:
     def __init__(self):
@@ -28,59 +24,83 @@ class Node:
         # sudo apt-get install -y nodejs
 
     def checkInstall(self):
-        return which('node') is not None
+        return which("node") is not None
 
     def install(self):
-        print('*** installing node from deb.nodesource.com')
-        if self.os == 'linux':
+        print("*** installing node from deb.nodesource.com")
+        if self.os == "linux":
             self.__linuxInstall()
         else:
-            print('no install instructions for', self.os)
+            print("no install instructions for", self.os)
 
     def __linuxInstall(self):
-        if (self.checkInstall):
+        if self.checkInstall:
             return
 
         installSource = "https://deb.nodesource.com/setup_current.x"
-        subprocess.run([
-            'curl',
-            '-fsSL',
-            installSource,
-            '-o',
-            "".join('nodeInstall.sh'),
-        ])
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                installSource,
+                "-o",
+                "".join("nodeInstall.sh"),
+            ]
+        )
 
-        subprocess.run([
-            'sudo',
-            'bash',
-            'nodeInstall.sh',
-        ], stdout=open(os.devnull, 'wb'))
+        subprocess.run(
+            [
+                "sudo",
+                "bash",
+                "nodeInstall.sh",
+            ],
+            stdout=open(os.devnull, "wb"),
+        )
 
-        subprocess.run([
-            'rm',
-            'nodeInstall.sh',
-        ])
+        subprocess.run(
+            [
+                "rm",
+                "nodeInstall.sh",
+            ]
+        )
 
         apt = Apt()
         apt.update()
-        apt.install([
-            'nodejs'
-        ])
+        apt.install(["nodejs"])
 
-    def installGlobalPkgs(self, pkgs):
-        if (not self.checkInstall):
+    def install_global_packages(self, pkgs):
+        if not self.checkInstall:
             print("Node is not installed, so global packages cannot be added")
             return
         if not isinstance(pkgs, list):
-            pkgs = [ pkgs ]
+            pkgs = [pkgs]
 
         cmd = [
-            'sudo',
-            'npm',
-            'install',
-            '-g',
+            "sudo",
+            "npm",
+            "install",
+            "-g",
         ]
         cmd.extend(pkgs)
 
-        print('installing:', pkgs)
+        print("installing:", pkgs)
+        subprocess.run(cmd)
+
+    def uninstall_global_packages(self, pkgs):
+        if not self.checkInstall:
+            print("Node is not installed, so global packages cannot be added")
+            return
+
+        if not isinstance(pkgs, list):
+            pkgs = [pkgs]
+
+        cmd = [
+            "sudo",
+            "npm",
+            "uninstall",
+            "-g",
+        ]
+        cmd.extend(pkgs)
+
+        print("installing:", pkgs)
         subprocess.run(cmd)
