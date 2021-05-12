@@ -141,3 +141,30 @@ class Package(ABC):
                 f"{self.path}/{binary_name}",
             ]
         )
+
+    def install_from_curled_script(self, address):
+        curled_script = "curled_script.sh"
+
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                address,
+                "-o",
+                curled_script,
+            ]
+        )
+
+        subprocess.run(
+            [
+                "sh",
+                curled_script,
+            ]
+        )
+
+        subprocess.run(
+            [
+                "rm",
+                curled_script,
+            ]
+        )
