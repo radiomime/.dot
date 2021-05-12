@@ -1,4 +1,5 @@
 import subprocess
+from typing import Optional
 
 from .abs_package import Package
 from .apt import Apt
@@ -31,8 +32,7 @@ class Fish(Package):
     def __change_shell(self, shell="fish"):
         print("changing to fish shell")
         shell = bin_loc(shell)
-        if type(shell) is not None:
-            shell = str(shell)  # bad linting errors fix
+        if shell:
             subprocess.run(
                 [
                     "chsh",

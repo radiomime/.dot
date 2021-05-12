@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from shutil import which
 from sys import platform
+from typing import Optional
 
 import requests
 
@@ -9,7 +10,7 @@ def is_installed(name):
     return which(name) is not None
 
 
-def bin_loc(name):
+def bin_loc(name) -> Optional[str]:
     return which(name)
 
 
