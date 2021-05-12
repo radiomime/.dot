@@ -27,6 +27,7 @@ class Dot(Package):
             # fish
             "./conf/config.fish": "~/.config/fish/config.fish",
             "./conf/fish_functions": "~/.config/fish/functions",
+            "./conf/fish_plugins": "~/.config/fish/fish_plugins",
             # bash
             "./conf/bashrc": "~/.bashrc",
             "./conf/public_aliases": "~/.public_aliases",
