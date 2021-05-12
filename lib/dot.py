@@ -55,8 +55,6 @@ class Dot(Package):
         self.__remove_symlinks()
 
     def linux_install(self):
-        print("installing right here")
-        print("installing right here")
         self.__install()
 
     def osx_install(self):
