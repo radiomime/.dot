@@ -12,17 +12,17 @@ class Starship(Package):
         return is_installed("starship")
 
     def get_version(self):
-        # output = subprocess.check_output(
-        #     [
-        #         "starship",
-        #         "--version",
-        #     ]
-        # )
-
-        # output = output.decode("utf-8")
-        # words = output.split(" ")
-        # if words[0] == "starship":
-        #     return words[1].strip()
+        output = subprocess.check_output(
+            [
+                "starship",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "starship:":
+                return words[1]
 
         # should never be hit
         return None
