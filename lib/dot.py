@@ -24,6 +24,9 @@ class Dot(Package):
             "./conf/plugin": self.config_dir + "/plugin",
             # git
             "./conf/gitconfig": "~/.gitconfig",
+            # fish
+            "./conf/config.fish": "~/.config/fish/config.fish",
+            "./conf/fish_functions": "~/.config/fish/functions",
             # bash
             "./conf/bashrc": "~/.bashrc",
             "./conf/public_aliases": "~/.public_aliases",
@@ -52,16 +55,18 @@ class Dot(Package):
         self.__remove_symlinks()
 
     def linux_install(self):
-        self.__install
+        print("installing right here")
+        print("installing right here")
+        self.__install()
 
     def osx_install(self):
-        self.__install
+        self.__install()
 
     def linux_uninstall(self):
-        self.__uninstall
+        self.__uninstall()
 
     def osx_uninstall(self):
-        self.__uninstall
+        self.__uninstall()
 
     def __symlink(self, src, lnk):
         subprocess.run(["ln", "-sfn", src, lnk])
