@@ -1,28 +1,74 @@
 #!/usr/bin/env python3
 import subprocess
 
-from .util import getSys
+from .abs_package import Package
+from .apt import Apt
+from .util import getSys, is_installed
 
 
-class Snap:
+class Snap(Package):
     def __init__(self):
-        print("*** performing actions for Go package")
-        self.os = getSys()
+        super().__init__()
 
-    def __linuxInstall(self):
-        subprocess.run(
+    def is_installed(self):
+        return is_installed("snap")
+
+    def get_version(self):
+        output = subprocess.check_output(
             [
-                "sudo",
-                "apt",
-                "install",
-                "-y",
-                "snapd",
+                "snap",
+                "--version",
             ]
         )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "snap":
+                return words[-1]
 
-    def install(self):
-        print("*** installing", __name__)
-        if self.os == "linux":
-            self.__linuxInstall()
-        else:
-            print("no install instructions for", self.os)
+        # should never be hit
+        return None
+
+    def linux_install(self):
+        apt = Apt()
+        apt.install("snapd")
+
+    def linux_uninstall(self):
+        apt = Apt()
+        apt.uninstall("snapd")
+
+    def snap_install(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [pkgs]
+
+        if not self.is_installed():
+            print(f"ERROR: snap is not installed, cannot install: {pkgs}")
+            return
+
+        cmd = [
+            "sudo",
+            "snap",
+            "install",
+        ]
+        cmd.extend(pkgs)
+
+        print("snap installing:", pkgs)
+        subprocess.run(cmd)
+
+    def snap_uninstall(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [pkgs]
+
+        if not self.is_installed():
+            print(f"ERROR: snap is not installed, cannot install: {pkgs}")
+            return
+
+        cmd = [
+            "sudo",
+            "snap",
+            "remove",
+        ]
+        cmd.extend(pkgs)
+
+        print("snap removing:", pkgs)
+        subprocess.run(cmd)
