@@ -3,8 +3,8 @@ import argparse
 import sys
 
 # import lib
-from lib import (Bat, Docker, Dot, Fish, Kitty, Mitmproxy, Neovim, Ripgrep,
-                 Starship, Tldr)
+from lib import (Bat, Docker, Dot, Exa, Fish, Kitty, Mitmproxy, Neovim,
+                 Nerdfonts, Ripgrep, Rust, Snap, Starship, Tldr)
 
 # from lib.docker import Docker
 # from lib.dot import Dot
@@ -30,17 +30,20 @@ def install():
 
     print("*** installing packages")
     Mitmproxy().install()
+    # Nerdfonts().install()
     Bat().install()
+    Exa().install()
+    Rust().install()
     Ripgrep().install()
     Kitty().install()
     Fish().install()
     Tldr().install()
     Starship().install()
 
+    Snap().install()
     # Go().install()
     # Poetry().install()
     # Terraform().install()
-    # Snap().install()
     # Node().install()
     # Yarn().install()
     # SwiftFormat().install()
@@ -57,12 +60,16 @@ def uninstall():
     Dot().uninstall()
 
     Mitmproxy().uninstall()
+    Nerdfonts().uninstall()
     Bat().uninstall()
+    Exa().uninstall()
+    Rust().uninstall()
     Ripgrep().uninstall()
     Kitty().uninstall()
     Fish().uninstall()
     Tldr().uninstall()
     Starship().uninstall()
+    Snap().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # Neovim().uninstall()
