@@ -129,6 +129,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
 Plug 'nvim-lua/completion-nvim'
 
+" fterm
+Plug 'numtostr/FTerm.nvim'
+
 """" FIX BELOW
 " terminal
 Plug 'vimlab/split-term.vim'
@@ -227,7 +230,13 @@ echom "configuring plugins"
 " vim-plug
 """
 command! PU PlugClean | PlugUpdate | PlugUpgrade
-" nnoremap <leader>uu :PU<Return>
+
+""""""""""
+" fterm
+"""
+lua require('FTerm').setup()
+nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
+tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
 
 """"""""""
 " ale
@@ -600,7 +609,23 @@ command! ZoomToggle call s:ZoomToggle()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " lsp-config
-""""""""""""""""""""""""""""""
+"""
+" -- SWIFT
+" local lspconfig = require'lspconfig'
+" local configs = require'lspconfig/configs'
+" if not configs.sourcekit_lsp then
+"     configs.sourcekit_lsp = {
+"         default_config = {
+"             cmd = {'/home/ethan/swift-5.3.3-RELEASE-ubuntu20.04/usr/bin/sourcekit-lsp'};
+"             filetypes = {'swift'};
+"             settings = {};
+"             root_dir = function(fname)
+"               return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+"             end;
+"         };
+"     }
+" end
+" lspconfig.sourcekit_lsp.setup{on_attach = on_attach}"""""""""""""""""""""""""""
 lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
@@ -770,6 +795,10 @@ augroup END
 " dev
 " A place for playing around
 """""""""""""""""""""""""""""""
+" nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
+" tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
+" jk
+"
 "Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 " let g:indent_blankline_show_current_context = v:true
 " let g:indent_blankline_show_current_context = v:true
