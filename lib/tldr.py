@@ -22,12 +22,7 @@ class Tldr(Package):
         )
 
         output = output.decode("utf-8")
-        words = output.split(" ")
-        if words[0] == "tldr,":
-            return words[2].rstrip()
-
-        # should never be hit
-        return None
+        return output.rstrip()
 
     def __install(self):
         node = Node()
