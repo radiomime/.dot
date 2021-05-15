@@ -28,6 +28,7 @@ class Dot(Package):
             "./conf/config.fish": "~/.config/fish/config.fish",
             "./conf/fish_functions": "~/.config/fish/functions",
             "./conf/fish_plugins": "~/.config/fish/fish_plugins",
+            "./conf/starship.toml": "~/.config/starship.toml",
             # bash
             "./conf/bashrc": "~/.bashrc",
             "./conf/public_aliases": "~/.public_aliases",
