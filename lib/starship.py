@@ -21,7 +21,7 @@ class Starship(Package):
         output = output.decode("utf-8")
         for line in output.split("\n"):
             words = line.split(" ")
-            if words[0] == "starship:":
+            if words[0] == "starship":
                 return words[1]
 
         # should never be hit
