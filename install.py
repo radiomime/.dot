@@ -3,8 +3,8 @@ import argparse
 import sys
 
 # import lib
-from lib import (Bat, Docker, Dot, Exa, Fish, Kitty, Mitmproxy, Neovim,
-                 Nerdfonts, Ripgrep, Rust, Snap, Starship, Tldr)
+from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Kitty, Mitmproxy,
+                 Neovim, Nerdfonts, Ripgrep, Rust, Snap, Starship, Tldr)
 
 # from lib.docker import Docker
 # from lib.dot import Dot
@@ -32,6 +32,7 @@ def install():
     Mitmproxy().install()
     # Nerdfonts().install()
     Bat().install()
+    Bandwhich().install()
     Exa().install()
     Rust().install()
     Ripgrep().install()
@@ -61,6 +62,7 @@ def uninstall():
 
     Mitmproxy().uninstall()
     Nerdfonts().uninstall()
+    Bandwhich().uninstall()
     Bat().uninstall()
     Exa().uninstall()
     Rust().uninstall()
