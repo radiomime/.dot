@@ -69,3 +69,22 @@ class Rust(Package):
 
         print("cargo installing:", pkgs)
         subprocess.run(cmd)
+
+    def cargo_uninstall(self, pkgs):
+        if not isinstance(pkgs, list):
+            pkgs = [pkgs]
+
+        if not self.is_installed():
+            print(f"ERROR: cargo is not installed, cannot install: {pkgs}")
+            return
+
+        cmd = [
+            # "sudo",
+            "cargo",
+            "uninstall",
+            "--quiet",
+        ]
+        cmd.extend(pkgs)
+
+        print("cargo uninstalling:", pkgs)
+        subprocess.run(cmd)
