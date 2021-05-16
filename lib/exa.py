@@ -31,8 +31,8 @@ class Exa(Package):
 
     def linux_install(self):
         rust = Rust()
-        rust.cargo_install("exa")
+        rust.cargo_install()
 
     def linux_uninstall(self):
-        apt = Apt()
-        apt.uninstall("exa")
+        rust = Rust()
+        rust.cargo_uninstall("exa")
