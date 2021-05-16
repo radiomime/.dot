@@ -12,6 +12,7 @@ if status --is-interactive
     abbr --add --global ts 'tmux ls'
     abbr --add --global tn 'tmux new -s'
     abbr --add --global ta 'tmux a -t'
+    abbr --add --global bw 'bandwhich --dns-server 1.1.1.1'
 end
 
 # rust path
