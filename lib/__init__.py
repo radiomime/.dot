@@ -1,6 +1,7 @@
 __version__ = "0.1.0"
 
 
+from .bandwhich import Bandwhich
 from .bat import Bat
 from .bpytop import Bpytop
 from .docker import Docker
