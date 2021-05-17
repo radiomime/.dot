@@ -1,6 +1,7 @@
 import getpass
 import subprocess
 from abc import ABC, abstractmethod
+from typing import List, Optional, Union
 
 from .util import get_os
 
@@ -122,7 +123,11 @@ class Package(ABC):
             ]
         )
 
-    def install_binary_from_address(self, address, binary_name):
+    def install_binary_from_address(
+        self,
+        address: str,
+        binary_name: str,
+    ) -> None:
         subprocess.run(
             [
                 "sudo",
@@ -142,8 +147,52 @@ class Package(ABC):
             ]
         )
 
-    def install_from_curled_script(self, address):
+    def install_from_curled_script(
+        self,
+        address: str,
+        run_as_sudo: bool = False,
+    ) -> None:
         curled_script = "curled_script.sh"
+
+        # get script
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                address,
+                "-o",
+                curled_script,
+            ]
+        )
+
+        # prepend with sudo if necessary
+        cmd = []
+        if run_as_sudo:
+            cmd.extend(["sudo"])
+
+        # execute script with sh
+        cmd.extend(
+            [
+                "sh",
+                curled_script,
+            ]
+        )
+        subprocess.run(cmd)
+
+        # clean script location
+        subprocess.run(
+            [
+                "rm",
+                curled_script,
+            ]
+        )
+
+    def run_from_curled_python_script(
+        self,
+        address: str,
+        args: List[str] = [],
+    ) -> None:
+        curled_script = "curled_script.py"
 
         subprocess.run(
             [
@@ -155,16 +204,48 @@ class Package(ABC):
             ]
         )
 
+        cmd = [
+            "python3",
+            curled_script,
+        ]
+        cmd.extend(args)
+        subprocess.run(cmd)
+
         subprocess.run(
             [
-                "sh",
+                "rm",
                 curled_script,
+            ]
+        )
+
+    def install_binary_from_zip(
+        self,
+        address: str,
+    ) -> None:
+        zip_out = "tmp.zip"
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                address,
+                "-o",
+                zip_out,
+            ]
+        )
+
+        subprocess.run(
+            [
+                "sudo",
+                "unzip",
+                zip_out,
+                "-d",
+                self.path,
             ]
         )
 
         subprocess.run(
             [
                 "rm",
-                curled_script,
+                zip_out,
             ]
         )
