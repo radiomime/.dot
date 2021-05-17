@@ -1,9 +1,8 @@
-import getpass
 import subprocess
-from os.path import abspath, expanduser
+from os.path import expanduser
 
 from .abs_package import Package
-from .util import getSys, github_release_metadata, is_installed
+from .util import is_installed
 
 
 class Kitty(Package):
