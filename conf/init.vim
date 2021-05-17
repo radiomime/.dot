@@ -139,6 +139,11 @@ Plug 'vimlab/split-term.vim'
 " start page
 Plug 'mhinz/vim-startify'
 
+""""""""""
+" visual
+"""
+Plug 'ryanoasis/vim-devicons'
+
 " better find
 Plug 'unblevable/quick-scope'
 augroup qs_colors
