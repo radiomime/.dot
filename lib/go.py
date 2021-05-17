@@ -1,44 +1,38 @@
 #!/usr/bin/env python3
-import getpass
-import json
-import os
 import subprocess
-import sys
-import time
-from os.path import abspath, expanduser
-from shutil import which
-from sys import platform
 
-import requests
-
+from .abs_package import Package
 from .snap import Snap
-from .util import getLatestGithubRepo, getPyInterpreter, getSys
+from .util import is_installed
 
 
-class Go:
+class Go(Package):
     def __init__(self):
-        print("*** performing actions for Go package")
-        self.os = getSys()
+        super().__init__()
 
-    def checkInstall(self):
-        return which("go") is not None
+    def is_installed(self):
+        return is_installed("go")
 
-    def install(self):
-        if self.os == "linux":
-            self.__linuxInstall()
-        else:
-            print("no install instructions for", self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "go",
+                "version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "go":
+                return words[2][2:]
 
-    def __linuxInstall(self):
-        if not self.checkInstall():
-            subprocess.run(["sudo", "snap", "install", "go", "--classic"])
-            subprocess.run(["go", "version"])
-        self.update()
+        # should never be hit
+        return None
 
-    def update(self):
-        if self.checkInstall():
-            subprocess.run(["sudo", "snap", "refresh", "go"])
+    def linux_install(self):
+        snap = Snap()
+        snap.snap_install("go", flags="--classic")
 
-    def uninstall(self):
-        if self.checkInstall():
-            subprocess.run(["sudo", "snap", "remove", "go"])
+    def linux_uninstall(self):
+        snap = Snap()
+        snap.snap_uninstall("go")
