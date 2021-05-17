@@ -1,9 +1,8 @@
 import subprocess
 
 from .abs_package import Package
-from .apt import Apt
-from .node import Node  # install_global_packages, uninstall_global_packages
-from .util import bin_loc, github_release_metadata, is_installed
+from .node import Node
+from .util import is_installed
 
 
 class Tldr(Package):
@@ -26,11 +25,11 @@ class Tldr(Package):
 
     def __install(self):
         node = Node()
-        node.install_global_packages("tldr")
+        node.node_install("tldr")
 
     def __uninstall(self):
         node = Node()
-        node.uninstall_global_packages("tldr")
+        node.node_uninstall("tldr")
 
     def linux_install(self):
         self.__install()
