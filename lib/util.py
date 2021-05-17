@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 from shutil import which
 from sys import platform
-from typing import Optional
+from typing import Literal, Optional
 
 import requests
 
 
+def osx_app_installed(name):
+    print("waht")
+
+
 def is_installed(name):
+    if get_os() == "osx":
+        if osx_app_installed(name):
+            return True
     return which(name) is not None
 
 
@@ -14,7 +21,7 @@ def bin_loc(name) -> Optional[str]:
     return which(name)
 
 
-def get_os():
+def get_os() -> Literal["linux", "osx", "windows", "unknown"]:
     if platform == "linux" or platform == "linux2":
         return "linux"
     elif platform == "darwin":
