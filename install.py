@@ -92,6 +92,22 @@ def process_args() -> argparse.Namespace:
         action="store_true",
         required=False,
     )
+
+    parser.add_argument(
+        "-a",
+        "--add",
+        help="add a package or app if supported",
+        nargs="+",
+        default=None,
+    )
+
+    parser.add_argument(
+        "-r",
+        "--remove",
+        help="remove a package or app if supported",
+        nargs="+",
+        default=None,
+    )
     return parser.parse_args()
 
 
@@ -99,7 +115,11 @@ def main():
     print("WARN: Install scripts will run some install commands as sudo")
     args = process_args()
 
-    if args.uninstall:
+    if args.add:
+        print(args.add)
+    elif args.remove:
+        print(args.remove)
+    elif args.uninstall:
         uninstall()
     elif args.dry:
         print("exiting without running anything")
