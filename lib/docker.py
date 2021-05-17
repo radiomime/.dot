@@ -1,114 +1,129 @@
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
-import subprocess
 import os
-import requests
-import getpass
+import subprocess
+
 import distro
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
-
+from .abs_package import Package
 from .apt import Apt
+from .util import github_release_metadata, is_installed
 
-#
-# TODO: mac install
-# TODO: uninstall
-# TODO: mac uninstall
-#
-class Docker:
+
+class Docker(Package):
     def __init__(self):
-        self.os = getSys()
-        self.user = getpass.getuser()
-        self.path = '/usr/local/bin'
+        super().__init__()
 
-    def __linuxInstall(self):
+    def is_installed(self):
+        return is_installed("docker")
+
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "docker",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+
+        words = output.split(" ")
+        if words[0] == "Docker":
+            return " ".join(words[2:]).strip()
+
+        # should never be hit
+        return None
+
+    def linux_install(self):
         # apt dependencies
         apt = Apt()
-
-        apt.update()
-
-        apt.install([
-            'apt-transport-https',
-            'ca-certificates',
-            'curl',
-            'gnupg-agent',
-            'software-properties-common',
-        ])
-
-        # add official docker gpg key
-        apt.addGpgKey('https://download.docker.com/linux/ubuntu/gpg')
-
-        print('docker gpg verification below')
-        apt.gpgFingerprint('0EBFCD88')
-
-        apt.addAptRepo(
-            " ".join([
-                "deb [arch=amd64] https://download.docker.com/linux/ubuntu",
-                distro.linux_distribution()[2],
-                "stable"
-            ])
+        apt.uninstall(
+            [
+                "docker",
+                "docker-engine",
+                "docker.io",
+                "containerd",
+                "runc",
+            ]
         )
 
-        apt.install([
-            'docker-ce',
-            'docker-ce-cli',
-            'containerd.io',
-        ])
+        apt.update()
+        apt.install(
+            [
+                "apt-transport-https",
+                "ca-certificates",
+                "curl",
+                "gnupg-agent",
+                "software-properties-common",
+            ]
+        )
+
+        # add official docker gpg key
+        apt.add_gpg_key("https://download.docker.com/linux/ubuntu/gpg")
+
+        apt.add_apt_repo(
+            " ".join(
+                [
+                    "deb [arch=amd64]",
+                    "https://download.docker.com/linux/ubuntu",
+                    distro.linux_distribution()[2],
+                    "stable",
+                ]
+            )
+        )
+
+        apt.install(
+            [
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+            ]
+        )
 
         # compose
-        composeVersion = getLatestGithubRepo('docker/compose')['name']
+        compose_version = github_release_metadata("docker/compose")["name"]
 
-        repo = "".join([
-            "https://github.com/docker/compose/releases/download/",
-            composeVersion,
-            "/docker-compose-",
-            os.uname().sysname,
-            "-",
-            os.uname().machine,
-        ])
+        address = "".join(
+            [
+                "https://github.com/docker/compose/releases/download/",
+                compose_version,
+                "/docker-compose-",
+                os.uname().sysname,
+                "-",
+                os.uname().machine,
+            ]
+        )
 
-        subprocess.run([
-            'sudo',
-            'curl',
-            '-fsSL',
-            repo,
-            '-o',
-            "".join([self.path + '/' + 'docker-compose']),
-        ])
+        self.install_binary_from_address(address, "docker-compose")
 
-        subprocess.run([
-            'sudo',
-            'chmod',
-            '+x',
-            "".join([self.path + '/' + 'docker-compose']),
-        ])
+        self.__add_user()
 
-    def addUser(self):
-        subprocess.run([
-            'sudo',
-            'usermod',
-            '-aG',
-            'docker',
-            self.user
-        ])
+    def __add_user(self):
+        subprocess.run(["sudo", "usermod", "-aG", "docker", self.user])
 
-    def install(self):
-        if self.os == 'linux':
-            self.__linuxInstall()
-            self.addUser()
-        else:
-            print('no install instructions for', self.os)
+    def linux_uninstall(self):
 
-    def uninstall(self):
-        if self.os == 'linux':
-            print('no uninstall instructions for', self.os)
-        else:
-            print('no uninstall instructions for', self.os)
+        apt = Apt()
+        apt.uninstall(
+            [
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+            ]
+        )
+
+        subprocess.run(
+            [
+                "sudo",
+                "rm",
+                "-rf",
+                "/var/lib/docker",
+                "/var/lib/containerd",
+            ]
+        )
+
+        # Compose
+        subprocess.run(
+            [
+                "sudo",
+                "rm",
+                f"{self.path}/docker-compose",
+            ]
+        )

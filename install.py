@@ -2,22 +2,9 @@
 import argparse
 import sys
 
-from lib.bat import Bat
-from lib.docker import Docker
-from lib.dot import Dot
-from lib.go import Go
-from lib.kitty import Kitty
-from lib.kubectl import Kubectl
-from lib.minikube import Minikube
-from lib.mitmproxy import Mitmproxy
-from lib.neovim import Neovim
-from lib.node import Node
-from lib.poetry import Poetry
-from lib.ripgrep import Ripgrep
-from lib.snap import Snap
-from lib.swiftformat import SwiftFormat
-from lib.terraform import Terraform
-from lib.yarn import Yarn
+from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
+                 Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
+                 Rust, Snap, Starship, Terraform, Tldr, Yarn)
 
 
 def install():
@@ -26,39 +13,64 @@ def install():
     Dot().install()
 
     print("*** installing packages")
-    # # independent packages
     Mitmproxy().install()
+    # Nerdfonts().install()
     Bat().install()
+    Bandwhich().install()
+    Exa().install()
+    Rust().install()
     Ripgrep().install()
+    Kitty().install()
+    Fish().install()
+    Tldr().install()
+    Starship().install()
+
+    Snap().install()
     Go().install()
     Poetry().install()
     Terraform().install()
-    Snap().install()
     Node().install()
     Yarn().install()
-    SwiftFormat().install()
-    Kitty().install()
+    # SwiftFormat().install()
 
-    # Docker and k8s. Order matters
+    # # Docker and k8s. Order matters.
+    # TODO: minikube should install docker, etc
     Docker().install()
+
     Minikube().install()
     Kubectl().install()
 
 
 def uninstall():
-    Neovim().uninstall()
+    print("uninstalling things")
     Dot().uninstall()
 
-    print("*** Warn: Package uninstalls are not currently supported")
-    # uninstall packages
-    # packages.Packages().uninstall()
-
+    Mitmproxy().uninstall()
+    Go().uninstall()
+    Nerdfonts().uninstall()
+    Bandwhich().uninstall()
+    Bat().uninstall()
+    Exa().uninstall()
+    Rust().uninstall()
+    Ripgrep().uninstall()
     Kitty().uninstall()
+    Fish().uninstall()
+    Tldr().uninstall()
+    Starship().uninstall()
+    Snap().uninstall()
+    Poetry().uninstall()
+    Terraform().uninstall()
+    Node().uninstall()
+    Yarn().uninstall()
+    Minikube().uninstall()
+    Kubectl().uninstall()
+
+    # Below are weird to un/reinstall. Good opportunity for an upgrade
+    # Neovim().uninstall()
+    # Docker().uninstall()
 
 
-def main(argv):
-    print("Warn: Install scripts will run some install commands as sudo")
-
+def process_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -81,8 +93,33 @@ def main(argv):
         required=False,
     )
 
-    args = parser.parse_args()
-    if args.uninstall:
+    parser.add_argument(
+        "-a",
+        "--add",
+        help="add a package or app if supported",
+        nargs="+",
+        default=None,
+    )
+
+    parser.add_argument(
+        "-r",
+        "--remove",
+        help="remove a package or app if supported",
+        nargs="+",
+        default=None,
+    )
+    return parser.parse_args()
+
+
+def main():
+    print("WARN: Install scripts will run some install commands as sudo")
+    args = process_args()
+
+    if args.add:
+        print(args.add)
+    elif args.remove:
+        print(args.remove)
+    elif args.uninstall:
         uninstall()
     elif args.dry:
         print("exiting without running anything")
@@ -92,4 +129,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

@@ -5,17 +5,17 @@ from .node import Node
 from .util import is_installed
 
 
-class Yarn(Package):
+class Tldr(Package):
     def __init__(self):
         super().__init__()
 
     def is_installed(self):
-        return is_installed("yarn")
+        return is_installed("tldr")
 
     def get_version(self):
         output = subprocess.check_output(
             [
-                "yarn",
+                "tldr",
                 "--version",
             ]
         )
@@ -25,11 +25,11 @@ class Yarn(Package):
 
     def __install(self):
         node = Node()
-        node.node_install("yarn")
+        node.node_install("tldr")
 
     def __uninstall(self):
         node = Node()
-        node.node_uninstall("yarn")
+        node.node_uninstall("tldr")
 
     def linux_install(self):
         self.__install()

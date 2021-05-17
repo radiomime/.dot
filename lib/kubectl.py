@@ -1,71 +1,62 @@
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
 import subprocess
-import os
+
 import requests
-import getpass
-import platform
-import distro
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
+from .abs_package import Package
+from .util import bin_loc, is_installed
 
-from .apt import Apt
 
-class Kubectl:
+class Kubectl(Package):
     def __init__(self):
-        print('*** installing kubectl')
-        self.os = getSys()
-        self.user = getpass.getuser()
-        self.path = '/usr/local/bin'
+        super().__init__()
 
-    def install(self):
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for', self.os)
+    def is_installed(self):
+        return is_installed("kubectl")
 
-    def uninstall(self):
-        if self.os == 'linux':
-            print('no uninstall instructions for', self.os)
-        else:
-            print('no uninstall instructions for', self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "kubectl",
+                "version",
+                "--client",
+                "--short",
+            ]
+        )
 
-    def __linuxInstall(self):
-        latestRelease = requests.get(
-            "".join([
-                'https://storage.googleapis.com/',
-                'kubernetes-release/release/stable.txt',
-        ])).text
+        output = output.decode("utf-8")
+        words = output.split()
+        return words[2][1:]
 
-        binaryLoc = "".join([
-            'https://storage.googleapis.com/',
-            'kubernetes-release/release/',
-            latestRelease,
-            '/bin/linux/amd64/kubectl',
-        ])
+    def linux_install(self):
+        latest_release = requests.get(
+            "".join(
+                [
+                    "https://storage.googleapis.com/",
+                    "kubernetes-release/release/stable.txt",
+                ]
+            )
+        ).text
 
-        subprocess.run([
-            'sudo',
-            'curl',
-            '-fsSL',
-            binaryLoc,
-            '-o',
-            "".join([self.path + '/' + 'kubectl']),
-        ])
+        address = "".join(
+            [
+                "https://storage.googleapis.com/",
+                "kubernetes-release/release/",
+                latest_release,
+                "/bin/linux/amd64/kubectl",
+            ]
+        )
+        self.install_binary_from_address(
+            address=address,
+            binary_name="kubectl",
+        )
 
-        subprocess.run([
-            'sudo',
-            'chmod',
-            '+x',
-            "".join([self.path + '/' + 'kubectl']),
-        ])
-
+    def linux_uninstall(self):
+        kubectl_loc = bin_loc("kubectl")
+        if kubectl_loc is not None:
+            subprocess.run(
+                [
+                    "sudo",
+                    "rm",
+                    kubectl_loc,
+                ]
+            )

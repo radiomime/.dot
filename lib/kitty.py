@@ -2,56 +2,33 @@ import getpass
 import subprocess
 from os.path import abspath, expanduser
 
-from .util import getSys
+from .abs_package import Package
+from .util import getSys, github_release_metadata, is_installed
 
 
-class Kitty:
+class Kitty(Package):
     def __init__(self):
-        self.os = getSys()
-        self.user = getpass.getuser()
-        self.path = abspath(expanduser("."))
+        super().__init__()
 
-    def install(self):
-        print("*** installing kitty")
-        if self.os == "linux":
-            self.__linux_install()
-        else:
-            print(f"no install instructions for {self.os}")
+    def is_installed(self):
+        return is_installed("kitty")
 
-    def uninstall(self):
-        if self.os == "linux":
-            self.__linux_uninstall()
-        else:
-            print("no uninstall instructions for", self.os)
-
-    def __linux_uninstall(self):
-        subprocess.run(
+    def get_version(self):
+        output = subprocess.check_output(
             [
-                "rm",
-                "-rf",
-                expanduser("~/.local/kitty.app"),
+                "kitty",
+                "--version",
             ]
         )
+        output = output.decode("utf-8")
+        words = output.split(" ")
+        if words[0] == "kitty":
+            return words[1].strip()
 
-        subprocess.run(
-            [
-                "rm",
-                "-rf",
-                expanduser("~/.local/bin/kitty"),
-            ]
-        )
+        # should never be hit
+        return None
 
-        subprocess.run(
-            [
-                "rm",
-                "-rf",
-                expanduser("~/.local/share/applications/kitty.desktop"),
-            ]
-        )
-
-    def __linux_install(self):
-
-        # git clone https://github.com/kovidgoyal/kitty && cd kitty
+    def __install(self):
 
         source = "https://sw.kovidgoyal.net/kitty/installer.sh"
 
@@ -85,7 +62,14 @@ class Kitty:
         subprocess.run(
             [
                 "cp",
-                expanduser("~/.local/kitty.app/share/applications/kitty.desktop"),
+                expanduser(
+                    "".join(
+                        [
+                            "~/.local/kitty.app/",
+                            "share/applications/kitty.desktop",
+                        ]
+                    )
+                ),
                 expanduser("~/.local/share/applications/"),
             ]
         )
@@ -105,3 +89,40 @@ class Kitty:
                 "kitty_install.sh",
             ]
         )
+
+    def __uninstall(self):
+        subprocess.run(
+            [
+                "rm",
+                "-rf",
+                expanduser("~/.local/kitty.app"),
+            ]
+        )
+
+        subprocess.run(
+            [
+                "rm",
+                "-rf",
+                expanduser("~/.local/bin/kitty"),
+            ]
+        )
+
+        subprocess.run(
+            [
+                "rm",
+                "-rf",
+                expanduser("~/.local/share/applications/kitty.desktop"),
+            ]
+        )
+
+    def linux_install(self):
+        self.__install()
+
+    def osx_install(self):
+        self.__install()
+
+    def linux_uninstall(self):
+        self.__uninstall()
+
+    def osx_uninstall(self):
+        self.__uninstall()

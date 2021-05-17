@@ -4,6 +4,8 @@ Things to checkout, incorporate, etc.
 
 ## popos specific gui plugins?
 
+## kubect install minikube and docker, etc
+
 
 * indicator-sensors
 * `https://github.com/kgshank/gse-sound-output-device-chooser`
@@ -55,6 +57,9 @@ https://github.com/Quramy/tsuquyomi
 ```
 pip3 install jupyterlab
 ```
+
+### fuzzyfinder
+from command line? rust implementation?
 
 ### Editor speed
 

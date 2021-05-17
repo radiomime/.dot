@@ -1,83 +1,57 @@
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
 import subprocess
-import os
-import requests
-import getpass
-import platform
-import distro
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
+from .abs_package import Package
+from .util import github_release_metadata, is_installed
 
-from .apt import Apt
 
-#
-# TODO: mac install
-# TODO: uninstall
-# TODO: mac uninstall
-#
-class Mitmproxy:
+class Mitmproxy(Package):
     def __init__(self):
-        self.os = getSys()
-        # self.user = getpass.getuser()
-        self.path = '/usr/local/bin'
+        super().__init__()
 
+    def is_installed(self):
+        return is_installed("mitmproxy")
 
-    def install(self):
-        print('*** installing mitmproxy')
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for', self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "mitmproxy",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "Mitmproxy:":
+                return words[1]
 
-    def uninstall(self):
-        if self.os == 'linux':
-            print('no uninstall instructions for', self.os)
-        else:
-            print('no uninstall instructions for', self.os)
+        # should never be hit
+        return None
 
-    def __linuxInstall(self):
-        mitmproxyVersion = getLatestGithubRepo('mitmproxy/mitmproxy')['tag_name'][1:]
-        print(mitmproxyVersion)
-        mitmTarball = "".join([
-            'https://snapshots.mitmproxy.org/',
-            '5.3.0',
-            '/mitmproxy-',
-            '5.3.0',
-            '-linux.tar.gz',
-        ])
-        # ].join('')
-        print(mitmTarball)
-        tarballName = 'mitm.tar.gz'
-        # tar -xvzf
+    def linux_install(self):
+        mitm_md = github_release_metadata("mitmproxy/mitmproxy")
+        mitm_latest_version = mitm_md["tag_name"][1:]
 
-        subprocess.run([
-            'curl',
-            '-fsSL',
-            mitmTarball,
-            '-o',
-            tarballName,
-        ])
+        mitm_tarball_address = "".join(
+            [
+                "https://snapshots.mitmproxy.org/",
+                mitm_latest_version,
+                "/mitmproxy-",
+                mitm_latest_version,
+                "-linux.tar.gz",
+            ]
+        )
 
-        subprocess.run([
-            'sudo',
-            'tar',
-            '-xvzf',
-            tarballName,
-            '--directory',
-            self.path,
-        ])
+        self.install_pkg_from_tarball(mitm_tarball_address)
 
-        subprocess.run([
-            'rm',
-            tarballName,
-        ])
+    def linux_uninstall(self):
+        subprocess.run(
+            [
+                "sudo",
+                "rm",
+                "-f",
+                f"{self.path}/mitmweb",
+                f"{self.path}/mitmproxy",
+                f"{self.path}/mitmdump",
+            ]
+        )
+        print("note: not removing ~/.mitmproxy directory")
