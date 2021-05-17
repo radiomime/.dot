@@ -2,7 +2,7 @@ import subprocess
 
 from .abs_package import Package
 from .snap import Snap
-from .util import github_release_metadata, is_installed
+from .util import is_installed
 
 
 class Bpytop(Package):
