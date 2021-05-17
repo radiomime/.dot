@@ -4,6 +4,8 @@ Things to checkout, incorporate, etc.
 
 ## popos specific gui plugins?
 
+## kubect install minikube and docker, etc
+
 
 * indicator-sensors
 * `https://github.com/kgshank/gse-sound-output-device-chooser`
