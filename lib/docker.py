@@ -26,7 +26,7 @@ class Docker(Package):
 
         words = output.split(" ")
         if words[0] == "Docker":
-            return " ".join(words[2:])
+            return " ".join(words[2:]).strip()
 
         # should never be hit
         return None
