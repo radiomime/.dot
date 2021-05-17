@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
+import subprocess
 from shutil import which
 from sys import platform
 from typing import Literal, Optional
 
 import requests
-import subprocess
 
-def is_installed_osx_app(name)-> bool:
-    output = subprocess.check_output(
-        [
-            "ls",
-            "/Applications",
-        ]
-    )
+
+def is_installed_osx_app(name) -> bool:
+    if get_os() != "osx":
+        return False
+
+    try:
+        output = subprocess.check_output(
+            [
+                "ls",
+                "/Applications",
+            ]
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"*** Unexpected error: {e}")
+        return False
+
     output = output.decode("utf-8")
     apps = output.split("\n")
     if name in apps:
         return True
-    elif f'{name}.app' in apps:
+    elif f"{name}.app" in apps:
         return True
     else:
         return False
+
 
 def is_installed(name):
     if get_os() == "osx":
