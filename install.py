@@ -10,36 +10,36 @@ from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
 def install():
     print("*** installing neovim and dotfiles")
     Neovim().install()
-    Dot().install()
+    # Dot().install()
 
-    print("*** installing packages")
-    Mitmproxy().install()
-    # Nerdfonts().install()
-    Bat().install()
-    Bandwhich().install()
-    Exa().install()
-    # Rust().install()
-    Ripgrep().install()
-    Kitty().install()
-    Fish().install()
-    Tldr().install()
-    Starship().install()
+    # print("*** installing packages")
+    # Mitmproxy().install()
+    # # Nerdfonts().install()
+    # Bat().install()
+    # Bandwhich().install()
+    # Exa().install()
+    # # Rust().install()
+    # Ripgrep().install()
+    # Kitty().install()
+    # Fish().install()
+    # Tldr().install()
+    # Starship().install()
 
-    Snap().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Node().install()
-    Yarn().install()
-    Watchexec().install()
-    # SwiftFormat().install()
+    # Snap().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Node().install()
+    # Yarn().install()
+    # Watchexec().install()
+    # # SwiftFormat().install()
 
-    # # Docker and k8s. Order matters.
-    # TODO: minikube should install docker, etc
-    Docker().install()
+    # # # Docker and k8s. Order matters.
+    # # TODO: minikube should install docker, etc
+    # Docker().install()
 
-    Minikube().install()
-    Kubectl().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def uninstall():
