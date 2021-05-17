@@ -1,51 +1,45 @@
 import subprocess
 
-from .util import (
-    getSys,
-)
+from .abs_package import Package
+from .util import is_installed
 
-from .apt import Apt
 
-# TODO: mac install
-# TODO: uninstall
-# TODO: mac uninstall
-
-class Minikube:
+class Minikube(Package):
     def __init__(self):
-        print('*** installing minikube')
-        self.os = getSys()
+        super().__init__()
 
-        subprocess.run([
-            'curl',
-            '-sSL',
-            ''.join([
-                'https://storage.googleapis.com/',
-                'minikube/releases/latest/',
-                'minikube_latest_amd64.deb',
-            ]),
-            '-o', 'minikube_latest_amd64.deb'
-        ])
+    def is_installed(self):
+        return is_installed("minikube")
 
-    def __del__(self):
-        subprocess.run(['rm',
-                        'minikube_latest_amd64.deb'])
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "minikube",
+                "version",
+            ]
+        )
 
-    def __linuxInstall(self):
-        subprocess.run([
-            'sudo',
-            'dpkg',
-            '-i',
-            'minikube_latest_amd64.deb'
-        ])
+        output = output.decode("utf-8")
+        words = output.split()
+        return words[2][1:]
 
-    def install(self):
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for', self.os)
+    def linux_install(self):
+        minikube_address = "".join(
+            [
+                "https://storage.googleapis.com/",
+                "minikube/releases/latest/",
+                "minikube_latest_amd64.deb",
+            ]
+        )
 
-    def uninstall(self):
-        if self.os == 'linux':
-            print('no uninstall instructions for', self.os)
-        else:
-            print('no uninstall instructions for', self.os)
+        self.install_pkg_from_deb(minikube_address)
+
+    def linux_uninstall(self):
+        subprocess.run(
+            [
+                "sudo",
+                "dpkg",
+                "--remove",
+                "minikube",
+            ]
+        )
