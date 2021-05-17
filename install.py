@@ -2,13 +2,15 @@
 import argparse
 import sys
 
-from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
-                 Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
-                 Rust, Snap, Starship, Terraform, Tldr, Watchexec, Yarn)
+from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
+                 Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry,
+                 Ripgrep, Rust, Snap, Starship, Terraform, Tldr, Watchexec,
+                 Yarn)
 
 
 def install():
     print("*** installing neovim and dotfiles")
+    Brew().install()
     Neovim().install()
     # Dot().install()
 
@@ -43,6 +45,7 @@ def install():
 
 
 def uninstall():
+    Brew().uninstall()
     # print("uninstalling things")
     # Dot().uninstall()
 

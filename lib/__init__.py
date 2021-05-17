@@ -4,6 +4,7 @@ __version__ = "0.1.0"
 from .bandwhich import Bandwhich  # noqa
 from .bat import Bat  # noqa
 from .bpytop import Bpytop  # noqa
+from .brew import Brew  # noqa
 from .docker import Docker  # noqa
 from .dot import Dot  # noqa
 from .exa import Exa  # noqa
