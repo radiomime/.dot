@@ -60,7 +60,6 @@ class Rust(Package):
             return
 
         cmd = [
-            # "sudo",
             "cargo",
             "install",
             "--quiet",
@@ -79,7 +78,6 @@ class Rust(Package):
             return
 
         cmd = [
-            # "sudo",
             "cargo",
             "uninstall",
             "--quiet",
