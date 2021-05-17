@@ -4,15 +4,27 @@ from sys import platform
 from typing import Literal, Optional
 
 import requests
+import subprocess
 
-
-def osx_app_installed(name):
-    print("waht")
-
+def is_installed_osx_app(name)-> bool:
+    output = subprocess.check_output(
+        [
+            "ls",
+            "/Applications",
+        ]
+    )
+    output = output.decode("utf-8")
+    apps = output.split("\n")
+    if name in apps:
+        return True
+    elif f'{name}.app' in apps:
+        return True
+    else:
+        return False
 
 def is_installed(name):
     if get_os() == "osx":
-        if osx_app_installed(name):
+        if is_installed_osx_app(name):
             return True
     return which(name) is not None
 
