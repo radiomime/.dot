@@ -1,9 +1,8 @@
 import subprocess
 
 from .abs_package import Package
-from .apt import Apt
 from .rust import Rust
-from .util import github_release_metadata, is_installed
+from .util import is_installed
 
 
 class Exa(Package):
@@ -31,7 +30,7 @@ class Exa(Package):
 
     def linux_install(self):
         rust = Rust()
-        rust.cargo_install()
+        rust.cargo_install("exa")
 
     def linux_uninstall(self):
         rust = Rust()

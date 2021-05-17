@@ -23,6 +23,7 @@ from .snap import Snap  # noqa
 from .starship import Starship  # noqa
 from .terraform import Terraform  # noqa
 from .tldr import Tldr  # noqa
+from .watchexec import Watchexec  # noqa
 from .yarn import Yarn  # noqa
 
 # from .data_source import DataSource

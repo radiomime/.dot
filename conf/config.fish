@@ -13,6 +13,7 @@ if status --is-interactive
     abbr --add --global tn 'tmux new -s'
     abbr --add --global ta 'tmux a -t'
     abbr --add --global bw 'bandwhich --dns-server 1.1.1.1'
+    abbr --add --global we 'watchexec --'
 end
 
 # rust path
