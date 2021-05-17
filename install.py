@@ -3,8 +3,9 @@ import argparse
 import sys
 
 # import lib
-from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Kitty, Mitmproxy,
-                 Neovim, Nerdfonts, Ripgrep, Rust, Snap, Starship, Tldr)
+from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
+                 Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
+                 Rust, Snap, Starship, Terraform, Tldr, Yarn)
 
 # from lib.docker import Docker
 # from lib.dot import Dot
@@ -42,18 +43,19 @@ def install():
     Starship().install()
 
     Snap().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Node().install()
-    # Yarn().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Node().install()
+    Yarn().install()
     # SwiftFormat().install()
 
-    # # Docker and k8s. Order matters
+    # # Docker and k8s. Order matters.
+    # TODO: minikube should install docker, etc
     Docker().install()
 
-    # Minikube().install()
-    # Kubectl().install()
+    Minikube().install()
+    Kubectl().install()
 
 
 def uninstall():
@@ -61,6 +63,7 @@ def uninstall():
     Dot().uninstall()
 
     Mitmproxy().uninstall()
+    Go().uninstall()
     Nerdfonts().uninstall()
     Bandwhich().uninstall()
     Bat().uninstall()
@@ -72,14 +75,16 @@ def uninstall():
     Tldr().uninstall()
     Starship().uninstall()
     Snap().uninstall()
+    Poetry().uninstall()
+    Terraform().uninstall()
+    Node().uninstall()
+    Yarn().uninstall()
+    Minikube().uninstall()
+    Kubectl().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # Neovim().uninstall()
     # Docker().uninstall()
-
-    # print("*** Warn: Package uninstalls are not currently supported")
-    # uninstall packages
-    # packages.Packages().uninstall()
 
 
 def main(argv):

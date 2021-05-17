@@ -1,22 +1,29 @@
 __version__ = "0.1.0"
 
 
-from .bandwhich import Bandwhich
-from .bat import Bat
-from .bpytop import Bpytop
-from .docker import Docker
-from .dot import Dot
-from .exa import Exa
-from .fish import Fish
-from .kitty import Kitty
-from .mitmproxy import Mitmproxy
-from .neovim import Neovim
-from .nerdfonts import Nerdfonts
-from .ripgrep import Ripgrep
-from .rust import Rust
-from .snap import Snap
-from .starship import Starship
-from .tldr import Tldr
+from .bandwhich import Bandwhich  # noqa
+from .bat import Bat  # noqa
+from .bpytop import Bpytop  # noqa
+from .docker import Docker  # noqa
+from .dot import Dot  # noqa
+from .exa import Exa  # noqa
+from .fish import Fish  # noqa
+from .go import Go  # noqa
+from .kitty import Kitty  # noqa
+from .kubectl import Kubectl  # noqa
+from .minikube import Minikube  # noqa
+from .mitmproxy import Mitmproxy  # noqa
+from .neovim import Neovim  # noqa
+from .nerdfonts import Nerdfonts  # noqa
+from .node import Node  # noqa
+from .poetry import Poetry  # noqa
+from .ripgrep import Ripgrep  # noqa
+from .rust import Rust  # noqa
+from .snap import Snap  # noqa
+from .starship import Starship  # noqa
+from .terraform import Terraform  # noqa
+from .tldr import Tldr  # noqa
+from .yarn import Yarn  # noqa
 
 # from .data_source import DataSource
 # from .file_io import FileIO
