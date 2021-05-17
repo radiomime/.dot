@@ -2,26 +2,9 @@
 import argparse
 import sys
 
-# import lib
 from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
                  Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
                  Rust, Snap, Starship, Terraform, Tldr, Yarn)
-
-# from lib.docker import Docker
-# from lib.dot import Dot
-# from lib.go import Go
-# from lib.kitty import Kitty
-# from lib.kubectl import Kubectl
-# from lib.minikube import Minikube
-# from lib.mitmproxy import Mitmproxy
-# from lib.neovim import Neovim
-# from lib.node import Node
-# from lib.poetry import Poetry
-# from lib.ripgrep import Ripgrep
-# from lib.snap import Snap
-# from lib.swiftformat import SwiftFormat
-# from lib.terraform import Terraform
-# from lib.yarn import Yarn
 
 
 def install():
@@ -87,9 +70,7 @@ def uninstall():
     # Docker().uninstall()
 
 
-def main(argv):
-    print("Warn: Install scripts will run some install commands as sudo")
-
+def process_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -111,8 +92,13 @@ def main(argv):
         action="store_true",
         required=False,
     )
+    return parser.parse_args()
 
-    args = parser.parse_args()
+
+def main():
+    print("WARN: Install scripts will run some install commands as sudo")
+    args = process_args()
+
     if args.uninstall:
         uninstall()
     elif args.dry:
@@ -123,4 +109,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()
