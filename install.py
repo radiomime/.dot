@@ -4,7 +4,7 @@ import sys
 
 from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
                  Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
-                 Rust, Snap, Starship, Terraform, Tldr, Yarn)
+                 Rust, Snap, Starship, Terraform, Tldr, Watchexec, Yarn)
 
 
 def install():
@@ -31,6 +31,7 @@ def install():
     Terraform().install()
     Node().install()
     Yarn().install()
+    Watchexec().install()
     # SwiftFormat().install()
 
     # # Docker and k8s. Order matters.
@@ -64,6 +65,7 @@ def uninstall():
     Yarn().uninstall()
     Minikube().uninstall()
     Kubectl().uninstall()
+    Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # Neovim().uninstall()
