@@ -1,100 +1,56 @@
 #!/usr/bin/env python3
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
 import subprocess
-import os
-import requests
-import getpass
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
+from .abs_package import Package
+from .util import github_release_metadata, is_installed
 
-# TODO: fix: installing in /usr/bin/root with matt:matt as owner
 
-class Terraform:
-    # TODO: clean up some of this functionality
+class Terraform(Package):
     def __init__(self):
-        print('*** performing actions for Terraform package')
+        super().__init__()
 
-        self.os = getSys()
-        self.latestVersion = getLatestGithubRepo('hashicorp/terraform')['name'][1:]
-        self.binaryZip = 'latest-terraform.zip'
-        self.path = '/usr/local/bin'
+    def is_installed(self):
+        return is_installed("terraform")
 
-    def checkInstall(self):
-        return which('terraform') is not None
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "terraform",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "Terraform":
+                return words[1][1:]
 
-    def __linuxInstall(self):
-        print('getting terraform package')
-        # https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
-        # latest = getLatestGithubRepo('hashicorp/terraform')
-        # version = latest['name'][1:]
+        # should never be hit
+        return None
 
-        location = "".join([
-            'https://releases.hashicorp.com/terraform/',
-            self.latestVersion,
-            '/terraform_',
-            self.latestVersion,
-            '_linux_amd64.zip'
-        ])
+    def linux_install(self):
+        tf_md = github_release_metadata("hashicorp/terraform")
+        tf_latest_version = tf_md["tag_name"][1:]
 
-        subprocess.run([
-            'wget',
-            '-O',
-            self.binaryZip,
-            location
-        ])
+        tf_zip_address = "".join(
+            [
+                "https://releases.hashicorp.com/terraform/",
+                tf_latest_version,
+                "/terraform_",
+                tf_latest_version,
+                "_linux_amd64.zip",
+            ]
+        )
+        self.install_binary_from_zip(
+            address=tf_zip_address,
+        )
 
-        subprocess.run([
-            'unzip',
-            self.binaryZip
-        ])
-
-        subprocess.run([
-            'sudo',
-            'mv',
-            'terraform',
-            self.path,
-        ])
-        subprocess.run([
-            'rm',
-            self.binaryZip
-        ])
-
-    def install(self):
-        # Install will also update
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for OS')
-
-        if self.checkInstall():
-            subprocess.run([
-                'terraform',
-                '-install-autocomplete'
-            ])
-
-    def uninstall(self):
-        print("untested unistall of terraform!")
-        if self.checkInstall():
-            subprocess.run([
-                'rm',
-                "".join([
-                    self.path,
-                    'terraform'
-                ])
-            ])
-
-def main(argv):
-    print('module for packages')
-
-if __name__ == "__main__":
-    main(sys.argv)
+    def linux_uninstall(self):
+        subprocess.run(
+            [
+                "sudo",
+                "rm",
+                "-f",
+                f"{self.path}/terraform",
+            ]
+        )
