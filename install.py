@@ -18,7 +18,7 @@ def install():
     Bat().install()
     Bandwhich().install()
     Exa().install()
-    Rust().install()
+    # Rust().install()
     Ripgrep().install()
     Kitty().install()
     Fish().install()
