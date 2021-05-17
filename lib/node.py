@@ -1,76 +1,47 @@
-#!/usr/bin/env python3
-import getpass
-import json
-import os
 import subprocess
-import sys
-import time
-from os.path import abspath, expanduser
-from shutil import which
-from sys import platform
 
-import requests
-
+from .abs_package import Package
 from .apt import Apt
-from .util import getLatestGithubRepo, getPyInterpreter, getSys
+from .util import is_installed
 
 
-class Node:
+class Node(Package):
     def __init__(self):
-        self.os = getSys()
-        # Install n, for instance
-        # update && upgrade node && npm
-        # curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
-        # sudo apt-get install -y nodejs
+        super().__init__()
 
-    def checkInstall(self):
-        return which("node") is not None
+    def is_installed(self):
+        return is_installed("node")
 
-    def install(self):
-        print("*** installing node from deb.nodesource.com")
-        if self.os == "linux":
-            self.__linuxInstall()
-        else:
-            print("no install instructions for", self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "node",
+                "--version",
+            ]
+        )
 
-    def __linuxInstall(self):
-        if self.checkInstall:
-            return
+        output = output.decode("utf-8")
+        return output[1:].strip()
 
+    def linux_install(self):
         installSource = "https://deb.nodesource.com/setup_current.x"
-        subprocess.run(
-            [
-                "curl",
-                "-fsSL",
-                installSource,
-                "-o",
-                "".join("nodeInstall.sh"),
-            ]
-        )
-
-        subprocess.run(
-            [
-                "sudo",
-                "bash",
-                "nodeInstall.sh",
-            ],
-            stdout=open(os.devnull, "wb"),
-        )
-
-        subprocess.run(
-            [
-                "rm",
-                "nodeInstall.sh",
-            ]
+        self.install_from_curled_script(
+            address=installSource,
+            run_as_sudo=True,
         )
 
         apt = Apt()
         apt.update()
         apt.install(["nodejs"])
 
-    def install_global_packages(self, pkgs):
-        if not self.checkInstall:
-            print("Node is not installed, so global packages cannot be added")
+    def linux_uninstall(self):
+        apt = Apt()
+        apt.update()
+        apt.uninstall(["nodejs"])
+
+    def node_install(self, pkgs):
+        if not self.is_installed:
+            print("Node is not installed")
             return
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
@@ -86,9 +57,9 @@ class Node:
         print("installing:", pkgs)
         subprocess.run(cmd)
 
-    def uninstall_global_packages(self, pkgs):
-        if not self.checkInstall:
-            print("Node is not installed, so global packages cannot be added")
+    def node_uninstall(self, pkgs):
+        if not self.is_installed:
+            print("Node is not installed")
             return
 
         if not isinstance(pkgs, list):
