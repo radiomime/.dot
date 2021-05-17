@@ -2,7 +2,7 @@ import subprocess
 from os.path import expanduser
 
 from .abs_package import Package
-from .util import is_installed
+from .util import is_installed, is_installed_osx_app
 
 
 class Kitty(Package):
@@ -13,6 +13,10 @@ class Kitty(Package):
         return is_installed("kitty")
 
     def get_version(self):
+        if is_installed_osx_app('kitty'):
+            print('info: mac app versions unsupported')
+            return None
+
         output = subprocess.check_output(
             [
                 "kitty",
