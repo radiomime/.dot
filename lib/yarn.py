@@ -1,48 +1,38 @@
-from sys import platform
-import json
-import sys
-from os.path import expanduser
-from os.path import abspath
-from shutil import which
-import time
 import subprocess
-import os
-import requests
-import getpass
-import platform
-import distro
 
+from .abs_package import Package
 from .node import Node
+from .util import is_installed
 
-from .util import (
-    getPyInterpreter,
-    getSys,
-    getLatestGithubRepo,
-)
 
-from .apt import Apt
-
-class Yarn:
+class Yarn(Package):
     def __init__(self):
-        self.os = getSys()
-        # self.user = getpass.getuser()
-        # self.path = '/usr/local/bin'
+        super().__init__()
 
+    def is_installed(self):
+        return is_installed("yarn")
 
-    def install(self):
-        print('*** installing yarn')
-        if self.os == 'linux':
-            self.__linuxInstall()
-        else:
-            print('no install instructions for', self.os)
+    def get_version(self):
+        output = subprocess.check_output(
+            [
+                "yarn",
+                "--version",
+            ]
+        )
 
-    def uninstall(self):
-        if self.os == 'linux':
-            print('no uninstall instructions for', self.os)
-        else:
-            print('no uninstall instructions for', self.os)
+        output = output.decode("utf-8")
+        return output.rstrip()
 
-    def __linuxInstall(self):
-        # apt dependencies
+    def __install(self):
         node = Node()
-        node.installGlobalPkgs('yarn')
+        node.node_install("yarn")
+
+    def __uninstall(self):
+        node = Node()
+        node.node_uninstall("yarn")
+
+    def linux_install(self):
+        self.__install()
+
+    def linux_uninstall(self):
+        self.__uninstall()
