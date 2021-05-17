@@ -37,7 +37,7 @@ class Snap(Package):
         apt = Apt()
         apt.uninstall("snapd")
 
-    def snap_install(self, pkgs):
+    def snap_install(self, pkgs, flags=None):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
 
@@ -51,6 +51,13 @@ class Snap(Package):
             "install",
         ]
         cmd.extend(pkgs)
+
+        # add flags to command if they exist
+        if isinstance(flags, list) or isinstance(flags, str):
+            if isinstance(flags, str):
+                flags = [flags]
+
+            cmd.extend(flags)
 
         print("snap installing:", pkgs)
         subprocess.run(cmd)
