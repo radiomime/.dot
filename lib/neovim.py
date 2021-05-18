@@ -229,7 +229,9 @@ class Neovim(Package):
 
     def __install_providers(self):
         print("installing providers")
-        Pip().install("pynvim")
+        # pip = Pip().pip_install("pynvim")
+        pip = Pip()
+        pip.pip_install("pynvim")
         # subprocess.run(
         #     ["python3", "-m", "pip", "install", "--user", "--upgrade", "pynvim"]
         # )

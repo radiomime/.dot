@@ -11,7 +11,7 @@ from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
-    # Neovim().install()
+    Neovim().install()
     # Dot().install()
 
     # print("*** installing packages")
@@ -71,7 +71,7 @@ def uninstall():
     # Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
-    # Neovim().uninstall()
+    Neovim().uninstall()
     # Docker().uninstall()
 
 
