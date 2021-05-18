@@ -42,6 +42,7 @@ class Brew(Package):
         self.install_from_curled_script(
             "".join(
                 [
+                    "sudo",
                     "https://raw.githubusercontent.com/",
                     "Homebrew/install/HEAD/uninstall.sh",
                 ]
