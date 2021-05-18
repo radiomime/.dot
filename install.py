@@ -58,7 +58,7 @@ def uninstall():
     # Rust().uninstall()
     # Ripgrep().uninstall()
     # Kitty().uninstall()
-    # Fish().uninstall()
+    Fish().uninstall()
     # Tldr().uninstall()
     # Starship().uninstall()
     # Snap().uninstall()
