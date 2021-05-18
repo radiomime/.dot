@@ -208,6 +208,8 @@ class Neovim(Package):
         brew.brew_uninstall(
             pkgs="neovim",
         )
+
+        brew.brew_link(pkgs="neovim")
         # print("Uninstalling nvim binary")
         # subprocess.run(
         #     [
@@ -229,9 +231,6 @@ class Neovim(Package):
 
     def __install_providers(self):
         print("installing providers")
-        # pip = Pip().pip_install("pynvim")
+
         pip = Pip()
         pip.pip_install("pynvim")
-        # subprocess.run(
-        #     ["python3", "-m", "pip", "install", "--user", "--upgrade", "pynvim"]
-        # )

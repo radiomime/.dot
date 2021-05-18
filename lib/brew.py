@@ -71,6 +71,29 @@ class Brew(Package):
         print(f"brew updating {pkgs}")
         subprocess.run(cmd)
 
+    def brew_link(
+        self,
+        pkgs: Union[List[str], str],
+    ):
+        self.brew_update()
+        self.brew_upgrade()
+
+        if not isinstance(pkgs, list):
+            pkgs = [pkgs]
+
+        if not self.is_installed():
+            print(f"ERROR: brew is not installed, cannot link: {pkgs}")
+            return
+
+        cmd = [
+            "brew",
+            "link",
+        ]
+        cmd.extend(pkgs)
+
+        print(f"running brew link: {cmd}")
+        subprocess.run(cmd)
+
     def brew_upgrade(
         self,
         pkgs: Union[List[str], str] = [],
