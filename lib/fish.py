@@ -3,6 +3,7 @@ from typing import Optional
 
 from .abs_package import Package
 from .apt import Apt
+from .brew import Brew
 from .util import bin_loc, github_release_metadata, is_installed
 
 
@@ -52,3 +53,20 @@ class Fish(Package):
     def linux_uninstall(self):
         apt = Apt()
         apt.uninstall("fish")
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="fish",
+            flags="--HEAD",
+        )
+
+    # def osx_uninstall(self):
+    #     self.install_from_curled_script(
+    #         "".join(
+    #             [
+    #                 "https://raw.githubusercontent.com/",
+    #                 "Homebrew/install/HEAD/uninstall.sh",
+    #             ]
+    #         )
+    #     )
