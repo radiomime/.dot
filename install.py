@@ -23,7 +23,7 @@ def install():
     # # Rust().install()
     # Ripgrep().install()
     # Kitty().install()
-    Fish().install()
+    # Fish().install()
     # Tldr().install()
     # Starship().install()
 
@@ -58,7 +58,7 @@ def uninstall():
     # Rust().uninstall()
     # Ripgrep().uninstall()
     # Kitty().uninstall()
-    Fish().uninstall()
+    # Fish().uninstall()
     # Tldr().uninstall()
     # Starship().uninstall()
     # Snap().uninstall()

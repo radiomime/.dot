@@ -1,5 +1,5 @@
 import subprocess
-from typing import Optional, Union
+from typing import List, Optional, Union
 
 from .abs_package import Package
 from .util import getSys, github_release_metadata, is_installed, pkgInstalled
@@ -50,7 +50,7 @@ class Brew(Package):
 
     def brew_update(
         self,
-        pkgs: Union[list, str] = [],
+        pkgs: Union[List[str], str] = [],
     ):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
@@ -73,7 +73,7 @@ class Brew(Package):
 
     def brew_upgrade(
         self,
-        pkgs: Union[list, str] = [],
+        pkgs: Union[List[str], str] = [],
     ):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
@@ -96,8 +96,8 @@ class Brew(Package):
 
     def brew_install(
         self,
-        pkgs: Union[list[str], str],
-        flags: Optional[Union[list[str], str]] = None,
+        pkgs: Union[List[str], str],
+        flags: Optional[Union[List[str], str]] = None,
     ):
         self.brew_update()
         self.brew_upgrade()
