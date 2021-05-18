@@ -63,7 +63,14 @@ class Fish(Package):
             flags="--HEAD",
         )
 
-        self.__change_shell()
+        fish_loc = bin_loc("fish")
+
+        # subprocess.run([p])
+        if fish_loc is not None:
+            with open("file.txt", "a") as file:
+                file.write(fish_loc)
+
+            self.__change_shell()
 
     def osx_uninstall(self):
         brew = Brew()

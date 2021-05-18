@@ -141,71 +141,91 @@ class Neovim(Package):
     def osx_install(self):
         print("installing neovim for osx")
         brew = Brew()
-        brew.update()
+
+        brew.brew_install(
+            pkgs="luajit",
+            flags="--HEAD",
+        )
+
+        brew.brew_install(
+            pkgs="neovim",
+            flags="--HEAD",
+        )
+        # brew install --HEAD luajit
+        # brew install --HEAD neovim
         # brew.install('neovim')
-        brew.install(
-            [
-                "ninja",
-                "libtool",
-                "automake",
-                "cmake",
-                "pkg-config",
-                "gettext",
-            ]
-        )
+        # brew.brew_install(
+        #     [
+        #         "ninja",
+        #         "libtool",
+        #         "automake",
+        #         "cmake",
+        #         "pkg-config",
+        #         "gettext",
+        #     ]
+        # )
 
-        print("Cloning neovim directory")
-        subprocess.run(
-            [
-                "git",
-                "clone",
-                "https://github.com/neovim/neovim",
-                self.install_path,
-            ]
-        )
+        # print("Cloning neovim directory")
+        # subprocess.run(
+        #     [
+        #         "git",
+        #         "clone",
+        #         "https://github.com/neovim/neovim",
+        #         self.install_path,
+        #     ]
+        # )
 
-        print("Making neovim")
-        subprocess.run(
-            [
-                "make",
-                "--directory",
-                self.install_path,
-                "CMAKE_BUILD_TYPE=Release",
-            ]
-        )
+        # print("Making neovim")
+        # subprocess.run(
+        #     [
+        #         "make",
+        #         "--directory",
+        #         self.install_path,
+        #         "CMAKE_BUILD_TYPE=Release",
+        #     ]
+        # )
 
-        print("Installing neovim")
-        subprocess.run(
-            [
-                "sudo",
-                "make",
-                "--directory",
-                self.install_path,
-                "install",
-            ]
-        )
+        # print("Installing neovim")
+        # subprocess.run(
+        #     [
+        #         "sudo",
+        #         "make",
+        #         "--directory",
+        #         self.install_path,
+        #         "install",
+        #     ]
+        # )
 
         self.__install_providers()
 
     def osx_uninstall(self):
-        print("Uninstalling nvim binary")
-        subprocess.run(
-            [
-                "sudo",
-                "rm",
-                "/usr/local/bin/nvim",
-            ]
+        brew = Brew()
+
+        brew.brew_uninstall(
+            pkgs="luajit",
         )
 
-        print("Uninstalling nvim local share")
-        subprocess.run(
-            [
-                "sudo",
-                "rm",
-                "-rf",
-                "/usr/local/share/nvim",
-            ]
+        brew.brew_uninstall(
+            pkgs="neovim",
         )
+        # print("Uninstalling nvim binary")
+        # subprocess.run(
+        #     [
+        #         "sudo",
+        #         "rm",
+        #         "/usr/local/bin/nvim",
+        #     ]
+        # )
+
+        # print("Uninstalling nvim local share")
+        # subprocess.run(
+        #     [
+        #         "sudo",
+        #         "rm",
+        #         "-rf",
+        #         "/usr/local/share/nvim",
+        #     ]
+        # )
 
     def __install_providers(self):
         print("installing providers")

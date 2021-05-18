@@ -45,7 +45,7 @@ def install():
 
 
 def uninstall():
-    Brew().uninstall()
+    # Brew().uninstall()
     # print("uninstalling things")
     # Dot().uninstall()
 
@@ -71,7 +71,7 @@ def uninstall():
     # Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
-    Neovim().uninstall()
+    # Neovim().uninstall()
     # Docker().uninstall()
 
 
