@@ -54,6 +54,8 @@ class Fish(Package):
         apt = Apt()
         apt.uninstall("fish")
 
+        self.__change_shell(shell="bash")
+
     def osx_install(self):
         brew = Brew()
         brew.brew_install(
@@ -61,12 +63,12 @@ class Fish(Package):
             flags="--HEAD",
         )
 
-    # def osx_uninstall(self):
-    #     self.install_from_curled_script(
-    #         "".join(
-    #             [
-    #                 "https://raw.githubusercontent.com/",
-    #                 "Homebrew/install/HEAD/uninstall.sh",
-    #             ]
-    #         )
-    #     )
+        self.__change_shell()
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="fish",
+        )
+
+        self.__change_shell(shell="zsh")
