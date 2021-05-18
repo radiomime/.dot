@@ -122,7 +122,7 @@ class Brew(Package):
 
             cmd.extend(flags)
 
-        print(f"brew installing {pkgs}")
+        print(f"running brew install {cmd}")
         subprocess.run(cmd)
 
     def brew_uninstall(self, pkgs: Union[list, str]):
