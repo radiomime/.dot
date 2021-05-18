@@ -151,6 +151,7 @@ class Neovim(Package):
             pkgs="neovim",
             flags="--HEAD",
         )
+        brew.brew_link(pkgs="neovim")
         # brew install --HEAD luajit
         # brew install --HEAD neovim
         # brew.install('neovim')
@@ -209,7 +210,6 @@ class Neovim(Package):
             pkgs="neovim",
         )
 
-        brew.brew_link(pkgs="neovim")
         # print("Uninstalling nvim binary")
         # subprocess.run(
         #     [
