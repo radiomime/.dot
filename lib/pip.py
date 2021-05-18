@@ -18,7 +18,7 @@ class Pip(Package):
             ]
         )
         output = output.decode("utf-8")
-        return "No module named" in output
+        return "No module named" not in output
 
     def get_version(self):
         output = subprocess.check_output(
