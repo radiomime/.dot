@@ -12,17 +12,17 @@ class Brew(Package):
         return is_installed("brew")
 
     def get_version(self):
-        # output = subprocess.check_output(
-        #     [
-        #         "brew",
-        #         "--version",
-        #     ]
-        # )
-        # output = output.decode("utf-8")
-        # for line in output.split("\n"):
-        #     words = line.split(" ")
-        #     if words[0] == "Mitmproxy:":
-        #         return words[1]
+        output = subprocess.check_output(
+            [
+                "brew",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "Homebrew":
+                return words[1]
 
         # should never be hit
         return None
