@@ -11,7 +11,7 @@ from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
-    Neovim().install()
+    # Neovim().install()
     # Dot().install()
 
     # print("*** installing packages")
