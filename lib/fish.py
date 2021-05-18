@@ -64,10 +64,9 @@ class Fish(Package):
         )
 
         fish_loc = bin_loc("fish")
-
         # subprocess.run([p])
         if fish_loc is not None:
-            with open("file.txt", "a") as file:
+            with open("/etc/shells", "a") as file:
                 file.write(fish_loc)
 
             self.__change_shell()
