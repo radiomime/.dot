@@ -45,7 +45,7 @@ def install():
 
 
 def uninstall():
-    # Brew().uninstall()
+    Brew().uninstall()
     # print("uninstalling things")
     # Dot().uninstall()
 
