@@ -2,36 +2,43 @@
 import argparse
 import sys
 
-from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
+
+from lib import (Tmux, Hammerspoon, Bandwhich, Pyright, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
                  Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry,
                  Ripgrep, Rust, Snap, Starship, Terraform, Tldr, Watchexec,
                  Yarn)
+
+
+
 
 
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
     Neovim().install()
-    # Dot().install()
+    Dot().install()
 
     # print("*** installing packages")
-    # Mitmproxy().install()
+    Mitmproxy().install()
     # # Nerdfonts().install()
-    # Bat().install()
-    # Bandwhich().install()
-    # Exa().install()
-    # # Rust().install()
-    # Ripgrep().install()
-    # Kitty().install()
+    Bat().install()
+    Pyright().install()
+    Bandwhich().install()
+    Tmux().install()
+    Hammerspoon().install()
+    Exa().install()
+    Rust().install()
+    Ripgrep().install()
+    Kitty().install()
     Fish().install()
-    # Tldr().install()
-    # Starship().install()
+    Tldr().install()
+    Starship().install()
 
-    # Snap().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Node().install()
+    Snap().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Node().install()
     # Yarn().install()
     # Watchexec().install()
     # # SwiftFormat().install()
@@ -49,22 +56,25 @@ def uninstall():
     # print("uninstalling things")
     # Dot().uninstall()
 
-    # Mitmproxy().uninstall()
-    # Go().uninstall()
+    Mitmproxy().uninstall()
+    Go().uninstall()
     # Nerdfonts().uninstall()
-    # Bandwhich().uninstall()
-    # Bat().uninstall()
-    # Exa().uninstall()
+    Bandwhich().uninstall()
+    Tmux().uninstall()
+    Hammerspoon().uninstall()
+    Bat().uninstall()
+    Pyright().uninstall()
+    Exa().uninstall()
     # Rust().uninstall()
-    # Ripgrep().uninstall()
-    # Kitty().uninstall()
+    Ripgrep().uninstall()
+    Kitty().uninstall()
     Fish().uninstall()
-    # Tldr().uninstall()
-    # Starship().uninstall()
-    # Snap().uninstall()
-    # Poetry().uninstall()
-    # Terraform().uninstall()
-    # Node().uninstall()
+    Tldr().uninstall()
+    Starship().uninstall()
+    Snap().uninstall()
+    Poetry().uninstall()
+    Terraform().uninstall()
+    Node().uninstall()
     # Yarn().uninstall()
     # Minikube().uninstall()
     # Kubectl().uninstall()

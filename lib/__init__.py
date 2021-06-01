@@ -1,7 +1,10 @@
 __version__ = "0.1.0"
 
 
+from .tmux import Tmux  # noqa
+from .hammerspoon import Hammerspoon  # noqa
 from .bandwhich import Bandwhich  # noqa
+from .pyright import Pyright  # noqa
 from .bat import Bat  # noqa
 from .bpytop import Bpytop  # noqa
 from .brew import Brew  # noqa
