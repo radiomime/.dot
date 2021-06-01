@@ -6,7 +6,6 @@ Things to checkout, incorporate, etc.
 
 ## kubect install minikube and docker, etc
 
-
 * indicator-sensors
 * `https://github.com/kgshank/gse-sound-output-device-chooser`
 
@@ -20,12 +19,6 @@ Checkout
 ### npm to install
 
 ### FZF + ripgrep
-
-### Make this into an inheritance problem!
-Look at the package isntallations. So many of them are the same. They all have
-linuxInstall(), etc private methods and install()/uninstall()
-
-### snap to install
 
 ### Good with fugitive
 https://github.com/idanarye/vim-merginal
