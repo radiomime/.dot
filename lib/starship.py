@@ -1,5 +1,8 @@
 import subprocess
 
+
+from .brew import Brew
+
 from .abs_package import Package
 from .util import bin_loc, github_release_metadata, is_installed
 
@@ -40,3 +43,15 @@ class Starship(Package):
                     starship_loc,
                 ]
             )
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="starship",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="starship",
+        )
+

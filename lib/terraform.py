@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
 from .util import github_release_metadata, is_installed
@@ -54,3 +55,15 @@ class Terraform(Package):
                 f"{self.path}/terraform",
             ]
         )
+    def osx_install(self):
+
+        brew = Brew()
+        brew.brew_install(
+            pkgs="terraform",
+        )
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="terraform",
+        )
+

@@ -1,4 +1,5 @@
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
 from .apt import Apt
@@ -22,6 +23,20 @@ class Node(Package):
 
         output = output.decode("utf-8")
         return output[1:].strip()
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="node",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="node",
+        )
+
+
 
     def linux_install(self):
         installSource = "https://deb.nodesource.com/setup_current.x"

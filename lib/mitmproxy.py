@@ -1,4 +1,5 @@
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
 from .util import github_release_metadata, is_installed
@@ -55,3 +56,15 @@ class Mitmproxy(Package):
             ]
         )
         print("note: not removing ~/.mitmproxy directory")
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="mitmproxy",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="mitmproxy",
+        )
+

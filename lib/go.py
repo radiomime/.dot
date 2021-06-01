@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
 from .snap import Snap
@@ -36,3 +37,16 @@ class Go(Package):
     def linux_uninstall(self):
         snap = Snap()
         snap.snap_uninstall("go")
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="go",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="go",
+        )
+
