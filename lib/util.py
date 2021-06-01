@@ -24,9 +24,15 @@ def is_installed_osx_app(name) -> bool:
 
     output = output.decode("utf-8")
     apps = output.split("\n")
+
+    # ignore case
+    apps = [app.lower() for app in apps]
+    name = name.lower()
+
+
     if name in apps:
         return True
-    elif f"{name}.app" in apps:
+    elif f"{name}.app".lower() in apps:
         return True
     else:
         return False
