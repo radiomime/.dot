@@ -139,6 +139,9 @@ Plug 'vimlab/split-term.vim'
 " start page
 Plug 'mhinz/vim-startify'
 
+" colors
+Plug 'flazz/vim-colorschemes'
+
 """"""""""
 " visual
 """
@@ -489,7 +492,8 @@ nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 autocmd BufEnter * lua require'completion'.on_attach()
-" lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+
+lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 " lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
@@ -570,8 +574,13 @@ endfunction
 syntax on
 set ruler
 
-" colorscheme
-silent! colorscheme molokai
+" molokai colorscheme
+colorscheme molokai
+
+" gruvbox colorscheme
+" let g:gruvbox_contrast_dark = 'hard'
+" colorscheme gruvbox
+" set background=dark
 
 " line numbers
 set number relativenumber
@@ -615,6 +624,7 @@ command! ZoomToggle call s:ZoomToggle()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " lsp-config
 """
+
 " -- SWIFT
 " local lspconfig = require'lspconfig'
 " local configs = require'lspconfig/configs'
@@ -631,6 +641,7 @@ command! ZoomToggle call s:ZoomToggle()
 "     }
 " end
 " lspconfig.sourcekit_lsp.setup{on_attach = on_attach}"""""""""""""""""""""""""""
+"
 lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
