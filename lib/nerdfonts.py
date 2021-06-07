@@ -16,30 +16,48 @@ class Nerdfonts(Package):
     def get_version(self):
         return None
 
+    def __clone_to_config(self):
+        print("CLONE TO A CONFIG DIRECTORY")
+
+    def __install(self):
+        self.__clone_to_config()
+
+        # subprocess.run(
+        #     [
+        #         "git",
+        #         "clone",
+        #         "--quiet",
+        #         "--depth",
+        #         "1",
+        #         "https://github.com/ryanoasis/nerd-fonts.git",
+        #         "nerd-fonts",
+        #     ]
+        # )
+
+        # subprocess.run(
+        #     [
+        #         "./nerd-fonts/install.sh",
+        #         "Meslo",
+        #     ]
+        # )
+
+        # subprocess.run(
+        #     [
+        #         "./nerd-fonts/install.sh",
+        #         "FiraCode",
+        #     ]
+        # )
+
+        # subprocess.run(
+        #     [
+        #         "rm",
+        #         "-rf",
+        #         "nerd-fonts",
+        #     ]
+        # )
+
     def linux_install(self):
-        subprocess.run(
-            [
-                "git",
-                "clone",
-                "--quiet",
-                "--depth",
-                "1",
-                "https://github.com/ryanoasis/nerd-fonts.git",
-                "nerd-fonts",
-            ]
-        )
+        self.__install()
 
-        subprocess.run(
-            [
-                "./nerd-fonts/install.sh",
-                "Meslo",
-            ]
-        )
-
-        subprocess.run(
-            [
-                "rm",
-                "-rf",
-                "nerd-fonts",
-            ]
-        )
+    def osx_install(self):
+        self.__install()
