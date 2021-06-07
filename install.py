@@ -3,13 +3,35 @@ import argparse
 import sys
 
 
-from lib import (Tmux, Hammerspoon, Bandwhich, Pyright, Bat, Brew, Docker, Dot, Exa, Fish, Go, Kitty,
-                 Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry,
-                 Ripgrep, Rust, Snap, Starship, Terraform, Tldr, Watchexec,
-                 Yarn)
-
-
-
+from lib import (
+    Tmux,
+    Hammerspoon,
+    Bandwhich,
+    Pyright,
+    Bat,
+    Brew,
+    Docker,
+    Dot,
+    Exa,
+    Fish,
+    Go,
+    Kitty,
+    Kubectl,
+    Minikube,
+    Mitmproxy,
+    Neovim,
+    Nerdfonts,
+    Node,
+    Poetry,
+    Ripgrep,
+    Rust,
+    Snap,
+    Starship,
+    Terraform,
+    Tldr,
+    Watchexec,
+    Yarn,
+)
 
 
 def install():
@@ -20,7 +42,7 @@ def install():
 
     # print("*** installing packages")
     Mitmproxy().install()
-    # # Nerdfonts().install()
+    Nerdfonts().install()
     Bat().install()
     Pyright().install()
     Bandwhich().install()
@@ -39,7 +61,7 @@ def install():
     Poetry().install()
     Terraform().install()
     Node().install()
-    # Yarn().install()
+    Yarn().install()
     # Watchexec().install()
     # # SwiftFormat().install()
 
@@ -75,7 +97,7 @@ def uninstall():
     Poetry().uninstall()
     Terraform().uninstall()
     Node().uninstall()
-    # Yarn().uninstall()
+    Yarn().uninstall()
     # Minikube().uninstall()
     # Kubectl().uninstall()
     # Watchexec().uninstall()
