@@ -2,36 +2,10 @@
 import argparse
 import sys
 
-
-from lib import (
-    Tmux,
-    Hammerspoon,
-    Bandwhich,
-    Pyright,
-    Bat,
-    Brew,
-    Docker,
-    Dot,
-    Exa,
-    Fish,
-    Go,
-    Kitty,
-    Kubectl,
-    Minikube,
-    Mitmproxy,
-    Neovim,
-    Nerdfonts,
-    Node,
-    Poetry,
-    Ripgrep,
-    Rust,
-    Snap,
-    Starship,
-    Terraform,
-    Tldr,
-    Watchexec,
-    Yarn,
-)
+from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Hammerspoon,
+                 Kitty, Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node,
+                 Poetry, Pyright, Ripgrep, Rust, Snap, Starship, Terraform,
+                 Tldr, Tmux, Watchexec, Yarn)
 
 
 def install():
