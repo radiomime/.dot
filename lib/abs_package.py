@@ -3,12 +3,15 @@ import subprocess
 from abc import ABC, abstractmethod
 from typing import List, Optional, Union
 
-from .util import get_os
+from .util import get_architecture, get_distro, get_distro_codename, get_os
 
 
 class Package(ABC):
     def __init__(self):
         self.os = get_os()
+        self.architecture = get_architecture()
+        self.distro = get_distro()
+        self.distro_codename = get_distro_codename()
         self.user = getpass.getuser()
         self.path = "/usr/local/bin"
 
