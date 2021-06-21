@@ -2,6 +2,8 @@
 
 Things to checkout, incorporate, etc.
 
+CARGO INSTALL ripgrep! At least for linux
+
 ## popos specific gui plugins?
 
 ## kubect install minikube and docker, etc
