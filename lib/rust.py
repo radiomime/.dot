@@ -62,7 +62,7 @@ class Rust(Package):
         cmd = [
             "cargo",
             "install",
-            "--quiet",
+            # "--quiet",
         ]
         cmd.extend(pkgs)
 
