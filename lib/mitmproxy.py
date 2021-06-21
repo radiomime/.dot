@@ -30,7 +30,7 @@ class Mitmproxy(Package):
         return None
 
     def __pip_install(self):
-        pip = Pip
+        pip = Pip()
         pip.pip_install("mitmproxy")
 
     def linux_install(self):
