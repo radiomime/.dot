@@ -2,8 +2,6 @@
 import subprocess
 from os.path import abspath, expanduser
 
-from lib.util import getSys
-
 from .abs_package import Package
 
 # from .util import github_release_metadata, is_installed

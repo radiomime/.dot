@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import argparse
-import sys
 
 from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Hammerspoon,
                  Kitty, Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node,

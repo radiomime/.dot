@@ -3,13 +3,11 @@ import subprocess
 import time
 from os.path import abspath, expanduser
 
-from lib.util import getSys, pkgInstalled
-
 from .abs_package import Package
 from .apt import Apt
 from .brew import Brew
 from .pip import Pip
-from .util import github_release_metadata, is_installed
+from .util import is_installed
 
 
 class Neovim(Package):

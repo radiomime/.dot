@@ -2,7 +2,7 @@ import subprocess
 from typing import List, Optional, Union
 
 from .abs_package import Package
-from .util import getSys, github_release_metadata, is_installed, pkgInstalled
+from .util import is_installed
 
 
 class Brew(Package):
