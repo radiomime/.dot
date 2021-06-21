@@ -40,7 +40,7 @@ def install():
 
     # # # Docker and k8s. Order matters.
     # # TODO: minikube should install docker, etc
-    # Docker().install()
+    Docker().install()
 
     # Minikube().install()
     # Kubectl().install()
