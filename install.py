@@ -10,8 +10,8 @@ from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Hammerspoon,
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
-    Neovim().install()
-    Dot().install()
+    # Neovim().install()
+    # Dot().install()
 
     # # print("*** installing packages")
     # Mitmproxy().install()
