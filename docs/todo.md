@@ -2,6 +2,9 @@
 
 Things to checkout, incorporate, etc.
 
+## shell management
+fish on uninstall should check for shell as available shells!
+
 CARGO INSTALL ripgrep! At least for linux
 
 ## popos specific gui plugins?
