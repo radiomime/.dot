@@ -40,9 +40,8 @@ class Brew(Package):
 
     def osx_uninstall(self):
         self.install_from_curled_script(
-            "".join(
+            address="".join(
                 [
-                    "sudo",
                     "https://raw.githubusercontent.com/",
                     "Homebrew/install/HEAD/uninstall.sh",
                 ]
