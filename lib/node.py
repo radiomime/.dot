@@ -1,8 +1,8 @@
 import subprocess
-from .brew import Brew
 
 from .abs_package import Package
 from .apt import Apt
+from .brew import Brew
 from .util import is_installed
 
 
@@ -35,8 +35,6 @@ class Node(Package):
         brew.brew_uninstall(
             pkgs="node",
         )
-
-
 
     def linux_install(self):
         installSource = "https://deb.nodesource.com/setup_current.x"
@@ -88,5 +86,5 @@ class Node(Package):
         ]
         cmd.extend(pkgs)
 
-        print("installing:", pkgs)
+        print("uninstalling:", pkgs)
         subprocess.run(cmd)

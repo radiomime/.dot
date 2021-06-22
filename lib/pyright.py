@@ -1,13 +1,9 @@
 import subprocess
-from .node import Node
 
-from .brew import Brew
 from .abs_package import Package
+from .brew import Brew
+from .node import Node
 from .util import github_release_metadata, is_installed
-
-
-
-
 
 
 class Pyright(Package):
@@ -36,10 +32,8 @@ class Pyright(Package):
 
     def osx_install(self):
         node = Node()
-        node.node_install('pyright')
-
+        node.node_install("pyright")
 
     def osx_uninstall(self):
         node = Node()
-        node.node_uninstall('pyright')
-
+        node.node_uninstall("pyright")
