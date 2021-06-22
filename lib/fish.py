@@ -31,7 +31,7 @@ class Fish(Package):
         return None
 
     def __change_shell(self, shell="fish"):
-        print("changing to fish shell")
+        print(f"***changing shell to {shell}")
         shell = bin_loc(shell)
         if shell:
             subprocess.run(
