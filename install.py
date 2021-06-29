@@ -1,83 +1,108 @@
 #!/usr/bin/env python3
 import argparse
 
-from lib import (Bandwhich, Bat, Brew, Docker, Dot, Exa, Fish, Go, Hammerspoon,
-                 Kitty, Kubectl, Minikube, Mitmproxy, Neovim, Nerdfonts, Node,
-                 Poetry, Pyright, Ripgrep, Rust, Snap, Starship, Terraform,
-                 Tldr, Tmux, Watchexec, Yarn)
+from lib import (
+    Bandwhich,
+    Bat,
+    Brew,
+    Docker,
+    Dot,
+    Exa,
+    Fish,
+    Go,
+    Hammerspoon,
+    Kitty,
+    Kubectl,
+    Minikube,
+    Mitmproxy,
+    Neovim,
+    Nerdfonts,
+    Node,
+    Poetry,
+    Pyright,
+    Ripgrep,
+    Rust,
+    Snap,
+    Starship,
+    Terraform,
+    Tldr,
+    Tmux,
+    Watchexec,
+    Yarn,
+)
 
 
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
-    # Neovim().install()
-    # Dot().install()
+    Neovim().install()
+    Dot().install()
 
     # # print("*** installing packages")
-    # Mitmproxy().install()
+    Mitmproxy().install()
     # Nerdfonts().install()
-    # Bat().install()
-    # Pyright().install()
-    # Bandwhich().install()
-    # Tmux().install()
-    # Hammerspoon().install()
-    # Exa().install()
-    # Rust().install()
-    # Ripgrep().install()
-    # Kitty().install()
-    # Fish().install()
-    # Tldr().install()
-    # Starship().install()
+    Bat().install()
+    Pyright().install()
+    Bandwhich().install()
+    Tmux().install()
+    Hammerspoon().install()
+    Exa().install()
+    Rust().install()
+    Ripgrep().install()
+    Kitty().install()
+    Fish().install()
+    Tldr().install()
+    Starship().install()
 
-    # Snap().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Node().install()
-    # Yarn().install()
-    # Watchexec().install()
-    # # SwiftFormat().install()
+    Snap().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Node().install()
+    Yarn().install()
+    Watchexec().install()
+    # SwiftFormat().install()
 
-    # # # Docker and k8s. Order matters.
-    # # TODO: minikube should install docker, etc
-    # Docker().install()
+    # Docker and k8s. Order matters.
+    # TODO: minikube should install docker, etc
+    Docker().install()
 
-    # Minikube().install()
-    # Kubectl().install()
+    Minikube().install()
+    Kubectl().install()
 
 
 def uninstall():
-    Brew().uninstall()
     # print("uninstalling things")
-    # Dot().uninstall()
+    Dot().uninstall()
 
-    # Mitmproxy().uninstall()
-    # Go().uninstall()
-    # # Nerdfonts().uninstall()
-    # Bandwhich().uninstall()
-    # Tmux().uninstall()
-    # Hammerspoon().uninstall()
-    # Bat().uninstall()
-    # Pyright().uninstall()
-    # Exa().uninstall()
-    # # Rust().uninstall()
-    # Ripgrep().uninstall()
-    # Kitty().uninstall()
-    # Fish().uninstall()
-    # Tldr().uninstall()
-    # Starship().uninstall()
-    # Snap().uninstall()
-    # Poetry().uninstall()
-    # Terraform().uninstall()
-    # Node().uninstall()
-    # Yarn().uninstall()
-    # # Minikube().uninstall()
-    # # Kubectl().uninstall()
-    # # Watchexec().uninstall()
+    Mitmproxy().uninstall()
+    Go().uninstall()
+    Nerdfonts().uninstall()
+    Bandwhich().uninstall()
+    Tmux().uninstall()
+    Hammerspoon().uninstall()
+    Bat().uninstall()
+    Pyright().uninstall()
+    Exa().uninstall()
+    Rust().uninstall()
+    Ripgrep().uninstall()
+    Kitty().uninstall()
+    Fish().uninstall()
+    Tldr().uninstall()
+    Starship().uninstall()
+    Snap().uninstall()
+    Poetry().uninstall()
+    Terraform().uninstall()
+    Node().uninstall()
+    Yarn().uninstall()
+    Minikube().uninstall()
+    Kubectl().uninstall()
+    Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     Neovim().uninstall()
     # Docker().uninstall()
+    Brew().uninstall()
 
 
 def process_args() -> argparse.Namespace:
