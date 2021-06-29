@@ -3,7 +3,11 @@ import subprocess
 from abc import ABC, abstractmethod
 from typing import List, Optional, Union
 
-from .util import get_architecture, get_distro, get_distro_codename, get_os
+# from os.path import
+from os.path import abspath, expanduser
+from pathlib import Path
+
+from .util import get_architecture, get_distro, get_distro_codename, get_os, create_dir
 
 
 class Package(ABC):
@@ -14,6 +18,26 @@ class Package(ABC):
         self.distro_codename = get_distro_codename()
         self.user = getpass.getuser()
         self.path = "/usr/local/bin"
+        # TODO: is there a better spot for this?
+        self.repo_store = abspath("./.repos")
+
+        # create necessary directories
+        create_dir(self.repo_store)
+        # self.__create_dir
+        # def __init__(self, config_dir=abspath(expanduser("~/.config/nvim"))):
+
+    # def __create_dir(self, patk):
+    #     create_dir(self.repo_store)
+
+    #     # subprocess.run(
+    #     #     [
+    #     #         "mk",
+    #     #         "-fsSL",
+    #     #         address,
+    #     #         "-o",
+    #     #         zip_out,
+    #     #     ]
+    #     # )
 
     def __del__(self):
         if self.is_installed():
@@ -252,3 +276,63 @@ class Package(ABC):
                 zip_out,
             ]
         )
+
+    def get_git_project(
+        self,
+        address: str,
+        repo_dir_name: str,
+        flags: Optional[List[str]] = None,
+    ) -> None:
+        local_repo_loc = f"{self.repo_store}/{repo_dir_name}"
+        cmd = ["git"]
+        if Path(local_repo_loc).exists():
+            cmd.extend(["-C", local_repo_loc, "pull"])
+            # cmd = ["git", "-C", local_repo_loc, "pull"]
+        else:
+            cmd.extend(["clone"])
+            # cmd = [
+            #     "git",
+            #     "clone",
+            # ]
+
+            # add flags to command if they exist
+            if isinstance(flags, list):
+                cmd.extend(flags)
+
+            cmd.append(address)
+            cmd.append(local_repo_loc)
+        # cmd.extend()
+
+        print(f"running git clone {cmd}")
+        subprocess.run(cmd)
+
+        # subprocess.run([
+        #     "git", "clone",
+        # ])
+        # zip_out = "tmp.zip"
+        # subprocess.run(
+        #     [
+        #         "curl",
+        #         "-fsSL",
+        #         address,
+        #         "-o",
+        #         zip_out,
+        #     ]
+        # )
+
+        # subprocess.run(
+        #     [
+        #         "sudo",
+        #         "unzip",
+        #         zip_out,
+        #         "-d",
+        #         self.path,
+        #     ]
+        # )
+
+        # subprocess.run(
+        #     [
+        #         "rm",
+        #         zip_out,
+        #     ]
+        # )
