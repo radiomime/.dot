@@ -138,18 +138,29 @@ class Neovim(Package):
 
     def osx_install(self):
         print("installing neovim for osx")
-        brew = Brew()
+        print("TODO: Put the commands in comments into code")
+        # below are commands to install
+        # xcode-select --install
+        # brew install ninja libtool automake cmake pkg-config gettext
+        # git clone git@github.com:neovim/neovim.git
+        # cd neovim
+        # make
 
-        brew.brew_install(
-            pkgs="luajit",
-            flags="--HEAD",
-        )
 
-        brew.brew_install(
-            pkgs="neovim",
-            flags="--HEAD",
-        )
-        brew.brew_link(pkgs="neovim")
+
+
+        # brew = Brew()
+
+        # brew.brew_install(
+        #     pkgs="luajit",
+        #     flags="--HEAD",
+        # )
+
+        # brew.brew_install(
+        #     pkgs="neovim",
+        #     flags="--HEAD",
+        # )
+        # brew.brew_link(pkgs="neovim")
         # brew install --HEAD luajit
         # brew install --HEAD neovim
         # brew.install('neovim')
@@ -198,15 +209,16 @@ class Neovim(Package):
         self.__install_providers()
 
     def osx_uninstall(self):
-        brew = Brew()
+        print('osx uninstall is in a bad state for neovim!!!')
+        # brew = Brew()
 
-        brew.brew_uninstall(
-            pkgs="luajit",
-        )
+        # brew.brew_uninstall(
+        #     pkgs="luajit",
+        # )
 
-        brew.brew_uninstall(
-            pkgs="neovim",
-        )
+        # brew.brew_uninstall(
+        #     pkgs="neovim",
+        # )
 
         # print("Uninstalling nvim binary")
         # subprocess.run(
