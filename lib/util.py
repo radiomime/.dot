@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-# from sys import platform
 import platform
 import subprocess
 from shutil import which
 from typing import Literal, Optional
 
 import distro
+from pathlib import Path
 import requests
+from os.path import abspath
+
+
+def create_dir(path: str) -> None:
+    Path(abspath(path)).mkdir(parents=True, exist_ok=True)
 
 
 def is_installed_osx_app(name) -> bool:
