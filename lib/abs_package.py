@@ -9,8 +9,10 @@ from pathlib import Path
 from .util import get_architecture, get_distro, get_distro_codename, get_os, create_dir
 
 
+
+
 class Package(ABC):
-    def __init__(self):
+    def __init__(self):    
         self.os = get_os()
         self.architecture = get_architecture()
         self.distro = get_distro()
@@ -282,5 +284,5 @@ class Package(ABC):
             cmd.append(address)
             cmd.append(local_repo_loc)
 
-        print(f"running git clone {cmd}")
+        # print(f"running git clone {cmd}")
         subprocess.run(cmd)

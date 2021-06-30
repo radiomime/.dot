@@ -86,7 +86,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'tpope/vim-sensible'
 
 " ale linting
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " linting and fixing for swift
 Plug 'sbdchd/neoformat'
@@ -252,20 +252,20 @@ tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
 " TODO: move all of these to ftplugins as ale docs suggest
 " TODO: include prettier on js fixers?
 
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
+" let g:ale_sign_error = '●'
+" let g:ale_sign_warning = '.'
 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \   'javascript': ['eslint'],
-            \   'typescript': ['eslint'],
-            \   'python': ['black', 'isort'],
-            \}
+" let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+"             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+"             \   'javascript': ['eslint'],
+"             \   'typescript': ['eslint'],
+"             \   'python': ['black', 'isort'],
+"             \}
 
-let g:ale_linters = {
-            \   'python': ['flake8'],
-            \}
+" let g:ale_linters = {
+"             \   'python': ['flake8'],
+"             \}
 
 " g:ale_python_black_options = '--line-length 80'
 

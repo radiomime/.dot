@@ -149,8 +149,8 @@ class Brew(Package):
         subprocess.run(cmd)
 
     def brew_uninstall(self, pkgs: Union[list, str]):
-        self.brew_update()
-        self.brew_upgrade()
+        # self.brew_update()
+        # self.brew_upgrade()
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]

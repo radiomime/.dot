@@ -36,31 +36,11 @@ class Watchexec(Package):
         rust = Rust()
         rust.cargo_uninstall("watchexec-cli")
 
-    # def linux_install(self):
-    #     watchexec = github_release_metadata("watchexec/watchexec")
-    #     watchexec = watchexec["tag_name"][1:]
+    def osx_install(self):
+        rust = Rust()
+        rust.cargo_install("watchexec-cli")
 
-    #     watchexec = "".join(
-    #         [
-    #             "https://snapshots.watchexec.org/",
-    #             watchexec,
-    #             "/watchexec-",
-    #             watchexec,
-    #             "-linux.tar.gz",
-    #         ]
-    #     )
+    def osx_uninstall(self):
+        rust = Rust()
+        rust.cargo_uninstall("watchexec-cli")
 
-    #     self.install_pkg_from_tarball(mitm_tarball_address)
-
-    # # def linux_uninstall(self):
-    # #     subprocess.run(
-    # #         [
-    # #             "sudo",
-    # #             "rm",
-    # #             "-f",
-    # #             f"{self.path}/mitmweb",
-    # #             f"{self.path}/mitmproxy",
-    # #             f"{self.path}/mitmdump",
-    # #         ]
-    # #     )
-    # #     print("note: not removing ~/.mitmproxy directory")

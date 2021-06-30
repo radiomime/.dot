@@ -14,18 +14,17 @@ class Pyright(Package):
         return is_installed("pyright")
 
     def get_version(self):
-
-        # output = subprocess.check_output(
-        #     [
-        #         "rg",
-        #         "--version",
-        #     ]
-        # )
-        # output = output.decode("utf-8")
-        # for line in output.split("\n"):
-        #     words = line.split(" ")
-        #     if words[0] == "ripgrep":
-        #         return words[1]
+        output = subprocess.check_output(
+            [
+                "pyright",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "pyright":
+                return words[1]
 
         # should never be hit
         return None

@@ -4,6 +4,7 @@ import subprocess
 from .abs_package import Package
 
 
+
 class Nerdfonts(Package):
     def __init__(self):
         super().__init__()
@@ -29,6 +30,7 @@ class Nerdfonts(Package):
         subprocess.run(
             [
                 f"{self.repo_store}/nerd-fonts/install.sh",
+                "--quiet",
                 "Meslo",
                 "FiraCode",
             ]

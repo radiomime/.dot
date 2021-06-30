@@ -1,4 +1,5 @@
 import os
+from .brew import Brew
 import subprocess
 
 import distro
@@ -143,4 +144,18 @@ class Docker(Package):
                 "rm",
                 f"{self.path}/docker-compose",
             ]
+        )
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="docker",
+            flags='--cask',
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="docker",
+            # flags='--cask',
         )
