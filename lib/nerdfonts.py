@@ -3,8 +3,6 @@ import subprocess
 
 from .abs_package import Package
 
-# from .util import github_release_metadata, is_installed
-
 
 class Nerdfonts(Package):
     def __init__(self):
@@ -16,8 +14,8 @@ class Nerdfonts(Package):
     def get_version(self):
         return None
 
-    def __clone_repo(self) -> None:
-        print("CLONE TO A CONFIG DIRECTORY")
+    def __install(self):
+        # clone git repo
         self.get_git_project(
             address="https://github.com/ryanoasis/nerd-fonts.git",
             repo_dir_name="nerd-fonts",
@@ -28,42 +26,13 @@ class Nerdfonts(Package):
             ],
         )
 
-    def __install(self):
-        self.__clone_repo()
-
-        # subprocess.run(
-        #     [
-        #         "git",
-        #         "clone",
-        #         "--quiet",
-        #         "--depth",
-        #         "1",
-        #         "https://github.com/ryanoasis/nerd-fonts.git",
-        #         "nerd-fonts",
-        #     ]
-        # )
-
-        # subprocess.run(
-        #     [
-        #         "./nerd-fonts/install.sh",
-        #         "Meslo",
-        #     ]
-        # )
-
-        # subprocess.run(
-        #     [
-        #         "./nerd-fonts/install.sh",
-        #         "FiraCode",
-        #     ]
-        # )
-
-        # subprocess.run(
-        #     [
-        #         "rm",
-        #         "-rf",
-        #         "nerd-fonts",
-        #     ]
-        # )
+        subprocess.run(
+            [
+                f"{self.repo_store}/nerd-fonts/install.sh",
+                "Meslo",
+                "FiraCode",
+            ]
+        )
 
     def linux_install(self):
         self.__install()
