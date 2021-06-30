@@ -14,8 +14,7 @@ class Kitty(Package):
 
     def get_version(self):
         if is_installed_osx_app('kitty'):
-            print('info: mac app versions unsupported')
-            return None
+            return "mac app version unsupported"
 
         output = subprocess.check_output(
             [

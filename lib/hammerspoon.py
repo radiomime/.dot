@@ -14,8 +14,7 @@ class Hammerspoon(Package):
 
     def get_version(self):
         if is_installed_osx_app('hammerspoon'):
-            print('info: mac app versions unsupported')
-            return None
+            return "mac app version unsupported"
 
         output = subprocess.check_output(
             [
