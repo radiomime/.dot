@@ -475,26 +475,12 @@ let g:startify_lists = [
 let g:startify_custom_header = []
 nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 
-""""""""""
-" lsp colors
-"""
-" -- Lua
-" lua << EOF
-" require("lsp-colors").setup({
-"   Error = "#db4b4b",
-"   Warning = "#e0af68",
-"   Information = "#0db9d7",
-"   Hint = "#10B981"
-" })
-" EOF
 
-" Use completion-nvim in every buffer
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-autocmd BufEnter * lua require'completion'.on_attach()
 
-lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
-" lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " END: configure and map plugins
 """"""""""""""""""""""""""""""
@@ -622,8 +608,43 @@ command! ZoomToggle call s:ZoomToggle()
 " nnoremap <silent> <C-A> :ZoomToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" lsp
+"""
+
+""""""""""
+" lsp colors
+"""
+" lua << EOF
+" require("lsp-colors").setup({
+"   Error = "#db4b4b",
+"   Warning = "#e0af68",
+"   Information = "#0db9d7",
+"   Hint = "#10B981"
+" })
+" EOF
+
+" Use completion-nvim in every buffer
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+autocmd BufEnter * lua require'completion'.on_attach()
+
+lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+" lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+
+""""""""""
 " lsp-config
 """
+
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
+
+""""""""""
+" lsp-config OLD BELOW
+"""
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
 
 " -- SWIFT
 " local lspconfig = require'lspconfig'
@@ -642,9 +663,6 @@ command! ZoomToggle call s:ZoomToggle()
 " end
 " lspconfig.sourcekit_lsp.setup{on_attach = on_attach}"""""""""""""""""""""""""""
 "
-lua << EOF
-require'lspconfig'.pyright.setup{}
-EOF
 
 " lua << EOF
 " local nvim_lsp = require('lspconfig')

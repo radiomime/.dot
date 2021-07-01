@@ -12,6 +12,7 @@ from .util import github_release_metadata, is_installed
 class Docker(Package):
     def __init__(self):
         super().__init__()
+        what = 2
 
     def is_installed(self):
         return is_installed("docker")
