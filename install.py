@@ -25,6 +25,7 @@ from lib import (
     Snap,
     Starship,
     Terraform,
+
     Tldr,
     Tmux,
     Watchexec,
@@ -72,7 +73,7 @@ def install():
 
 
 def uninstall():
-    # print("uninstalling things")
+    print("uninstalling things")
     Dot().uninstall()
 
     Mitmproxy().uninstall()
