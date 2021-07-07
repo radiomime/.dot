@@ -1,5 +1,9 @@
 ## ToDo
 
+Add the fo.llowing!
+brew install efm-langserver
+
+
 Things to checkout, incorporate, etc.
 
 ## shell management
