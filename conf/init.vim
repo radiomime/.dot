@@ -127,6 +127,9 @@ Plug 'tpope/vim-jdaddy'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'kabouzeid/nvim-lspinstall'
+
+"
 " Plug 'folke/lsp-colors.nvim'
 " Plug 'nvim-lua/completion-nvim'
 
@@ -616,8 +619,8 @@ command! ZoomToggle call s:ZoomToggle()
 " lsp
 """
 " sane completion
-" set completeopt=menuone,noinsert,noselect
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Use nvim-compe in every buffer
 " autocmd BufEnter * lua require'compe'.on_attach()
@@ -637,6 +640,27 @@ command! ZoomToggle call s:ZoomToggle()
 
 " lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 " lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+
+""""""""""
+" language server installation
+"""
+lua << EOF
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+EOF
 
 """"""""""
 " autocomplete with compe
@@ -743,69 +767,77 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
+-- local servers = { "pyright", "rust_analyzer", "tsserver" }
+-- for _, lsp in ipairs(servers) do
+--   nvim_lsp[lsp].setup {
+--     on_attach = on_attach,
+--     flags = {
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
 EOF
 
 """"""""""
 " enable language servers
 """
 " lua << EOF
+" require'lspconfig'.efm.setup{}
+" EOF
+
+" lua << EOF
 " require'lspconfig'.pyright.setup{}
 " EOF
 
-lua << EOF
-require'lspconfig'.pyright.setup{}
-EOF
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
+
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
 
 """"""""""
 " auto formatting
 """
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+" autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " autocommand
 """"""""""""""""""""""""""""""
-augroup swiftformat
-    autocmd!
-    autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
-augroup END
+" augroup swiftformat
+"     autocmd!
+"     autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
+" augroup END
 
-function! s:setupMarkdownFormat()
-    set textwidth=79
-    " set wrapmargin=2
-endfunction
+" function! s:setupMarkdownFormat()
+"     set textwidth=79
+"     " set wrapmargin=2
+" endfunction
 
-function! s:markdownFormat()
-    " show underbars and asterisks for formating
-    let g:vim_markdown_conceal = 0
-    let g:vim_markdown_conceal_code_blocks = 0
-    " let g:vim_markdown_math = 1
-    " let g:vim_markdown_frontmatter = 1
+" function! s:markdownFormat()
+"     " show underbars and asterisks for formating
+"     let g:vim_markdown_conceal = 0
+"     let g:vim_markdown_conceal_code_blocks = 0
+"     " let g:vim_markdown_math = 1
+"     " let g:vim_markdown_frontmatter = 1
 
-    " format on save
-    echom "gq} edits until the end of the file"
+"     " format on save
+"     echom "gq} edits until the end of the file"
 
-    " let l:save_pos = getpos(".")
-    " exec 'normal! gggqG'
-    " call setpos('.', save_pos)
-endfunction
+"     " let l:save_pos = getpos(".")
+"     " exec 'normal! gggqG'
+"     " call setpos('.', save_pos)
+" endfunction
 
-augroup markdownWrapping
-  autocmd!
-  autocmd BufRead,BufNewFile *.md call s:setupMarkdownFormat()
-  autocmd BufWritePre *.md call s:markdownFormat()
-augroup END
+" augroup markdownWrapping
+"   autocmd!
+"   autocmd BufRead,BufNewFile *.md call s:setupMarkdownFormat()
+"   autocmd BufWritePre *.md call s:markdownFormat()
+" augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " dev playground
