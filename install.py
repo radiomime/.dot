@@ -19,7 +19,7 @@ from lib import (
     Nerdfonts,
     Node,
     Poetry,
-    Pyright,
+    # Pyright,
     Ripgrep,
     Rust,
     Snap,
@@ -33,6 +33,7 @@ from lib import (
 )
 
 
+
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
@@ -43,7 +44,7 @@ def install():
     Mitmproxy().install()
     Nerdfonts().install()
     Bat().install()
-    Pyright().install()
+    # Pyright().install()
     Bandwhich().install()
     Tmux().install()
     Hammerspoon().install()
@@ -83,7 +84,7 @@ def uninstall():
     Tmux().uninstall()
     Hammerspoon().uninstall()
     Bat().uninstall()
-    Pyright().uninstall()
+    # Pyright().uninstall()
     Exa().uninstall()
     Rust().uninstall()
     Ripgrep().uninstall()
