@@ -127,7 +127,6 @@ Plug 'tpope/vim-jdaddy'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-
 " Plug 'folke/lsp-colors.nvim'
 " Plug 'nvim-lua/completion-nvim'
 
@@ -762,6 +761,14 @@ EOF
 lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
+
+""""""""""
+" auto formatting
+"""
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 
 """"""""""
 " lsp-config OLD BELOW
