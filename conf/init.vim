@@ -644,34 +644,42 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 """"""""""
 " language server installation
 """
-lua << EOF
--- print("this is a test")
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-  --   print(servers)
-    print('setting up server:')
-    print(_)
-    print(server)
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- print(vim.inspect(capabilities))
-    -- require'lspconfig'[server].setup{on_attach=on_attach, capabilities = capabilities}
-    -- require'lspconfig'[server].setup{}
-  end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-EOF
+" lua << EOF
+" -- print("this is a test")
+" local function setup_servers()
+"   require'lspinstall'.setup()
+"   local servers = require'lspinstall'.installed_servers()
+"   for _, server in pairs(servers) do
+"   --   print(servers)
+"     print('setting up server:')
+"     print(_)
+"     print(server)
+"     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+"     -- print(vim.inspect(capabilities))
+"     -- require'lspconfig'[server].setup{on_attach=on_attach, capabilities = capabilities}
+"     -- require'lspconfig'[server].setup{}
+"   end
+" end
+" 
+" setup_servers()
+" 
+" -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+" require'lspinstall'.post_install_hook = function ()
+"   setup_servers() -- reload installed servers
+"   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+" end
+" EOF
 
 " new version from the creator of lsp install below
 lua << EOF
+-- local efm_settings = {
+--   rootMarkers = {".git/"},
+--   languages = {
+--       lua = {
+--           {formatCommand = "lua-format -i", formatStdin = true}
+--       }
+--   }
+-- }
 -- config that activates keymaps and enables snippet support
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -699,7 +707,19 @@ local function setup_servers()
     local config = make_config()
     if server == "efm" then
       config = vim.tbl_extend("force", config, require "efm")
+      config.settings = efm_settings
     end
+    -- require "lspconfig".efm.setup {
+    --     init_options = {documentFormatting = true},
+    --     settings = {
+    --         rootMarkers = {".git/"},
+    --         languages = {
+    --             lua = {
+    --                 {formatCommand = "lua-format -i", formatStdin = true}
+    --             }
+    --         }
+    --     }
+    -- }
 
     -- language specific config
     -- if server == "lua" then
