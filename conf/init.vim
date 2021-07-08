@@ -645,11 +645,19 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " language server installation
 """
 lua << EOF
+-- print("this is a test")
 local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
+  --   print(servers)
+    print('setting up server:')
+    print(_)
+    print(server)
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- print(vim.inspect(capabilities))
+    -- require'lspconfig'[server].setup{on_attach=on_attach, capabilities = capabilities}
+    -- require'lspconfig'[server].setup{}
   end
 end
 
@@ -657,6 +665,90 @@ setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
 require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+EOF
+
+" new version from the creator of lsp install below
+lua << EOF
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+  return {
+    -- enable snippet support
+    capabilities = capabilities,
+    -- map buffer local keybindings when the language server attaches
+    on_attach = on_attach,
+  }
+end
+
+-- lsp-install
+local function setup_servers()
+  require"lspinstall".setup()
+
+  -- get all installed servers
+  local servers = require"lspinstall".installed_servers()
+  -- ... and add manually installed servers
+  -- table.insert(servers, "sourcekit")
+  -- table.insert(servers, "hls")
+
+  for _, server in pairs(servers) do
+    local config = make_config()
+    if server == "efm" then
+      config = vim.tbl_extend("force", config, require "efm")
+    end
+
+    -- language specific config
+    -- if server == "lua" then
+    --   config.settings = lua_settings
+    --   config.root_dir = function(fname)
+    --     if fname:match("lush_theme") ~= nil then return nil end
+    --     local util = require "lspconfig/util"
+    --     return util.find_git_ancestor(fname) or util.path.dirname(fname)
+    --   end
+    -- end
+    -- if server == "sourcekit" then
+    --   config.filetypes = { "swift", "objective-c", "objective-cpp" } -- we don't want c and cpp!
+    -- end
+    -- if server == "clangd" then
+    --   config.filetypes = { "c", "cpp" } -- we don't want objective-c and objective-cpp!
+    -- end
+    -- if server == "diagnosticls" then
+    --   config = vim.tbl_extend("force", config, require "diagnosticls")
+    -- end
+    -- if server == "tailwindcss" then
+    --   config.settings = {
+    --     tailwindCSS = {
+    --       -- NOTE: values for `validate` and `lint.cssConflict` are required by the server
+    --       validate = true,
+    --       lint = { cssConflict = "warning" },
+    --     },
+    --   }
+    --   config.on_new_config = function(new_config)
+    --     new_config.settings.editor = {
+    --       -- optional, for hover code indentation
+    --       tabSize = vim.lsp.util.get_effective_tabstop(),
+    --     }
+    --   end
+    -- end
+    -- if server == "vim" then config.init_options = { isNeovim = true } end
+    -- if server == "hls" then
+    --   config.root_dir = require"lspconfig/util".root_pattern("*.cabal", "stack.yaml",
+    --                                                          "cabal.project", "package.yaml",
+    --                                                          "hie.yaml", ".git");
+    -- end
+
+    require"lspconfig"[server].setup(config)
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require"lspinstall".post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
@@ -781,8 +873,26 @@ EOF
 """"""""""
 " enable language servers
 """
+" I think this is already done with the setup_servers function!!
+" lua << EOF
+" require "lspconfig".efm.setup {
+"     init_options = {documentFormatting = true},
+"     settings = {
+"         rootMarkers = {".git/"},
+"         languages = {
+"             lua = {
+"                 {formatCommand = "lua-format -i", formatStdin = true}
+"             }
+"         }
+"     }
+" }
+" EOF
 " lua << EOF
 " require'lspconfig'.efm.setup{}
+" EOF
+"
+" lua << EOF
+" require'lspconfig'.pyls.setup{}
 " EOF
 
 " lua << EOF
