@@ -3,6 +3,8 @@
 Add the fo.llowing!
 brew install efm-langserver
 
+efm-langserver config symlink
+
 
 Things to checkout, incorporate, etc.
 
