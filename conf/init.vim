@@ -128,6 +128,8 @@ Plug 'tpope/vim-jdaddy'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'kabouzeid/nvim-lspinstall'
+" trying out
+" Plug 'mfussenegger/nvim-lint'
 
 "
 " Plug 'folke/lsp-colors.nvim'
@@ -693,6 +695,11 @@ local function make_config()
   }
 end
 
+
+-- require('lint').linters_by_ft = {
+--   python = {'pylint','mypy',}
+-- }
+
 -- lsp-install
 local function setup_servers()
   require"lspinstall".setup()
@@ -705,10 +712,10 @@ local function setup_servers()
 
   for _, server in pairs(servers) do
     local config = make_config()
-    if server == "efm" then
-      config = vim.tbl_extend("force", config, require "efm")
-      config.settings = efm_settings
-    end
+    -- if server == "efm" then
+    --   config = vim.tbl_extend("force", config, require "efm")
+    --   config.settings = efm_settings
+    -- end
     -- require "lspconfig".efm.setup {
     --     init_options = {documentFormatting = true},
     --     settings = {
@@ -990,3 +997,5 @@ noremap <C-h> <C-w>h
 
 " terminal emulation
 " nnoremap <silent> <leader>sh :terminal<CR>
+"
+" au BufWritePost <buffer> lua require('lint').try_lint()
