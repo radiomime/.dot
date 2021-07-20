@@ -56,3 +56,27 @@ class Poetry(Package):
                 "--uninstall",
             ],
         )
+    def osx_install(self):
+        self.run_from_curled_python_script(
+            address="".join(
+                [
+                    "https://raw.githubusercontent.com/",
+                    "python-poetry/poetry/master/get-poetry.py",
+                ]
+            ),
+            args=["-y"],
+        )
+
+    def osx_uninstall(self):
+        self.run_from_curled_python_script(
+            address="".join(
+                [
+                    "https://raw.githubusercontent.com/",
+                    "python-poetry/poetry/master/get-poetry.py",
+                ]
+            ),
+            args=[
+                "-y",
+                "--uninstall",
+            ],
+        )

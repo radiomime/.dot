@@ -1,4 +1,5 @@
 import subprocess
+from .brew import Brew
 
 import requests
 
@@ -60,3 +61,15 @@ class Kubectl(Package):
                     kubectl_loc,
                 ]
             )
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="kubectl",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="kubectl",
+            # flags='--cask',
+        )

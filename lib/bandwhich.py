@@ -1,4 +1,5 @@
 import subprocess
+from .brew  import Brew
 
 from .abs_package import Package
 from .rust import Rust
@@ -52,3 +53,14 @@ class Bandwhich(Package):
     def linux_uninstall(self):
         rust = Rust()
         rust.cargo_uninstall("bandwhich")
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install('bandwhich')
+
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall('bandwhich')
+
+

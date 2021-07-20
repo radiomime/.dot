@@ -3,12 +3,15 @@ import subprocess
 
 from .abs_package import Package
 
-# from .util import github_release_metadata, is_installed
+import threading
+
+
+
 
 
 class Nerdfonts(Package):
     def __init__(self):
-        super().__init__()
+        super().__init__(       )
 
     def is_installed(self):
         return False
@@ -16,30 +19,29 @@ class Nerdfonts(Package):
     def get_version(self):
         return None
 
-    def linux_install(self):
-        subprocess.run(
-            [
-                "git",
-                "clone",
-                "--quiet",
+    def __install(self):
+        # clone git repo
+        self.get_git_project(
+            address="https://github.com/ryanoasis/nerd-fonts.git",
+            repo_dir_name="nerd-fonts",
+            flags=[
+                # "--quiet",
                 "--depth",
                 "1",
-                "https://github.com/ryanoasis/nerd-fonts.git",
-                "nerd-fonts",
-            ]
+            ],
         )
 
         subprocess.run(
             [
-                "./nerd-fonts/install.sh",
+                f"{self.repo_store}/nerd-fonts/install.sh",
+                "--quiet",
                 "Meslo",
+                "FiraCode",
             ]
         )
 
-        subprocess.run(
-            [
-                "rm",
-                "-rf",
-                "nerd-fonts",
-            ]
-        )
+    def linux_install(self):
+        self.__install()
+
+    def osx_install(self):
+        self.__install()

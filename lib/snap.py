@@ -3,7 +3,7 @@ import subprocess
 
 from .abs_package import Package
 from .apt import Apt
-from .util import getSys, is_installed
+from .util import  is_installed
 
 
 class Snap(Package):

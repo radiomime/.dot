@@ -2,8 +2,11 @@
 conf/fish_functions/fisher.fish
 conf/fish_functions/__z*
 
-# Archive
+# temporary, local storage
 archive
+tmp
+temp
+.repos
 
 # Tags
 tags

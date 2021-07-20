@@ -1,4 +1,5 @@
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
 from .util import is_installed
@@ -42,4 +43,17 @@ class Minikube(Package):
                 "--remove",
                 "minikube",
             ]
+        )
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="minikube",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="minikube",
+            # flags='--cask',
         )

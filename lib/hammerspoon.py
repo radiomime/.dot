@@ -1,55 +1,46 @@
 import subprocess
+from .brew import Brew
 
 from .abs_package import Package
-from .brew import Brew
-from .util import bin_loc, github_release_metadata, is_installed
+from .util import github_release_metadata, is_installed ,is_installed_osx_app
 
 
-class Starship(Package):
+class Hammerspoon(Package):
     def __init__(self):
         super().__init__()
 
     def is_installed(self):
-        return is_installed("starship")
+        return is_installed("hammerspoon")
 
     def get_version(self):
+        if is_installed_osx_app('hammerspoon'):
+            return "mac app version unsupported"
+
         output = subprocess.check_output(
             [
-                "starship",
+                "hammerspoon",
                 "--version",
             ]
         )
         output = output.decode("utf-8")
         for line in output.split("\n"):
             words = line.split(" ")
-            if words[0] == "starship":
+            if words[0] == "Mitmproxy:":
                 return words[1]
 
         # should never be hit
         return None
 
-    def linux_install(self):
-        self.install_from_curled_script("https://starship.rs/install.sh")
-
-    def linux_uninstall(self):
-        starship_loc = bin_loc("starship")
-        if starship_loc:
-            subprocess.run(
-                [
-                    "sh",
-                    "rm",
-                    starship_loc,
-                ]
-            )
-
     def osx_install(self):
         brew = Brew()
         brew.brew_install(
-            pkgs="starship",
+            pkgs="hammerspoon",
+            flags="--cask",
         )
 
     def osx_uninstall(self):
         brew = Brew()
         brew.brew_uninstall(
-            pkgs="starship",
+            pkgs="hammerspoon",
         )
+

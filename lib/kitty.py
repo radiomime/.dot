@@ -1,9 +1,8 @@
-import getpass
 import subprocess
-from os.path import abspath, expanduser
+from os.path import expanduser
 
 from .abs_package import Package
-from .util import getSys, github_release_metadata, is_installed
+from .util import is_installed, is_installed_osx_app
 
 
 class Kitty(Package):
@@ -14,6 +13,9 @@ class Kitty(Package):
         return is_installed("kitty")
 
     def get_version(self):
+        if is_installed_osx_app('kitty'):
+            return "mac app version unsupported"
+
         output = subprocess.check_output(
             [
                 "kitty",

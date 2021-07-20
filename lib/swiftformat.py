@@ -19,8 +19,8 @@ class SwiftFormat:
         else:
             print("no install instructions for", self.os)
 
-    def __osxInstall(self):
-        print("installing swiftformat for osx")
-        brew = Brew()
-        brew.update()
-        brew.install("swiftformat")
+    # def __osxInstall(self):
+    #     print("installing swiftformat for osx")
+    #     brew = Brew()
+    #     brew.update()
+    #     brew.install("swiftformat")

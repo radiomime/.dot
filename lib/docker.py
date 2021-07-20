@@ -1,16 +1,21 @@
 import os
+from .brew import Brew
 import subprocess
 
 import distro
+import threading
 
 from .abs_package import Package
 from .apt import Apt
 from .util import github_release_metadata, is_installed
 
 
+
+
 class Docker(Package):
     def __init__(self):
         super().__init__()
+        what = 2
 
     def is_installed(self):
         return is_installed("docker")
@@ -31,8 +36,7 @@ class Docker(Package):
         # should never be hit
         return None
 
-    def linux_install(self):
-        # apt dependencies
+    def __linux_apt_dependencies(self) -> None:
         apt = Apt()
         apt.uninstall(
             [
@@ -55,9 +59,15 @@ class Docker(Package):
             ]
         )
 
-        # add official docker gpg key
-        apt.add_gpg_key("https://download.docker.com/linux/ubuntu/gpg")
+    def __linux_add_apt_key(self) -> None:
+        apt = Apt()
+        if self.distro == "pop":
+            apt.add_gpg_key("https://download.docker.com/linux/ubuntu/gpg")
+        else:
+            print(f"Error: unknown distribution: {self.distro}")
 
+    def __linux_add_apt_repo(self) -> None:
+        apt = Apt()
         apt.add_apt_repo(
             " ".join(
                 [
@@ -69,29 +79,41 @@ class Docker(Package):
             )
         )
 
-        apt.install(
-            [
-                "docker-ce",
-                "docker-ce-cli",
-                "containerd.io",
-            ]
-        )
+    def __convenience_script_install(self):
+        self.install_from_curled_script("https://get.docker.com")
 
-        # compose
-        compose_version = github_release_metadata("docker/compose")["name"]
+    def linux_install(self):
+        if self.distro == "raspbian":
+            self.__convenience_script_install()
+        else:
+            self.__linux_apt_dependencies()
+            self.__linux_add_apt_key()
+            self.__linux_add_apt_repo()
 
-        address = "".join(
-            [
-                "https://github.com/docker/compose/releases/download/",
-                compose_version,
-                "/docker-compose-",
-                os.uname().sysname,
-                "-",
-                os.uname().machine,
-            ]
-        )
+            apt = Apt()
+            apt.install(
+                [
+                    "docker-ce",
+                    "docker-ce-cli",
+                    "containerd.io",
+                ]
+            )
 
-        self.install_binary_from_address(address, "docker-compose")
+            # compose
+            compose_version = github_release_metadata("docker/compose")["name"]
+
+            address = "".join(
+                [
+                    "https://github.com/docker/compose/releases/download/",
+                    compose_version,
+                    "/docker-compose-",
+                    os.uname().sysname,
+                    "-",
+                    os.uname().machine,
+                ]
+            )
+
+            self.install_binary_from_address(address, "docker-compose")
 
         self.__add_user()
 
@@ -126,4 +148,18 @@ class Docker(Package):
                 "rm",
                 f"{self.path}/docker-compose",
             ]
+        )
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="docker",
+            flags='--cask',
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="docker",
+            # flags='--cask',
         )

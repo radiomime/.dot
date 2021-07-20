@@ -2,8 +2,6 @@
 import subprocess
 from os.path import abspath, expanduser
 
-from lib.util import getSys
-
 from .abs_package import Package
 
 # from .util import github_release_metadata, is_installed
@@ -59,11 +57,11 @@ class Dot(Package):
     def linux_install(self):
         self.__install()
 
-    def osx_install(self):
-        self.__install()
-
     def linux_uninstall(self):
         self.__uninstall()
+
+    def osx_install(self):
+        self.__install()
 
     def osx_uninstall(self):
         self.__uninstall()

@@ -29,9 +29,22 @@ class Exa(Package):
         return None
 
     def linux_install(self):
+        self.__install()
+
+    def linux_uninstall(self):
+        self.__uninstall()
+
+    def osx_install(self):
+        self.__install()
+
+    def osx_uninstall(self):
+        self.__uninstall()
+
+    def __install(self):
         rust = Rust()
         rust.cargo_install("exa")
 
-    def linux_uninstall(self):
+    def __uninstall(self):
         rust = Rust()
         rust.cargo_uninstall("exa")
+

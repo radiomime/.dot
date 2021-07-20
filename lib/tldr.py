@@ -36,3 +36,8 @@ class Tldr(Package):
 
     def linux_uninstall(self):
         self.__uninstall()
+    def osx_install(self):
+        self.__install()
+
+    def osx_uninstall(self):
+        self.__uninstall()

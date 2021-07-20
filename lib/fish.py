@@ -3,6 +3,7 @@ from typing import Optional
 
 from .abs_package import Package
 from .apt import Apt
+from .brew import Brew
 from .util import bin_loc, github_release_metadata, is_installed
 
 
@@ -30,7 +31,7 @@ class Fish(Package):
         return None
 
     def __change_shell(self, shell="fish"):
-        print("changing to fish shell")
+        print(f"***changing shell to {shell}")
         shell = bin_loc(shell)
         if shell:
             subprocess.run(
@@ -52,3 +53,48 @@ class Fish(Package):
     def linux_uninstall(self):
         apt = Apt()
         apt.uninstall("fish")
+
+        self.__change_shell(shell="bash")
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="fish",
+            flags="--HEAD",
+        )
+
+        fish_loc = bin_loc("fish")
+        # subprocess.run([p])
+        if fish_loc is not None:
+            # subprocess.run([
+            #     'sudo',
+            #     'tee'
+            # ])
+            ps = subprocess.Popen(
+                ("echo", fish_loc),
+                stdout=subprocess.PIPE,
+            )
+            output = subprocess.check_output(
+                (
+                    "sudo",
+                    "tee",
+                    "-a",
+                    "/etc/shells",
+                ),
+                stdin=ps.stdout,
+            )
+            ps.wait()
+            print("output")
+            print(output)
+            # with open("/etc/shells", "a") as file:
+            #     file.write(fish_loc)
+
+            self.__change_shell()
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="fish",
+        )
+
+        self.__change_shell(shell="zsh")

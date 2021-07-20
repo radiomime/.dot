@@ -1,7 +1,10 @@
 import subprocess
 
 from .abs_package import Package
+from .brew import Brew
 from .util import github_release_metadata, is_installed
+
+# TODO: install on linux via cargo!!!
 
 
 class Ripgrep(Package):
@@ -52,4 +55,16 @@ class Ripgrep(Package):
                 "--remove",
                 "ripgrep",
             ]
+        )
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="ripgrep",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="ripgrep",
         )

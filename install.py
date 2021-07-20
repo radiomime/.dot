@@ -1,22 +1,58 @@
 #!/usr/bin/env python3
 import argparse
-import sys
 
-from lib import (Bandwhich, Bat, Docker, Dot, Exa, Fish, Go, Kitty, Kubectl,
-                 Minikube, Mitmproxy, Neovim, Nerdfonts, Node, Poetry, Ripgrep,
-                 Rust, Snap, Starship, Terraform, Tldr, Watchexec, Yarn)
+
+
+from lib import (
+    Bandwhich,
+    Bat,
+    Brew,
+    Docker,
+    Dot,
+    Exa,
+    Fish,
+    Go,
+
+    Hammerspoon,
+    Kitty,
+    Kubectl,
+    Minikube,
+    Mitmproxy,
+    Neovim,
+    Nerdfonts,
+    Node,
+    Poetry,
+    # Pyright,
+    Ripgrep,
+    Rust,
+    Snap,
+    Starship,
+    Terraform,
+
+    Tldr,
+    Tmux,
+    Watchexec,
+    Yarn,
+)
+
+
 
 
 def install():
     print("*** installing neovim and dotfiles")
+    # Bat.
+    Brew().install()
     Neovim().install()
     Dot().install()
 
-    print("*** installing packages")
+    # print("*** installing packages")
     Mitmproxy().install()
-    # Nerdfonts().install()
+    Nerdfonts().install()
     Bat().install()
+    # Pyright().install()
     Bandwhich().install()
+    Tmux().install()
+    Hammerspoon().install()
     Exa().install()
     Rust().install()
     Ripgrep().install()
@@ -34,7 +70,7 @@ def install():
     Watchexec().install()
     # SwiftFormat().install()
 
-    # # Docker and k8s. Order matters.
+    # Docker and k8s. Order matters.
     # TODO: minikube should install docker, etc
     Docker().install()
 
@@ -50,7 +86,10 @@ def uninstall():
     Go().uninstall()
     Nerdfonts().uninstall()
     Bandwhich().uninstall()
+    Tmux().uninstall()
+    Hammerspoon().uninstall()
     Bat().uninstall()
+    # Pyright().uninstall()
     Exa().uninstall()
     Rust().uninstall()
     Ripgrep().uninstall()
@@ -68,8 +107,9 @@ def uninstall():
     Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
-    # Neovim().uninstall()
-    # Docker().uninstall()
+    Neovim().uninstall()
+    Docker().uninstall()
+    Brew().uninstall()
 
 
 def process_args() -> argparse.Namespace:

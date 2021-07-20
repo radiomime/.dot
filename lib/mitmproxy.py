@@ -1,6 +1,8 @@
 import subprocess
 
 from .abs_package import Package
+from .brew import Brew
+from .pip import Pip
 from .util import github_release_metadata, is_installed
 
 
@@ -27,7 +29,15 @@ class Mitmproxy(Package):
         # should never be hit
         return None
 
+    def __pip_install(self):
+        pip = Pip()
+        pip.pip_install("mitmproxy")
+
     def linux_install(self):
+        if self.distro == "raspbian":
+            self.__pip_install()
+            return
+
         mitm_md = github_release_metadata("mitmproxy/mitmproxy")
         mitm_latest_version = mitm_md["tag_name"][1:]
 
@@ -55,3 +65,15 @@ class Mitmproxy(Package):
             ]
         )
         print("note: not removing ~/.mitmproxy directory")
+
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="mitmproxy",
+        )
+
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="mitmproxy",
+        )
