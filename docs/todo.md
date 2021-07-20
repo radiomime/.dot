@@ -1,6 +1,6 @@
 ## ToDo
 
-Add the fo.llowing!
+Add the following!
 brew install efm-langserver
 
 efm-langserver config symlink
