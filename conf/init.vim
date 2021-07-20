@@ -129,6 +129,16 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'kabouzeid/nvim-lspinstall'
 " trying out
+" Plug 'mhartington/formatter.nvim'
+
+" trying out
+" Plug 'mfussenegger/nvim-lint'
+" Plug 'folke/lsp-colors.nvim'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/nvim-compe'
+" Plug 'kabouzeid/nvim-lspinstall'
+" trying out
 " Plug 'mfussenegger/nvim-lint'
 
 "
@@ -624,6 +634,15 @@ command! ZoomToggle call s:ZoomToggle()
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+
+""""""""""
+" OLLLLLDLDDDDDDDDD below
+" OLLLLLDLDDDDDDDDD below
+" OLLLLLDLDDDDDDDDD below
+" OLLLLLDLDDDDDDDDD below
+" OLLLLLDLDDDDDDDDD below
+"""
+
 " Use nvim-compe in every buffer
 " autocmd BufEnter * lua require'compe'.on_attach()
 
@@ -690,124 +709,124 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 "     }
 " }
 " EOF
-lua << EOF
--- local efm_settings = {
---   rootMarkers = {".git/"},
---   languages = {
---       lua = {
---           {formatCommand = "lua-format -i", formatStdin = true}
---       }
---   }
--- }
--- require "lspconfig".efm.setup {
---     init_options = {documentFormatting = true},
---     settings = {
---         rootMarkers = {".git/"},
---         languages = {
---             lua = {
---                 {formatCommand = "lua-format -i", formatStdin = true}
---             }
---         }
---     }
--- }
--- config that activates keymaps and enables snippet support
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-  return {
-    -- enable snippet support
-    capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
-  }
-end
+" lua << EOF
+" -- local efm_settings = {
+" --   rootMarkers = {".git/"},
+" --   languages = {
+" --       lua = {
+" --           {formatCommand = "lua-format -i", formatStdin = true}
+" --       }
+" --   }
+" -- }
+" -- require "lspconfig".efm.setup {
+" --     init_options = {documentFormatting = true},
+" --     settings = {
+" --         rootMarkers = {".git/"},
+" --         languages = {
+" --             lua = {
+" --                 {formatCommand = "lua-format -i", formatStdin = true}
+" --             }
+" --         }
+" --     }
+" -- }
+" -- config that activates keymaps and enables snippet support
+" local function make_config()
+"   local capabilities = vim.lsp.protocol.make_client_capabilities()
+"   capabilities.textDocument.completion.completionItem.snippetSupport = true
+"   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+"   return {
+"     -- enable snippet support
+"     capabilities = capabilities,
+"     -- map buffer local keybindings when the language server attaches
+"     on_attach = on_attach,
+"   }
+" end
 
 
--- require('lint').linters_by_ft = {
---   python = {'pylint','mypy',}
--- }
+" -- require('lint').linters_by_ft = {
+" --   python = {'pylint','mypy',}
+" -- }
 
--- lsp-install
-local function setup_servers()
-  require"lspinstall".setup()
+" -- lsp-install
+" local function setup_servers()
+"   require"lspinstall".setup()
 
-  -- get all installed servers
-  local servers = require"lspinstall".installed_servers()
-  -- ... and add manually installed servers
-  -- table.insert(servers, "sourcekit")
-  -- table.insert(servers, "hls")
+"   -- get all installed servers
+"   local servers = require"lspinstall".installed_servers()
+"   -- ... and add manually installed servers
+"   -- table.insert(servers, "sourcekit")
+"   -- table.insert(servers, "hls")
 
-  for _, server in pairs(servers) do
-    local config = make_config()
-    -- if server == "efm" then
-    --   config = vim.tbl_extend("force", config, require "efm")
-    --   config.settings = efm_settings
-    -- end
-    -- require "lspconfig".efm.setup {
-    --     init_options = {documentFormatting = true},
-    --     settings = {
-    --         rootMarkers = {".git/"},
-    --         languages = {
-    --             lua = {
-    --                 {formatCommand = "lua-format -i", formatStdin = true}
-    --             }
-    --         }
-    --     }
-    -- }
+"   for _, server in pairs(servers) do
+"     local config = make_config()
+"     -- if server == "efm" then
+"     --   config = vim.tbl_extend("force", config, require "efm")
+"     --   config.settings = efm_settings
+"     -- end
+"     -- require "lspconfig".efm.setup {
+"     --     init_options = {documentFormatting = true},
+"     --     settings = {
+"     --         rootMarkers = {".git/"},
+"     --         languages = {
+"     --             lua = {
+"     --                 {formatCommand = "lua-format -i", formatStdin = true}
+"     --             }
+"     --         }
+"     --     }
+"     -- }
 
-    -- language specific config
-    -- if server == "lua" then
-    --   config.settings = lua_settings
-    --   config.root_dir = function(fname)
-    --     if fname:match("lush_theme") ~= nil then return nil end
-    --     local util = require "lspconfig/util"
-    --     return util.find_git_ancestor(fname) or util.path.dirname(fname)
-    --   end
-    -- end
-    -- if server == "sourcekit" then
-    --   config.filetypes = { "swift", "objective-c", "objective-cpp" } -- we don't want c and cpp!
-    -- end
-    -- if server == "clangd" then
-    --   config.filetypes = { "c", "cpp" } -- we don't want objective-c and objective-cpp!
-    -- end
-    -- if server == "diagnosticls" then
-    --   config = vim.tbl_extend("force", config, require "diagnosticls")
-    -- end
-    -- if server == "tailwindcss" then
-    --   config.settings = {
-    --     tailwindCSS = {
-    --       -- NOTE: values for `validate` and `lint.cssConflict` are required by the server
-    --       validate = true,
-    --       lint = { cssConflict = "warning" },
-    --     },
-    --   }
-    --   config.on_new_config = function(new_config)
-    --     new_config.settings.editor = {
-    --       -- optional, for hover code indentation
-    --       tabSize = vim.lsp.util.get_effective_tabstop(),
-    --     }
-    --   end
-    -- end
-    -- if server == "vim" then config.init_options = { isNeovim = true } end
-    -- if server == "hls" then
-    --   config.root_dir = require"lspconfig/util".root_pattern("*.cabal", "stack.yaml",
-    --                                                          "cabal.project", "package.yaml",
-    --                                                          "hie.yaml", ".git");
-    -- end
+"     -- language specific config
+"     -- if server == "lua" then
+"     --   config.settings = lua_settings
+"     --   config.root_dir = function(fname)
+"     --     if fname:match("lush_theme") ~= nil then return nil end
+"     --     local util = require "lspconfig/util"
+"     --     return util.find_git_ancestor(fname) or util.path.dirname(fname)
+"     --   end
+"     -- end
+"     -- if server == "sourcekit" then
+"     --   config.filetypes = { "swift", "objective-c", "objective-cpp" } -- we don't want c and cpp!
+"     -- end
+"     -- if server == "clangd" then
+"     --   config.filetypes = { "c", "cpp" } -- we don't want objective-c and objective-cpp!
+"     -- end
+"     -- if server == "diagnosticls" then
+"     --   config = vim.tbl_extend("force", config, require "diagnosticls")
+"     -- end
+"     -- if server == "tailwindcss" then
+"     --   config.settings = {
+"     --     tailwindCSS = {
+"     --       -- NOTE: values for `validate` and `lint.cssConflict` are required by the server
+"     --       validate = true,
+"     --       lint = { cssConflict = "warning" },
+"     --     },
+"     --   }
+"     --   config.on_new_config = function(new_config)
+"     --     new_config.settings.editor = {
+"     --       -- optional, for hover code indentation
+"     --       tabSize = vim.lsp.util.get_effective_tabstop(),
+"     --     }
+"     --   end
+"     -- end
+"     -- if server == "vim" then config.init_options = { isNeovim = true } end
+"     -- if server == "hls" then
+"     --   config.root_dir = require"lspconfig/util".root_pattern("*.cabal", "stack.yaml",
+"     --                                                          "cabal.project", "package.yaml",
+"     --                                                          "hie.yaml", ".git");
+"     -- end
 
-    require"lspconfig"[server].setup(config)
-  end
-end
+"     require"lspconfig"[server].setup(config)
+"   end
+" end
 
-setup_servers()
+" setup_servers()
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require"lspinstall".post_install_hook = function()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-EOF
+" -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+" require"lspinstall".post_install_hook = function()
+"   setup_servers() -- reload installed servers
+"   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+" end
+" EOF
 
 """"""""""
 " autocomplete with compe
