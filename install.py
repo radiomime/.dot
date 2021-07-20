@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 
+
+
 from lib import (
     Bandwhich,
     Bat,
@@ -10,6 +12,7 @@ from lib import (
     Exa,
     Fish,
     Go,
+
     Hammerspoon,
     Kitty,
     Kubectl,
@@ -34,8 +37,10 @@ from lib import (
 
 
 
+
 def install():
     print("*** installing neovim and dotfiles")
+    # Bat.
     Brew().install()
     Neovim().install()
     Dot().install()
