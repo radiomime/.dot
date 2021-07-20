@@ -673,6 +673,23 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " EOF
 
 " new version from the creator of lsp install below
+
+" lua << EOF
+" require "lspconfig".efm.setup {
+"     init_options = {documentFormatting = true},
+"     settings = {
+"         rootMarkers = {".git/"},
+"         languages = {
+"             python = {
+"                  {formatCommand = "black --quiet -", formatStdin = true}
+"             }
+"             -- lua = {
+"             --     {formatCommand = "lua-format -i", formatStdin = true}
+"             -- }
+"         }
+"     }
+" }
+" EOF
 lua << EOF
 -- local efm_settings = {
 --   rootMarkers = {".git/"},
@@ -681,6 +698,17 @@ lua << EOF
 --           {formatCommand = "lua-format -i", formatStdin = true}
 --       }
 --   }
+-- }
+-- require "lspconfig".efm.setup {
+--     init_options = {documentFormatting = true},
+--     settings = {
+--         rootMarkers = {".git/"},
+--         languages = {
+--             lua = {
+--                 {formatCommand = "lua-format -i", formatStdin = true}
+--             }
+--         }
+--     }
 -- }
 -- config that activates keymaps and enables snippet support
 local function make_config()
