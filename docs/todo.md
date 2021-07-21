@@ -1,5 +1,18 @@
 ## ToDo
 
+# config
+
+change around conf file to have program specific config dirs at the top level
+
+With this, update the "dot" class
+
+# How about docker revisit
+there is a docker helper install script for development. How about doing this?
+Any prod system should have docker manually installed or a custom installer to
+fit the prod system's needs, anyways.
+
+# lsp
+
 Add the following!
 brew install efm-langserver
 
