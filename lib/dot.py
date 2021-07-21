@@ -4,7 +4,9 @@ from os.path import abspath, expanduser
 
 from .abs_package import Package
 
-# from .util import github_release_metadata, is_installed
+from .util import github_release_metadata, is_installed
+
+
 
 
 class Dot(Package):
@@ -13,10 +15,17 @@ class Dot(Package):
         self.config_dir = config_dir
 
         # directories which need to exist
-        self.dirs = [self.config_dir + "/undodir"]
+        self.dirs = [
+            self.config_dir + "/undodir",
+            # self.config_dir + "/lua",
+        ]
 
         # dotfiles to link
         self.files = {
+            # new neovim files
+            # "./nvim/lua/utils.lua": self.config_dir + "/lua/utils.lua",
+            "./nvim/lua/": self.config_dir + "/lua",
+
             # neovim files
             "./conf/init.vim": self.config_dir + "/init.vim",
             "./conf/plugin": self.config_dir + "/plugin",
