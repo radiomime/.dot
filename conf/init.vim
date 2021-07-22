@@ -1035,6 +1035,13 @@ lua require('lsp')
 "   autocmd BufWritePre *.md call s:markdownFormat()
 " augroup END
 
+" autocmd FileType markdown 
+augroup noIndentLineOnMarkdown
+  autocmd!
+  let g:indentLine_enabled=0
+augroup END
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " dev playground
 """""""""""""""""""""""""""""""
