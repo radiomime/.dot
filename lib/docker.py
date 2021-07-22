@@ -61,7 +61,8 @@ class Docker(Package):
 
     def __linux_add_apt_key(self) -> None:
         apt = Apt()
-        if self.distro == "pop":
+
+        if self.distro == "pop" or self.distro == "ubuntu":
             apt.add_gpg_key("https://download.docker.com/linux/ubuntu/gpg")
         else:
             print(f"Error: unknown distribution: {self.distro}")
@@ -119,6 +120,7 @@ class Docker(Package):
 
     def __add_user(self):
         subprocess.run(["sudo", "usermod", "-aG", "docker", self.user])
+        print('Log out and log back in to run `docker` commands without sudo')
 
     def linux_uninstall(self):
 
