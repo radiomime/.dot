@@ -1,4 +1,5 @@
 import subprocess
+from os import environ
 from os.path import expanduser
 
 from .abs_package import Package
@@ -30,7 +31,15 @@ class Kitty(Package):
         # should never be hit
         return None
 
+    def should_be_installed(self):
+        has_desktop = environ.get("DESKTOP_SESSION")
+        if not has_desktop and self.os == 'linux':
+            return False
+        return True
+
     def __install(self):
+        if not self.should_be_installed():
+            return
 
         source = "https://sw.kovidgoyal.net/kitty/installer.sh"
 

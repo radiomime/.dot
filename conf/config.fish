@@ -1,3 +1,7 @@
+# TODO: add a git signin method!
+# TODO: add ssh-add to fish start
+#
+
 if status --is-interactive
     abbr --add --global mk 'mkdir -pv'
     abbr --add --global v 'nvim'

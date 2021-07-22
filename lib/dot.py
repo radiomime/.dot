@@ -13,10 +13,12 @@ class Dot(Package):
     def __init__(self, config_dir=abspath(expanduser("~/.config/nvim"))):
         super().__init__()
         self.config_dir = config_dir
+        self.config_loc = abspath(expanduser("~/.config"))
 
         # directories which need to exist
         self.dirs = [
             self.config_dir + "/undodir",
+            self.config_loc + "/kitty"
             # self.config_dir + "/lua",
         ]
 
