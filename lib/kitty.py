@@ -31,9 +31,15 @@ class Kitty(Package):
         # should never be hit
         return None
 
-    def __install(self):
+    def should_be_installed(self):
         has_desktop = environ.get("DESKTOP_SESSION")
-        print(f'desktop: {has_desktop}')
+        if not has_desktop and self.os == 'linux':
+            return False
+        return True
+
+    def __install(self):
+        if not self.should_be_installed():
+            return
 
         source = "https://sw.kovidgoyal.net/kitty/installer.sh"
 
