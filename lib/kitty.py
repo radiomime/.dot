@@ -1,4 +1,5 @@
 import subprocess
+from os import environ
 from os.path import expanduser
 
 from .abs_package import Package
@@ -31,6 +32,8 @@ class Kitty(Package):
         return None
 
     def __install(self):
+        has_desktop = environ.get("DESKTOP_SESSION")
+        print(f'desktop: {has_desktop}')
 
         source = "https://sw.kovidgoyal.net/kitty/installer.sh"
 
