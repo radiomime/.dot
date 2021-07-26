@@ -21,6 +21,11 @@ if status --is-interactive
     abbr --add --global sshkitty 'kitty +kitten ssh'
 end
 
+# add ssh keys
+for ssh_key in $HOME'/.ssh/keys'/*
+    ssh-add $ssh_key 2>/dev/null
+end
+
 # rust path
 set PATH $HOME/.cargo/bin $PATH
 
