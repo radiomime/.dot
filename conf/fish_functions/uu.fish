@@ -9,9 +9,11 @@ function uu
     # apt-get update/upgrade
     if type -sq apt-get
         echo 'updating linux packages'
-        command sudo apt-get -y -qq update
+        # command sudo apt-get -y -qq update
+        command sudo apt-get -y update
         echo 'upgrading linux packages'
-        command sudo apt-get -y -qq --with-new-pkgs upgrade
+        # command sudo apt-get -y -qq --with-new-pkgs upgrade
+        command sudo apt-get -y --with-new-pkgs upgrade
     end
 
     # brew update/upgrade
