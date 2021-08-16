@@ -6,6 +6,8 @@ from .apt import Apt
 from .brew import Brew
 from .util import bin_loc, github_release_metadata, is_installed
 
+# TODO: be safe when doing chsh!!
+
 
 class Fish(Package):
     def __init__(self):
