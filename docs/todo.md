@@ -1,5 +1,9 @@
 ## ToDo
 
+# rust packages
+fd-find add!:
+https://github.com/sharkdp/fd
+
 # config
 
 change around conf file to have program specific config dirs at the top level
