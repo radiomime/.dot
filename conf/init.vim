@@ -191,6 +191,7 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 
 
+
 """"""""""""""""""""""""""""""
 " Snippets
 """"""""""
@@ -200,6 +201,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
+
 
 "*****************************************************************************
 "" Custom bundles
@@ -241,6 +243,9 @@ Plug 'tomasr/molokai'
 " test plugins
 """"""""""""""""""""""""""""""
 " maybe some cool branch things?
+"
+" DEV PLAY WITH THIS
+Plug 'abecodes/tabout'
 
 
 call plug#end()
