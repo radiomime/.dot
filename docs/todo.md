@@ -4,6 +4,15 @@
 fd-find add!:
 https://github.com/sharkdp/fd
 
+new top?
+https://github.com/ClementTsang/bottom
+
+Rust, should I put locked into command?
+
+
+Cargo:
+https://github.com/ClementTsang/bottom
+
 # config
 
 change around conf file to have program specific config dirs at the top level
