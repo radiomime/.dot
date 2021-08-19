@@ -174,6 +174,7 @@ class Neovim(Package):
 
         self.__install_providers()
 
+    # TODO: fix uninstall for neovim in osx!
     def osx_uninstall(self):
         print('osx uninstall is in a bad state for neovim!!!')
         subprocess.run(
