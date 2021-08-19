@@ -5,11 +5,9 @@ import argparse
 
 from lib import (
     Bandwhich,
-    Bat,
-    Brew,
+    Bat, Brew,
     Docker,
-    Dot,
-    Exa,
+    Dot,     Exa,   
     Fish,
     Go,
 
