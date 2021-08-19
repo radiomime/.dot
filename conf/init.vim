@@ -245,7 +245,7 @@ Plug 'tomasr/molokai'
 " maybe some cool branch things?
 "
 " DEV PLAY WITH THIS
-Plug 'abecodes/tabout'
+Plug 'abecodes/tabout.nvim'
 
 
 call plug#end()
@@ -639,6 +639,7 @@ command! ZoomToggle call s:ZoomToggle()
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+lua require('init')
 " lua require('utils')
 " lua require('settings')
 " lua require('lsp')
