@@ -3,11 +3,12 @@ import argparse
 
 
 
+
 from lib import (
     Bandwhich,
     Bat, Brew,
     Docker,
-    Dot,     Exa,   
+    Dot,     Exa,     
     Fish,
     Go,
 
@@ -38,10 +39,10 @@ from lib import (
 
 def install():
     print("*** installing neovim and dotfiles")
-    # Bat.
     Brew().install()
     Neovim().install()
     Dot().install()
+
 
     # print("*** installing packages")
     Mitmproxy().install()

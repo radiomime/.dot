@@ -1,4 +1,10 @@
-print('processing lsp lua handlers script')
+print('lua lsp handlers script -- processing')
+
+-- Credit below to lukas-reineke. clean this and see what I need
+-- TODO: see what I need
+--
+
+print('lua lsp handlers script -- currently empty')
 
 -- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
 --     if err ~= nil or result == nil then

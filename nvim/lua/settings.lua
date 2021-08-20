@@ -1,4 +1,9 @@
-print('processing settings lua script')
+print('lua settings script -- processing')
+
+-- Credit below to lukas-reineke. clean this and see what I need
+-- TODO: transfer from my init.vim to this
+
+print('lua settings script -- currently empty')
 
 -- vim.cmd [[syntax enable]]
 -- vim.cmd [[filetype plugin indent on]]
@@ -35,6 +40,7 @@ print('processing settings lua script')
 -- vim.o.emoji = false
 -- vim.o.foldclose = "all"
 -- vim.o.foldopen = "all"
+-- vim.opt.foldtext = "v:lua.foldtext()"
 -- vim.o.hidden = true
 -- vim.o.history = 10000
 -- vim.o.ignorecase = true
@@ -79,19 +85,18 @@ print('processing settings lua script')
 -- vim.wo.cursorline = true
 -- vim.wo.winhighlight = "NormalNC:WinNormalNC"
 -- vim.wo.list = true
--- vim.wo.listchars =
---     table.concat(
---     {
---         "eol:↴",
---         "tab:│⋅",
---         "trail:•",
---         "extends:❯",
---         "precedes:❮",
---         "nbsp:_",
---         "space:⋅"
---     },
---     ","
--- )
+-- vim.opt.listchars = {
+--     space = "⋅",
+--     eol = "↴",
+--     tab = "│⋅",
+--     trail = "•",
+--     extends = "❯",
+--     precedes = "❮",
+--     nbsp = "_"
+-- }
+-- vim.opt.fillchars = {
+--     fold = " "
+-- }
 
 -- vim.g.floating_window_border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
 -- vim.g.floating_window_border_dark = {

@@ -1,3 +1,10 @@
+print('lua lsp formatting script -- processing')
+
+-- Credit below to lukas-reineke. clean this and see what I need
+-- TODO: get this clean
+
+print('lua lsp formatting script -- currently empty')
+
 -- local utils = require "utils"
 -- local M = {}
 

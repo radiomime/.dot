@@ -639,10 +639,9 @@ command! ZoomToggle call s:ZoomToggle()
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+" This will replace init.vim
 lua require('init')
-" lua require('utils')
-" lua require('settings')
-" lua require('lsp')
+
 
 " TODO: follow this and get some lua files up in here:
 " https://github.com/nanotee/nvim-lua-guide/#where-to-put-lua-files

@@ -1,38 +1,16 @@
-print('processing lsp lua init script')
+print('lua lsp init script -- processing')
 
--- require "lsp.handlers"
--- require "lsp.formatting"
--- local lspconfig = require "lspconfig"
--- local utils = require "utils"
--- local M = {}
+require "lsp.completion"
+require "lsp.handlers"
+require 'lsp.formatting'
 
--- vim.lsp.protocol.CompletionItemKind = {
---     " [text]",
---     " [method]",
---     " [function]",
---     " [constructor]",
---     "ﰠ [field]",
---     " [variable]",
---     " [class]",
---     " [interface]",
---     " [module]",
---     " [property]",
---     " [unit]",
---     " [value]",
---     " [enum]",
---     " [key]",
---     "﬌ [snippet]",
---     " [color]",
---     " [file]",
---     " [reference]",
---     " [folder]",
---     " [enum member]",
---     " [constant]",
---     " [struct]",
---     "⌘ [event]",
---     " [operator]",
---     " [type]"
--- }
+
+-- Credit below to lukas-reineke. clean this and see what I need
+-- TODO: transfer from my init.vim to this
+
+local lspconfig = require "lspconfig"
+local utils = require "utils"
+local M = {}
 
 -- M.symbol_kind_icons = {
 --     Function = "",
@@ -89,6 +67,19 @@ print('processing lsp lua init script')
 --     if client.resolved_capabilities.rename then
 --         utils.map("n", "<Space>rn", "<cmd>lua require'lsp.rename'.rename()<CR>", {silent = true, buffer = true})
 --     end
+--     if client.resolved_capabilities.signature_help then
+--         utils.map("n", "<Space>s", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {silent = true, buffer = true})
+--     end
+
+--     require "lsp_signature".on_attach(
+--         {
+--             hint_enable = false,
+--             hi_parameter = "QuickFixLine",
+--             handler_opts = {
+--                 border = vim.g.floating_window_border
+--             }
+--         }
+--     )
 
 --     utils.map("n", "<Space><CR>", "<cmd>lua require'lsp.diagnostics'.line_diagnostics()<CR>", {buffer = true})
 -- end
@@ -133,7 +124,7 @@ print('processing lsp lua init script')
 -- --     }
 -- -- }
 
--- -- lspconfig.pyright.setup {on_attach = on_attach}
+lspconfig.pyright.setup {on_attach = on_attach}
 
 -- -- https://github.com/theia-ide/typescript-language-server
 -- lspconfig.tsserver.setup {
@@ -194,90 +185,87 @@ print('processing lsp lua init script')
 --     }
 -- }
 
--- -- -- https://github.com/iamcco/vim-language-server
--- -- lspconfig.vimls.setup {on_attach = on_attach}
+-- -- https://github.com/iamcco/vim-language-server
+-- lspconfig.vimls.setup {on_attach = on_attach}
 
--- -- -- https://github.com/vscode-langservers/vscode-json-languageserver
--- -- lspconfig.jsonls.setup {
--- --     on_attach = on_attach,
--- --     cmd = {"json-languageserver", "--stdio"}
--- -- }
+-- -- https://github.com/vscode-langservers/vscode-json-languageserver
+-- lspconfig.jsonls.setup {
+--     on_attach = on_attach,
+--     cmd = {"json-languageserver", "--stdio"}
+-- }
 
--- -- -- https://github.com/redhat-developer/yaml-language-server
--- -- lspconfig.yamlls.setup {on_attach = on_attach}
+-- -- https://github.com/redhat-developer/yaml-language-server
+-- lspconfig.yamlls.setup {on_attach = on_attach}
 
--- -- -- https://github.com/joe-re/sql-language-server
--- -- lspconfig.sqlls.setup {on_attach = on_attach}
+-- -- https://github.com/joe-re/sql-language-server
+-- lspconfig.sqlls.setup {on_attach = on_attach}
 
--- -- -- https://github.com/vscode-langservers/vscode-css-languageserver-bin
--- -- lspconfig.cssls.setup {on_attach = on_attach}
+-- -- https://github.com/vscode-langservers/vscode-css-languageserver-bin
+-- lspconfig.cssls.setup {on_attach = on_attach}
 
--- -- -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
--- -- lspconfig.html.setup {on_attach = on_attach}
+-- -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
+-- lspconfig.html.setup {on_attach = on_attach}
 
--- -- -- https://github.com/bash-lsp/bash-language-server
--- -- lspconfig.bashls.setup {on_attach = on_attach}
+-- -- https://github.com/bash-lsp/bash-language-server
+-- lspconfig.bashls.setup {on_attach = on_attach}
 
--- -- -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
--- -- lspconfig.dockerls.setup {
--- --     on_attach = function(client)
--- --         client.resolved_capabilities.document_formatting = false
--- --         on_attach(client)
--- --     end
--- -- }
+-- -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
+-- lspconfig.dockerls.setup {
+--     on_attach = function(client)
+--         client.resolved_capabilities.document_formatting = false
+--         on_attach(client)
+--     end
+-- }
 
--- -- -- https://github.com/hashicorp/terraform-ls
--- -- lspconfig.terraformls.setup {
--- --     on_attach = on_attach,
--- --     cmd = {"terraform-ls", "serve"},
--- --     filetypes = {"tf"}
--- -- }
+-- -- https://github.com/hashicorp/terraform-ls
+-- lspconfig.terraformls.setup {
+--     on_attach = on_attach,
+--     cmd = {"terraform-ls", "serve"},
+--     filetypes = {"tf"}
+-- }
 
 -- local vint = require "efm/vint"
--- -- local luafmt = require "efm/luafmt"
--- -- local golint = require "efm/golint"
--- -- local goimports = require "efm/goimports"
+-- local luafmt = require "efm/luafmt"
+-- local golint = require "efm/golint"
+-- local goimports = require "efm/goimports"
 -- local black = require "efm/black"
--- -- local isort = require "efm/isort"
--- -- local flake8 = require "efm/flake8"
--- -- local mypy = require "efm/mypy"
--- -- local prettier = require "efm/prettier"
--- -- local eslint = require "efm/eslint"
--- -- local shellcheck = require "efm/shellcheck"
--- -- local shfmt = require "efm/shfmt"
--- -- local terraform = require "efm/terraform"
--- -- local misspell = require "efm/misspell"
-
+-- local isort = require "efm/isort"
+-- local flake8 = require "efm/flake8"
+-- local mypy = require "efm/mypy"
+-- local prettier = require "efm/prettier"
+-- local eslint = require "efm/eslint"
+-- local shellcheck = require "efm/shellcheck"
+-- local shfmt = require "efm/shfmt"
+-- local terraform = require "efm/terraform"
+-- local misspell = require "efm/misspell"
 -- -- https://github.com/mattn/efm-langserver
 -- lspconfig.efm.setup {
---     -- on_attach = on_attach,
+--     on_attach = on_attach,
 --     init_options = {documentFormatting = true},
---     -- root_dir = vim.loop.cwd,
+--     root_dir = vim.loop.cwd,
 --     settings = {
 --         rootMarkers = {".git/"},
 --         languages = {
+--             ["="] = {misspell},
 --             vim = {vint},
---             python = {black},
+--             lua = {luafmt},
+--             go = {golint, goimports},
+--             python = {black, isort, flake8, mypy},
+--             typescript = {prettier, eslint},
+--             javascript = {prettier, eslint},
+--             typescriptreact = {prettier, eslint},
+--             javascriptreact = {prettier, eslint},
+--             yaml = {prettier},
+--             json = {prettier},
+--             html = {prettier},
+--             scss = {prettier},
+--             css = {prettier},
+--             markdown = {prettier},
+--             sh = {shellcheck, shfmt},
+--             tf = {terraform}
 --         }
 --     }
 -- }
--- -- below should go in the languages section above
--- -- lua = {luafmt},
--- -- ["="] = {misspell},
--- -- go = {golint, goimports},
--- -- python = {black, isort, flake8, mypy},
--- -- typescript = {prettier, eslint},
--- -- javascript = {prettier, eslint},
--- -- typescriptreact = {prettier, eslint},
--- -- javascriptreact = {prettier, eslint},
--- -- yaml = {prettier},
--- -- json = {prettier},
--- -- html = {prettier},
--- -- scss = {prettier},
--- -- css = {prettier},
--- -- markdown = {prettier},
--- -- sh = {shellcheck, shfmt},
--- -- tf = {terraform}
 
 -- lspconfig.clangd.setup {on_attach = on_attach}
 
