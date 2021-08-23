@@ -128,6 +128,11 @@ Plug 'tpope/vim-jdaddy'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'kabouzeid/nvim-lspinstall'
+
+" for null ls
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
 " trying out
 " Plug 'mhartington/formatter.nvim'
 

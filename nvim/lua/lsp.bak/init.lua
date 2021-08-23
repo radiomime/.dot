@@ -1,44 +1,156 @@
 print('lua lsp init script -- processing')
+
 require "lsp.completion"
+require "lsp.handlers"
+-- require 'lsp.formatting'
+-- local formatting = require 'lsp.formatting'
+
+
+--- BREAK : EFM BELOW
 
 local lspconfig = require "lspconfig"
 
-lspconfig.pyright.setup {on_attach = on_attach}
 
--- require "lsp.handlers"
--- require "lsp.handlers"
--- require "lsp.formatting"
 
+local vint = require "efm/vint"
+local luafmt = require "efm/luafmt"
+local golint = require "efm/golint"
+local goimports = require "efm/goimports"
+local black = require "efm/black"
+local isort = require "efm/isort"
+local flake8 = require "efm/flake8"
+local mypy = require "efm/mypy"
+local prettier = require "efm/prettier"
+local eslint = require "efm/eslint"
+local shellcheck = require "efm/shellcheck"
+local shfmt = require "efm/shfmt"
+local terraform = require "efm/terraform"
+local misspell = require "efm/misspell"
+
+-- https://github.com/mattn/efm-langserver
+lspconfig.efm.setup {
+    on_attach = on_attach,
+    init_options = {documentFormatting = true},
+    root_dir = vim.loop.cwd,
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            ["="] = {misspell},
+            vim = {vint},
+            lua = {luafmt},
+            go = {golint, goimports},
+            python = {black, isort, flake8, mypy},
+            typescript = {prettier, eslint},
+            javascript = {prettier, eslint},
+            typescriptreact = {prettier, eslint},
+            javascriptreact = {prettier, eslint},
+            yaml = {prettier},
+            json = {prettier},
+            html = {prettier},
+            scss = {prettier},
+            css = {prettier},
+            markdown = {prettier},
+            sh = {shellcheck, shfmt},
+            tf = {terraform}
+        }
+    }
+}
+
+-- BREAK me playing around:
+-- local lspconfig = require "lspconfig"
+
+-- lspconfig.pyright.setup {on_attach = on_attach}
+
+-- lspconfig.null_ls.setup{formatting}
+-- lspconfig.efm.setup {
+--     on_attach = on_attach,
+--     init_options = {documentFormatting = true},
+--     root_dir = vim.loop.cwd,
+--     settings = {
+--         rootMarkers = {".git/"},
+--         languages = {
+--             ["="] = {misspell},
+--             vim = {vint},
+--             lua = {luafmt},
+--             go = {golint, goimports},
+--             python = {black, isort, flake8, mypy},
+--             typescript = {prettier, eslint},
+--             javascript = {prettier, eslint},
+--             typescriptreact = {prettier, eslint},
+--             javascriptreact = {prettier, eslint},
+--             yaml = {prettier},
+--             json = {prettier},
+--             html = {prettier},
+--             scss = {prettier},
+--             css = {prettier},
+--             markdown = {prettier},
+--             sh = {shellcheck, shfmt},
+--             tf = {terraform}
+--         }
+--     }
+-- }
+
+
+
+
+
+
+
+-- BREAK: from nullls guy below to lukas spot
+
+-- local on_attach = function(client, bufnr)
+--     -- commands
+--     u.lua_command("LspFormatting", "vim.lsp.buf.formatting()")
+--     u.lua_command("LspHover", "vim.lsp.buf.hover()")
+--     u.lua_command("LspRename", "vim.lsp.buf.rename()")
+--     u.lua_command("LspDiagPrev", "global.lsp.prev_diagnostic()")
+--     u.lua_command("LspDiagNext", "global.lsp.next_diagnostic()")
+--     u.lua_command("LspDiagLine", "vim.lsp.diagnostic.show_line_diagnostics(global.lsp.popup_opts)")
+--     u.lua_command("LspSignatureHelp", "vim.lsp.buf.signature_help()")
+
+--     u.buf_augroup("LspAutocommands", "CursorHold", "LspDiagLine")
+
+--     -- bindings
+--     u.buf_map("n", "gi", ":LspRename<CR>", nil, bufnr)
+--     u.buf_map("n", "K", ":LspHover<CR>", nil, bufnr)
+--     u.buf_map("n", "[a", ":LspDiagPrev<CR>", nil, bufnr)
+--     u.buf_map("n", "]a", ":LspDiagNext<CR>", nil, bufnr)
+--     u.buf_map("i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", nil, bufnr)
+
+--     -- fzf.lua
+--     u.buf_map("n", "gr", ":LspRefs<CR>", nil, bufnr)
+--     u.buf_map("n", "gd", ":LspDefs<CR>", nil, bufnr)
+--     u.buf_map("n", "gy", ":LspTypeDefs<CR>", nil, bufnr)
+--     u.buf_map("n", "ga", ":LspActions<CR>", nil, bufnr)
+
+--     if client.resolved_capabilities.document_formatting then
+--         u.buf_augroup("LspFormatOnSave", "BufWritePre", "lua vim.lsp.buf.formatting_sync()")
+--     end
+
+--     if client.resolved_capabilities.completion then
+--         client.server_capabilities.completionProvider.triggerCharacters = trigger_characters
+--         require("lsp_compl").attach(client, bufnr)
+
+--         _G.global.lsp.completion = true
+--     end
+
+--     require("illuminate").on_attach(client)
+-- end
+
+-- tsserver.setup(on_attach)
+-- sumneko.setup(on_attach)
+
+
+
+
+
+-- Credit below to lukas-reineke. clean this and see what I need
+-- TODO: transfer from my init.vim to this
+
+-- local lspconfig = require "lspconfig"
 -- local utils = require "utils"
 -- local M = {}
 
--- vim.lsp.protocol.CompletionItemKind = {
---     " [text]",
---     " [method]",
---     " [function]",
---     " [constructor]",
---     "ﰠ [field]",
---     " [variable]",
---     " [class]",
---     " [interface]",
---     " [module]",
---     " [property]",
---     " [unit]",
---     " [value]",
---     " [enum]",
---     " [key]",
---     "﬌ [snippet]",
---     " [color]",
---     " [file]",
---     " [reference]",
---     " [folder]",
---     " [enum member]",
---     " [constant]",
---     " [struct]",
---     "⌘ [event]",
---     " [operator]",
---     " [type]"
--- }
 
 -- M.symbol_kind_icons = {
 --     Function = "",

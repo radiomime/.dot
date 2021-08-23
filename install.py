@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import os
 
 
 
@@ -9,6 +10,7 @@ from lib import (
     Bat, Brew,
     Docker,
     Dot,     Exa,     
+    Fish,
     Fish,
     Go,
 
@@ -27,7 +29,6 @@ from lib import (
     Snap,
     Starship,
     Terraform,
-
     Tldr,
     Tmux,
     Watchexec,
@@ -42,7 +43,6 @@ def install():
     Brew().install()
     Neovim().install()
     Dot().install()
-
 
     # print("*** installing packages")
     Mitmproxy().install()
