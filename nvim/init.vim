@@ -645,6 +645,8 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " This will replace init.vim
+" WORKING
+" HERE
 lua require('init')
 
 
