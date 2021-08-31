@@ -191,7 +191,7 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine' " there is a better lua one by lukas!
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 
@@ -590,7 +590,7 @@ syntax on
 set ruler
 
 " molokai colorscheme
-colorscheme molokai
+" colorscheme molokai
 
 " gruvbox colorscheme
 " let g:gruvbox_contrast_dark = 'hard'
@@ -598,26 +598,25 @@ colorscheme molokai
 " set background=dark
 
 " line numbers
-set number relativenumber
-set numberwidth=4
+" set number relativenumber
+" set numberwidth=4
 
 " guide line for column length
-set colorcolumn=79
+" set colorcolumn=79
 
 " Disable the blinking cursor.
-set guicursor=a:blinkon0
+" set guicursor=a:blinkon0
 " set guicursor=a:blinkon0-hor30-ver30
 
 " center cursor in screen vertically while scrolling
-set scrolloff=50
+" set scrolloff=50
 
 "" horizontal scrolling and line wrapping
-set nowrap
-set sidescroll=1
-set sidescrolloff=10
+" set sidescroll=1
+" set sidescrolloff=10
 
 "" Status bar
-set laststatus=2
+" set laststatus=2
 
 " zoom a pane
 " nmap <Leader>zo :tabnew %<CR>
@@ -641,439 +640,9 @@ command! ZoomToggle call s:ZoomToggle()
 " lsp
 """
 " sane completion
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" set completeopt=menuone,noinsert,noselect
 
 " This will replace init.vim
 " WORKING
 " HERE
 lua require('init')
-
-
-" TODO: follow this and get some lua files up in here:
-" https://github.com/nanotee/nvim-lua-guide/#where-to-put-lua-files
-"
-" Get this into the symlink dot part of the library
-" Copy other people's dotfiles to get efm up and going https://github.com/lukas-reineke
-" https://github.com/mattn/efm-langserver
-" https://github.com/elianiva/dotfiles/blob/master/nvim/init.vim
-
-
-""""""""""
-" OLLLLLDLDDDDDDDDD below
-" OLLLLLDLDDDDDDDDD below
-" OLLLLLDLDDDDDDDDD below
-" OLLLLLDLDDDDDDDDD below
-" OLLLLLDLDDDDDDDDD below
-"""
-
-" Use nvim-compe in every buffer
-" autocmd BufEnter * lua require'compe'.on_attach()
-
-""""""""""
-" lsp colors
-"""
-" lua << EOF
-" require("lsp-colors").setup({
-"   Error = "#db4b4b",
-"   Warning = "#e0af68",
-"   Information = "#0db9d7",
-"   Hint = "#10B981"
-" })
-" EOF
-
-
-" lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
-" lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
-
-""""""""""
-" language server installation
-"""
-" lua << EOF
-" -- print("this is a test")
-" local function setup_servers()
-"   require'lspinstall'.setup()
-"   local servers = require'lspinstall'.installed_servers()
-"   for _, server in pairs(servers) do
-"   --   print(servers)
-"     print('setting up server:')
-"     print(_)
-"     print(server)
-"     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-"     -- print(vim.inspect(capabilities))
-"     -- require'lspconfig'[server].setup{on_attach=on_attach, capabilities = capabilities}
-"     -- require'lspconfig'[server].setup{}
-"   end
-" end
-" 
-" setup_servers()
-" 
-" -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-" require'lspinstall'.post_install_hook = function ()
-"   setup_servers() -- reload installed servers
-"   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-" end
-" EOF
-
-" new version from the creator of lsp install below
-
-" lua << EOF
-" require "lspconfig".efm.setup {
-"     init_options = {documentFormatting = true},
-"     settings = {
-"         rootMarkers = {".git/"},
-"         languages = {
-"             python = {
-"                  {formatCommand = "black --quiet -", formatStdin = true}
-"             }
-"             -- lua = {
-"             --     {formatCommand = "lua-format -i", formatStdin = true}
-"             -- }
-"         }
-"     }
-" }
-" EOF
-" lua << EOF
-" -- local efm_settings = {
-" --   rootMarkers = {".git/"},
-" --   languages = {
-" --       lua = {
-" --           {formatCommand = "lua-format -i", formatStdin = true}
-" --       }
-" --   }
-" -- }
-" -- require "lspconfig".efm.setup {
-" --     init_options = {documentFormatting = true},
-" --     settings = {
-" --         rootMarkers = {".git/"},
-" --         languages = {
-" --             lua = {
-" --                 {formatCommand = "lua-format -i", formatStdin = true}
-" --             }
-" --         }
-" --     }
-" -- }
-" -- config that activates keymaps and enables snippet support
-" local function make_config()
-"   local capabilities = vim.lsp.protocol.make_client_capabilities()
-"   capabilities.textDocument.completion.completionItem.snippetSupport = true
-"   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-"   return {
-"     -- enable snippet support
-"     capabilities = capabilities,
-"     -- map buffer local keybindings when the language server attaches
-"     on_attach = on_attach,
-"   }
-" end
-
-
-" -- require('lint').linters_by_ft = {
-" --   python = {'pylint','mypy',}
-" -- }
-
-" -- lsp-install
-" local function setup_servers()
-"   require"lspinstall".setup()
-
-"   -- get all installed servers
-"   local servers = require"lspinstall".installed_servers()
-"   -- ... and add manually installed servers
-"   -- table.insert(servers, "sourcekit")
-"   -- table.insert(servers, "hls")
-
-"   for _, server in pairs(servers) do
-"     local config = make_config()
-"     -- if server == "efm" then
-"     --   config = vim.tbl_extend("force", config, require "efm")
-"     --   config.settings = efm_settings
-"     -- end
-"     -- require "lspconfig".efm.setup {
-"     --     init_options = {documentFormatting = true},
-"     --     settings = {
-"     --         rootMarkers = {".git/"},
-"     --         languages = {
-"     --             lua = {
-"     --                 {formatCommand = "lua-format -i", formatStdin = true}
-"     --             }
-"     --         }
-"     --     }
-"     -- }
-
-"     -- language specific config
-"     -- if server == "lua" then
-"     --   config.settings = lua_settings
-"     --   config.root_dir = function(fname)
-"     --     if fname:match("lush_theme") ~= nil then return nil end
-"     --     local util = require "lspconfig/util"
-"     --     return util.find_git_ancestor(fname) or util.path.dirname(fname)
-"     --   end
-"     -- end
-"     -- if server == "sourcekit" then
-"     --   config.filetypes = { "swift", "objective-c", "objective-cpp" } -- we don't want c and cpp!
-"     -- end
-"     -- if server == "clangd" then
-"     --   config.filetypes = { "c", "cpp" } -- we don't want objective-c and objective-cpp!
-"     -- end
-"     -- if server == "diagnosticls" then
-"     --   config = vim.tbl_extend("force", config, require "diagnosticls")
-"     -- end
-"     -- if server == "tailwindcss" then
-"     --   config.settings = {
-"     --     tailwindCSS = {
-"     --       -- NOTE: values for `validate` and `lint.cssConflict` are required by the server
-"     --       validate = true,
-"     --       lint = { cssConflict = "warning" },
-"     --     },
-"     --   }
-"     --   config.on_new_config = function(new_config)
-"     --     new_config.settings.editor = {
-"     --       -- optional, for hover code indentation
-"     --       tabSize = vim.lsp.util.get_effective_tabstop(),
-"     --     }
-"     --   end
-"     -- end
-"     -- if server == "vim" then config.init_options = { isNeovim = true } end
-"     -- if server == "hls" then
-"     --   config.root_dir = require"lspconfig/util".root_pattern("*.cabal", "stack.yaml",
-"     --                                                          "cabal.project", "package.yaml",
-"     --                                                          "hie.yaml", ".git");
-"     -- end
-
-"     require"lspconfig"[server].setup(config)
-"   end
-" end
-
-" setup_servers()
-
-" -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-" require"lspinstall".post_install_hook = function()
-"   setup_servers() -- reload installed servers
-"   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-" end
-" EOF
-
-""""""""""
-" autocomplete with compe
-"""
-"lua << EOF
-"-- Compe setup
-"require'compe'.setup {
-"  enabled = true;
-"  autocomplete = true;
-"  debug = false;
-"  min_length = 1;
-"  preselect = 'enable';
-"  throttle_time = 80;
-"  source_timeout = 200;
-"  incomplete_delay = 400;
-"  max_abbr_width = 100;
-"  max_kind_width = 100;
-"  max_menu_width = 100;
-"  documentation = true;
-
-"  source = {
-"    path = true;
-"    nvim_lsp = true;
-"  };
-"}
-
-"local t = function(str)
-"  return vim.api.nvim_replace_termcodes(str, true, true, true)
-"end
-
-"local check_back_space = function()
-"    local col = vim.fn.col('.') - 1
-"    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-"        return true
-"    else
-"        return false
-"    end
-"end
-
-"-- Use (s-)tab to:
-"--- move to prev/next item in completion menuone
-"--- jump to prev/next snippet's placeholder
-"_G.tab_complete = function()
-"  if vim.fn.pumvisible() == 1 then
-"    return t "<C-n>"
-"  elseif check_back_space() then
-"    return t "<Tab>"
-"  else
-"    return vim.fn['compe#complete']()
-"  end
-"end
-"_G.s_tab_complete = function()
-"  if vim.fn.pumvisible() == 1 then
-"    return t "<C-p>"
-"  else
-"    return t "<S-Tab>"
-"  end
-"end
-
-"vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-"vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-"vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-"vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-"EOF
-""
-"""""""""""
-"" keybindings and completion
-""""
-"lua << EOF
-"local nvim_lsp = require('lspconfig')
-
-"-- Use an on_attach function to only map the following keys
-"-- after the language server attaches to the current buffer
-"local on_attach = function(client, bufnr)
-"  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-"  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-"  --Enable completion triggered by <c-x><c-o>
-"  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-"  -- Mappings.
-"  local opts = { noremap=true, silent=true }
-
-"  -- See `:help vim.lsp.*` for documentation on any of the below functions
-"  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-"  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-"  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-"  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-"  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-"  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-"  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-"  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-"  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-"  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-"  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-"  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-"  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-"  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-"  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-"  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-"  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-"end
-
-"-- Use a loop to conveniently call 'setup' on multiple servers and
-"-- map buffer local keybindings when the language server attaches
-"-- local servers = { "pyright", "rust_analyzer", "tsserver" }
-"-- for _, lsp in ipairs(servers) do
-"--   nvim_lsp[lsp].setup {
-"--     on_attach = on_attach,
-"--     flags = {
-"--       debounce_text_changes = 150,
-"--     }
-"--   }
-"-- end
-"EOF
-
-""""""""""
-" enable language servers
-"""
-" I think this is already done with the setup_servers function!!
-" lua << EOF
-" require "lspconfig".efm.setup {
-"     init_options = {documentFormatting = true},
-"     settings = {
-"         rootMarkers = {".git/"},
-"         languages = {
-"             lua = {
-"                 {formatCommand = "lua-format -i", formatStdin = true}
-"             }
-"         }
-"     }
-" }
-" EOF
-" lua << EOF
-" require'lspconfig'.efm.setup{}
-" EOF
-"
-" lua << EOF
-" require'lspconfig'.pyls.setup{}
-" EOF
-
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" EOF
-
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" EOF
-
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" EOF
-
-""""""""""
-" auto formatting
-"""
-" autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocommand
-""""""""""""""""""""""""""""""
-" augroup swiftformat
-"     autocmd!
-"     autocmd BufWritePre,TextChanged,InsertLeave *.swift Neoformat
-" augroup END
-
-" function! s:setupMarkdownFormat()
-"     set textwidth=79
-"     " set wrapmargin=2
-" endfunction
-
-" function! s:markdownFormat()
-"     " show underbars and asterisks for formating
-"     let g:vim_markdown_conceal = 0
-"     let g:vim_markdown_conceal_code_blocks = 0
-"     " let g:vim_markdown_math = 1
-"     " let g:vim_markdown_frontmatter = 1
-
-"     " format on save
-"     echom "gq} edits until the end of the file"
-
-"     " let l:save_pos = getpos(".")
-"     " exec 'normal! gggqG'
-"     " call setpos('.', save_pos)
-" endfunction
-
-" augroup markdownWrapping
-"   autocmd!
-"   autocmd BufRead,BufNewFile *.md call s:setupMarkdownFormat()
-"   autocmd BufWritePre *.md call s:markdownFormat()
-" augroup END
-
-" autocmd FileType markdown 
-augroup noIndentLineOnMarkdown
-  autocmd!
-  let g:indentLine_enabled=0
-augroup END
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" dev playground
-"""""""""""""""""""""""""""""""
-" Switching windows
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-" nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
-" tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
-" jk
-"
-"Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
-" let g:indent_blankline_show_current_context = v:true
-" let g:indent_blankline_show_current_context = v:true
-
-" TODO: how do i exit terminal mode?
-" tnoremap <Esc> <C-\>_<C-N>
-
-" terminal emulation
-" nnoremap <silent> <leader>sh :terminal<CR>
-"
-" au BufWritePost <buffer> lua require('lint').try_lint()
