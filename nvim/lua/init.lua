@@ -57,41 +57,42 @@ require "default-config"
 local autocmds = require "core.autocmds"
 require("settings").load_options()
 
--- local status_ok, error = pcall(vim.cmd, "luafile " .. USER_CONFIG_PATH)
--- if not status_ok then
---   print("something is wrong with your " .. USER_CONFIG_PATH)
---   print(error)
--- end
--- require("settings").load_commands()
--- autocmds.define_augroups(nvim.autocommands)
+local status_ok, error = pcall(vim.cmd, "luafile " .. USER_CONFIG_PATH)
+if not status_ok then
+  print("something is wrong with your " .. USER_CONFIG_PATH)
+  print(error)
+end
+require("settings").load_commands()
+autocmds.define_augroups(neo.autocommands)
 
--- local plugins = require "plugins"
--- local plugin_loader = require("plugin-loader").init()
--- plugin_loader:load { plugins, nvim.plugins }
--- vim.g.colors_name = nvim.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
--- vim.cmd("colorscheme " .. nvim.colorscheme)
+local plugins = require "plugins"
+local plugin_loader = require("plugin-loader").init()
 
--- local utils = require "utils"
--- utils.toggle_autoformat()
--- local commands = require "core.commands"
--- commands.load(commands.defaults)
+plugin_loader:load { plugins, neo.plugins }
+vim.g.colors_name = neo.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
+vim.cmd("colorscheme " .. neo.colorscheme)
 
--- require("lsp").config()
+local utils = require "utils"
+utils.toggle_autoformat()
+local commands = require "core.commands"
+commands.load(commands.defaults)
 
--- local null_status_ok, null_ls = pcall(require, "null-ls")
--- if null_status_ok then
---   null_ls.config {}
---   require("lspconfig")["null-ls"].setup(nvim.lsp.null_ls.setup)
--- end
+require("lsp").config()
 
--- local lsp_settings_status_ok, lsp_settings = pcall(require, "nlspsettings")
--- if lsp_settings_status_ok then
---   lsp_settings.setup {
---     config_home = os.getenv "HOME" .. "/.config/nvim/lsp-settings",
---   }
--- end
+local null_status_ok, null_ls = pcall(require, "null-ls")
+if null_status_ok then
+  null_ls.config {}
+  require("lspconfig")["null-ls"].setup(neo.lsp.null_ls.setup)
+end
 
--- require("keymappings").setup()
+local lsp_settings_status_ok, lsp_settings = pcall(require, "nlspsettings")
+if lsp_settings_status_ok then
+  lsp_settings.setup {
+    config_home = os.getenv "HOME" .. "/.config/nvim/lsp-settings",
+  }
+end
+
+require("keymappings").setup()
 
 require('tester')
 

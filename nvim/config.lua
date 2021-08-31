@@ -1,37 +1,37 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
-lvim.format_on_save = true
-lvim.lint_on_save = true
-lvim.colorscheme = "spacegray"
+neo.format_on_save = true
+neo.lint_on_save = true
+neo.colorscheme = "spacegray"
 
--- lvim.lang.javascript.formatters = { { exe = "prettier" } }
-lvim.lang.python.linters = {
-  {
-    exe = "flake8",
-    args = {}
-  }
-}
-lvim.lang.python.formatters = {
-  {
-    exe = "black",
-    args = {}
-  }
-}
+-- neo.lang.javascript.formatters = { { exe = "prettier" } }
+-- neo.lang.python.linters = {
+--   {
+--     exe = "flake8",
+--     args = {}
+--   }
+-- }
+-- neo.lang.python.formatters = {
+--   {
+--     exe = "black",
+--     args = {}
+--   }
+-- }
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
+-- neo.leader = "space"
 
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- neo.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = ""
+-- neo.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+-- neo.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
+-- neo.builtin.which_key.mappings["P"] = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" }
+-- neo.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
 --   r = { "<cmd>Trouble lsp_references<cr>", "References" },
 --   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
@@ -43,20 +43,20 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
--- lvim.builtin.dashboard.active = true
--- lvim.builtin.terminal.active = true
--- lvim.builtin.nvimtree.side = "left"
--- lvim.builtin.nvimtree.show_icons.git = 0
+-- neo.builtin.dashboard.active = true
+-- neo.builtin.terminal.active = true
+-- neo.builtin.nvimtree.side = "left"
+-- neo.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
--- lvim.builtin.treesitter.ensure_installed = {}
--- lvim.builtin.treesitter.ignore_install = { "haskell" }
--- lvim.builtin.treesitter.highlight.enabled = true
+-- neo.builtin.treesitter.ensure_installed = {}
+-- neo.builtin.treesitter.ignore_install = { "haskell" }
+-- neo.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
+-- neo.lsp.on_attach_callback = function(client, bufnr)
 --   local function buf_set_option(...)
 --     vim.api.nvim_buf_set_option(bufnr, ...)
 --   end
@@ -65,14 +65,14 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- end
 
 -- set a formatter if you want to override the default lsp one (if it exists)
--- lvim.lang.python.formatters = {
+-- neo.lang.python.formatters = {
 --   {
 --     exe = "black",
 --     args = {}
 --   }
 -- }
 -- set an additional linter
--- lvim.lang.python.linters = {
+-- neo.lang.python.linters = {
 --   {
 --     exe = "flake8",
 --     args = {}
@@ -80,7 +80,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
+-- neo.plugins = {
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,
@@ -89,6 +89,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
+-- neo.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }

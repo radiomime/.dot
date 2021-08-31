@@ -1058,10 +1058,10 @@ augroup END
 " dev playground
 """""""""""""""""""""""""""""""
 " Switching windows
+noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
 " nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
 " tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
 " jk

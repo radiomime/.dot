@@ -29,6 +29,14 @@ lua/core directory:
     terminal:
         this is https://github.com/akinsho/toggleterm.nvim
         edit styles and stuff to remove lvim references.
+lua/plugins:
+    update plugins to be mine!
+
+lua/plugin-loader:
+    understand this, update it if need be
+
+lsp:
+    what is nlspsettings? should I use it?
 
 general
     what is LvimInfoIdentifier , LvimInfoHeader?
