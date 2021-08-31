@@ -1,5 +1,8 @@
 ## ToDo
 
+add cargo install stylua
+
+
 # rust packages
 fd-find add!:
 https://github.com/sharkdp/fd

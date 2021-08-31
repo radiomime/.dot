@@ -2,6 +2,14 @@
 conf/fish_functions/fisher.fish
 conf/fish_functions/__z*
 
+nvim/lua.bak
+nvim/undodir
+nvim/session
+nvim/plugged
+nvim.bak
+nvim.lunarcopy.bak
+nvim/autoload
+
 # temporary, local storage
 archive
 tmp

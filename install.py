@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import argparse
+import os
+
 
 
 
@@ -7,7 +9,8 @@ from lib import (
     Bandwhich,
     Bat, Brew,
     Docker,
-    Dot,     Exa,   
+    Dot,     Exa,     
+    Fish,
     Fish,
     Go,
 
@@ -26,7 +29,6 @@ from lib import (
     Snap,
     Starship,
     Terraform,
-
     Tldr,
     Tmux,
     Watchexec,
@@ -38,42 +40,41 @@ from lib import (
 
 def install():
     print("*** installing neovim and dotfiles")
-    # Bat.
-    Brew().install()
-    Neovim().install()
+    # Brew().install()
+    # Neovim().install()
     Dot().install()
 
     # print("*** installing packages")
-    Mitmproxy().install()
-    Nerdfonts().install()
-    Bat().install()
-    # Pyright().install()
-    Bandwhich().install()
-    Tmux().install()
-    Hammerspoon().install()
-    Exa().install()
-    Rust().install()
-    Ripgrep().install()
-    Kitty().install()
-    Fish().install()
-    Tldr().install()
-    Starship().install()
+    # Mitmproxy().install()
+    # Nerdfonts().install()
+    # Bat().install()
+    # # Pyright().install()
+    # Bandwhich().install()
+    # Tmux().install()
+    # Hammerspoon().install()
+    # Exa().install()
+    # Rust().install()
+    # Ripgrep().install()
+    # Kitty().install()
+    # Fish().install()
+    # Tldr().install()
+    # Starship().install()
 
-    Snap().install()
-    Go().install()
-    Poetry().install()
-    Terraform().install()
-    Node().install()
-    Yarn().install()
-    Watchexec().install()
-    # SwiftFormat().install()
+    # Snap().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Node().install()
+    # Yarn().install()
+    # Watchexec().install()
+    # # SwiftFormat().install()
 
-    # Docker and k8s. Order matters.
-    # TODO: minikube should install docker, etc
-    Docker().install()
+    # # Docker and k8s. Order matters.
+    # # TODO: minikube should install docker, etc
+    # Docker().install()
 
-    Minikube().install()
-    Kubectl().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def uninstall():

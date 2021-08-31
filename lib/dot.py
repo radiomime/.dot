@@ -17,20 +17,26 @@ class Dot(Package):
 
         # directories which need to exist
         self.dirs = [
-            self.config_dir + "/undodir",
             self.config_loc + "/kitty"
+            # self.config_dir + "/undodir",
             # self.config_dir + "/lua",
         ]
 
         # dotfiles to link
         self.files = {
+            # Just link the whole nvim directory!
+            # "./nvim" : "~/Desktop/nvim",
+            # "./nvim" : "~/.config",
+            "./nvim" : "~/.config/nvim",
+
+
             # new neovim files
             # "./nvim/lua/utils.lua": self.config_dir + "/lua/utils.lua",
-            "./nvim/lua/": self.config_dir + "/lua",
+            # "./nvim/lua/": self.config_dir + "/lua",
 
             # neovim files
-            "./conf/init.vim": self.config_dir + "/init.vim",
-            "./conf/plugin": self.config_dir + "/plugin",
+            # "./conf/init.vim": self.config_dir + "/init.vim",
+            # "./conf/plugin": self.config_dir + "/plugin",
             # git
             "./conf/gitconfig": "~/.gitconfig",
             # fish

@@ -1,43 +1,63 @@
-print('processing lsp lua handlers script')
+-- Set Default Prefix.
+-- Note: You can set a prefix per lsp server in the lv-globals.lua file
+local M = {}
 
--- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
---     if err ~= nil or result == nil then
---         return
---     end
---     if not vim.api.nvim_buf_get_option(bufnr, "modified") then
---         local view = vim.fn.winsaveview()
---         vim.lsp.util.apply_text_edits(result, bufnr)
---         vim.fn.winrestview(view)
---         if bufnr == vim.api.nvim_get_current_buf() then
---             vim.cmd [[noautocmd :update]]
---             vim.cmd [[GitGutter]]
---         end
---     end
--- end
+function M.setup()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = neo.lsp.diagnostics.virtual_text,
+    signs = neo.lsp.diagnostics.signs.active,
+    underline = neo.lsp.document_highlight,
+  })
 
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
---     vim.lsp.with(
---         vim.lsp.diagnostic.on_publish_diagnostics,
---         {
---             underline = true,
---             update_in_insert = false
---         }
---     )(...)
---     pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
--- end
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, _, params, client_id, _)
+    local config = { -- your config
+      virtual_text = neo.lsp.diagnostics.virtual_text,
+      signs = neo.lsp.diagnostics.signs,
+      underline = neo.lsp.diagnostics.underline,
+      update_in_insert = neo.lsp.diagnostics.update_in_insert,
+      severity_sort = neo.lsp.diagnostics.severity_sort,
+    }
+    local uri = params.uri
+    local bufnr = vim.uri_to_bufnr(uri)
 
--- vim.lsp.handlers["textDocument/hover"] =
---     vim.lsp.with(
---     vim.lsp.handlers.hover,
---     {
---         border = vim.g.floating_window_border_dark
---     }
--- )
+    if not bufnr then
+      return
+    end
 
--- vim.lsp.handlers["textDocument/signatureHelp"] =
---     vim.lsp.with(
---     vim.lsp.handlers.signature_help,
---     {
---         border = vim.g.floating_window_border_dark
---     }
--- )
+    local diagnostics = params.diagnostics
+
+    for i, v in ipairs(diagnostics) do
+      local source = v.source
+      if source then
+        if string.find(source, "/") then
+          source = string.sub(v.source, string.find(v.source, "([%w-_]+)$"))
+        end
+        diagnostics[i].message = string.format("%s: %s", source, v.message)
+      else
+        diagnostics[i].message = string.format("%s", v.message)
+      end
+
+      if vim.tbl_contains(vim.tbl_keys(v), "code") then
+        diagnostics[i].message = diagnostics[i].message .. string.format(" [%s]", v.code)
+      end
+    end
+
+    vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
+
+    if not vim.api.nvim_buf_is_loaded(bufnr) then
+      return
+    end
+
+    vim.lsp.diagnostic.display(diagnostics, bufnr, client_id, config)
+  end
+
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = neo.lsp.popup_border,
+  })
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = neo.lsp.popup_border,
+  })
+end
+
+return M
