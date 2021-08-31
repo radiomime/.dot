@@ -1,18 +1,23 @@
-print('*** Inside tester.lua')
+print("*** Inside tester.lua")
 
 -- print(vim.inspect(vim.loop.os_uname()))
 print(CONFIG_PATH)
-print(nvim)
-
+-- print(vim.inspect(neo))
 
 --[[ what I'm doing
-changing lvim to neo as global with all the shit
+init vim to init lua
 --]]
 
+--[[ plugin notes
+add: lukas-reineke/indent-blankline.nvim
+--]]
 
 --[[ Notes
 lua/core directory
     this directory has a bunch of plugin configuration
+
+* try to figure out how to make the cursor not blink
+* I don't know how to change the colorscheme
 --]]
 
 --[[ TODO
@@ -43,3 +48,13 @@ general
     what is CACHE_PATH? Check out all path vars
 --]]
 
+--[[ things I removed from init.vim that might suck to have removed
+
+augroup noIndentLineOnMarkdown
+  autocmd!
+  let g:indentLine_enabled=0
+augroup END
+
+
+colorscheme molokai
+--]]
