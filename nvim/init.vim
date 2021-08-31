@@ -534,13 +534,13 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " navigation
 """"""""""""""""""""""""""""""
 " Searching
-set nohlsearch
-set incsearch
-set ignorecase
-set smartcase
+" set nohlsearch
+" set incsearch
+" set ignorecase
+" set smartcase
 
 " assume the /g flag on grep
-set gdefault
+" set gdefault
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " editing
@@ -549,23 +549,23 @@ set gdefault
 " ts = 'number of spaces that <Tab> in file uses'
 " sts = 'number of spaces that <Tab> uses while editing'
 " sw = 'number of spaces to use for (auto)indent step'
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
+" set tabstop=4
+" set softtabstop=0
+" set shiftwidth=4
+" set expandtab
 " TODO: filetpe ones: like javascript:
 " autocmd FileType javascript setlocal shiftwidth=2|setlocal tabstop=2
 " |setlocal expandtab autoindent softtabstop=0
 
 " indent
-set smartindent
-set autoindent
+" set smartindent
+" set autoindent
 
-" copy/paste/cut to system clipboard
-if has('unnamedplus')
-    echom "copy/paste to system clipboard"
-    set clipboard=unnamedplus
-endif
+" " copy/paste/cut to system clipboard
+" if has('unnamedplus')
+"     echom "copy/paste to system clipboard"
+"     set clipboard=unnamedplus
+" endif
 
 " cucumber tables: let | align up and down
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -586,8 +586,8 @@ endfunction
 " visual
 """"""""""""""""""""""""""""""
 " sanity
-syntax on
-set ruler
+" syntax on
+" set ruler
 
 " molokai colorscheme
 " colorscheme molokai
