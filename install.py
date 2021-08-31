@@ -3,17 +3,16 @@ import argparse
 import os
 
 
-
-
 from lib import (
     Bandwhich,
-    Bat, Brew,
+    Bat,
+    Brew,
     Docker,
-    Dot,     Exa,     
+    Dot,
+    Exa,
     Fish,
     Fish,
     Go,
-
     Hammerspoon,
     Kitty,
     Kubectl,
@@ -34,8 +33,6 @@ from lib import (
     Watchexec,
     Yarn,
 )
-
-
 
 
 def install():
