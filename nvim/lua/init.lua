@@ -64,9 +64,9 @@ require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
 -- load plugins via packer
--- local plugins = require("plugins")
--- local plugin_loader = require("plugin-loader").init()
--- plugin_loader:load({ plugins, neo.plugins })
+local plugins = require("plugins")
+local plugin_loader = require("plugin-loader").init()
+plugin_loader:load({ plugins, neo.plugins })
 
 -- colors
 vim.g.colors_name = neo.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.

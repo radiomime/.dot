@@ -10,15 +10,15 @@ let g:mapleader = "\<Space>"
 let maplocalleader=','
 
 " Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
+" set encoding=utf-8
+" set fileencoding=utf-8
+" set fileencodings=utf-8
 
 " Fix backspace indent
 set backspace=indent,eol,start
 
 " Enable hidden buffers
-set hidden
+" set hidden
 
 " list of formats to look for
 set fileformats=unix,dos,mac
@@ -83,20 +83,20 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " Plug 'Shougo/vimproc.vim', {'do': g:make}
 
 " sensible
-Plug 'tpope/vim-sensible'
+" Plug 'tpope/vim-sensible'
 
 " ale linting
 " Plug 'dense-analysis/ale'
 
 " linting and fixing for swift
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 
 " to abbreviate, substitute, and coerce
-Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-abolish'
 
 " hints leader key bindings
 " requires timeout on (default on @ 1000ms)
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
 
 " markdown preview: " Dependencies: nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }

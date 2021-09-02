@@ -57,4 +57,10 @@ augroup END
 
 
 colorscheme molokai
+
+-- Plugins --
+Plug 'sbdchd/neoformat'
+
 --]]
+
+-- fartBag
