@@ -57,9 +57,15 @@ augroup END
 
 
 colorscheme molokai
+are the airline plugins good?
 
 -- Plugins --
 Plug 'sbdchd/neoformat'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'abecodes/tabout.nvim'
+Plug 'tomasr/molokai'
+Plug 'folke/lsp-colors.nvim'
+
 
 --]]
 
