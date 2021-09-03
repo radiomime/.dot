@@ -96,7 +96,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " hints leader key bindings
 " requires timeout on (default on @ 1000ms)
-" Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key'
 
 " markdown preview: " Dependencies: nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
