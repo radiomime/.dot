@@ -1,3 +1,6 @@
+# packer
+nvim/plugin
+
 # fisher function
 conf/fish_functions/fisher.fish
 conf/fish_functions/__z*
