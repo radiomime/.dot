@@ -1,7 +1,25 @@
 return {
+
     -- Packer can manage itself as an optional plugin
     { "wbthomason/packer.nvim" },
-    { "folke/tokyonight.nvim" },
+
+    -- tpop sanity
+    -- { "tpope/vim-sensible" },
+    { "tpope/vim-abolish" },
+
+    -- Whichkey
+    {
+        "folke/which-key.nvim",
+        config = function()
+            require("core.which-key").setup()
+        end,
+        event = "BufWinEnter",
+        disable = not neo.builtin.which_key.active,
+    },
+
+    -- OG below
+    -- Packer can manage itself as an optional plugin
+    -- { "wbthomason/packer.nvim" },
     { "neovim/nvim-lspconfig" },
     { "tamago324/nlsp-settings.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
@@ -100,16 +118,6 @@ return {
         end,
         event = "BufRead",
         disable = not neo.builtin.gitsigns.active,
-    },
-
-    -- Whichkey
-    {
-        "folke/which-key.nvim",
-        config = function()
-            require("core.which-key").setup()
-        end,
-        event = "BufWinEnter",
-        disable = not neo.builtin.which_key.active,
     },
 
     -- Comments
