@@ -35,9 +35,9 @@ set noswapfile
 set nobackup
 
 " Undo file for persistent undos
-call mkdir($HOME."/.config/nvim/undodir", "p")
-set undodir=~/.config/nvim/undodir
-set undofile
+" call mkdir($HOME."/.config/nvim/undodir", "p")
+" set undodir=~/.config/nvim/undodir
+" set undofile
 
 " source vimrc in current dir when opening project
 set exrc
@@ -96,104 +96,83 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " hints leader key bindings
 " requires timeout on (default on @ 1000ms)
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
 
 " markdown preview: " Dependencies: nodejs and yarn
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " session management
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
 
 " git
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tpope/vim-fugitive'
-Plug 'idanarye/vim-merginal' " branching help
-Plug 'rbong/vim-flog'        " pretty tree
+" Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+" Plug 'tpope/vim-fugitive'
+" Plug 'idanarye/vim-merginal' " branching help
+" Plug 'rbong/vim-flog'        " pretty tree
 
 " fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
 " window swap
-Plug 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 
 " tabularize for alignment
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 
 " pretty json
-Plug 'tpope/vim-jdaddy'
+" Plug 'tpope/vim-jdaddy'
 
 " lsp
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'kabouzeid/nvim-lspinstall'
-
-" for null ls
-Plug 'nvim-lua/plenary.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-
-" trying out
-" Plug 'mhartington/formatter.nvim'
-
-" trying out
-" Plug 'mfussenegger/nvim-lint'
-" Plug 'folke/lsp-colors.nvim'
-" Plug 'nvim-lua/completion-nvim'
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'hrsh7th/nvim-compe'
 " Plug 'kabouzeid/nvim-lspinstall'
-" trying out
-" Plug 'mfussenegger/nvim-lint'
 
-"
-" Plug 'folke/lsp-colors.nvim'
-" Plug 'nvim-lua/completion-nvim'
+" for null ls
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " fterm
-Plug 'numtostr/FTerm.nvim'
+" Plug 'numtostr/FTerm.nvim'
 
-"""" FIX BELOW
 " terminal
-Plug 'vimlab/split-term.vim'
+" Plug 'vimlab/split-term.vim'
 
 " start page
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 " colors
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 
 """"""""""
 " visual
 """
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
 " better find
-Plug 'unblevable/quick-scope'
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-augroup END
-" Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Plug 'unblevable/quick-scope'
+" augroup qs_colors
+"   autocmd!
+"   autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+"   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+" augroup END
+" " Trigger a highlight in the appropriate direction when pressing these keys:
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""
 " Miscellaneous && Unknown
 """
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-commentary'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
-Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-" Plug 'Yggdroot/indentLine' " there is a better lua one by lukas!
-Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'tpope/vim-commentary'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'vim-scripts/grep.vim'
+" Plug 'vim-scripts/CSApprox'
+" Plug 'Raimondi/delimitMate'
+" Plug 'majutsushi/tagbar'
+" Plug 'avelino/vim-bootstrap-updater'
+" Plug 'sheerun/vim-polyglot'
 
 
 
@@ -201,12 +180,13 @@ Plug 'sheerun/vim-polyglot'
 " Snippets
 """"""""""
 "" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 
+" Plug 'abecodes/tabout.nvim'
 
 "*****************************************************************************
 "" Custom bundles
@@ -243,6 +223,22 @@ Plug 'tomasr/molokai'
 "*****************************************************************************
 " End of plugins
 "*****************************************************************************
+" The following were commented before! Who knows if they were good. Look into them with time?
+" trying out
+" Plug 'mhartington/formatter.nvim'
+" Plug 'mfussenegger/nvim-lint'
+" Plug 'folke/lsp-colors.nvim'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/nvim-compe'
+" Plug 'kabouzeid/nvim-lspinstall'
+" trying out
+" Plug 'mfussenegger/nvim-lint'
+" Plug 'folke/lsp-colors.nvim'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'Yggdroot/indentLine' " there is a better lua one by lukas!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " test plugins
@@ -250,7 +246,6 @@ Plug 'tomasr/molokai'
 " maybe some cool branch things?
 "
 " DEV PLAY WITH THIS
-Plug 'abecodes/tabout.nvim'
 
 
 call plug#end()
@@ -263,17 +258,17 @@ echom "configuring plugins"
 """"""""""
 " vim-plug
 """
-command! PU PlugClean | PlugUpdate | PlugUpgrade
+" command! PU PlugClean | PlugUpdate | PlugUpgrade
 
 """"""""""
 " fterm
 """
-lua require('FTerm').setup()
-nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
-tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
+" lua require('FTerm').setup()
+" nnoremap <Leader>jj :lua require("FTerm").toggle()<CR>
+" tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
 
 """"""""""
-" ale
+" ale --this was all commented
 """
 " TODO: move all of these to ftplugins as ale docs suggest
 " TODO: include prettier on js fixers?
@@ -314,59 +309,59 @@ tnoremap JJ <C-\><C-n>:lua require("FTerm").toggle()<CR>
 """"""""""
 " which-key for leader hinting
 """
-nnoremap <silent> <leader>      :<c-u>WhichKey ' '<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+" nnoremap <silent> <leader>      :<c-u>WhichKey ' '<CR>
+" nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 
-" autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')
+" " autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')
 
-let g:which_key_map =  {}
-let g:which_key_sep = '→'
-let g:which_key_position='topleft'
-let g:which_key_vertical = 1
-let g:which_key_centered = 0
-let g:which_key_use_floating_win = 0
-let g:which_key_floating_relative_win = 0
+" let g:which_key_map =  {}
+" let g:which_key_sep = '→'
+" let g:which_key_position='topleft'
+" let g:which_key_vertical = 1
+" let g:which_key_centered = 0
+" let g:which_key_use_floating_win = 0
+" let g:which_key_floating_relative_win = 0
 
-let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
-let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
-let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
+" let g:which_key_map.u = [ ':PU', 'Plug clean, update, upgrade']
+" let g:which_key_map.v = [ '<C-u>vsplit<CR>', 'vertical split']
+" let g:which_key_map.h = [ '<C-u>split<CR>', 'horizontal split']
 
-let g:which_key_map.z = [ ':ZoomToggle', 'zoom current pane']
+" let g:which_key_map.z = [ ':ZoomToggle', 'zoom current pane']
 
-function SetGitUpstream()
-    let current_branch = system('git branch --show-current')
-    let git_upstream_output = system("git branch --set-upstream-to=origin/" . current_branch)
-    echo git_upstream_output
-endfunction
+" function SetGitUpstream()
+"     let current_branch = system('git branch --show-current')
+"     let git_upstream_output = system("git branch --set-upstream-to=origin/" . current_branch)
+"     echo git_upstream_output
+" endfunction
 
-let g:which_key_map.g = {
-       \ 'name' : '+git' ,
-       \ 'a'    : [':Gwrite/'           , 'add'],
-       \ 'c'    : [':Git commit'        , 'commit'],
-       \ 's'    : [':Gstatus'           , 'git status'],
-       \ 'd'    : [':Gvdiff/'           , 'git vertical diff'],
-       \ 't'    : [':Flog'              , 'show git tree'],
-       \ 'b'    : [':Merginal'          , 'git branches'],
-       \ 'r'    : {
-       \    'name'  : '+remote',
-       \    's'     : [':Git -c push.default=current push' , 'push'],
-       \    'l'     : [':Git pull'                         , 'pull'],
-       \    'u'     : [':call SetGitUpstream()'            , 'set upstream'],
-       \ },
-       \ 'l'    : [':Gblame'            , 'git blame'],
-       \ }
+" let g:which_key_map.g = {
+"        \ 'name' : '+git' ,
+"        \ 'a'    : [':Gwrite/'           , 'add'],
+"        \ 'c'    : [':Git commit'        , 'commit'],
+"        \ 's'    : [':Gstatus'           , 'git status'],
+"        \ 'd'    : [':Gvdiff/'           , 'git vertical diff'],
+"        \ 't'    : [':Flog'              , 'show git tree'],
+"        \ 'b'    : [':Merginal'          , 'git branches'],
+"        \ 'r'    : {
+"        \    'name'  : '+remote',
+"        \    's'     : [':Git -c push.default=current push' , 'push'],
+"        \    'l'     : [':Git pull'                         , 'pull'],
+"        \    'u'     : [':call SetGitUpstream()'            , 'set upstream'],
+"        \ },
+"        \ 'l'    : [':Gblame'            , 'git blame'],
+"        \ }
 
-let g:which_key_map.f = {
-       \ 'name' : '+fuzzy' ,
-       \ 'f'    : [':GFiles'            , 'open a file: respect git ignore'],
-       \ 'e'    : [':Files'             , 'open a file'],
-       \ 'b'    : [':Buffers'           , 'open a buffer'],
-       \ 'l'    : [':Lines'             , 'find a line'],
-       \ 'h'    : [':History'           , 'search file history'],
-       \ 't'    : [':Filetypes'         , 'filetypes'],
-       \ }
+" let g:which_key_map.f = {
+"        \ 'name' : '+fuzzy' ,
+"        \ 'f'    : [':GFiles'            , 'open a file: respect git ignore'],
+"        \ 'e'    : [':Files'             , 'open a file'],
+"        \ 'b'    : [':Buffers'           , 'open a buffer'],
+"        \ 'l'    : [':Lines'             , 'find a line'],
+"        \ 'h'    : [':History'           , 'search file history'],
+"        \ 't'    : [':Filetypes'         , 'filetypes'],
+"        \ }
 
-call which_key#register(' ', "g:which_key_map")
+" call which_key#register(' ', "g:which_key_map")
 
 
 " nnoremap <silent> <leader> :WhichKey ' '<CR>
@@ -398,29 +393,29 @@ call which_key#register(' ', "g:which_key_map")
 """"""""""
 " markdown preview
 """
-nnoremap <leader>md :MarkdownPreview<Return>
+" nnoremap <leader>md :MarkdownPreview<Return>
 
 """"""""""
-" session management with vim-session
+" session management with vim-session -- how should I do session management now?
 """
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
+" let g:session_directory = "~/.config/nvim/session"
+" let g:session_autoload = "no"
+" let g:session_autosave = "no"
+" let g:session_command_aliases = 1
+" nnoremap <leader>so :OpenSession<Space>
+" nnoremap <leader>ss :SaveSession<Space>
+" nnoremap <leader>sd :DeleteSession<CR>
+" nnoremap <leader>sc :CloseSession<CR>
+" 
 """"""""""
 " git
 """
 " flog
-let g:flog_default_arguments = {
-            \ 'max_count': 2000,
-            \ 'all': 1,
-            \ 'date': 'short',
-            \ }
+" let g:flog_default_arguments = {
+"             \ 'max_count': 2000,
+"             \ 'all': 1,
+"             \ 'date': 'short',
+"             \ }
 
 """"""""""
 " fugitive git bindings
@@ -445,7 +440,7 @@ let g:flog_default_arguments = {
 
 " nnoremap <silent> <leader>b :Buffers<CR>
 " nnoremap <silent> <Leader>L :Lines<CR>
-nnoremap <silent> <Leader>C        :Colors<CR>
+" nnoremap <silent> <Leader>C        :Colors<CR>
 
 " nnoremap <leader>y :History:<CR>
 " nnoremap <leader>ft :Filetypes<CR>
@@ -456,15 +451,16 @@ nnoremap <silent> <Leader>C        :Colors<CR>
 " nnoremap <silent> <Leader>`        :Marks<CR>
 
 
-let g:fzf_preview_window = ['right:60%', 'ctrl-/']
+" let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 
-" fzf.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND="rg --files --hidden
-            \ -g '!{node_modules,.git,__pycache__}'
-            \ '--no-ignore-vcs'
-            \ "
+" fzf.vim --THIS WAS NOT COMMENTED
+" set wildmode=list:longest,list:full
+" set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+" let $FZF_DEFAULT_COMMAND="rg --files --hidden
+"             \ -g '!{node_modules,.git,__pycache__}'
+"             \ '--no-ignore-vcs'
+"             \ "
+" fzf.vim --ABOVE WAS NOT COMMENTED
             " \" -g '!.git/*'"
             " \ -g '!.git/*'
             " \ -g '!__pycache__/*'
@@ -481,25 +477,25 @@ let $FZF_DEFAULT_COMMAND="rg --files --hidden
 " split term
 """
 " terminal below when executing :Term
-set splitbelow
-nnoremap <leader>sh :VTerm<CR>
-tnoremap JK <C-\><C-n>
+" set splitbelow
+" nnoremap <leader>sh :VTerm<CR>
+" tnoremap JK <C-\><C-n>
 
 """"""""""
 " startify
 """
-let g:startify_change_to_dir = 0
-let g:startify_bookmarks = [
-    \ { 'i' : '~/.config/nvim/init.vim' },
-    \ ]
-let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   Files']            },
-          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-          \ ]
-let g:startify_custom_header = []
-nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
+" let g:startify_change_to_dir = 0
+" let g:startify_bookmarks = [
+"     \ { 'i' : '~/.config/nvim/init.vim' },
+"     \ ]
+" let g:startify_lists = [
+"           \ { 'type': 'files',     'header': ['   Files']            },
+"           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+"           \ { 'type': 'sessions',  'header': ['   Sessions']       },
+"           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+"           \ ]
+" let g:startify_custom_header = []
+" nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 
 
 
@@ -516,7 +512,7 @@ nnoremap <Leader>tt :tabnew<CR>:Startify<CR>
 " mappings
 """"""""""""""""""""""""""""""
 " jesus wept
-ino jk <esc>
+" ino jk <esc>
 
 " Remap : to ; for ease of use
 nnoremap ; :
@@ -524,7 +520,7 @@ nnoremap ; :
 nnoremap : ;
 
 " reload vimrc
-nnoremap <leader><Return> :source $MYVIMRC<CR>
+" nnoremap <leader><Return> :source $MYVIMRC<CR>
 
 " Split
 noremap <Leader>h :<C-u>split<CR>
@@ -568,18 +564,19 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " endif
 
 " cucumber tables: let | align up and down
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
+-- THIS WAS NICE
+" function! s:align()
+"   let p = '^\s*|\s.*\s|\s*$'
+"   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+"     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+"     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+"     Tabularize/|/l1
+"     normal! 0
+"     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+"   endif
+" endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -622,18 +619,19 @@ endfunction
 " nmap <Leader>zo :tabnew %<CR>
 " nmap <Leader>zc :tabclose<CR>
 " Zoom / Restore window.
-function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
-    endif
-endfunction
-command! ZoomToggle call s:ZoomToggle()
+-- I LIKED ZOOOOOOOM
+" function! s:ZoomToggle() abort
+"     if exists('t:zoomed') && t:zoomed
+"         execute t:zoom_winrestcmd
+"         let t:zoomed = 0
+"     else
+"         let t:zoom_winrestcmd = winrestcmd()
+"         resize
+"         vertical resize
+"         let t:zoomed = 1
+"     endif
+" endfunction
+" command! ZoomToggle call s:ZoomToggle()
 " nnoremap <silent> <C-A> :ZoomToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
