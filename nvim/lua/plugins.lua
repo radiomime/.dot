@@ -145,6 +145,7 @@ return {
         disable = not neo.builtin.lualine.active,
     },
 
+    -- TODO: do I like bar bar? If so, add some leader key shortcuts
     {
         "romgrk/barbar.nvim",
         config = function()
