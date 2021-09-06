@@ -566,7 +566,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " cucumber tables: let | align up and down
 " inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
--- THIS WAS NICE
+" -- THIS WAS NICE
 " function! s:align()
 "   let p = '^\s*|\s.*\s|\s*$'
 "   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -619,7 +619,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " nmap <Leader>zo :tabnew %<CR>
 " nmap <Leader>zc :tabclose<CR>
 " Zoom / Restore window.
--- I LIKED ZOOOOOOOM
+" -- I LIKED ZOOOOOOOM
 " function! s:ZoomToggle() abort
 "     if exists('t:zoomed') && t:zoomed
 "         execute t:zoom_winrestcmd
