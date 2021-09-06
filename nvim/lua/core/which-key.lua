@@ -219,7 +219,7 @@ M.config = function()
                     "Toggle floating terminal",
                 },
                 g = {
-                    "<cmd>lua require('core.terminal').tester()<cr>",
+                    "<cmd>lua require('core.terminal').lazygit()<cr>",
                     "Git status terminal",
                 },
             },
