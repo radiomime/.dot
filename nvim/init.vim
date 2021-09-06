@@ -515,16 +515,16 @@ echom "configuring plugins"
 " ino jk <esc>
 
 " Remap : to ; for ease of use
-nnoremap ; :
+" nnoremap ; :
 " Keep ; an option
-nnoremap : ;
+" nnoremap : ;
 
 " reload vimrc
 " nnoremap <leader><Return> :source $MYVIMRC<CR>
 
 " Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+" noremap <Leader>h :<C-u>split<CR>
+" noremap <Leader>v :<C-u>vsplit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " navigation
