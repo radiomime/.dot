@@ -70,15 +70,18 @@ function M.config()
             ["jk"] = "<ESC>",
             -- 'kj' for quitting insert mode
             ["kj"] = "<ESC>",
+
             -- Move current line / block with Alt-j/k ala vscode.
             ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
             -- Move current line / block with Alt-j/k ala vscode.
             ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
+
             -- navigation
             ["<A-Up>"] = "<C-\\><C-N><C-w>k",
             ["<A-Down>"] = "<C-\\><C-N><C-w>j",
             ["<A-Left>"] = "<C-\\><C-N><C-w>h",
             ["<A-Right>"] = "<C-\\><C-N><C-w>l",
+
             -- navigate tab completion with <c-j> and <c-k>
             -- runs conditionally
             ["<C-j>"] = {
@@ -102,6 +105,7 @@ function M.config()
             -- ; to : for ease of use, but keep ; as an option
             [";"] = ":",
             [":"] = ";",
+
             -- Resize with arrows
             ["<C-Up>"] = ":resize -2<CR>",
             ["<C-Down>"] = ":resize +2<CR>",
@@ -131,6 +135,7 @@ function M.config()
             ["JK"] = "<C-\\><C-n>",
             -- TODO: debug below: should work, but only works when mapped to JK
             ["JJ"] = "<C-\\><C-n>:ToggleTerm<cr>",
+
             -- Terminal window navigation
             ["<C-h>"] = "<C-\\><C-N><C-w>h",
             ["<C-j>"] = "<C-\\><C-N><C-w>j",
