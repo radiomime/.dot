@@ -44,7 +44,7 @@ neo.colorscheme = "tokyonight"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 neo.builtin.dashboard.active = true
--- neo.builtin.terminal.active = true
+neo.builtin.terminal.active = true
 -- neo.builtin.nvimtree.side = "left"
 -- neo.builtin.nvimtree.show_icons.git = 0
 
