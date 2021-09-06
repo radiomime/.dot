@@ -6,11 +6,11 @@
 -- TODO: Sort through below. No idea what is needed
 
 CONFIG_PATH = os.getenv("HOME") .. "/.local/share/nvim/nvim"
-DATA_PATH = vim.fn.stdpath("data")
-CACHE_PATH = vim.fn.stdpath("cache")
-TERMINAL = vim.fn.expand("$TERMINAL")
+DATA_PATH = vim.fn.stdpath("data") -- typically ~/.local/share/nvim
+CACHE_PATH = vim.fn.stdpath("cache") -- typically ~/.cache/nvim
+TERMINAL = vim.fn.expand("$TERMINAL") -- TODO: is this right?
 USER = vim.fn.expand("$USER")
-vim.cmd([[ set spellfile=~/.config/nvim/spell/en.utf-8.add ]])
+vim.cmd([[ set spellfile=~/.config/nvim/spell/en.utf-8.add ]]) -- TODO: create a spelling file
 
 neo = {
     leader = "space",
