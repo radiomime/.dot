@@ -8,7 +8,7 @@ M.config = function()
         size = 20,
         open_mapping = [[<c-t>]], -- ctrl-t opens and closes the terminal
         hide_numbers = true, -- hide the number column in toggleterm buffers
-        shade_filetypes = {},
+        shade_filetypes = { "none" },
         shade_terminals = true,
         shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
         start_in_insert = true,
@@ -53,6 +53,41 @@ M.setup = function()
     if neo.builtin.terminal.on_config_done then
         neo.builtin.terminal.on_config_done(terminal)
     end
+end
+
+M.tester = function()
+    -- lazygit:toggle()
+    -- local terminal = require("toggleterm").Terminal
+    local terminal = require("toggleterm.terminal").Terminal
+    print(terminal)
+
+    local lazygit = terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        direction = "float",
+        float_opts = {
+            border = "double",
+        },
+
+        -- function to run on opening the terminal
+        on_open = function(term)
+            vim.cmd("startinsert!")
+            vim.api.nvim_buf_set_keymap(
+                term.bufnr,
+                "n",
+                "q",
+                "<cmd>close<CR>",
+                { noremap = true, silent = true }
+            )
+        end,
+
+        -- function to run on closing the terminal
+        on_close = function(term)
+            print("Closing terminal")
+        end,
+    })
+
+    lazygit:toggle()
 end
 
 M.add_exec = function(exec, keymap, name)
