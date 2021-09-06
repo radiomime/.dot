@@ -27,7 +27,7 @@ for ssh_key in $HOME'/.ssh/keys'/*
 end
 
 # rust path
-set PATH $HOME/.cargo/bin $PATH
+/* set PATH $HOME/.cargo/bin $PATH */
 
 # Starship at the end of fish config
 starship init fish | source
