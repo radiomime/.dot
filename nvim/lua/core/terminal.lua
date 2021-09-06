@@ -39,6 +39,7 @@ M.config = function()
         -- neo.builtin.terminal.execs[#neo.builtin.terminal.execs+1] = {"gdb", "tg", "GNU Debugger"}
         execs = {
             { "lazygit", "gg", "LazyGit" },
+            { "btm", "jb", "Bottom" },
         },
     }
 end
