@@ -5,6 +5,8 @@ neo.format_on_save = true
 neo.lint_on_save = true
 neo.colorscheme = "tokyonight"
 
+vim.g.tokyonight_style = "night"
+
 -- neo.lang.javascript.formatters = { { exe = "prettier" } }
 -- neo.lang.python.linters = {
 --   {
