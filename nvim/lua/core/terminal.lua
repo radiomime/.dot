@@ -55,41 +55,6 @@ M.setup = function()
     end
 end
 
-M.tester = function()
-    -- lazygit:toggle()
-    -- local terminal = require("toggleterm").Terminal
-    local terminal = require("toggleterm.terminal").Terminal
-    print(terminal)
-
-    local lazygit = terminal:new({
-        cmd = "lazygit",
-        dir = "git_dir",
-        direction = "float",
-        float_opts = {
-            border = "double",
-        },
-
-        -- function to run on opening the terminal
-        on_open = function(term)
-            vim.cmd("startinsert!")
-            vim.api.nvim_buf_set_keymap(
-                term.bufnr,
-                "n",
-                "q",
-                "<cmd>close<CR>",
-                { noremap = true, silent = true }
-            )
-        end,
-
-        -- function to run on closing the terminal
-        on_close = function(term)
-            print("Closing terminal")
-        end,
-    })
-
-    lazygit:toggle()
-end
-
 M.add_exec = function(exec, keymap, name)
     vim.api.nvim_set_keymap(
         "n",
@@ -161,6 +126,41 @@ M.toggle_log_view = function(name)
     local log_view = Terminal:new(term_opts)
     -- require("core.log"):get_default().debug("term", vim.inspect(term_opts))
     log_view:toggle()
+end
+
+M.lazygit = function()
+    -- lazygit:toggle()
+    -- local terminal = require("toggleterm").Terminal
+    local terminal = require("toggleterm.terminal").Terminal
+    print(terminal)
+
+    local lazygit = terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        direction = "float",
+        float_opts = {
+            border = "double",
+        },
+
+        -- function to run on opening the terminal
+        on_open = function(term)
+            vim.cmd("startinsert!")
+            vim.api.nvim_buf_set_keymap(
+                term.bufnr,
+                "n",
+                "q",
+                "<cmd>close<CR>",
+                { noremap = true, silent = true }
+            )
+        end,
+
+        -- function to run on closing the terminal
+        on_close = function(term)
+            print("Closing terminal")
+        end,
+    })
+
+    lazygit:toggle()
 end
 
 return M
