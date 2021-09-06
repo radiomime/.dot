@@ -78,7 +78,9 @@ M.config = function()
             ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
             ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
             ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
-            ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+            -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+            ["v"] = { "<cmd>vsplit<CR>", "Vertical split" },
+            ["h"] = { "<cmd>split<CR>", "Horizontal split" },
             b = {
                 name = "Buffers",
                 j = { "<cmd>BufferPick<cr>", "jump to buffer" },
@@ -208,6 +210,17 @@ M.config = function()
                 S = {
                     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
                     "Workspace Symbols",
+                },
+            },
+            j = {
+                name = "terminal",
+                j = {
+                    "<cmd>ToggleTerm<cr>",
+                    "Toggle floating terminal",
+                },
+                g = {
+                    "<cmd>lua require('core.terminal').tester()<cr>",
+                    "Git status terminal",
                 },
             },
             L = {
