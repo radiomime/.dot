@@ -121,12 +121,15 @@ function M.config()
             ["<A-k>"] = ":m .-2<CR>==",
 
             -- QuickFix
+            -- TODO: incorporate quickfix
             ["]q"] = ":cnext<CR>",
             ["[q"] = ":cprev<CR>",
-            ["<C-q>"] = ":call QuickFixToggle()<CR>",
+            -- ["<C-q>"] = ":call QuickFixToggle()<CR>",
 
             -- ctrl-s to save
             ["<C-s>"] = ":w<cr>",
+            -- ctrl-q to quit
+            ["<C-q>"] = ":q<cr>",
         },
 
         ---@usage change or add keymappings for terminal mode
