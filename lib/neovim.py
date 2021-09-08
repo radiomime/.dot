@@ -71,10 +71,18 @@ class Neovim(Package):
             [
                 "git",
                 "clone",
+                "--branch",
+                "release-0.5",
                 "https://github.com/neovim/neovim",
                 self.install_path,
             ]
         )
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        # TODO: fix the above when it makes sense
 
         print("Making neovim")
         subprocess.run(
@@ -137,7 +145,8 @@ class Neovim(Package):
         brew.brew_install(
             pkgs=[
                 "ninja",
-                "libtool", "automake",
+                "libtool",
+                "automake",
                 "cmake",
                 "pkg-config",
                 "gettext",
@@ -147,10 +156,7 @@ class Neovim(Package):
         self.get_git_project(
             address="https://github.com/neovim/neovim",
             repo_dir_name="neovim",
-            flags=[
-                "--branch",
-                "stable"
-            ]
+            flags=["--branch", "stable"],
         )
 
         subprocess.run(
@@ -176,7 +182,7 @@ class Neovim(Package):
 
     # TODO: fix uninstall for neovim in osx!
     def osx_uninstall(self):
-        print('osx uninstall is in a bad state for neovim!!!')
+        print("osx uninstall is in a bad state for neovim!!!")
         subprocess.run(
             [
                 "rm",
