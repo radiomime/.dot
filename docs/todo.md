@@ -1,5 +1,10 @@
 ## ToDo
 
+install prettier:
+    npm install -g prettier
+maybe this too?
+    npm install -g eslint_d
+
 add cargo install stylua
 add:
     go get github.com/jesseduffield/lazygit
