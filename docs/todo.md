@@ -1,5 +1,7 @@
 ## ToDo
 
+Add gitignore command to fish instead of bash
+
 install prettier:
     npm install -g prettier
 maybe this too?
