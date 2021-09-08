@@ -41,13 +41,20 @@ function plugin_loader:init()
 end
 
 function plugin_loader:load(configurations)
-    return self.packer.startup(function(use)
-        for _, plugins in ipairs(configurations) do
-            for _, plugin in ipairs(plugins) do
-                use(plugin)
+    return self.packer.startup({
+        function(use)
+            for _, plugins in ipairs(configurations) do
+                for _, plugin in ipairs(plugins) do
+                    use(plugin)
+                end
             end
-        end
-    end)
+        end,
+        config = {
+            display = {
+                open_fn = require("packer.util").float,
+            },
+        },
+    })
 end
 
 return {
