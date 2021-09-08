@@ -1,6 +1,19 @@
 ## ToDo
 
+Add gitignore command to fish instead of bash
+
+install prettier:
+    npm install -g prettier
+maybe this too?
+    npm install -g eslint_d
+
 add cargo install stylua
+add:
+    go get github.com/jesseduffield/lazygit
+    also, add to path: ~/go/bin
+    fish_add_path ~/go/bin/
+    Do this for the cargo stuff too!
+Actually, do gitui instead! Or maybe not, for author stuff.
 
 
 # rust packages

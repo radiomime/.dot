@@ -5,6 +5,8 @@ neo.format_on_save = true
 neo.lint_on_save = true
 neo.colorscheme = "tokyonight"
 
+vim.g.tokyonight_style = "night"
+
 -- neo.lang.javascript.formatters = { { exe = "prettier" } }
 -- neo.lang.python.linters = {
 --   {
@@ -44,7 +46,7 @@ neo.colorscheme = "tokyonight"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 neo.builtin.dashboard.active = true
--- neo.builtin.terminal.active = true
+neo.builtin.terminal.active = true
 -- neo.builtin.nvimtree.side = "left"
 -- neo.builtin.nvimtree.show_icons.git = 0
 

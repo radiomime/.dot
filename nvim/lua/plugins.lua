@@ -22,8 +22,11 @@ return {
         config = function()
             require("core.telescope").setup()
         end,
+        -- requires = { { "nvim-lua/plenary.nvim" } },
         disable = not neo.builtin.telescope.active,
     },
+    -- TODO: primeagen rec: https://github.com/nvim-telescope/telescope-fzf-native.nvim
+    -- TODO: should this have requires? requires = { {'nvim-lua/plenary.nvim'} }
 
     -- Completion & Snippets
     {
@@ -145,6 +148,7 @@ return {
         disable = not neo.builtin.lualine.active,
     },
 
+    -- TODO: do I like bar bar? If so, add some leader key shortcuts
     {
         "romgrk/barbar.nvim",
         config = function()

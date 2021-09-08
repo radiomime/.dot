@@ -6,6 +6,8 @@ M.load_options = function()
     -- the following are like vim's 'set <setting>'
     local default_options = {
         laststatus = 2,
+        exrc = true, -- source .nvimrc or .exrc from current directory when starting vim
+        backspace = { "indent", "eol", "start" },
         ruler = true,
         backup = false, -- creates a backup file
         clipboard = "unnamedplus", -- allows neovim to access the system clipboard
@@ -13,7 +15,6 @@ M.load_options = function()
         colorcolumn = "79", -- fixes indentline for now
         completeopt = { "menuone", "noinsert", "noselect" },
         conceallevel = 0, -- so that `` is visible in markdown files
-        -- encoding = "uft-8",
         fileencoding = "utf-8", -- the encoding written to a file
         fileencodings = "utf-8", -- the encoding written to a file
         foldmethod = "manual", -- folding, set to "expr" for treesitter based folding

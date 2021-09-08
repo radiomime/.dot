@@ -2,71 +2,8 @@
 " sanity sets
 " TODO: remove things covered by tpope/sensible
 """"""""""""""""""""""""""""""
-echom "basic sets"
-
-" Map leader to <space>
-" let mapleader=' '
-let g:mapleader = "\<Space>"
-let maplocalleader=','
-
-" Encoding
-" set encoding=utf-8
-" set fileencoding=utf-8
-" set fileencodings=utf-8
-
-" Fix backspace indent
-set backspace=indent,eol,start
-
-" Enable hidden buffers
-" set hidden
-
-" list of formats to look for
-set fileformats=unix,dos,mac
-
-" set shell
-if exists('$SHELL')
-    set shell=$SHELL
-else
-    set shell=/bin/sh
-endif
-
-" No swap files
-set noswapfile
-set nobackup
-
-" Undo file for persistent undos
-" call mkdir($HOME."/.config/nvim/undodir", "p")
-" set undodir=~/.config/nvim/undodir
-" set undofile
-
-" source vimrc in current dir when opening project
-set exrc
-
-" filetype sanity
-filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" install vim-plug
-""""""""""""""""""""""""""""""
-echom "installing vim-plug"
-
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-
-let g:vim_bootstrap_langs = "c,go,javascript,python,typescript"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-
-if !filereadable(vimplug_exists)
-    if !executable("curl")
-        echoerr "You have to install curl or first install vim-plug yourself!"
-        execute "q!"
-    endif
-    echo "Installing Vim-Plug..."
-    echo ""
-    silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    let g:not_finish_vimplug = "yes"
-
-    autocmd VimEnter * PlugInstall
-endif
+" this is useful below:
+" https://www.reddit.com/r/vim/comments/4y8b51/what_are_common_settings_for_vim_that_are/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " install plugins
@@ -515,16 +452,16 @@ echom "configuring plugins"
 " ino jk <esc>
 
 " Remap : to ; for ease of use
-nnoremap ; :
+" nnoremap ; :
 " Keep ; an option
-nnoremap : ;
+" nnoremap : ;
 
 " reload vimrc
 " nnoremap <leader><Return> :source $MYVIMRC<CR>
 
 " Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+" noremap <Leader>h :<C-u>split<CR>
+" noremap <Leader>v :<C-u>vsplit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " navigation
@@ -566,7 +503,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " cucumber tables: let | align up and down
 " inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
--- THIS WAS NICE
+" -- THIS WAS NICE
 " function! s:align()
 "   let p = '^\s*|\s.*\s|\s*$'
 "   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -619,7 +556,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " nmap <Leader>zo :tabnew %<CR>
 " nmap <Leader>zc :tabclose<CR>
 " Zoom / Restore window.
--- I LIKED ZOOOOOOOM
+" -- I LIKED ZOOOOOOOM
 " function! s:ZoomToggle() abort
 "     if exists('t:zoomed') && t:zoomed
 "         execute t:zoom_winrestcmd

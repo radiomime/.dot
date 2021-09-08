@@ -6,7 +6,7 @@ print("*** Inside init.lua")
 print("home_dir: " .. home_dir)
 print("os information: " .. vim.inspect(vim.loop.os_uname()))
 
--- This is our global config object
+-- Create global config object
 neo = {}
 
 -- CHANGE: Do not use lvim or lunarvim paths

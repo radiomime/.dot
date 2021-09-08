@@ -6,17 +6,15 @@ M.config = function()
         on_config_done = nil,
         -- size can be a number or function which is passed the current terminal
         size = 20,
-        -- open_mapping = [[<c-\>]],
-        open_mapping = [[<c-t>]],
+        open_mapping = [[<c-t>]], -- ctrl-t opens and closes the terminal
         hide_numbers = true, -- hide the number column in toggleterm buffers
-        shade_filetypes = {},
+        shade_filetypes = { "none" },
         shade_terminals = true,
         shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
         start_in_insert = true,
         insert_mappings = true, -- whether or not the open mapping applies in insert mode
         persist_size = false,
-        -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
-        direction = "float",
+        direction = "float", -- 'vertical' | 'horizontal' | 'window' | 'float'
         close_on_exit = true, -- close the terminal window when the process exits
         shell = vim.o.shell, -- change the default shell
         -- This field is only relevant if direction is set to 'float'
@@ -41,6 +39,7 @@ M.config = function()
         -- neo.builtin.terminal.execs[#neo.builtin.terminal.execs+1] = {"gdb", "tg", "GNU Debugger"}
         execs = {
             { "lazygit", "gg", "LazyGit" },
+            { "btm", "jb", "Bottom" },
         },
     }
 end
@@ -128,6 +127,41 @@ M.toggle_log_view = function(name)
     local log_view = Terminal:new(term_opts)
     -- require("core.log"):get_default().debug("term", vim.inspect(term_opts))
     log_view:toggle()
+end
+
+M.lazygit = function()
+    -- lazygit:toggle()
+    -- local terminal = require("toggleterm").Terminal
+    local terminal = require("toggleterm.terminal").Terminal
+    print(terminal)
+
+    local lazygit = terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        direction = "float",
+        float_opts = {
+            border = "double",
+        },
+
+        -- function to run on opening the terminal
+        on_open = function(term)
+            vim.cmd("startinsert!")
+            vim.api.nvim_buf_set_keymap(
+                term.bufnr,
+                "n",
+                "q",
+                "<cmd>close<CR>",
+                { noremap = true, silent = true }
+            )
+        end,
+
+        -- function to run on closing the terminal
+        on_close = function(term)
+            print("Closing terminal")
+        end,
+    })
+
+    lazygit:toggle()
 end
 
 return M
