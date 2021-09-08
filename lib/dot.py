@@ -7,8 +7,6 @@ from .abs_package import Package
 from .util import github_release_metadata, is_installed
 
 
-
-
 class Dot(Package):
     def __init__(self, config_dir=abspath(expanduser("~/.config/nvim"))):
         super().__init__()
@@ -17,7 +15,7 @@ class Dot(Package):
 
         # directories which need to exist
         self.dirs = [
-            self.config_loc + "/kitty"
+            self.config_loc + "/kitty",
             # self.config_dir + "/undodir",
             # self.config_dir + "/lua",
         ]
@@ -27,13 +25,10 @@ class Dot(Package):
             # Just link the whole nvim directory!
             # "./nvim" : "~/Desktop/nvim",
             # "./nvim" : "~/.config",
-            "./nvim" : "~/.config/nvim",
-
-
+            "./nvim": "~/.config",
             # new neovim files
             # "./nvim/lua/utils.lua": self.config_dir + "/lua/utils.lua",
             # "./nvim/lua/": self.config_dir + "/lua",
-
             # neovim files
             # "./conf/init.vim": self.config_dir + "/init.vim",
             # "./conf/plugin": self.config_dir + "/plugin",
