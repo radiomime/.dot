@@ -81,6 +81,33 @@ M.config = function()
             -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
             ["v"] = { "<cmd>vsplit<CR>", "Vertical split" },
             ["h"] = { "<cmd>split<CR>", "Horizontal split" },
+            -- TODO: remove redundant and combine, s and f keywords
+            -- f = {
+            --     name = "Telescope",
+            --     f = { "<cmd>Telescope find_files<cr>", "Find File" },
+            --     d = { "<cmd>Telescope find_files<cr>", "Find File" },
+            -- },
+            s = {
+                name = "Search",
+                f = { "<cmd>Telescope find_files<cr>", "Find File" },
+                d = {
+                    "<cmd>Telescope find_files hidden=true<cr>",
+                    "Find File (+hidden)",
+                },
+                b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+                c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+                h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+                M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+                r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+                R = { "<cmd>Telescope registers<cr>", "Registers" },
+                t = { "<cmd>Telescope live_grep<cr>", "Text" },
+                k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+                C = { "<cmd>Telescope commands<cr>", "Commands" },
+                p = {
+                    "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+                    "Colorscheme with Preview",
+                },
+            },
             b = {
                 name = "Buffers",
                 j = { "<cmd>BufferPick<cr>", "jump to buffer" },
@@ -279,23 +306,6 @@ M.config = function()
                         "<cmd>edit ~/.cache/nvim/packer.nvim.log<cr>",
                         "Open the Packer logfile",
                     },
-                },
-            },
-            s = {
-                name = "Search",
-                b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-                c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-                f = { "<cmd>Telescope find_files<cr>", "Find File" },
-                h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-                M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-                r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-                R = { "<cmd>Telescope registers<cr>", "Registers" },
-                t = { "<cmd>Telescope live_grep<cr>", "Text" },
-                k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-                C = { "<cmd>Telescope commands<cr>", "Commands" },
-                p = {
-                    "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-                    "Colorscheme with Preview",
                 },
             },
             t = {
