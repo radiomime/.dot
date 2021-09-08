@@ -20,8 +20,8 @@ class Neovim(Package):
         if self.os == "osx" or self.os == "linux":
             configDir = abspath(expanduser("~/.config/nvim"))
 
-            print("Config for nvim at:", configDir)
-            subprocess.run(["mkdir", "-pv", configDir])
+            # print("Config for nvim at:", configDir)
+            # subprocess.run(["mkdir", "-pv", configDir])
 
     def is_installed(self):
         return is_installed("nvim")
