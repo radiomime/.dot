@@ -15,14 +15,14 @@ return {
     },
 
     { "nvim-lua/popup.nvim" },
-    -- { "nvim-lua/plenary.nvim" },
+    { "nvim-lua/plenary.nvim" },
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         config = function()
             require("core.telescope").setup()
         end,
-        requires = { { "nvim-lua/plenary.nvim" } },
+        -- requires = { { "nvim-lua/plenary.nvim" } },
         disable = not neo.builtin.telescope.active,
     },
     -- TODO: primeagen rec: https://github.com/nvim-telescope/telescope-fzf-native.nvim
