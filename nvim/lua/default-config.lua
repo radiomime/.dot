@@ -544,10 +544,10 @@ neo.lang = {
             --   exe = "json_tool",
             --   args = {},
             -- },
-            -- {
-            --   exe = "prettier",
-            --   args = {},
-            -- },
+            {
+                exe = "prettier",
+                args = {},
+            },
             -- {
             --   exe = "prettierd",
             --   args = {},
@@ -765,10 +765,10 @@ neo.lang = {
     },
     javascript = {
         formatters = {
-            -- {
-            --   exe = "prettier",
-            --   args = {},
-            -- },
+            {
+                exe = "prettier",
+                args = {},
+            },
             -- {
             --   exe = "prettier_d_slim",
             --   args = {},
@@ -779,7 +779,12 @@ neo.lang = {
             -- },
         },
         -- @usage can be {"eslint"} or {"eslint_d"}
-        linters = {},
+        linters = {
+            {
+                exe = "eslint_d",
+                args = {},
+            },
+        },
         lsp = {
             provider = "tsserver",
             setup = {
