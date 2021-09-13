@@ -78,6 +78,7 @@ M.config = function()
             ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
             ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
             ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+            ["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
             -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
             ["v"] = { "<cmd>vsplit<CR>", "Vertical split" },
             ["h"] = { "<cmd>split<CR>", "Horizontal split" },
