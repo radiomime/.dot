@@ -195,4 +195,30 @@ return {
         end,
         disable = not neo.builtin.terminal.active,
     },
+
+    -- Markdown Preview
+    {
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && yarn install",
+        -- ft = "markdown",
+    },
+
+    -- Zen Mode
+    -- TODO: add configuration file for zen-mode!
+    -- TODO: whats the deal with configs??
+    {
+        "folke/zen-mode.nvim",
+        event = "BufWinEnter",
+        config = function()
+            require("core.zenmode").setup()
+        end,
+        disable = false,
+        -- config = function()
+        --     require("zen-mode").setup({
+        --         window = {
+        --             width = 1000,
+        --         },
+        --     })
+        -- end,
+    },
 }
