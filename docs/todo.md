@@ -1,5 +1,9 @@
 ## ToDo
 
+add general fix plugin structure.
+
+add to gitconfig: default branch name
+
 Add gitignore command to fish instead of bash
 
 install prettier:
