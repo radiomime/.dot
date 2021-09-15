@@ -1,5 +1,17 @@
 ## ToDo
 
+## cht.sh
+
+Checkout cheat.sh, might be cool to use. Might be able to turn this into a
+terminal app. https://github.com/chubin/cheat.sh
+
+https://www.youtube.com/watch?v=hJzqEAf2U4I
+https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-cht.sh
+
+This also looks neat: https://devhints.io/fish-shell
+
+## rando
+
 add general fix plugin structure.
 
 add to gitconfig: default branch name
