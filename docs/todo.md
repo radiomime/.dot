@@ -1,5 +1,7 @@
 ## ToDo
 
+checkout plugin: 'sindrets/winshift.nvim'
+
 ## cht.sh
 
 Checkout cheat.sh, might be cool to use. Might be able to turn this into a
