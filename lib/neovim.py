@@ -43,8 +43,6 @@ class Neovim(Package):
         # should never be hit
         return None
 
-
-
     def linux_install(self):
         print("Installing neovim dependencies")
         apt = Apt()
@@ -156,8 +154,10 @@ class Neovim(Package):
         self.get_git_project(
             address="https://github.com/neovim/neovim",
             repo_dir_name="neovim",
-            flags=["--branch", "stable"],
+            flags=["--branch", "release-0.5"],
+            # flags=["--branch", "stable"],
         )
+        # TODO: change back to stable!
 
         subprocess.run(
             [
