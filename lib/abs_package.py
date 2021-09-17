@@ -9,10 +9,8 @@ from pathlib import Path
 from .util import get_architecture, get_distro, get_distro_codename, get_os, create_dir
 
 
-
-
 class Package(ABC):
-    def __init__(self):    
+    def __init__(self):
         self.os = get_os()
         self.architecture = get_architecture()
         self.distro = get_distro()
