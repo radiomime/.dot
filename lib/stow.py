@@ -40,9 +40,10 @@ class Stow(Package):
         apt = Apt()
         apt.uninstall(["stow"])
 
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(["stow"])
 
-#     def osx_install(self):
-#         self.__install()
-#
-#     def osx_uninstall(self):
-#         self.__uninstall()
+    def osx_uninstall(self):
+        brew = Brew()
+        brew.brew_uninstall(["stow"])
