@@ -1,7 +1,7 @@
 # fisher function
 config/fish/.config/fish/functions/fisher.fish
 config/fish/.config/fish/functions/__z.fish
-config/fish_functions/__*
+config/fish/.config/fish/functions/__*
 
 # nvim things
 config/nvim/.config/nvim/lua.bak
