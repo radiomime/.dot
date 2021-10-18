@@ -2,8 +2,9 @@
 nvim/plugin
 
 # fisher function
-conf/fish_functions/fisher.fish
-conf/fish_functions/__z*
+config/fish/.config/fish/functions/fisher.fish
+config/fish/.config/fish/functions/__z.fish
+config/fish_functions/__*
 
 nvim/lua.bak
 nvim/undodir
