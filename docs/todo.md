@@ -75,6 +75,14 @@ CARGO INSTALL ripgrep! At least for linux
 
 ## popos specific gui plugins?
 
+## shell improvements
+
+fzf for history in fish?
+
+## fish improvement
+
+store fish plugins in dotfiles so I can easily load 'z' and whatnot across machines?
+
 ## kubect install minikube and docker, etc
 
 * indicator-sensors

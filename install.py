@@ -21,6 +21,7 @@ from lib import (
     Nerdfonts,
     Node,
     Poetry,
+    Stow,
     # Pyright,
     Ripgrep,
     Rust,
@@ -39,6 +40,7 @@ def install():
     Brew().install()
     Neovim().install()
     Dot().install()
+    Stow().install()
 
     #     print("*** installing packages")
     #     Mitmproxy().install()
@@ -68,8 +70,9 @@ def install():
     # # Docker and k8s. Order matters.
     # # TODO: minikube should install docker, etc
 
+    Docker().install()
 
-#     Docker().install()
+
 #
 #     Minikube().install()
 #     Kubectl().install()
@@ -104,7 +107,8 @@ def uninstall():
     # Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
-    Neovim().uninstall()
+    # TODO: explicit install/uninstall
+    # Neovim().uninstall()
     # Docker().uninstall()
     # Brew().uninstall()
 

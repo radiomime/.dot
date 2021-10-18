@@ -10,8 +10,6 @@ from .apt import Apt
 from .util import github_release_metadata, is_installed
 
 
-
-
 class Docker(Package):
     def __init__(self):
         super().__init__()
@@ -31,7 +29,7 @@ class Docker(Package):
 
         words = output.split(" ")
         if words[0] == "Docker":
-            return " ".join(words[2:]).strip()
+            return " ".join(words[3:]).strip()
 
         # should never be hit
         return None
@@ -120,7 +118,7 @@ class Docker(Package):
 
     def __add_user(self):
         subprocess.run(["sudo", "usermod", "-aG", "docker", self.user])
-        print('Log out and log back in to run `docker` commands without sudo')
+        print("Log out and log back in to run `docker` commands without sudo")
 
     def linux_uninstall(self):
 
@@ -156,7 +154,7 @@ class Docker(Package):
         brew = Brew()
         brew.brew_install(
             pkgs="docker",
-            flags='--cask',
+            flags="--cask",
         )
 
     def osx_uninstall(self):

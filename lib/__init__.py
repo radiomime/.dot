@@ -2,6 +2,7 @@ __version__ = "0.1.0"
 
 
 from .tmux import Tmux  # noqa
+from .stow import Stow
 from .hammerspoon import Hammerspoon  # noqa
 from .bandwhich import Bandwhich  # noqa
 from .pyright import Pyright  # noqa
@@ -29,11 +30,3 @@ from .terraform import Terraform  # noqa
 from .tldr import Tldr  # noqa
 from .watchexec import Watchexec  # noqa
 from .yarn import Yarn  # noqa
-
-# from .data_source import DataSource
-# from .file_io import FileIO
-# from .report import Report
-# cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-
-
-# curl -fLo "Meslo LG M Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
