@@ -47,4 +47,3 @@ class Exa(Package):
     def __uninstall(self):
         rust = Rust()
         rust.cargo_uninstall("exa")
-
