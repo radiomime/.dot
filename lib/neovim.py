@@ -127,6 +127,9 @@ class Neovim(Package):
             ]
         )
 
+    def osx_dependencies(self):
+        Brew().install()
+
     def osx_install(self):
         brew = Brew()
         brew.brew_install(

@@ -38,9 +38,9 @@ from lib import (
 def install():
     print("*** installing neovim and dotfiles")
     Brew().install()
-    # Neovim().install()
-    # Stow().install()
-    # Dot().install()
+    Neovim().install()
+    Stow().install()
+    Dot().install()
 
     #     print("*** installing packages")
     #     Mitmproxy().install()

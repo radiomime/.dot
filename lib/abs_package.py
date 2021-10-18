@@ -49,8 +49,10 @@ class Package(ABC):
             return
 
         if self.os == "linux":
+            self.linux_dependencies()
             self.linux_install()
         elif self.os == "osx":
+            self.osx_dependencies()
             self.osx_install()
         else:
             print("no install instructions for", self.os)
@@ -69,6 +71,12 @@ class Package(ABC):
 
     def osx_install(self):
         print(f"OSX install not defined for {self.__class__.__name__}")
+
+    def linux_dependencies(self):
+        pass
+
+    def osx_dependencies(self):
+        pass
 
     def linux_uninstall(self):
         print(f"Linux uninstall not defined for {self.__class__.__name__}")

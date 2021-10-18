@@ -29,6 +29,9 @@ class Brew(Package):
         return None
 
     def osx_install(self):
+        # TODO: make sure this runs with bash!!!
+        # TODO: zsh gives errors
+
         self.install_from_curled_script(
             "".join(
                 [

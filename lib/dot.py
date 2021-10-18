@@ -3,6 +3,7 @@ import subprocess
 from os.path import abspath, expanduser
 
 from .abs_package import Package
+from .stow import Stow
 
 
 class Dot(Package):
@@ -42,11 +43,17 @@ class Dot(Package):
         # TODO: add a stow remove here
         print("TODO: stow remove")
 
+    def linux_dependencies(self):
+        Stow().install()
+
     def linux_install(self):
         self.__install()
 
     def linux_uninstall(self):
         self.__uninstall()
+
+    def osx_dependencies(self):
+        Stow().install()
 
     def osx_install(self):
         self.__install()
