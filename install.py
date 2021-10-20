@@ -36,58 +36,54 @@ from lib import (
 
 
 def install():
-    print("*** installing neovim and dotfiles")
+    print("*** installing packages ***")
+
     Brew().install()
     Neovim().install()
     Stow().install()
     Dot().install()
 
-    #     print("*** installing packages")
-    #     Mitmproxy().install()
-    #     Nerdfonts().install()
-    #     Bat().install()
-    #     # Pyright().install()
-    #     Bandwhich().install()
-    #     Tmux().install()
-    #     Hammerspoon().install()
-    #     Exa().install()
-    #     Rust().install()
-    #     Ripgrep().install()
-    #     Kitty().install()
-    #     Fish().install()
-    #     Tldr().install()
-    #     Starship().install()
-    #
-    #     Snap().install()
-    #     Go().install()
-    #     Poetry().install()
-    #     Terraform().install()
-    #     Node().install()
-    #     Yarn().install()
-    #     Watchexec().install()
-    # SwiftFormat().install()
+    Kitty().install()
+    Starship().install()
+    Nerdfonts().install()
+    Fish().install()
 
-    # # Docker and k8s. Order matters.
-    # # TODO: minikube should install docker, etc
+    Bat().install()
+    Tmux().install()
+    Node().install()
 
+    # Mitmproxy().install()
+    # Pyright().install()
+    # Bandwhich().install()
+    # Hammerspoon().install()
+
+    Rust().install()
     # Docker().install()
 
-
-#
-#     Minikube().install()
-#     Kubectl().install()
+    Exa().install()
+    Ripgrep().install()
+    # Tldr().install()
+    # Snap().install()
+    # Go().install()
+    # Poetry().install()
+    # Terraform().install()
+    # Yarn().install()
+    # Watchexec().install()
+    # SwiftFormat().install()
+    # Minikube().install()
+    # Kubectl().install()
 
 
 def uninstall():
     print("uninstalling things")
-    Dot().uninstall()
+    # Dot().uninstall()
 
     # Mitmproxy().uninstall()
     # Go().uninstall()
     # Nerdfonts().uninstall()
     # Bandwhich().uninstall()
     # Tmux().uninstall()
-    # Hammerspoon().uninstall()
+    Hammerspoon().uninstall()
     # Bat().uninstall()
     # # Pyright().uninstall()
     # Exa().uninstall()
@@ -108,8 +104,8 @@ def uninstall():
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # TODO: explicit install/uninstall
-    # Neovim().uninstall()
-    # Docker().uninstall()
+    Neovim().uninstall()
+    Docker().uninstall()
     # Brew().uninstall()
 
 
