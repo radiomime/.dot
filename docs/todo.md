@@ -2,6 +2,10 @@
 
 checkout plugin: 'sindrets/winshift.nvim'
 
+## fisher
+add fisher plugin: z
+fisher: install plugins on uu
+
 ## cht.sh
 
 Checkout cheat.sh, might be cool to use. Might be able to turn this into a
