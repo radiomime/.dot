@@ -2,6 +2,8 @@
 config/fish/.config/fish/completions
 config/fish/.config/fish/fish_variables
 config/fish/.config/fish/functions/fisher.fish
+# TODO: ignore functions, then include functions I want to include
+config/fish/.config/fish/functions/bass.fish
 config/fish/.config/fish/functions/__z.fish
 config/fish/.config/fish/functions/__*
 

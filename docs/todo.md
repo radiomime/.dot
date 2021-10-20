@@ -2,6 +2,9 @@
 
 checkout plugin: 'sindrets/winshift.nvim'
 
+## gitignore
+# TODO: ignore functions, then include functions I want to include
+
 ## fisher
 add fisher plugin: z
 fisher: install plugins on uu
