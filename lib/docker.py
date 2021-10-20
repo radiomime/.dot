@@ -150,13 +150,13 @@ class Docker(Package):
             ]
         )
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="docker",
-            flags="--cask",
-        )
-
+#     def osx_install(self):
+#         brew = Brew()
+#         brew.brew_install(
+#             pkgs="docker",
+#             flags="--cask",
+#         )
+# 
     def osx_uninstall(self):
         brew = Brew()
         brew.brew_uninstall(
