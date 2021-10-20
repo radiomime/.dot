@@ -31,3 +31,6 @@ end
 
 # Starship at the end of fish config
 starship init fish | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/zpuser/google-cloud-sdk/path.fish.inc' ]; . '/Users/zpuser/google-cloud-sdk/path.fish.inc'; end
