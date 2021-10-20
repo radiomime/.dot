@@ -16,18 +16,6 @@ class Hammerspoon(Package):
         if is_installed_osx_app('hammerspoon'):
             return "mac app version unsupported"
 
-        output = subprocess.check_output(
-            [
-                "hammerspoon",
-                "--version",
-            ]
-        )
-        output = output.decode("utf-8")
-        for line in output.split("\n"):
-            words = line.split(" ")
-            if words[0] == "Mitmproxy:":
-                return words[1]
-
         # should never be hit
         return None
 
