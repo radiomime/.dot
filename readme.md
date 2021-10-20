@@ -6,6 +6,13 @@ Repo for dotfiles.
 
 `./install.py` should do the trick.
 
+# for languages
+
+```
+:TSInstall <language>
+:LspInstall <language>
+```
+
 # thanks
 
 * Many thanks to [Ethan Wright](https://github.com/EthanJWright) for vim
