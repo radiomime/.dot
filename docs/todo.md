@@ -2,8 +2,12 @@
 
 checkout plugin: 'sindrets/winshift.nvim'
 
+## git author
+
+Fish should have some alias for signing in as personal/work
+
 ## gitignore
-# TODO: ignore functions, then include functions I want to include
+TODO: ignore functions, then include functions I want to include
 
 ## fisher
 add fisher plugin: z
