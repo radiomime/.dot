@@ -5,3 +5,5 @@
 	commit = no
 [pull]
 	ff = yes
+[core]
+	excludesfile = ~/.gitignore_global
