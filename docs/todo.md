@@ -2,6 +2,10 @@
 
 checkout plugin: 'sindrets/winshift.nvim'
 
+## cargo installs
+fd package! it isn't just "fd"
+watchexec
+
 ## git author
 
 Fish should have some alias for signing in as personal/work
