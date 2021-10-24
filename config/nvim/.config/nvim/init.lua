@@ -1,10 +1,13 @@
 print("*** Inside init.lua")
+local utils = require("utils")
 
 -- {{{ Bootstrap
-local home_dir = vim.loop.os_homedir()
+-- local home_dir = vim.loop.os_homedir()
+local home_dir = utils.get_home_dir()
 print("*** Inside init.lua")
 print("home_dir: " .. home_dir)
 print("os information: " .. vim.inspect(vim.loop.os_uname()))
+print("os information: " .. vim.inspect(utils.get_os_info()))
 
 -- Create global config object
 neo = {}
@@ -72,7 +75,6 @@ plugin_loader:load({ plugins, neo.plugins })
 vim.g.colors_name = neo.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
 vim.cmd("colorscheme " .. neo.colorscheme)
 
-local utils = require("utils")
 utils.toggle_autoformat()
 local commands = require("core.commands")
 commands.load(commands.defaults)
