@@ -29,6 +29,9 @@ class Brew(Package):
         return None
 
     def osx_install(self):
+        # TODO: make sure this runs with bash!!!
+        # TODO: zsh gives errors
+
         self.install_from_curled_script(
             "".join(
                 [
@@ -167,55 +170,3 @@ class Brew(Package):
 
         print(f"brew uninstalling {pkgs}")
         subprocess.run(cmd)
-
-
-# class Brew:
-#     def __init__(self):
-#         self.os = getSys()
-#         if self.os != "osx":
-#             print("Homebrew not on osx? Hmm.")
-
-#         if not pkgInstalled("brew"):
-#             print("Homebrew doesn't seem to be installed.")
-
-#     def update(self):
-#         subprocess.run(
-#             [
-#                 "brew",
-#                 "update",
-#             ]
-#         )
-
-#     def upgrade(self):
-#         subprocess.run(
-#             [
-#                 "brew",
-#                 "upgrade",
-#             ]
-#         )
-
-#     def install(self, pkgs):
-#         if not isinstance(pkgs, list):
-#             pkgs = [pkgs]
-
-#         cmd = [
-#             "brew",
-#             "install",
-#         ]
-#         cmd.extend(pkgs)
-
-#         print("installing:", pkgs)
-#         subprocess.run(cmd)
-
-#     def uninstall(self, pkgs):
-#         if not isinstance(pkgs, list):
-#             pkgs = [pkgs]
-
-#         cmd = [
-#             "brew",
-#             "uninstall",
-#         ]
-#         cmd.extend(pkgs)
-
-#         print("installing:", pkgs)
-#         subprocess.run(cmd)

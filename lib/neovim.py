@@ -20,8 +20,8 @@ class Neovim(Package):
         if self.os == "osx" or self.os == "linux":
             configDir = abspath(expanduser("~/.config/nvim"))
 
-            print("Config for nvim at:", configDir)
-            subprocess.run(["mkdir", "-pv", configDir])
+            # print("Config for nvim at:", configDir)
+            # subprocess.run(["mkdir", "-pv", configDir])
 
     def is_installed(self):
         return is_installed("nvim")
@@ -42,8 +42,6 @@ class Neovim(Package):
 
         # should never be hit
         return None
-
-
 
     def linux_install(self):
         print("Installing neovim dependencies")
@@ -71,10 +69,18 @@ class Neovim(Package):
             [
                 "git",
                 "clone",
+                "--branch",
+                "release-0.5",
                 "https://github.com/neovim/neovim",
                 self.install_path,
             ]
         )
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        print("WARNING: installing old neovim release for compatibility!!!")
+        # TODO: fix the above when it makes sense
 
         print("Making neovim")
         subprocess.run(
@@ -121,75 +127,90 @@ class Neovim(Package):
             ]
         )
 
+    def osx_dependencies(self):
+        Brew().install()
+
     def osx_install(self):
-        print("installing neovim for osx")
-        print("TODO: Put the commands in comments into code")
-
-        # xcode needs to be installed
-        subprocess.run(
-            [
-                "xcode-select",
-                "--install",
-            ]
-        )
-
         brew = Brew()
         brew.brew_install(
-            pkgs=[
-                "ninja",
-                "libtool", "automake",
-                "cmake",
-                "pkg-config",
-                "gettext",
-            ],
+            pkgs="neovim",
+            flags="--HEAD",
         )
-
-        self.get_git_project(
-            address="https://github.com/neovim/neovim",
-            repo_dir_name="neovim",
-            flags=[
-                "--branch",
-                "stable"
-            ]
-        )
-
-        subprocess.run(
-            [
-                "make",
-                "--directory",
-                f"{self.repo_store}/neovim",
-                "CMAKE_BUILD_TYPE=Release",
-            ]
-        )
-
-        subprocess.run(
-            [
-                # "sudo",
-                "make",
-                "--directory",
-                f"{self.repo_store}/neovim",
-                "install",
-            ]
-        )
-
         self.__install_providers()
 
+    #         print("installing neovim for osx")
+    #         print("TODO: Put the commands in comments into code")
+    #
+    #         # xcode needs to be installed
+    #         subprocess.run(
+    #             [
+    #                 "xcode-select",
+    #                 "--install",
+    #             ]
+    #         )
+    #
+    #         brew = Brew()
+    #         brew.brew_install(
+    #             pkgs=[
+    #                 "ninja",
+    #                 "libtool",
+    #                 "automake",
+    #                 "cmake",
+    #                 "pkg-config",
+    #                 "gettext",
+    #             ],
+    #         )
+    #
+    #         self.get_git_project(
+    #             address="https://github.com/neovim/neovim",
+    #             repo_dir_name="neovim",
+    #             flags=["--branch", "release-0.5"],
+    #             # flags=["--branch", "stable"],
+    #         )
+    #         # TODO: change back to stable!
+    #
+    #         subprocess.run(
+    #             [
+    #                 "make",
+    #                 "--directory",
+    #                 f"{self.repo_store}/neovim",
+    #                 "CMAKE_BUILD_TYPE=Release",
+    #             ]
+    #         )
+    #
+    #         subprocess.run(
+    #             [
+    #                 # "sudo",
+    #                 "make",
+    #                 "--directory",
+    #                 f"{self.repo_store}/neovim",
+    #                 "install",
+    #             ]
+    #         )
+    #
+
+    # TODO: fix uninstall for neovim in osx!
     def osx_uninstall(self):
-        print('osx uninstall is in a bad state for neovim!!!')
-        subprocess.run(
-            [
-                "rm",
-                "/usr/local/bin/nvim",
-            ]
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="neovim",
         )
 
-        subprocess.run(
-            [
-                "rm",
-                "-rd",
-                "/usr/local/share/nvim",
-            ]
-        )
+    #         print("osx uninstall is in a bad state for neovim!!!")
+    #         subprocess.run(
+    #             [
+    #                 "rm",
+    #                 "/usr/local/bin/nvim",
+    #             ]
+    #         )
+    #
+    #         subprocess.run(
+    #             [
+    #                 "rm",
+    #                 "-rd",
+    #                 "/usr/local/share/nvim",
+    #             ]
+    #         )
 
     def __install_providers(self):
         print("installing providers")

@@ -1,7 +1,0 @@
-[http]
-	postBuffer = 1048576000
-[merge]
-	ff = no
-	commit = no
-[pull]
-	ff = yes

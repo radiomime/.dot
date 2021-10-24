@@ -1,6 +1,21 @@
-# fisher function
-conf/fish_functions/fisher.fish
-conf/fish_functions/__z*
+# fish
+config/fish/.config/fish/completions
+config/fish/.config/fish/fish_variables
+config/fish/.config/fish/functions/fisher.fish
+# TODO: ignore functions, then include functions I want to include
+config/fish/.config/fish/functions/bass.fish
+config/fish/.config/fish/functions/__z.fish
+config/fish/.config/fish/functions/__*
+
+# nvim things
+config/nvim/.config/nvim/lua.bak
+config/nvim/.config/nvim/undodir
+config/nvim/.config/nvim/session
+config/nvim/.config/nvim/plugged
+config/nvim/.config/nvim.bak
+config/nvim/.config/nvim.lunarcopy.bak
+config/nvim/.config/nvim/autoload
+config/nvim/.config/nvim/plugin
 
 # temporary, local storage
 archive

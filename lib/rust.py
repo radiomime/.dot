@@ -31,13 +31,14 @@ class Rust(Package):
         self.install_from_curled_script("https://sh.rustup.rs")
 
     def __uninstall(self):
-        subprocess.run(
-            [
-                "rustup",
-                "self",
-                "uninstall",
-            ]
-        )
+        if self.is_installed():
+            subprocess.run(
+                [
+                    "rustup",
+                    "self",
+                    "uninstall",
+                ]
+            )
 
     def linux_install(self):
         self.__install()
