@@ -38,30 +38,30 @@ from lib import (
 def install():
     print("*** installing packages ***")
 
-    Brew().install()
-    Neovim().install()
+    # Brew().install()
+    # Neovim().install()
     Stow().install()
     Dot().install()
 
-    Kitty().install()
-    Starship().install()
-    Nerdfonts().install()
-    Fish().install()
+    # Kitty().install()
+    # Starship().install()
+    # Nerdfonts().install()
+    # Fish().install()
 
-    Bat().install()
-    Tmux().install()
-    Node().install()
+    # Bat().install()
+    # Tmux().install()
+    # Node().install()
 
     # Mitmproxy().install()
     # Pyright().install()
     # Bandwhich().install()
     # Hammerspoon().install()
 
-    Rust().install()
+    # Rust().install()
     # Docker().install()
 
-    Exa().install()
-    Ripgrep().install()
+    # Exa().install()
+    # Ripgrep().install()
     # Tldr().install()
     # Snap().install()
     # Go().install()
