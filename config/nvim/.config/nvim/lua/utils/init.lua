@@ -48,12 +48,30 @@ local function r_inspect_settings(structure, limit, separator)
     return limit - 1
 end
 
+function utils.get_data_path()
+    return vim.fn.stdpath('data')
+end
+
+function utils.get_config_path()
+    return vim.fn.stdpath('config')
+end
+
 function utils.get_home_dir()
     return vim.loop.os_homedir()
 end
 
 function utils.get_os_info()
     return vim.loop.os_uname()
+end
+
+function utils.file_exists(name)
+    local f = io.open(name, "r")
+    if f ~= nil then
+        io.close(f)
+        return true
+    else
+        return false
+    end
 end
 
 function utils.generate_settings()
