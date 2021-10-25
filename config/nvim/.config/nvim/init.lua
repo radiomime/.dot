@@ -1,51 +1,26 @@
-print("*** Inside init.lua")
 local utils = require("utils")
 
--- {{{ Bootstrap
--- local home_dir = vim.loop.os_homedir()
-local home_dir = utils.get_home_dir()
-print("*** Inside init.lua")
-print("home_dir: " .. home_dir)
-print("os information: " .. vim.inspect(vim.loop.os_uname()))
-print("os information: " .. vim.inspect(utils.get_os_info()))
+-- local home_dir = utils.get_home_dir()
+-- print("*** Inside init.lua")
+-- print("home_dir: " .. home_dir)
+-- print("os information: " .. vim.inspect(vim.loop.os_uname()))
+-- print("os information: " .. vim.inspect(utils.get_os_info()))
 
 -- Create global config object
 neo = {}
 
--- CHANGE: Do not use lvim or lunarvim paths
--- vim.opt.rtp:append(home_dir .. "/.local/share/lunarvim/lvim")
-
--- vim.opt.rtp:remove(home_dir .. "/.config/nvim")
--- vim.opt.rtp:remove(home_dir .. "/.config/nvim/after")
--- vim.opt.rtp:append(home_dir .. "/.config/lvim")
--- vim.opt.rtp:append(home_dir .. "/.config/lvim/after")
-
--- vim.opt.rtp:remove(home_dir .. "/.local/share/nvim/site")
--- vim.opt.rtp:remove(home_dir .. "/.local/share/nvim/site/after")
--- vim.opt.rtp:append(home_dir .. "/.local/share/lunarvim/site")
--- vim.opt.rtp:append(home_dir .. "/.local/share/lunarvim/site/after")
--- ENDCHANGE
 
 -- TODO: we need something like this: vim.opt.packpath = vim.opt.rtp
 vim.cmd([[let &packpath = &runtimepath]])
 -- }}}
 
-local function file_exists(name)
-    local f = io.open(name, "r")
-    if f ~= nil then
-        io.close(f)
-        return true
-    else
-        return false
-    end
-end
 
 -- Get reference to config to overwrite default config later
 -- TODO: I can just have one config
 -- NOTE: Anything not specified as local is defined globally
 local nvim_path = os.getenv("HOME") .. "/.config/nvim/"
 USER_CONFIG_PATH = nvim_path .. "config.lua"
-local config_exist = file_exists(USER_CONFIG_PATH)
+local config_exist = utils.file_exists(USER_CONFIG_PATH)
 
 if not config_exist then
     print("config does not exist at " .. USER_CONFIG_PATH)
@@ -66,10 +41,19 @@ end
 require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
+-- WORKing below --
+require("plugins-new"):init()
+
+-- local plugins = require("plugins-new"):tester()
+-- plugins.tester()
+
+-- below is how it was done!
 -- load plugins via packer
 local plugins = require("plugins")
 local plugin_loader = require("plugin-loader").init()
 plugin_loader:load({ plugins, neo.plugins })
+
+-- WORKing above --
 
 -- colors
 vim.g.colors_name = neo.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
