@@ -1,15 +1,14 @@
-print('I am doing things in plugins-new')
+print('working here, in plugins-new')
 
 local plugins = {}
 
 function plugins.init()
     -- TODO: check this installs correctly when not installed yet
-    local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-    local package_root = vim.fn.stdpath "data" .. "/site/pack"
+    local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    local package_root = vim.fn.stdpath("data") .. "/site/pack"
 
     print(vim.fn.stdpath('data'))
     print(vim.fn.stdpath('config'))
-
     if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
         vim.fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path, }
         vim.cmd "packadd packer.nvim"
