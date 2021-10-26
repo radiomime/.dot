@@ -42,16 +42,20 @@ require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
 -- WORKing below --
+require("plugins-new"):clear_packer_cache()
 require("plugins-new"):init()
+require("plugins-new"):install()
+
+-- require('telescope').setup({ defaults = { prompt_prefix = "X"}})
 
 -- local plugins = require("plugins-new"):tester()
 -- plugins.tester()
 
 -- below is how it was done!
 -- load plugins via packer
-local plugins = require("plugins")
-local plugin_loader = require("plugin-loader").init()
-plugin_loader:load({ plugins, neo.plugins })
+-- local plugins = require("plugins")
+-- local plugin_loader = require("plugin-loader").init()
+-- plugin_loader:load({ plugins, neo.plugins })
 
 -- WORKing above --
 
