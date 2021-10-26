@@ -1,32 +1,31 @@
 return {
     -- Packer can manage itself as an optional plugin
-    { "wbthomason/packer.nvim" },
-    { "folke/tokyonight.nvim" },
-    { "neovim/nvim-lspconfig" },
-    { "tamago324/nlsp-settings.nvim" },
-    { "jose-elias-alvarez/null-ls.nvim" },
-    {
-        "kabouzeid/nvim-lspinstall",
-        event = "VimEnter",
-        config = function()
-            local lspinstall = require("core.lspinstall")
-            lspinstall.setup()
-        end,
-    },
+    -- { "wbthomason/packer.nvim" },
+    -- { "folke/tokyonight.nvim" },
+    -- { "neovim/nvim-lspconfig" },
+    -- { "tamago324/nlsp-settings.nvim" },
+    -- { "jose-elias-alvarez/null-ls.nvim" },
+    -- {
+    --     "kabouzeid/nvim-lspinstall",
+    --     event = "VimEnter",
+    --     config = function()
+    --         local lspinstall = require("core.lspinstall")
+    --         lspinstall.setup()
+    --     end,
+    -- },
 
-    { "nvim-lua/popup.nvim" },
-    { "nvim-lua/plenary.nvim" },
+    -- { "nvim-lua/popup.nvim" },
+    -- { "nvim-lua/plenary.nvim" },
     -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        config = function()
-            require("core.telescope").setup()
-        end,
-        -- requires = { { "nvim-lua/plenary.nvim" } },
-        disable = not neo.builtin.telescope.active,
-    },
+    -- {
+    --     "nvim-telescope/telescope.nvim",
+    --     config = function()
+    --         require("core.telescope").setup()
+    --     end,
+    --     -- requires = { { "nvim-lua/plenary.nvim" } },
+    --     disable = not neo.builtin.telescope.active,
+    -- },
     -- TODO: primeagen rec: https://github.com/nvim-telescope/telescope-fzf-native.nvim
-    -- TODO: should this have requires? requires = { {'nvim-lua/plenary.nvim'} }
 
     -- Completion & Snippets
     {
