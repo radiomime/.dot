@@ -56,6 +56,10 @@ function utils.get_config_path()
     return vim.fn.stdpath('config')
 end
 
+function utils.get_shell()
+    return os.getenv "SHELL"
+end
+
 function utils.get_home_dir()
     return vim.loop.os_homedir()
 end
