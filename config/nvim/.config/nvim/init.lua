@@ -42,9 +42,9 @@ require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
 -- WORKing below --
-require("plugins-new"):clear_packer_cache()
-require("plugins-new"):init()
-require("plugins-new"):install()
+require("plugins"):clear_packer_cache()
+require("plugins"):init()
+require("plugins"):install()
 
 -- require('telescope').setup({ defaults = { prompt_prefix = "X"}})
 
