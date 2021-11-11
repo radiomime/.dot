@@ -89,26 +89,25 @@ function plugins:install()
         --   https://github.com/nvim-telescope/telescope-fzf-native.nvim
 
         -- completion and snippets
-        -- {
-        --   "hrsh7th/nvim-cmp",
-        --   config = function()
-        --     require("lvim.core.cmp").setup()
-        --   end,
-        --   requires = {
-        --     "L3MON4D3/LuaSnip",
-        --     "saadparwaiz1/cmp_luasnip",
-        --     "hrsh7th/cmp-buffer",
-        --     "hrsh7th/cmp-nvim-lsp",
-        --     "hrsh7th/cmp-path",
-        --     "hrsh7th/cmp-nvim-lua",
-        --   },
-        --   run = function()
-        --     -- cmp's config requires cmp to be installed to run the first time
-        --     if not lvim.builtin.cmp then
-        --       require("lvim.core.cmp").config()
-        --     end
-        --   end,
-        -- },
+        use({
+          "hrsh7th/nvim-cmp",
+          requires = {
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-nvim-lua",
+          },
+          config = require('plugins.nvim-cmp').config,
+          run = function()
+            -- cmp's config requires cmp to be installed to run the first time
+            if not plugins.nvim-cmp then
+                require('plugins.nvim-cmp').config()
+            end
+          end,
+
+        })
 
         -- utility or required by other ones
         use("nvim-lua/popup.nvim") -- this could maybe be deleted (require where needed)
@@ -380,6 +379,14 @@ function plugins:install()
         --     disable = not lvim.builtin.terminal.active,
         --   },
     end)
+end
+
+function plugins:sync()
+    if require('packer') then
+        require('packer').sync()
+    else
+        print('packer expected')
+    end
 end
 
 return plugins

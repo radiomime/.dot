@@ -28,26 +28,26 @@ return {
     -- TODO: primeagen rec: https://github.com/nvim-telescope/telescope-fzf-native.nvim
 
     -- Completion & Snippets
-    {
-        "hrsh7th/nvim-compe",
-        event = "InsertEnter",
-        config = function()
-            require("core.compe").setup()
-        end,
-        disable = not neo.builtin.compe.active,
-        -- wants = "vim-vsnip",
-        -- requires = {
-        -- {
-        --   "hrsh7th/vim-vsnip",
-        --   wants = "friendly-snippets",
-        --   event = "InsertCharPre",
-        -- },
-        -- {
-        --   "rafamadriz/friendly-snippets",
-        --   event = "InsertCharPre",
-        -- },
-        -- },
-    },
+    -- {
+    --     "hrsh7th/nvim-compe",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("core.compe").setup()
+    --     end,
+    --     disable = not neo.builtin.compe.active,
+    --     -- wants = "vim-vsnip",
+    --     -- requires = {
+    --     -- {
+    --     --   "hrsh7th/vim-vsnip",
+    --     --   wants = "friendly-snippets",
+    --     --   event = "InsertCharPre",
+    --     -- },
+    --     -- {
+    --     --   "rafamadriz/friendly-snippets",
+    --     --   event = "InsertCharPre",
+    --     -- },
+    --     -- },
+    -- },
     {
         "hrsh7th/vim-vsnip",
         -- wants = "friendly-snippets",
