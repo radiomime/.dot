@@ -109,6 +109,22 @@ function plugins:install()
 
         })
 
+        -- which key
+        use({
+          "folke/which-key.nvim",
+          requires = {},
+          config = require('plugins.which-key').config,
+          -- event =  "BufWinEnter",
+          disable = false,
+          -- run = function()
+          --   -- cmp's config requires cmp to be installed to run the first time
+          --   if not plugins.nvim-cmp then
+          --       require('plugins.nvim-cmp').config()
+          --   end
+          -- end,
+
+        })
+
         -- utility or required by other ones
         use("nvim-lua/popup.nvim") -- this could maybe be deleted (require where needed)
         use("nvim-lua/plenary.nvim") -- could maybe be delete (require where needed)
