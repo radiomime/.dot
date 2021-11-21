@@ -48,17 +48,17 @@ return {
     --     -- },
     --     -- },
     -- },
-    {
-        "hrsh7th/vim-vsnip",
-        -- wants = "friendly-snippets",
-        event = "InsertEnter",
-        disable = not neo.builtin.compe.active,
-    },
-    {
-        "rafamadriz/friendly-snippets",
-        event = "InsertCharPre",
-        disable = not neo.builtin.compe.active,
-    },
+    -- {
+    --     "hrsh7th/vim-vsnip",
+    --     -- wants = "friendly-snippets",
+    --     event = "InsertEnter",
+    --     disable = not neo.builtin.compe.active,
+    -- },
+    -- {
+    --     "rafamadriz/friendly-snippets",
+    --     event = "InsertCharPre",
+    --     disable = not neo.builtin.compe.active,
+    -- },
 
     -- Autopairs
     {
