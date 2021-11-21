@@ -1,5 +1,19 @@
 ## ToDo
 
+## high level
+
+* plugins, get to alright state
+* lsp, figure out lsp state
+* clean up lsp, null ls code, etc
+* nvim-cmp, there are a lot of cool things to do that I haven't done
+* work through todo's
+
+
+## packer cleanup
+
+Am i calling packer startup twice? I think that's why I have to do packersync
+on start
+
 checkout plugin: 'sindrets/winshift.nvim'
 
 ## cargo installs
@@ -16,6 +30,9 @@ TODO: ignore functions, then include functions I want to include
 ## fisher
 add fisher plugin: z
 fisher: install plugins on uu
+
+## snippets
+look at https://github.com/L3MON4D3/LuaSnip a little more, could be useful for snippets
 
 ## cht.sh
 
