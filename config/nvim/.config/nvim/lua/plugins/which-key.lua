@@ -1,16 +1,5 @@
 local which_key = {}
 
--- function nvm_cmp:check_status()
---   local status_cmp_ok, cmp = pcall(require, "cmp")
---   if not status_cmp_ok then
---     return
---   end
---   local status_luasnip_ok, luasnip = pcall(require, "luasnip")
---   if not status_luasnip_ok then
---     return
---   end
--- end
-
 function which_key:config()
   local wk = require('which-key')
     -- require("which-key").setup({
