@@ -138,6 +138,69 @@ function plugins:install()
             config = require('plugins.nvim-tree').config,
         })
 
+        -- gitsigns
+        use({
+            "lewis6991/gitsigns.nvim",  
+            requires = {
+                'nvim-lua/plenary.nvim'
+            },
+            config = require('plugins.gitsigns').config,
+            disable = false,
+        })
+
+        -- comments
+        use({
+            "numToStr/Comment.nvim",  
+            config = require('plugins.comment').config,
+            disable = false,
+        })
+
+        -- project
+        use({
+            "ahmedkhalf/project.nvim",  
+            config = require('plugins.project').config,
+            disable = false,
+        })
+
+        -- status line
+        use({
+            "nvim-lualine/lualine.nvim",  
+            requires = {
+                'kyazdani42/nvim-web-devicons',
+            },
+            config = require('plugins.lualine').config,
+            disable = false,
+        })
+
+        -- bufferline / tabs
+        use({
+            "romgrk/barbar.nvim",  
+            requires = {
+                'kyazdani42/nvim-web-devicons',
+            },
+            config = require('plugins.barbar').config,
+            disable = false,
+        })
+
+        -- dashboard
+        -- TODO: define globals elsewhere, call dashboard without a setup/config func
+        use({
+            "ChristianChiarulli/dashboard-nvim",  
+            requires = {
+                'nvim-telescope/telescope.nvim',
+            },
+            setup = require('plugins.dashboard').setup,
+            disable = false,
+        })
+
+        -- terminal
+        use({
+            "akinsho/toggleterm.nvim",  
+            config = require('plugins.toggleterm').config,
+            disable = false,
+        })
+
+
         -- utility or required by other ones
         use("nvim-lua/popup.nvim") -- this could maybe be deleted (require where needed)
         use("nvim-lua/plenary.nvim") -- could maybe be delete (require where needed)
