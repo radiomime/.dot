@@ -13,7 +13,10 @@ function nvim_tree:config()
   vim.g.nvim_tree_disable_window_picker = 0 -- 0 by default, will disable the window picker.
   vim.g.nvim_tree_icon_padding = ' ' -- one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
   vim.g.nvim_tree_symlink_arrow = ' ➛ ' --  defaults to ' ➛ '. used as a separator between symlinks' source and target.
-  vim.g.nvim_tree_respect_buf_cwd = 0 -- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+
+  -- vim.g.nvim_tree_respect_buf_cwd = 0 -- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+  vim.g.nvim_tree_respect_buf_cwd = 1 -- necessary for project.nvim
+
   vim.g.nvim_tree_create_in_closed_folder = 1 -- 1 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
   vim.g.nvim_tree_refresh_wait = 1000 -- 1000 by default, control how often the tree can be refreshed, 1000 means the tree can be refresh once per 1000ms.
   vim.g.nvim_tree_window_picker_exclude = {
@@ -74,7 +77,7 @@ function nvim_tree:config()
     auto_close          = true,
     open_on_tab         = false,
     hijack_cursor       = false,
-    update_cwd          = false,
+    update_cwd          = true, -- `true` necessary for project.nvim
     update_to_buf_dir   = {
       enable = true,
       auto_open = true,
@@ -89,8 +92,8 @@ function nvim_tree:config()
       }
     },
     update_focused_file = {
-      enable      = false, -- could be cool to use
-      update_cwd  = true,
+      enable      = true, -- `true` necessary for project.nvim
+      update_cwd  = true, -- `true` necessary for project.nvim
       ignore_list = {}
     },
     system_open = {
