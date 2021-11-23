@@ -83,6 +83,7 @@ function which_key:config()
             ["w"] = { "<cmd>w!<CR>", "Save" },
             ["q"] = { "<cmd>q!<CR>", "Quit" },
             ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
+            [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
             ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
             ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
             ["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
@@ -164,6 +165,8 @@ function which_key:config()
             -- " Debugging
             g = {
                 name = "Git",
+                g = { "<cmd>lua require('plugins.toggleterm')._lazygit_toggle()<cr>", "LazyGit" },
+                -- g = { "<cmd>lua require('toggleterm.terminal').Terminal:new {cmd = 'lazygit', hidden = true}<cr>", "LazyGit" },
                 j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
                 k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
                 l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
