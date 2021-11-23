@@ -97,6 +97,26 @@ neo.autocommands = {
     custom_groups = {},
 }
 
+
+
+-- have this in here!
+  -- require("lvim.core.autocmds").define_augroups {
+  --   _dashboard = {
+  --     -- seems to be nobuflisted that makes my stuff disappear will do more testing
+  --     {
+  --       "FileType",
+  --       "dashboard",
+  --       "setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= ",
+  --     },
+  --     {
+  --       "FileType",
+  --       "dashboard",
+  --       "set showtabline=0 | autocmd BufLeave <buffer> set showtabline=" .. vim.opt.showtabline._value,
+  --     },
+  --     { "FileType", "dashboard", "nnoremap <silent> <buffer> q :q<CR>" },
+  --   },
+  -- }
+
 function autocommands.define_augroups(definitions) -- {{{1
     -- Create autocommand groups based on the passed definitions
     --
