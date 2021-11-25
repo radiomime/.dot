@@ -1,14 +1,15 @@
 local M = {}
 
-local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({
-    cmd = "lazygit",
-    direction = 'float',
-    hidden = true,
-})
-
-function M:_lazygit_toggle()
-    lazygit:toggle()
+-- TODO: this fails on fresh installs!
+ local Terminal  = require('toggleterm.terminal').Terminal
+ local lazygit = Terminal:new({
+     cmd = "lazygit",
+     direction = 'float',
+     hidden = true,
+ })
+ 
+ function M:_lazygit_toggle()
+     lazygit:toggle()
 end
 
 function M:config()
