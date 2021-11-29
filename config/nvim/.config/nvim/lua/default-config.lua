@@ -649,11 +649,11 @@ neo.lang = {
         lsp = {
             provider = "sumneko_lua",
             setup = {
-                cmd = {
-                    DATA_PATH .. "/lspinstall/lua/sumneko-lua-language-server",
-                    "-E",
-                    DATA_PATH .. "/lspinstall/lua/main.lua",
-                },
+                -- cmd = {
+                --     DATA_PATH .. "/lspinstall/lua/sumneko-lua-language-server",
+                --     "-E",
+                --     DATA_PATH .. "/lspinstall/lua/main.lua",
+                -- },
                 settings = {
                     Lua = {
                         runtime = {
@@ -765,6 +765,7 @@ neo.lang = {
     },
     javascript = {
         formatters = {
+            -- TODO: comment out and see what happens
             {
                 exe = "prettier",
                 args = {},
@@ -780,6 +781,7 @@ neo.lang = {
         },
         -- @usage can be {"eslint"} or {"eslint_d"}
         linters = {
+            -- TODO: comment out and see what happens
             {
                 exe = "eslint_d",
                 args = {},
@@ -788,11 +790,11 @@ neo.lang = {
         lsp = {
             provider = "tsserver",
             setup = {
-                cmd = {
-                    -- TODO:
-                    DATA_PATH .. "/lspinstall/typescript/node_modules/.bin/typescript-language-server",
-                    "--stdio",
-                },
+                -- cmd = {
+                --     -- TODO:
+                --     DATA_PATH .. "/lspinstall/typescript/node_modules/.bin/typescript-language-server",
+                --     "--stdio",
+                -- },
             },
         },
     },
@@ -847,11 +849,11 @@ neo.lang = {
         lsp = {
             provider = "pyright",
             setup = {
-                cmd = {
-                    DATA_PATH
-                        .. "/lspinstall/python/node_modules/.bin/pyright-langserver",
-                    "--stdio",
-                },
+                -- cmd = {
+                --     DATA_PATH
+                --         .. "/lspinstall/python/node_modules/.bin/pyright-langserver",
+                --     "--stdio",
+                -- },
             },
         },
     },
