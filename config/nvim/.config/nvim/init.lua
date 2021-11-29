@@ -1,5 +1,9 @@
 local utils = require("utils")
 
+
+
+
+-- TODO: is this in utils? move these there and remove here
 -- local home_dir = utils.get_home_dir()
 -- print("*** Inside init.lua")
 -- print("home_dir: " .. home_dir)
@@ -11,7 +15,7 @@ neo = {}
 
 
 -- TODO: we need something like this: vim.opt.packpath = vim.opt.rtp
-vim.cmd([[let &packpath = &runtimepath]])
+-- vim.cmd([[let &packpath = &runtimepath]])
 -- }}}
 
 
@@ -42,6 +46,7 @@ require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
 -- WORKing below --
+-- plugins
 require("plugins"):clear_packer_cache()
 require("plugins"):init()
 require("plugins"):install()
@@ -68,8 +73,10 @@ utils.toggle_autoformat()
 local commands = require("core.commands")
 commands.load(commands.defaults)
 
+-- lsp
 require("lsp").config()
 
+-- formatting
 local null_status_ok, null_ls = pcall(require, "null-ls")
 if null_status_ok then
     null_ls.config({})
