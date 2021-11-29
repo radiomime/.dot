@@ -123,22 +123,43 @@ function M.common_on_attach(client, bufnr)
 end
 
 function M.setup(lang)
+  -- TODO: create a utility function for pcal requires and ok status
+  -- local lsp_status_ok, _ = pcall(require, "lspconfig")
+  -- if not lsp_status_ok then
+  --   return
+  -- end
+  print('*** setting up lsp for language: ' .. lang)
+
   local lsp_utils = require "lsp.utils"
   local lsp = neo.lang[lang].lsp
+  print('checking if' .. lsp.provider .. 'is active')
   if lsp_utils.is_client_active(lsp.provider) then
     return
   end
 
-  local overrides = neo.lsp.override
-  if type(overrides) == "table" then
-    if vim.tbl_contains(overrides, lang) then
-      return
-    end
-  end
+  -- TODO: remove and remove references
+  -- local overrides = neo.lsp.override
+  -- if type(overrides) == "table" then
+  --   if vim.tbl_contains(overrides, lang) then
+  --     return
+  --   end
+  -- end
 
+  -- TODO: auto install server, or see what is exposed vi nvim-lsp-installer
+  -- local servers = require "nvim-lsp-installer.servers"
+  -- local server_available, requested_server = servers.get_server(server_name)
+  -- if not requested_server:is_installed() then
+  --   requested_server:install()
+  -- end
+
+
+  -- setup server
   if lsp.provider ~= nil and lsp.provider ~= "" then
-    local lspconfig = require "lspconfig"
+    print('*** I am here!!')
+    local lsp_installer_servers = require'nvim-lsp-installer.servers'
+    local server_available, requested_server = lsp_installer_servers.get_server(lsp.provider)
 
+    -- TODO: separate into get setup function?
     if not lsp.setup.on_attach then
       lsp.setup.on_attach = M.common_on_attach
     end
@@ -149,7 +170,41 @@ function M.setup(lang)
       lsp.setup.capabilities = M.common_capabilities()
     end
 
-    lspconfig[lsp.provider].setup(lsp.setup)
+    -- print('*** below is lsp setup!!!')
+    -- print(vim.inspect(lsp.setup))
+
+    -- lspconfig[lsp.provider].setup(lsp.setup)
+
+    if server_available then
+        requested_server:on_ready(function ()
+            -- local opts = {}
+            -- requested_server:setup(opts)
+            requested_server:setup(lsp.setup)
+        end)
+        if not requested_server:is_installed() then
+            -- Queue the server to be installed
+            requested_server:install()
+        end
+    else
+       print('ahh shucks! TODO, change this, but your server is not avaialbalasdfad')
+    end
+
+    -- local lspconfig = require "lspconfig"
+
+    -- if not lsp.setup.on_attach then
+    --   lsp.setup.on_attach = M.common_on_attach
+    -- end
+    -- if not lsp.setup.on_init then
+    --   lsp.setup.on_init = M.common_on_init
+    -- end
+    -- if not lsp.setup.capabilities then
+    --   lsp.setup.capabilities = M.common_capabilities()
+    -- end
+
+    -- print('*** below is lsp setup!!!')
+    -- print(vim.inspect(lsp.setup))
+
+    -- lspconfig[lsp.provider].setup(lsp.setup)
   end
 end
 
