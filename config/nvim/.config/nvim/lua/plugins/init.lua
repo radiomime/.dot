@@ -190,7 +190,7 @@ function plugins:install()
                 'nvim-telescope/telescope.nvim',
             },
             setup = require('plugins.dashboard').setup,
-            disable = false,
+            disable = true,
         })
 
         -- terminal
