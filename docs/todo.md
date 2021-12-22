@@ -8,6 +8,7 @@
 * null ls should be sensible
 * nvim-cmp, there are a lot of cool things to do that I haven't done
 * work through todo's
+* 'dot-' for .config files for fuzzy finding
 
 
 ## packer cleanup

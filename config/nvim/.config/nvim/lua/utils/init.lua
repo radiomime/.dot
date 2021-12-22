@@ -1,5 +1,5 @@
 local utils = {}
-local Log = require("core.log")
+-- local Log = require("core.log")
 local uv = vim.loop
 
 -- recursive Print (structure, limit, separator)
@@ -48,7 +48,7 @@ local function r_inspect_settings(structure, limit, separator)
     return limit - 1
 end
 
-function utils.get_data_path()
+function utils.get_data_path()   
     return vim.fn.stdpath('data')
 end
 
@@ -104,9 +104,9 @@ function utils.toggle_autoformat()
                 },
             },
         })
-        if Log:get_default() then
-            Log:get_default().info("Format on save active")
-        end
+        -- if Log:get_default() then
+        --     Log:get_default().info("Format on save active")
+        -- end
     end
 
     if not neo.format_on_save then
@@ -115,9 +115,9 @@ function utils.toggle_autoformat()
         :autocmd! autoformat
       endif
     ]])
-        if Log:get_default() then
-            Log:get_default().info("Format on save off")
-        end
+        -- if Log:get_default() then
+        --     Log:get_default().info("Format on save off")
+        -- end
     end
 end
 
@@ -136,7 +136,7 @@ function utils.reload_lv_config()
     -- vim.cmd ":PackerClean"
     local null_ls = require("lsp.null-ls")
     null_ls.setup(vim.bo.filetype, { force_reload = true })
-    Log:get_default().info("Reloaded configuration")
+    -- Log:get_default().info("Reloaded configuration")
 end
 
 function utils.unrequire(m)

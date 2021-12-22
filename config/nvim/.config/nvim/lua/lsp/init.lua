@@ -134,7 +134,10 @@ function M.setup(lang)
   local lsp = neo.lang[lang].lsp
   print('checking if' .. lsp.provider .. 'is active')
   if lsp_utils.is_client_active(lsp.provider) then
+    print('client is active: ' .. lsp.provider)
     return
+  else
+    print('client is not active yet: ' .. lsp.provider)
   end
 
   -- TODO: remove and remove references
@@ -189,7 +192,6 @@ function M.setup(lang)
        print('ahh shucks! TODO, change this, but your server is not avaialbalasdfad')
     end
 
-    -- local lspconfig = require "lspconfig"
 
     -- if not lsp.setup.on_attach then
     --   lsp.setup.on_attach = M.common_on_attach
@@ -204,6 +206,7 @@ function M.setup(lang)
     -- print('*** below is lsp setup!!!')
     -- print(vim.inspect(lsp.setup))
 
+    -- local lspconfig = require "lspconfig"
     -- lspconfig[lsp.provider].setup(lsp.setup)
   end
 end

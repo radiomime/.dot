@@ -64,7 +64,10 @@ function plugins:install()
 
         -- lsp
         use("neovim/nvim-lspconfig")
-        use("tamago324/nlsp-settings.nvim")
+        use({
+            "tamago324/nlsp-settings.nvim",
+            requires=    {{'neovim/nvim-lspconfig'}},
+        })
         use("jose-elias-alvarez/null-ls.nvim")
 
         -- lsp installer

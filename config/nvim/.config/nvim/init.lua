@@ -1,18 +1,15 @@
 local utils = require("utils")
+-- require("config")
 
 
-
-
--- TODO: is this in utils? move these there and remove here
--- local home_dir = utils.get_home_dir()
--- print("*** Inside init.lua")
--- print("home_dir: " .. home_dir)
--- print("os information: " .. vim.inspect(vim.loop.os_uname()))
--- print("os information: " .. vim.inspect(utils.get_os_info()))
 
 -- Create global config object
 neo = {}
+-- require('settings')
+require("settings").load_options()
+-- require("settings").load_commands()
 
+-- *** working above here *** --
 
 -- TODO: we need something like this: vim.opt.packpath = vim.opt.rtp
 -- vim.cmd([[let &packpath = &runtimepath]])
@@ -35,14 +32,14 @@ end
 require("default-config")
 
 local autocmds = require("core.autocmds")
-require("settings").load_options()
+-- require("settings").load_options()
 
 local status_ok, error = pcall(vim.cmd, "luafile " .. USER_CONFIG_PATH)
 if not status_ok then
     print("something is wrong with your " .. USER_CONFIG_PATH)
     print(error)
 end
-require("settings").load_commands()
+-- require("settings").load_commands()
 autocmds.define_augroups(neo.autocommands)
 
 -- WORKing below --
@@ -77,18 +74,18 @@ commands.load(commands.defaults)
 require("lsp").config()
 
 -- formatting
-local null_status_ok, null_ls = pcall(require, "null-ls")
-if null_status_ok then
-    null_ls.config({})
-    require("lspconfig")["null-ls"].setup(neo.lsp.null_ls.setup)
-end
+-- local null_status_ok, null_ls = pcall(require, "null-ls")
+-- if null_status_ok then
+--     null_ls.config({})
+--     require("lspconfig")["null-ls"].setup(neo.lsp.null_ls.setup)
+-- end
 
-local lsp_settings_status_ok, lsp_settings = pcall(require, "nlspsettings")
-if lsp_settings_status_ok then
-    lsp_settings.setup({
-        config_home = os.getenv("HOME") .. "/.config/nvim/lsp-settings",
-    })
-end
+-- local lsp_settings_status_ok, lsp_settings = pcall(require, "nlspsettings")
+-- if lsp_settings_status_ok then
+--     lsp_settings.setup({
+--         config_home = os.getenv("HOME") .. "/.config/nvim/lsp-settings",
+--     })
+-- end
 
 require("keymappings").setup()
 

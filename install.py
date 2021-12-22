@@ -3,6 +3,10 @@ import argparse
 import os
 
 
+
+
+
+
 from lib import (
     Bandwhich,
     Bat,
@@ -39,9 +43,9 @@ def install():
     print("*** installing packages ***")
 
     # Brew().install()
-    # Neovim().install()
-    Stow().install()
-    Dot().install()
+    Neovim().install()
+    # Stow().install()
+    # Dot().install()
 
     # Kitty().install()
     # Starship().install()
@@ -83,7 +87,7 @@ def uninstall():
     # Nerdfonts().uninstall()
     # Bandwhich().uninstall()
     # Tmux().uninstall()
-    Hammerspoon().uninstall()
+    # Hammerspoon().uninstall()
     # Bat().uninstall()
     # # Pyright().uninstall()
     # Exa().uninstall()
@@ -105,7 +109,7 @@ def uninstall():
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # TODO: explicit install/uninstall
     Neovim().uninstall()
-    Docker().uninstall()
+    # Docker().uninstall()
     # Brew().uninstall()
 
 

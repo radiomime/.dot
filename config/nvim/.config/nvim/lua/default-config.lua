@@ -664,7 +664,7 @@ neo.lang = {
                         },
                         diagnostics = {
                             -- Get the language server to recognize the `vim` global
-                            globals = { "vim", "neo" },
+                            globals = { "vim", "neo", 'use' },
                         },
                         workspace = {
                             -- Make the server aware of Neovim runtime files

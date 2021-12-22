@@ -26,6 +26,7 @@ end
 
 -- TODO: for linters and formatters with spaces and '-' replace with '_'
 function M.setup(filetype, options)
+  print('*** I AM HERE, in null ls init')
   options = options or {}
 
   local ok, _ = pcall(require, "null-ls")
