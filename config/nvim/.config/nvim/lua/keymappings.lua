@@ -1,213 +1,120 @@
 local M = {}
-local Log = require("core.log")
 
-local generic_opts_any = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
 
-local generic_opts = {
-    insert_mode = generic_opts_any,
-    normal_mode = generic_opts_any,
-    visual_mode = generic_opts_any,
-    visual_block_mode = generic_opts_any,
-    command_mode = generic_opts_any,
-    term_mode = { silent = true },
-}
+function M.set_keymappings()
+    print("setting up keymappings")
 
-local mode_adapters = {
-    insert_mode = "i",
-    normal_mode = "n",
-    term_mode = "t",
-    visual_mode = "v",
-    visual_block_mode = "x",
-    command_mode = "c",
-}
-
--- Append key mappings to lunarvim's defaults for a given mode
--- @param keymaps The table of key mappings containing a list per mode (normal_mode, insert_mode, ..)
-function M.append_to_defaults(keymaps)
-    for mode, mappings in pairs(keymaps) do
-        for k, v in ipairs(mappings) do
-            neo.keys[mode][k] = v
-        end
-    end
-end
-
--- Set key mappings individually
--- @param mode The keymap mode, can be one of the keys of mode_adapters
--- @param key The key of keymap
--- @param val Can be form as a mapping or tuple of mapping and user defined opt
-function M.set_keymaps(mode, key, val)
-    local opt = generic_opts[mode] and generic_opts[mode] or generic_opts_any
-    if type(val) == "table" then
-        opt = val[2]
-        val = val[1]
-    end
-    vim.api.nvim_set_keymap(mode, key, val, opt)
-end
-
--- Load key mappings for a given mode
--- @param mode The keymap mode, can be one of the keys of mode_adapters
--- @param keymaps The list of key mappings
-function M.load_mode(mode, keymaps)
-    mode = mode_adapters[mode] and mode_adapters[mode] or mode
-    for k, v in pairs(keymaps) do
-        M.set_keymaps(mode, k, v)
-    end
-end
-
--- Load key mappings for all provided modes
--- @param keymaps A list of key mappings for each mode
-function M.load(keymaps)
-    for mode, mapping in pairs(keymaps) do
-        M.load_mode(mode, mapping)
-    end
-end
-
-function M.config()
-    neo.keys = {
-        ---@usage change or add keymappings for insert mode
-        insert_mode = {
-            -- 'jk' for quitting insert mode
-            ["jk"] = "<ESC>",
-            -- 'kj' for quitting insert mode
-            ["kj"] = "<ESC>",
-
-            -- Move current line / block with Alt-j/k ala vscode.
-            ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
-            -- Move current line / block with Alt-j/k ala vscode.
-            ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
-
-            -- navigation
-            ["<A-Up>"] = "<C-\\><C-N><C-w>k",
-            ["<A-Down>"] = "<C-\\><C-N><C-w>j",
-            ["<A-Left>"] = "<C-\\><C-N><C-w>h",
-            ["<A-Right>"] = "<C-\\><C-N><C-w>l",
-
-            -- navigate tab completion with <c-j> and <c-k>
-            -- runs conditionally
-            ["<C-j>"] = {
-                'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
-                { expr = true, noremap = true },
-            },
-            ["<C-k>"] = {
-                'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
-                { expr = true, noremap = true },
-            },
-        },
-
-        ---@usage change or add keymappings for normal mode
-        normal_mode = {
-            -- Better window movement
-            ["<C-h>"] = "<C-w>h",
-            ["<C-j>"] = "<C-w>j",
-            ["<C-k>"] = "<C-w>k",
-            ["<C-l>"] = "<C-w>l",
-
-            -- ; to : for ease of use, but keep ; as an option
-            [";"] = ":",
-            [":"] = ";",
-
-            -- Resize with arrows
-            ["<C-Up>"] = ":resize -2<CR>",
-            ["<C-Down>"] = ":resize +2<CR>",
-            ["<C-Left>"] = ":vertical resize -2<CR>",
-            ["<C-Right>"] = ":vertical resize +2<CR>",
-
-            -- Switch tab buffer with Shift + (h/l)
-            ["<S-l>"] = ":BufferNext<CR>",
-            ["<S-h>"] = ":BufferPrevious<CR>",
-
-            -- Move current line / block with Alt-j/k a la vscode.
-            ["<A-j>"] = ":m .+1<CR>==",
-            ["<A-k>"] = ":m .-2<CR>==",
-
-            -- QuickFix
-            -- TODO: incorporate quickfix
-            ["]q"] = ":cnext<CR>",
-            ["[q"] = ":cprev<CR>",
-            -- ["<C-q>"] = ":call QuickFixToggle()<CR>",
-
-            -- ctrl-s to save
-            ["<C-s>"] = ":w<cr>",
-            -- ctrl-q to quit
-            ["<C-q>"] = ":q<cr>",
-        },
-
-        ---@usage change or add keymappings for terminal mode
-        term_mode = {
-            -- JK to insert normal mode
-            ["JK"] = "<C-\\><C-n>",
-            -- TODO: debug below: should work, but only works when mapped to JK
-            ["JJ"] = "<C-\\><C-n>:ToggleTerm<cr>",
-
-            -- Terminal window navigation
-            ["<C-h>"] = "<C-\\><C-N><C-w>h",
-            ["<C-j>"] = "<C-\\><C-N><C-w>j",
-            ["<C-k>"] = "<C-\\><C-N><C-w>k",
-            ["<C-l>"] = "<C-\\><C-N><C-w>l",
-        },
-
-        ---@usage change or add keymappings for visual mode
-        visual_mode = {
-            -- Better indenting
-            ["<"] = "<gv",
-            [">"] = ">gv",
-
-            -- ["p"] = '"0p',
-            -- ["P"] = '"0P',
-        },
-
-        ---@usage change or add keymappings for visual block mode
-        visual_block_mode = {
-            -- Move selected line / block of text in visual mode
-            ["K"] = ":move '<-2<CR>gv-gv",
-            ["J"] = ":move '>+1<CR>gv-gv",
-
-            -- Move current line / block with Alt-j/k ala vscode.
-            ["<A-j>"] = ":m '>+1<CR>gv-gv",
-            ["<A-k>"] = ":m '<-2<CR>gv-gv",
-        },
-
-        ---@usage change or add keymappings for command mode
-        command_mode = {
-            -- navigate tab completion with <c-j> and <c-k>
-            -- runs conditionally
-            ["<C-j>"] = {
-                'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
-                { expr = true, noremap = true },
-            },
-            ["<C-k>"] = {
-                'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
-                { expr = true, noremap = true },
-            },
-        },
-    }
-
-    if vim.fn.has("mac") == 1 then
-        neo.keys.normal_mode["<A-Up>"] = neo.keys.normal_mode["<C-Up>"]
-        neo.keys.normal_mode["<A-Down>"] = neo.keys.normal_mode["<C-Down>"]
-        neo.keys.normal_mode["<A-Left>"] = neo.keys.normal_mode["<C-Left>"]
-        neo.keys.normal_mode["<A-Right>"] = neo.keys.normal_mode["<C-Right>"]
-        if Log:get_default() then
-            Log:get_default().info("Activated mac keymappings")
-        end
-    end
-end
-
-function M.print(mode)
-    print("List of LunarVim's default keymappings (not including which-key)")
-    if mode then
-        print(vim.inspect(neo.keys[mode]))
-    else
-        print(vim.inspect(neo.keys))
-    end
-end
-
-function M.setup()
-    print("setting up some keymappings!!")
-    vim.g.mapleader = (neo.leader == "space" and " ") or neo.leader
-    -- vim.g.maplocalleader = (neo.leader == "space" and " ") or neo.leader
+    --Remap space as leader key
+    keymap("", "<Space>", "<Nop>", opts)
+    vim.g.mapleader = " "
     vim.g.maplocalleader = ","
-    M.load(neo.keys)
+
+    ------------------------
+    ----- insert mode ------
+    ------------------------
+    -- insert -> normal mode heaven
+    keymap('i', "jk", "<ESC>", opts)
+    keymap('i', "kj", "<ESC>", opts)
+
+    -- Move current line / block with ctrl-j/k ala vscode.
+    keymap('i', "<C-j>", "<Esc>:m .+1<CR>==gi", opts)
+    keymap('i', "<C-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+    -- navigate tab completion with <c-j> and <c-k>
+    -- runs conditionally
+    keymap('i', "<C-j>",'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
+    keymap('i', "<C-k>",'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
+
+    ------------------------
+    ----- normal mode ------
+    ------------------------
+    -- Better window movement
+    keymap('n', "<C-h>", "<C-w>h", opts)
+    keymap('n', "<C-j>", "<C-w>j", opts)
+    keymap('n', "<C-k>", "<C-w>k", opts)
+    keymap('n', "<C-l>", "<C-w>l", opts)
+
+    -- ; to : for ease of use, but keep ; as an option
+    keymap('n', ";", ":", opts)
+    keymap('n', ":", ";", opts)
+
+    -- Resize with arrows
+    keymap('n', "<C-Up>", ":resize -2<CR>", opts)
+    keymap('n', "<C-Down>", ":resize +2<CR>", opts)
+    keymap('n', "<C-Left>", ":vertical resize -2<CR>", opts)
+    keymap('n', "<C-Right>", ":vertical resize +2<CR>", opts)
+
+    -- Switch tab buffer with Shift + (h/l)
+    keymap('n', "<S-l>", ":BufferNext<CR>", opts)
+    keymap('n', "<S-h>", ":BufferPrevious<CR>", opts)
+
+    -- Move current line / block with Alt-j/k a la vscode.
+    keymap('n', "<A-j>", ":m .+1<CR>==", opts)
+    keymap('n', "<A-k>", ":m .-2<CR>==", opts)
+
+    -- QuickFix
+    -- TODO: incorporate quickfix? Play with these
+    -- keymap('n', "]q", ":cnext<CR>", opts)
+    -- keymap('n', "[q", ":cprev<CR>", opts)
+    -- keymap('n', "<C-q>", ":call QuickFixToggle()<CR>", opts)
+
+    -- ctrl-s to save, ctrl-q to quit
+    keymap('n', "<C-s>", ":w<cr>", opts)
+    keymap('n', "<C-q>", ":q<cr>", opts)
+
+    ------------------------
+    ------ term mode -------
+    ------------------------
+    -- JK to insert normal mode
+    keymap('t', "JK", "<C-\\><C-n>", opts)
+    -- TODO: debug below: should work, but only works when mapped to JK
+    keymap('t', "JJ", "<C-\\><C-n>:ToggleTerm<cr>", opts)
+
+    -- Terminal window navigation
+    keymap('t', "<C-h>", "<C-\\><C-N><C-w>h", opts)
+    keymap('t', "<C-j>", "<C-\\><C-N><C-w>j", opts)
+    keymap('t', "<C-k>", "<C-\\><C-N><C-w>k", opts)
+    keymap('t', "<C-l>", "<C-\\><C-N><C-w>l", opts)
+
+    ------------------------
+    ----- visual mode ------
+    ------------------------
+    -- Better indenting
+    keymap('v', "<", "<gv", opts)
+    keymap('v', ">", ">gv", opts)
+
+    ------------------------
+    ----- vblock mode ------
+    ------------------------
+    -- Move selected line / block of text in visual mode
+    keymap('x', "J", ":move '>+1<CR>gv-gv", opts)
+    keymap('x', "K", ":move '<-2<CR>gv-gv", opts)
+
+    -- Move current line / block with Alt-j/k ala vscode.
+    keymap('x', "<A-j>", ":move '>+1<CR>gv-gv", opts)
+    keymap('x', "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+    ------------------------
+    ----- cmmand mode ------
+    ------------------------
+    -- navigate tab completion with <c-j> and <c-k>
+    -- runs conditionally
+    keymap('c', "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
+    keymap('c', "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
+    
+    ---------------------
+    ----- mac only ------
+    ---------------------
+    if vim.fn.has("mac") == 1 then
+        keymap('n', "<A-Up>", ":resize -2<CR>", opts)
+        keymap('n', "<A-Down>", ":resize +2<CR>", opts)
+        keymap('n', "<A-Left>", ":vertical resize -2<CR>", opts)
+        keymap('n', "<A-Right>", ":vertical resize +2<CR>", opts)
+    end
 end
 
 return M
