@@ -1,30 +1,37 @@
 print("I am doing things in plugins-new")
 local utils = require("utils")
-
 local plugins = {}
+
+-- defaults
 local compile_path = utils.get_config_path() .. "/plugin/packer_compiled.lua"
+local package_root = vim.fn.stdpath("data") .. "/site/pack"
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 function plugins:clear_packer_cache()
-    print("attempt to clear packer_compiled path")
-    print(compile_path)
-    print(compile_path)
-    print(compile_path)
+    print('deleting packer cache at:' .. compile_path)
     if vim.fn.delete(compile_path) == 0 then
         print("deleted packer_compiled.lua")
     end
 end
 
+function plugins:remove_packer_directory()
+    print('deleting packer at:' .. install_path)
+    if vim.fn.delete(install_path, 'rf') == 0 then
+        print("deleted repo: packer.nvim")
+    end
+end
+
+function plugins:packer_is_installed()
+    -- assumes nothing else is installed in this strange path
+    print(vim.fn.glob(install_path))
+    return (vim.fn.empty(vim.fn.glob(install_path)) == 0)
+end
+
 function plugins:init()
-    -- TODO: check this installs correctly when not installed yet
-    local install_path = vim.fn.stdpath("data")
-        .. "/site/pack/packer/start/packer.nvim"
-    local package_root = vim.fn.stdpath("data") .. "/site/pack"
-
-    print(vim.fn.stdpath("data"))
-    print(vim.fn.stdpath("config"))
-
-    if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-        vim.fn.system({
+  print('packer is already installed: ' .. tostring(plugins.packer_is_installed()))
+    if not plugins.packer_is_installed() then
+      print('installing packer to: ' .. install_path)
+        PACKER_BOOTSTRAP = vim.fn.system({
             "git",
             "clone",
             "--depth",
@@ -32,10 +39,21 @@ function plugins:init()
             "https://github.com/wbthomason/packer.nvim",
             install_path,
         })
-        vim.cmd("packadd packer.nvim")
+        -- print('PACKER_BOOTSTRAP' .. PACKER_BOOTSTRAP)
+        -- print('PACKER_BOOTSTRAP_NIL' .. )
+        -- vim.cmd("packadd packer.nvim")
     end
+
+    -- vim.cmd [[
+    --   augroup packer_user_config
+    --     autocmd!
+    --     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    --   augroup end
+    -- ]]
+
     local packer_ok, packer = pcall(require, "packer")
     if not packer_ok then
+      print('packer is not okay in init function')
         return
     end
 
@@ -49,8 +67,8 @@ function plugins:init()
             end,
         },
     })
-    self.packer = packer
-    return self
+    -- self.packer = packer
+    -- return self
 end
 
 function plugins:install()
@@ -66,7 +84,7 @@ function plugins:install()
         use("neovim/nvim-lspconfig")
         use({
             "tamago324/nlsp-settings.nvim",
-            requires=    {{'neovim/nvim-lspconfig'}},
+            requires = {{'neovim/nvim-lspconfig'}},
         })
         use("jose-elias-alvarez/null-ls.nvim")
 
@@ -218,6 +236,15 @@ function plugins:install()
         use('rafamadriz/friendly-snippets') -- event: InsertCharPre (maybe for cmp?)
         use({"rcarriga/nvim-notify", disable = false})
         use({"Tastyep/structlog.nvim", disable = false})
+
+
+        -- Automatically set up your configuration after cloning packer.nvim
+        -- Put this at the end after all plugins
+        if PACKER_BOOTSTRAP then
+          -- plugins.sync()
+          require("packer").sync()
+        end
+
     end
     )
 end
@@ -226,7 +253,7 @@ function plugins:sync()
     if require('packer') then
         require('packer').sync()
     else
-        print('packer expected')
+        print('error: packer expected')
     end
 end
 
