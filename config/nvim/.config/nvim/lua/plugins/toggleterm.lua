@@ -1,14 +1,18 @@
 local M = {}
 
--- TODO: this fails on fresh installs!
- local Terminal  = require('toggleterm.terminal').Terminal
- local lazygit = Terminal:new({
-     cmd = "lazygit",
-     direction = 'float',
-     hidden = true,
- })
- 
- function M:_lazygit_toggle()
+-- TODO: is this functioning as intended?
+-- TODO: create more togglable terms
+function M:create_terminals()
+    -- TODO: this fails on fresh installs!
+    local Terminal  = require('toggleterm.terminal').Terminal
+    local lazygit = Terminal:new({
+       cmd = "lazygit",
+       direction = 'float',
+       hidden = true,
+    })
+end
+
+function M:_lazygit_toggle()
      lazygit:toggle()
 end
 
@@ -53,6 +57,8 @@ function M:config()
         }
       }
     })
+
+   M.create_terminals()
 end
 
 -- M.add_exec = function(exec, keymap, name)
