@@ -7,6 +7,7 @@ fish/.config/fish/functions/bass.fish
 fish/.config/fish/functions/__z.fish
 fish/.config/fish/functions/__*
 
+# TODO: remove some of this stuff
 config/fish/.config/fish/completions
 config/fish/.config/fish/fish_variables
 config/fish/.config/fish/functions/fisher.fish
@@ -16,6 +17,16 @@ config/fish/.config/fish/functions/__z.fish
 config/fish/.config/fish/functions/__*
 
 # nvim things
+nvim/.config/nvim/lua.bak
+nvim/.config/nvim/undodir
+nvim/.config/nvim/session
+nvim/.config/nvim/plugged
+nvim/.config/nvim.bak
+nvim/.config/nvim.lunarcopy.bak
+nvim/.config/nvim/autoload
+nvim/.config/nvim/plugin
+
+# TODO: remove some of this stuff
 config/nvim/.config/nvim/lua.bak
 config/nvim/.config/nvim/undodir
 config/nvim/.config/nvim/session
