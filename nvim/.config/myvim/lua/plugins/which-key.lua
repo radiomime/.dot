@@ -1,6 +1,7 @@
 local which_key = {}
 
 function which_key:config()
+  print('whichkey: config was called, the proper one')
   local wk = require('which-key')
     -- require("which-key").setup({
     wk.setup({

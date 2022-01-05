@@ -16,10 +16,12 @@ require("keymappings").set_keymappings()
 -- require("plugins"):clear_packer_cache()
 -- require('plugins'):remove_packer_directory()
 
--- print('about to call init!')
 require("plugins"):init()
 require("plugins"):install()
--- require("plugins"):sync()
+
+-- colors
+require("colorscheme"):load_colors()
+
 
 -- -- *** working above here *** --
 
