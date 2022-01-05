@@ -35,6 +35,14 @@ config/nvim/.config/nvim.bak
 config/nvim/.config/nvim.lunarcopy.bak
 config/nvim/.config/nvim/autoload
 config/nvim/.config/nvim/plugin
+nvim/.config/myvim/lua.bak
+nvim/.config/myvim/undodir
+nvim/.config/myvim/session
+nvim/.config/myvim/plugged
+nvim/.config/myvim.bak
+nvim/.config/myvim.lunarcopy.bak
+nvim/.config/myvim/autoload
+nvim/.config/myvim/plugin
 
 # temporary, local storage
 archive
