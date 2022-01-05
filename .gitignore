@@ -1,4 +1,12 @@
 # fish
+fish/.config/fish/completions
+fish/.config/fish/fish_variables
+fish/.config/fish/functions/fisher.fish
+# TODO: ignore functions, then include functions I want to include
+fish/.config/fish/functions/bass.fish
+fish/.config/fish/functions/__z.fish
+fish/.config/fish/functions/__*
+
 config/fish/.config/fish/completions
 config/fish/.config/fish/fish_variables
 config/fish/.config/fish/functions/fisher.fish
