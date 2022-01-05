@@ -3,8 +3,22 @@
 Repo for dotfiles.
 
 # install
+```bash
+# .config cannot be dot-config until this issue resolves
+#     https://github.com/aspiers/stow/issues/33
+stow -v --dotfiles bash fish git kitty nvim starship tmux
+```
 
 `./install.py` should do the trick.
+
+# uninstall
+```
+# reinstall
+stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
+
+# uninstall
+stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
+```
 
 # for languages
 
