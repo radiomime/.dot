@@ -3,13 +3,14 @@ require("keymaps")
 require("plugins").install()
 require("colorscheme")
 
-require("plugins").configure()
+-- configure cmp before lsp. TODO: is this necessary?
+require("plugins.cmp")
 
 require("lsp")
 
+require("plugins").configure()
+
 -- from scratch below
-require("user.telescope")
-require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
