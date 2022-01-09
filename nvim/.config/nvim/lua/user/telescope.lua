@@ -10,8 +10,7 @@ telescope.setup {
 
     prompt_prefix = " ",
     selection_caret = " ",
-    -- path_display = { "smart" },
-    path_display = { shorten = 5 },
+    path_display = { "smart" },
 
     mappings = {
       i = {
