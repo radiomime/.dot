@@ -5,9 +5,9 @@ require("colorscheme")
 
 require("plugins").configure()
 
---require("plugins.cmp")
+require("lsp")
+
 -- from scratch below
-require("user.lsp")
 require("user.telescope")
 require("user.treesitter")
 require("user.autopairs")
