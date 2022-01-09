@@ -11,10 +11,6 @@ function M:configure()
 		ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 		ignore_install = { "" }, -- List of parsers to ignore installing
-    -- TODO: is this from autopairs? Should it be moved into other plugin modules?
-		autopairs = {
-			enable = true,
-		},
 		highlight = {
 			enable = true, -- false will disable the whole extension
 			disable = {}, -- list of language that will be disabled, e.g. {"latex", "c", "rust"}
@@ -39,6 +35,9 @@ function M:configure()
       --   vue = "<!-- %s -->",
       --   json = "",
       -- },
+		},
+		autopairs = {
+			enable = true,
 		},
     -- TODO: use some of these?
     -- matchup = {
