@@ -339,6 +339,7 @@ function M:configure()
   -- require('plugins.cmp')
   require('plugins.telescope')
   require('plugins.treesitter')
+  require('plugins.autopairs')
 end
 
 -- M.install()
