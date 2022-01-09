@@ -331,8 +331,6 @@ function M:install()
   print('installing plugins')
 	M.init()
 	M.install_ret = M._install()
-  print(M.install_ret)
-  print(M.install_ret)
 end
 
 function M:configure()
