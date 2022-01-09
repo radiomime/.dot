@@ -3,11 +3,13 @@ function M:configure()
 	print("configuring cmp")
 	local cmp_status_ok, cmp = pcall(require, "cmp")
 	if not cmp_status_ok then
+		print("error: cannot configure cmp inside configure function")
 		return
 	end
 
 	local snip_status_ok, luasnip = pcall(require, "luasnip")
 	if not snip_status_ok then
+		print("error: cannot configure luasnip inside cmp configure function")
 		return
 	end
 
@@ -46,10 +48,39 @@ function M:configure()
 		Operator = "",
 		TypeParameter = "",
 	}
+	-- TODO: are these better? They're the larger versions
+	-- kind_icons = {
+	--     Class = " ",
+	--     Color = " ",
+	--     Constant = "ﲀ ",
+	--     Constructor = " ",
+	--     Enum = "練",
+	--     EnumMember = " ",
+	--     Event = " ",
+	--     Field = " ",
+	--     File = "",
+	--     Folder = " ",
+	--     Function = " ",
+	--     Interface = "ﰮ ",
+	--     Keyword = " ",
+	--     Method = " ",
+	--     Module = " ",
+	--     Operator = "",
+	--     Property = " ",
+	--     Reference = " ",
+	--     Snippet = " ",
+	--     Struct = " ",
+	--     Text = " ",
+	--     TypeParameter = " ",
+	--     Unit = "塞",
+	--     Value = " ",
+	--     Variable = " ",
+	-- },
 	-- find more here: https://www.nerdfonts.com/cheat-sheet
 
 	cmp.setup({
 		snippet = {
+			-- REQUIRED - you must specify a snippet engine
 			expand = function(args)
 				luasnip.lsp_expand(args.body) -- For `luasnip` users.
 			end,
@@ -59,6 +90,8 @@ function M:configure()
 			["<C-j>"] = cmp.mapping.select_next_item(),
 			["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 			["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+			-- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+			-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 			["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 			["<C-e>"] = cmp.mapping({
@@ -117,6 +150,12 @@ function M:configure()
 			{ name = "luasnip" },
 			{ name = "buffer" },
 			{ name = "path" },
+      -- { name = "treesitter" }, -- TODO: should this be here??
+      -- { name = "cmp_tabnine" },
+      -- { name = "nvim_lua" },
+      -- { name = "calc" },
+      -- { name = "emoji" },
+      -- { name = "crates" },
 		},
 		confirm_opts = {
 			behavior = cmp.ConfirmBehavior.Replace,
