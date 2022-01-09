@@ -3,6 +3,9 @@ require "options"
 
 require "keymaps"
 -- require "user.keymaps"
+
+require "plugins"
+-- require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 require "user.lsp"
