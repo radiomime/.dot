@@ -1,10 +1,12 @@
 require("options")
 require("keymaps")
-require("plugins")
+require("plugins").install()
 require("colorscheme")
 
+require("plugins").configure()
+
+--require("plugins.cmp")
 -- from scratch below
-require("user.cmp")
 require("user.lsp")
 require("user.telescope")
 require("user.treesitter")
