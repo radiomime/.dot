@@ -1,5 +1,9 @@
 ## ToDo
 
+## bugs
+
+* holding j in lazygit does weird things. Is terminal j mapped to something weird?
+
 ## high level
 
 * lsp, figure out lsp state
