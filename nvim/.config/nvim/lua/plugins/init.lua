@@ -338,6 +338,7 @@ function M:configure()
   -- TODO: protected call for these?
   -- require('plugins.cmp')
   require('plugins.telescope')
+  require('plugins.treesitter')
 	-- M.init()
 	-- M.install_ret = M._install()
  --  print(M.install_ret)
