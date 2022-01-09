@@ -117,6 +117,7 @@ function M:install()
 
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+    use("folke/tokyonight.nvim")
     use "lunarvim/darkplus.nvim"
 
     -- cmp plugins
@@ -154,8 +155,6 @@ function M:install()
     -----
     -- TODO: below are some of the old ones I've used
     -----
-    -- -- themes
-    -- use("folke/tokyonight.nvim")
 
     -- -- lsp
     -- use("neovim/nvim-lspconfig")
