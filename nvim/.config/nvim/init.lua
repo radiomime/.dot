@@ -6,6 +6,7 @@ require "keymaps"
 
 require "plugins"
 -- require "user.plugins"
+
 require "user.colorscheme"
 require "user.cmp"
 require "user.lsp"
@@ -18,9 +19,12 @@ require "user.nvim-tree"
 require "user.bufferline"
 require "user.lualine"
 require "user.toggleterm"
-require "user.project"
+-- require "user.project"
 require "user.impatient"
 require "user.indentline"
 require "user.alpha"
-require "user.whichkey"
+
+require "plugins.whichkey"
+-- require "user.whichkey"
+
 require "user.autocommands"
