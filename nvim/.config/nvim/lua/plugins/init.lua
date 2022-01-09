@@ -339,10 +339,6 @@ function M:configure()
   -- require('plugins.cmp')
   require('plugins.telescope')
   require('plugins.treesitter')
-	-- M.init()
-	-- M.install_ret = M._install()
- --  print(M.install_ret)
- --  print(M.install_ret)
 end
 
 -- M.install()
