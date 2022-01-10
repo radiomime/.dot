@@ -5,7 +5,4 @@ require("colorscheme")
 require("plugins.cmp") -- TODO: do I need to configure cmp before lsp?
 require("lsp")
 require("plugins").configure()
-
--- from scratch below
-
-require("user.autocommands")
+require("autocommands")
