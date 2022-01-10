@@ -47,8 +47,8 @@ function M:configure()
 		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-        -- TODO: get more familiar with gitsigns. Change mappings?
-        -- TODO: add some mappings to whichkey?
+		-- TODO: get more familiar with gitsigns. Change mappings?
+		-- TODO: add some mappings to whichkey?
 		keymaps = {
 			-- Default keymap options
 			noremap = true,
