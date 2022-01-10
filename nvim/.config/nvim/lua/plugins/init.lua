@@ -81,7 +81,7 @@ function M:init()
 end
 
 function M:_install()
-	print("installing plugins...")
+	print("installing plugins")
 	local packer_ok, packer = pcall(require, "packer")
 	if not packer_ok then
 		print("error: cannot require packer in install function")
@@ -327,7 +327,6 @@ function M:sync()
 end
 
 function M:install()
-	print("installing plugins")
 	M.init()
 	M.install_ret = M._install()
 end
