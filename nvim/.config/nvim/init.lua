@@ -8,7 +8,4 @@ require("plugins").configure()
 
 -- from scratch below
 
-require("plugins.whichkey")
--- require "user.whichkey"
-
 require("user.autocommands")

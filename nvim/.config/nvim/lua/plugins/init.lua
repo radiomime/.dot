@@ -349,6 +349,7 @@ function M:configure()
   require('plugins.impatient')
   require('plugins.indentblankline')
   require('plugins.alpha')
+  require('plugins.whichkey')
 
 end
 
