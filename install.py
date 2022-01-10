@@ -3,10 +3,6 @@ import argparse
 import os
 
 
-
-
-
-
 from lib import (
     Bandwhich,
     Bat,
