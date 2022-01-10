@@ -1,6 +1,5 @@
 __version__ = "0.1.0"
 
-
 from .tmux import Tmux  # noqa
 from .stow import Stow
 from .hammerspoon import Hammerspoon  # noqa
