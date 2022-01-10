@@ -341,6 +341,7 @@ function M:configure()
   require('plugins.treesitter')
   require('plugins.autopairs')
   require('plugins.comment')
+  require('plugins.gitsigns')
 end
 
 -- M.install()
