@@ -348,6 +348,7 @@ function M:configure()
   require('plugins.toggleterm')
   require('plugins.impatient')
   require('plugins.indentblankline')
+  require('plugins.alpha')
 
 end
 
