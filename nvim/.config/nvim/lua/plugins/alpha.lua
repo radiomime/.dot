@@ -16,7 +16,7 @@ function M:configure()
 		[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
 		[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 	}
-  -- TODO: add sessions!
+	-- TODO: add sessions!
 	dashboard.section.buttons.val = {
 		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 		dashboard.button("d", "  Find file (include hidden)", ":Telescope find_files hidden=true<CR>"),
@@ -34,7 +34,7 @@ function M:configure()
 		-- local fortune = handle:read("*a")
 		-- handle:close()
 		-- return fortune
-		return "cheers"
+		return "a place is only a place"
 	end
 
 	dashboard.section.footer.val = footer()
