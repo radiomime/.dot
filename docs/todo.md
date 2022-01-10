@@ -1,12 +1,18 @@
 ## ToDo
 
+## bugs
+
+* holding j in lazygit does weird things. Is terminal j mapped to something weird?
+
 ## high level
 
-* plugins, get to alright state
 * lsp, figure out lsp state
 * clean up lsp, null ls code, etc
+* fix packersync call
+* null ls should be sensible
 * nvim-cmp, there are a lot of cool things to do that I haven't done
 * work through todo's
+* 'dot-' for .config files for fuzzy finding
 
 
 ## packer cleanup

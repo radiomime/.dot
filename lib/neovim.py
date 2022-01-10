@@ -70,7 +70,7 @@ class Neovim(Package):
                 "git",
                 "clone",
                 "--branch",
-                "release-0.5",
+                "release-0.6",
                 "https://github.com/neovim/neovim",
                 self.install_path,
             ]
