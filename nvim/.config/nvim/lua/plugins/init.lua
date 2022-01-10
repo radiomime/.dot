@@ -347,6 +347,7 @@ function M:configure()
   require('plugins.lualine')
   require('plugins.toggleterm')
   require('plugins.impatient')
+  require('plugins.indentline')
 
 end
 
