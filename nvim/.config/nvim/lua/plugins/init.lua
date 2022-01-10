@@ -343,6 +343,8 @@ function M:configure()
   require('plugins.comment')
   require('plugins.gitsigns')
   require('plugins.nvimtree')
+  require('plugins.bufferline')
+
 end
 
 -- M.install()
