@@ -346,6 +346,7 @@ function M:configure()
   require('plugins.bufferline')
   require('plugins.lualine')
   require('plugins.toggleterm')
+  require('plugins.impatient')
 
 end
 
