@@ -93,8 +93,8 @@ function M:configure()
 					{ key = "v", cb = tree_cb("vsplit") },
 				},
 			},
-			number = false,
-			relativenumber = false,
+			number = true,
+			relativenumber = true,
 		},
     -- TODO: trash command on system! Do this, maybe use rip?
 		trash = {
