@@ -1,9 +1,9 @@
 import subprocess
-from .brew  import Brew
+from .brew import Brew
 
 from .abs_package import Package
 from .rust import Rust
-from .util import bin_loc, github_release_metadata, is_installed
+from .util import bin_loc, is_installed
 
 
 class Bandwhich(Package):
@@ -14,17 +14,17 @@ class Bandwhich(Package):
         return is_installed("bandwhich")
 
     def get_version(self):
-        # output = subprocess.check_output(
-        #     [
-        #         "mitmproxy",
-        #         "--version",
-        #     ]
-        # )
-        # output = output.decode("utf-8")
-        # for line in output.split("\n"):
-        #     words = line.split(" ")
-        #     if words[0] == "Mitmproxy:":
-        #         return words[1]
+        output = subprocess.check_output(
+            [
+                "bandwhich",
+                "--version",
+            ]
+        )
+        output = output.decode("utf-8")
+        for line in output.split("\n"):
+            words = line.split(" ")
+            if words[0] == "bandwhich":
+                return words[1]
 
         # should never be hit
         return None
@@ -56,11 +56,8 @@ class Bandwhich(Package):
 
     def osx_install(self):
         brew = Brew()
-        brew.brew_install('bandwhich')
-
+        brew.brew_install("bandwhich")
 
     def osx_uninstall(self):
         brew = Brew()
-        brew.brew_uninstall('bandwhich')
-
-
+        brew.brew_uninstall("bandwhich")
