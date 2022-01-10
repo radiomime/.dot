@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import argparse
-import os
 
 
 from lib import (
@@ -22,7 +21,7 @@ from lib import (
     Node,
     Poetry,
     Stow,
-    # Pyright,
+    Pyright,
     Ripgrep,
     Rust,
     Snap,
@@ -37,76 +36,74 @@ from lib import (
 
 def install():
     print("*** installing packages ***")
-
-    # Brew().install()
+    Brew().install()
     Neovim().install()
-    # Stow().install()
-    # Dot().install()
+    Stow().install()
+    Dot().install()
 
-    # Kitty().install()
-    # Starship().install()
-    # Nerdfonts().install()
-    # Fish().install()
+    Kitty().install()
+    Starship().install()
+    Nerdfonts().install()
+    Fish().install()
 
-    # Bat().install()
-    # Tmux().install()
-    # Node().install()
+    Bat().install()
+    Tmux().install()
+    Node().install()
 
-    # Mitmproxy().install()
-    # Pyright().install()
-    # Bandwhich().install()
-    # Hammerspoon().install()
+    Mitmproxy().install()
+    Pyright().install()
+    Bandwhich().install()
+    Hammerspoon().install()
 
-    # Rust().install()
-    # Docker().install()
+    Rust().install()
+    Docker().install()
 
-    # Exa().install()
-    # Ripgrep().install()
-    # Tldr().install()
-    # Snap().install()
-    # Go().install()
-    # Poetry().install()
-    # Terraform().install()
-    # Yarn().install()
-    # Watchexec().install()
-    # SwiftFormat().install()
-    # Minikube().install()
-    # Kubectl().install()
+    Exa().install()
+    Ripgrep().install()
+    Tldr().install()
+    Snap().install()
+    Go().install()
+    Poetry().install()
+    Terraform().install()
+    Yarn().install()
+    Watchexec().install()
+    Minikube().install()
+    Kubectl().install()
 
 
 def uninstall():
     print("uninstalling things")
-    # Dot().uninstall()
+    Dot().uninstall()
 
-    # Mitmproxy().uninstall()
-    # Go().uninstall()
-    # Nerdfonts().uninstall()
-    # Bandwhich().uninstall()
-    # Tmux().uninstall()
-    # Hammerspoon().uninstall()
-    # Bat().uninstall()
-    # # Pyright().uninstall()
-    # Exa().uninstall()
-    # Rust().uninstall()
-    # Ripgrep().uninstall()
-    # Kitty().uninstall()
-    # Fish().uninstall()
-    # Tldr().uninstall()
-    # Starship().uninstall()
-    # Snap().uninstall()
-    # Poetry().uninstall()
-    # Terraform().uninstall()
-    # Node().uninstall()
-    # Yarn().uninstall()
-    # Minikube().uninstall()
-    # Kubectl().uninstall()
-    # Watchexec().uninstall()
+    Mitmproxy().uninstall()
+    Go().uninstall()
+    Nerdfonts().uninstall()
+    Bandwhich().uninstall()
+    Tmux().uninstall()
+    Hammerspoon().uninstall()
+    Bat().uninstall()
+    # Pyright().uninstall()
+    Exa().uninstall()
+    Rust().uninstall()
+    Ripgrep().uninstall()
+    Kitty().uninstall()
+    Fish().uninstall()
+    Tldr().uninstall()
+    Starship().uninstall()
+    Snap().uninstall()
+    Poetry().uninstall()
+    Terraform().uninstall()
+    Node().uninstall()
+    Yarn().uninstall()
+    Minikube().uninstall()
+    Kubectl().uninstall()
+    Watchexec().uninstall()
 
     # Below are weird to un/reinstall. Good opportunity for an upgrade
     # TODO: explicit install/uninstall
     Neovim().uninstall()
-    # Docker().uninstall()
-    # Brew().uninstall()
+    Docker().uninstall()
+    Brew().uninstall()
 
 
 def process_args() -> argparse.Namespace:
