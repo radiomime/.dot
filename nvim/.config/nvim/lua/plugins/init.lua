@@ -266,6 +266,9 @@ function M:_install()
 		--     disable = false,
 		-- })
 
+		-- motion plugins, check this out!
+		-- https://github.com/ggandor/lightspeed.nvim
+
 		-- -- bufferline / tabs
 		-- use({
 		--     "romgrk/barbar.nvim",
