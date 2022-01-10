@@ -345,6 +345,7 @@ function M:configure()
   require('plugins.nvimtree')
   require('plugins.bufferline')
   require('plugins.lualine')
+  require('plugins.toggleterm')
 
 end
 
