@@ -7,7 +7,6 @@ require("lsp")
 require("plugins").configure()
 
 -- from scratch below
-require("user.nvim-tree")
 require("user.bufferline")
 require("user.lualine")
 require("user.toggleterm")

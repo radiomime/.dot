@@ -342,6 +342,7 @@ function M:configure()
   require('plugins.autopairs')
   require('plugins.comment')
   require('plugins.gitsigns')
+  require('plugins.nvimtree')
 end
 
 -- M.install()
