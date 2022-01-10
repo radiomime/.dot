@@ -7,7 +7,6 @@ require("lsp")
 require("plugins").configure()
 
 -- from scratch below
--- require "user.project"
 require("user.indentline")
 require("user.alpha")
 
