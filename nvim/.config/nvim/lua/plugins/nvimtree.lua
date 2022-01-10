@@ -80,7 +80,7 @@ function M:configure()
 			timeout = 500, -- default: 400
 		},
 		view = {
-			width = 30,
+			width = 45,
       height = 30, -- only for top/bottom as 'side' value
 			hide_root_folder = false,
 			side = "left",
