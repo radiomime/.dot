@@ -344,6 +344,7 @@ function M:configure()
   require('plugins.gitsigns')
   require('plugins.nvimtree')
   require('plugins.bufferline')
+  require('plugins.lualine')
 
 end
 
