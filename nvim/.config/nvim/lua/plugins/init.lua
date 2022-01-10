@@ -22,15 +22,14 @@ end
 
 function M:packer_is_installed()
 	-- assumes nothing else is installed in this strange path
-	-- print(vim.fn.glob(install_path))
 	return (vim.fn.empty(vim.fn.glob(install_path)) == 0)
 end
 
 function M:init()
-	print("compile path: " .. compile_path)
-	print("package root: " .. package_root)
-	print("install path: " .. install_path)
-	print("packer is already installed: " .. tostring(M.packer_is_installed()))
+	-- print("compile path: " .. compile_path)
+	-- print("package root: " .. package_root)
+	-- print("install path: " .. install_path)
+	-- print("packer is already installed: " .. tostring(M.packer_is_installed()))
 
 	-- install packer if that directory isn't populated
 	if not M.packer_is_installed() then
@@ -328,29 +327,28 @@ function M:sync()
 end
 
 function M:install()
-  print('installing plugins')
+	print("installing plugins")
 	M.init()
 	M.install_ret = M._install()
 end
 
 function M:configure()
-  print('configuring plugins')
-  -- TODO: protected call for these?
-  -- require('plugins.cmp')
-  require('plugins.telescope')
-  require('plugins.treesitter')
-  require('plugins.autopairs')
-  require('plugins.comment')
-  require('plugins.gitsigns')
-  require('plugins.nvimtree')
-  require('plugins.bufferline')
-  require('plugins.lualine')
-  require('plugins.toggleterm')
-  require('plugins.impatient')
-  require('plugins.indentblankline')
-  require('plugins.alpha')
-  require('plugins.whichkey')
-
+	print("configuring plugins")
+	-- TODO: protected call for these?
+	-- require('plugins.cmp')
+	require("plugins.telescope")
+	require("plugins.treesitter")
+	require("plugins.autopairs")
+	require("plugins.comment")
+	require("plugins.gitsigns")
+	require("plugins.nvimtree")
+	require("plugins.bufferline")
+	require("plugins.lualine")
+	require("plugins.toggleterm")
+	require("plugins.impatient")
+	require("plugins.indentblankline")
+	require("plugins.alpha")
+	require("plugins.whichkey")
 end
 
 -- M.install()
