@@ -340,6 +340,7 @@ function M:configure()
   require('plugins.telescope')
   require('plugins.treesitter')
   require('plugins.autopairs')
+  require('plugins.comment')
 end
 
 -- M.install()
