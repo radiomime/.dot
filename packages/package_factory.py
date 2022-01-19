@@ -13,8 +13,14 @@ class PackageFactory(object):
         classes = getmembers(pkgs, lambda m: isclass(m) and not isabstract(m))
         for name, _type in classes:
             if isclass(_type) and issubclass(_type, pkgs.AbsPackage):
-                self.packages[name] = _type
-                # self.packages.update([[name, _type]])
+                self.packages[name.lower()] = _type
 
     def get_packages_list(self):
-        return self.packages.keys()
+        return ", ".join(self.packages.keys())
+
+    def create_instance(self, pkg_name):
+        pkg_name = pkg_name.lower()
+        if pkg_name in self.packages:
+            return self.packages[pkg_name]()
+        else:
+            return self.packages["NullPackage"](pkg_name)
