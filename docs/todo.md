@@ -2,18 +2,17 @@
 
 ## bugs
 
-* holding j in lazygit does weird things. Is terminal j mapped to something weird?
+- holding j in lazygit does weird things. Is terminal j mapped to something weird?
 
 ## high level
 
-* lsp, figure out lsp state
-* clean up lsp, null ls code, etc
-* fix packersync call
-* null ls should be sensible
-* nvim-cmp, there are a lot of cool things to do that I haven't done
-* work through todo's
-* 'dot-' for .config files for fuzzy finding
-
+- lsp, figure out lsp state
+- clean up lsp, null ls code, etc
+- fix packersync call
+- null ls should be sensible
+- nvim-cmp, there are a lot of cool things to do that I haven't done
+- work through todo's
+- 'dot-' for .config files for fuzzy finding
 
 ## packer cleanup
 
@@ -23,6 +22,7 @@ on start
 checkout plugin: 'sindrets/winshift.nvim'
 
 ## cargo installs
+
 fd package! it isn't just "fd"
 watchexec
 
@@ -31,13 +31,16 @@ watchexec
 Fish should have some alias for signing in as personal/work
 
 ## gitignore
+
 TODO: ignore functions, then include functions I want to include
 
 ## fisher
+
 add fisher plugin: z
 fisher: install plugins on uu
 
 ## snippets
+
 look at https://github.com/L3MON4D3/LuaSnip a little more, could be useful for snippets
 
 ## cht.sh
@@ -59,20 +62,26 @@ add to gitconfig: default branch name
 Add gitignore command to fish instead of bash
 
 install prettier:
-    npm install -g prettier
+npm install -g prettier
 maybe this too?
-    npm install -g eslint_d
+npm install -g eslint_d
 
 add cargo install stylua
 add:
-    go get github.com/jesseduffield/lazygit
-    also, add to path: ~/go/bin
-    fish_add_path ~/go/bin/
-    Do this for the cargo stuff too!
+go get github.com/jesseduffield/lazygit
+also, add to path: ~/go/bin
+fish_add_path ~/go/bin/
+Do this for the cargo stuff too!
 Actually, do gitui instead! Or maybe not, for author stuff.
 
+# python package installer folder hierarchy
+
+- clean it!
+- maybe this is all in a folder at the base?
+- good opportunity to learn python development patterns
 
 # rust packages
+
 fd-find add!:
 https://github.com/sharkdp/fd
 
@@ -80,7 +89,6 @@ new top?
 https://github.com/ClementTsang/bottom
 
 Rust, should I put locked into command?
-
 
 Cargo:
 https://github.com/ClementTsang/bottom
@@ -92,6 +100,7 @@ change around conf file to have program specific config dirs at the top level
 With this, update the "dot" class
 
 # How about docker revisit
+
 there is a docker helper install script for development. How about doing this?
 Any prod system should have docker manually installed or a custom installer to
 fit the prod system's needs, anyways.
@@ -103,10 +112,10 @@ brew install efm-langserver
 
 efm-langserver config symlink
 
-
 Things to checkout, incorporate, etc.
 
 ## shell management
+
 fish on uninstall should check for shell as available shells!
 
 CARGO INSTALL ripgrep! At least for linux
@@ -123,21 +132,23 @@ store fish plugins in dotfiles so I can easily load 'z' and whatnot across machi
 
 ## kubect install minikube and docker, etc
 
-* indicator-sensors
-* `https://github.com/kgshank/gse-sound-output-device-chooser`
+- indicator-sensors
+- `https://github.com/kgshank/gse-sound-output-device-chooser`
 
 ### Move filetype specific things to ftplugin
 
 Checkout
-* https://github.com/dense-analysis/ale#2ii-fixing
-* https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
-* https://vim.fandom.com/wiki/File_type_plugins
+
+- https://github.com/dense-analysis/ale#2ii-fixing
+- https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
+- https://vim.fandom.com/wiki/File_type_plugins
 
 ### npm to install
 
 ### FZF + ripgrep
 
 ### Good with fugitive
+
 https://github.com/idanarye/vim-merginal
 
 ### docker and docker-compose to install
@@ -153,6 +164,7 @@ https://github.com/docker/compose/releases
 Runnable on mac
 
 ### Uninstalls
+
 Put unintalls everywhere
 
 ### Add poetry to install
@@ -164,16 +176,19 @@ add it
 https://github.com/Quramy/tsuquyomi
 
 ### jupyter?
+
 ```
 pip3 install jupyterlab
 ```
 
 ### fuzzyfinder
+
 from command line? rust implementation?
 
 ### Editor speed
 
 Chris A sent this over:
+
 ```
 sped up my editor quite a bit, passing on the knowledge:
 
@@ -219,20 +234,24 @@ Checkout vim markup
 ### Vim UML Markup
 
 Checkout:
+
 1. https://github.com/bramp/js-sequence-diagrams
 2. https://vimawesome.com/plugin/markdown-preview-nvim
-    * Seems like a really good option. Markdown && js-sequence-diagrams
+   - Seems like a really good option. Markdown && js-sequence-diagrams
 
 Two clear options:
+
 1. https://github.com/scrooloose/vim-slumlord
 2. https://github.com/xavierchow/vim-sequence-diagram
 
 ### Indent line plugin
+
 What is it? Gave me some weird issues regarding whitespace in my readme files
 
-
 ### New Plugin:
+
 Should help with leaderkey usage --ethan
+
 ```
 " Provide hints about leader key bindings
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
