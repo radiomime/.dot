@@ -6,6 +6,7 @@ from .util import is_installed
 
 
 class Brew(AbsPackage):
+    # TODO: do any of these actually need a constructor?
     def __init__(self):
         super().__init__()
 
