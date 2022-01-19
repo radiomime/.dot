@@ -166,8 +166,6 @@ function M:_install()
 		-----
 		-- TODO: below are some of the old ones I've used
 		-----
-		-- -- lsp
-		-- use("neovim/nvim-lspconfig")
 		-- use({
 		--     "tamago324/nlsp-settings.nvim",
 		--     requires = {{'neovim/nvim-lspconfig'}},
