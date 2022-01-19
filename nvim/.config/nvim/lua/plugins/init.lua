@@ -140,6 +140,14 @@ function M:_install()
 		use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 		-- Telescope
+		-- TODO: look at this as primeagen said
+		--   https://github.com/nvim-telescope/telescope-fzf-native.nvim
+		-- -- telescope
+		--  use({
+		--      "nvim-telescope/telescope-fzf-native.nvim",
+		--      run = "make",
+		--      disable = false,
+		--  })
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
