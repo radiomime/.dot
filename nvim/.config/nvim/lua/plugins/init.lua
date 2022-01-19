@@ -166,7 +166,6 @@ function M:_install()
 		-----
 		-- TODO: below are some of the old ones I've used
 		-----
-
 		-- -- lsp
 		-- use("neovim/nvim-lspconfig")
 		-- use({
@@ -177,20 +176,6 @@ function M:_install()
 
 		-- -- lsp installer
 		-- use("williamboman/nvim-lsp-installer")
-
-		-- -- telescope
-		-- -- TODO: look at this as primeagen said
-		-- --   https://github.com/nvim-telescope/telescope-fzf-native.nvim
-		--  use({
-		--      "nvim-telescope/telescope.nvim",
-		--      requires = {{ "nvim-lua/plenary.nvim" }},
-		--      config = require('plugins.telescope').config
-		--  })
-		--  use({
-		--      "nvim-telescope/telescope-fzf-native.nvim",
-		--      run = "make",
-		--      disable = false,
-		--  })
 
 		-- -- completion and snippets
 		-- use({
