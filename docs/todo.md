@@ -74,11 +74,20 @@ fish_add_path ~/go/bin/
 Do this for the cargo stuff too!
 Actually, do gitui instead! Or maybe not, for author stuff.
 
+# Weird installs
+
+- check docker, neovim, and brew. They can be weird to uninstall and reinstall
+
+# new command
+
+- add reinstall command
+
 # python package installer folder hierarchy
 
 - clean it!
 - maybe this is all in a folder at the base?
 - good opportunity to learn python development patterns
+- Should I specify return types and such?
 
 # rust packages
 
