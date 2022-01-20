@@ -30,7 +30,6 @@ def create_arg_parser():
 
 
 def main():
-    print("WARN: Install scripts will run some install commands as sudo")
     arg_parser = create_arg_parser()
     args = arg_parser.parse_args()
     pkgFactory = PackageFactory()
