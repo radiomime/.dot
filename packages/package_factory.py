@@ -16,7 +16,7 @@ class PackageFactory(object):
                 self.packages[name.lower()] = _type
 
     def get_packages_list(self):
-        return ", ".join(self.packages.keys())
+        return " ".join(self.packages.keys())
 
     def create_instance(self, pkg_name):
         pkg_name = pkg_name.lower()
