@@ -2,9 +2,10 @@ import subprocess
 
 from .abs_package import AbsPackage
 from .brew import Brew
+from .rust import Rust
 from .util import github_release_metadata, is_installed
 
-# TODO: install on linux via cargo!!!
+# TODO: revisit installing on cargo vs brew with m1
 
 
 class Ripgrep(AbsPackage):
@@ -29,6 +30,14 @@ class Ripgrep(AbsPackage):
 
         # should never be hit
         return None
+
+    # def linux_install(self):
+    #     rust = Rust()
+    #     rust.cargo_install(["ripgrep"])
+    #
+    # def linux_uninstall(self):
+    #     rust = Rust()
+    #     rust.cargo_uninstall("ripgrep")
 
     def linux_install(self):
         ripgrep_md = github_release_metadata("BurntSushi/ripgrep")
