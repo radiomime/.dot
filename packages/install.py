@@ -12,20 +12,29 @@ def create_arg_parser():
     )
 
     parser.add_argument(
-        "-a",
-        "--add",
-        help="add a package or app if supported",
+        "-i",
+        "--install",
+        help="install a package or app if supported",
+        nargs="+",
+        default=None,
+    )
+
+    parser.add_argument(
+        "-d",
+        "--delete",
+        help="delete a package or app if supported",
         nargs="+",
         default=None,
     )
 
     parser.add_argument(
         "-r",
-        "--remove",
-        help="remove a package or app if supported",
+        "--reinstall",
+        help="reinstall a package or app if supported",
         nargs="+",
         default=None,
     )
+
     return parser
 
 
@@ -34,15 +43,20 @@ def main():
     args = arg_parser.parse_args()
     pkgFactory = PackageFactory()
 
-    if args.add:
-        for pkg_name in args.add:
+    if args.install:
+        for pkg_name in args.install:
             pkg = pkgFactory.create_instance(pkg_name)
             pkg.install()
-    elif args.remove:
-        print(args.remove)
-        for pkg_name in args.remove:
+    elif args.delete:
+        for pkg_name in args.delete:
             pkg = pkgFactory.create_instance(pkg_name)
             pkg.uninstall()
+    elif args.reinstall:
+        for pkg_name in args.reinstall:
+            pkg = pkgFactory.create_instance(pkg_name)
+            if pkg.is_installed():
+                pkg.uninstall()
+            pkg.install()
     elif args.list:
         print(pkgFactory.get_packages_list())
     else:
