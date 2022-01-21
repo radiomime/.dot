@@ -163,6 +163,9 @@ function M:_install()
 		-- Git
 		use("lewis6991/gitsigns.nvim")
 
+		-- checkout!
+		-- use("sindrets/winshift.nvim")
+
 		-----
 		-- TODO: below are some of the old ones I've used
 		-----
