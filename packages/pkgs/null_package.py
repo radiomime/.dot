@@ -14,3 +14,6 @@ class NullPackage(AbsPackage):
 
     def get_version(self):
         return None
+
+    def __del__(self):
+        pass
