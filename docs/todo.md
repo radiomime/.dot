@@ -155,6 +155,14 @@ from command line? rust implementation?
 
 Checkout vim markup
 
+### curl gitignore file!
+
+I think this is in bash, do it for fish
+
+### default git branch to main
+
+- set default main branch to main!
+
 ### Vim UML Markup
 
 Checkout:
