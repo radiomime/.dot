@@ -163,6 +163,10 @@ I think this is in bash, do it for fish
 
 - set default main branch to main!
 
+### add environment for system
+
+- smart detecting M1 vs x64 vs pi seems error prone
+
 ### Vim UML Markup
 
 Checkout:
