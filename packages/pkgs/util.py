@@ -73,7 +73,6 @@ def get_architecture() -> Literal["x86_64", "armv7l", "arm64", "unknown"]:
     elif arch == "arm64":
         return "arm64"
     else:
-        print("arch:", arch)
         return "unknown"
 
 
