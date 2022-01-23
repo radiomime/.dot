@@ -39,7 +39,8 @@ class Brew(AbsPackage):
                     "https://raw.githubusercontent.com/",
                     "Homebrew/install/HEAD/install.sh",
                 ]
-            )
+            ),
+            sh_cmd="/bin/bash",
         )
 
     def osx_uninstall(self):

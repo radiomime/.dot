@@ -180,6 +180,7 @@ class AbsPackage(ABC):
         self,
         address: str,
         run_as_sudo: bool = False,
+        sh_cmd: str = "sh",
     ) -> None:
         curled_script = "curled_script.sh"
 
@@ -202,7 +203,7 @@ class AbsPackage(ABC):
         # execute script with sh
         cmd.extend(
             [
-                "sh",
+                sh_cmd,
                 curled_script,
             ]
         )
