@@ -23,4 +23,4 @@ class PackageFactory(object):
         if pkg_name in self.packages:
             return self.packages[pkg_name]()
         else:
-            return self.packages["NullPackage"](pkg_name)
+            return self.packages["nullpackage"](pkg_name)
