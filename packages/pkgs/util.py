@@ -63,13 +63,15 @@ def get_distro_codename() -> str:
     return distro.linux_distribution()[2]
 
 
-def get_architecture() -> Literal["x86_64", "armv7l", "unknown"]:
+def get_architecture() -> Literal["x86_64", "armv7l", "arm64", "unknown"]:
     arch = platform.machine()
 
     if arch == "x86_64":
         return "x86_64"
     elif arch == "armv7l":
         return "armv7l"
+    elif arch == "arm64":
+        return "arm64"
     else:
         print("arch:", arch)
         return "unknown"
