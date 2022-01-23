@@ -84,6 +84,15 @@ class AbsPackage(ABC):
     def osx_uninstall(self):
         print(f"OSX uninstall not defined for {self.__class__.__name__}")
 
+    def sysinfo(self):
+        print(self.os)
+        print(self.architecture)
+        print(self.distro)
+        print(self.distro_codename)
+        print(self.user)
+        print(self.path)
+        print(self.repo_store)
+
     def install_pkg_from_tarball(self, address):
         tarball_out = "tmp.tar.gz"
         subprocess.run(

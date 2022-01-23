@@ -12,6 +12,8 @@ def create_arg_parser():
         "-l", "--list", help="list available packages", action="store_true"
     )
 
+    parser.add_argument("--info", help="print package info", action="store_true")
+
     parser.add_argument(
         "-i",
         "--install",
@@ -60,6 +62,9 @@ def main():
             pkg.install()
     elif args.list:
         print(pkgFactory.get_packages_list())
+    elif args.info:
+        pkg = pkgFactory.create_instance("nothinginparticular")
+        pkg.sysinfo()
     else:
         arg_parser.print_help()
 
