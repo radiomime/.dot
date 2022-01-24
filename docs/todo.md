@@ -184,6 +184,10 @@ Two clear options:
 
 What is it? Gave me some weird issues regarding whitespace in my readme files
 
+### Should I use cargo or brew for these prorams on mac?
+
+exa
+
 ### tmux plugins
 
 ```
