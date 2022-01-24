@@ -12,7 +12,6 @@ from .pyright import Pyright  # noqa
 from .bat import Bat  # noqa
 from .brew import Brew  # noqa
 from .docker import Docker  # noqa
-from .dot import Dot  # noqa
 from .exa import Exa  # noqa
 from .fish import Fish  # noqa
 from .go import Go  # noqa
