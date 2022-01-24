@@ -66,7 +66,7 @@ class Fish(AbsPackage):
         )
 
         fish_loc = bin_loc("fish")
-        print(fish_loc)
+        print("fish location here: ", fish_loc)
         # # subprocess.run([p])
         # if fish_loc is not None:
         #     # subprocess.run([
