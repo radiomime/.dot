@@ -65,7 +65,8 @@ class Fish(AbsPackage):
             flags="--HEAD",
         )
 
-        # fish_loc = bin_loc("fish")
+        fish_loc = bin_loc("fish")
+        print(fish_loc)
         # # subprocess.run([p])
         # if fish_loc is not None:
         #     # subprocess.run([
