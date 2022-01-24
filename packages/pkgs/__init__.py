@@ -33,5 +33,3 @@ from .tldr import Tldr  # noqa
 from .watchexec import Watchexec  # noqa
 from .yarn import Yarn  # noqa
 from .null_package import NullPackage
-
-# from .bpytop import Bpytop  # noqa
