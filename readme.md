@@ -14,7 +14,7 @@ stow -v --dotfiles bash fish git kitty nvim starship tmux
 
 ## install programs
 
-`./install.py` should do the trick.
+todo: install process
 
 # uninstall
 
@@ -32,6 +32,16 @@ stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 :TSInstall <language>
 :LspInstall <language>
 ```
+
+# mac todo
+
+check m1 install compatability
+
+fish go hammerspoon kitty kubectl minikube mitmproxy neovim nerdfonts node nullpackage pip poetry pyright ripgrep rust snap starship stow terraform tldr tmux watchexec yarn
+
+# mac
+
+- [install docker](https://docs.docker.com/desktop/mac/install/)
 
 # thanks
 
