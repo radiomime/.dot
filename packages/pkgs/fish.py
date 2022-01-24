@@ -65,33 +65,33 @@ class Fish(AbsPackage):
             flags="--HEAD",
         )
 
-        fish_loc = bin_loc("fish")
-        # subprocess.run([p])
-        if fish_loc is not None:
-            # subprocess.run([
-            #     'sudo',
-            #     'tee'
-            # ])
-            ps = subprocess.Popen(
-                ("echo", fish_loc),
-                stdout=subprocess.PIPE,
-            )
-            output = subprocess.check_output(
-                (
-                    "sudo",
-                    "tee",
-                    "-a",
-                    "/etc/shells",
-                ),
-                stdin=ps.stdout,
-            )
-            ps.wait()
-            print("output")
-            print(output)
-            # with open("/etc/shells", "a") as file:
-            #     file.write(fish_loc)
-
-            self.__change_shell()
+        # fish_loc = bin_loc("fish")
+        # # subprocess.run([p])
+        # if fish_loc is not None:
+        #     # subprocess.run([
+        #     #     'sudo',
+        #     #     'tee'
+        #     # ])
+        #     ps = subprocess.Popen(
+        #         ("echo", fish_loc),
+        #         stdout=subprocess.PIPE,
+        #     )
+        #     output = subprocess.check_output(
+        #         (
+        #             "sudo",
+        #             "tee",
+        #             "-a",
+        #             "/etc/shells",
+        #         ),
+        #         stdin=ps.stdout,
+        #     )
+        #     ps.wait()
+        #     print("output")
+        #     print(output)
+        #     # with open("/etc/shells", "a") as file:
+        #     #     file.write(fish_loc)
+        #
+        #     self.__change_shell()
 
     def osx_uninstall(self):
         brew = Brew()
