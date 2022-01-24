@@ -1,4 +1,5 @@
 import subprocess
+from .brew import Brew
 from os import environ
 from os.path import expanduser
 
@@ -129,11 +130,19 @@ class Kitty(AbsPackage):
     def linux_install(self):
         self.__install()
 
-    def osx_install(self):
-        self.__install()
-
     def linux_uninstall(self):
         self.__uninstall()
 
+    def osx_install(self):
+        brew = Brew()
+        brew.brew_install(
+            pkgs="kitty",
+            flags="--cask",
+        )
+
     def osx_uninstall(self):
-        self.__uninstall()
+        # self.__uninstall()
+        brew = Brew()
+        brew.brew_uninstall(
+            pkgs="kitty",
+        )
