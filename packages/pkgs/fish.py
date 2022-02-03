@@ -100,4 +100,4 @@ class Fish(AbsPackage):
             pkgs="fish",
         )
 
-        self.__change_shell(shell="zsh")
+        # self.__change_shell(shell="zsh")
