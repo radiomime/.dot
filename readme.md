@@ -39,6 +39,23 @@ check m1 install compatability
 
 fish go hammerspoon kitty kubectl minikube mitmproxy neovim nerdfonts node nullpackage pip poetry pyright ripgrep rust snap starship stow terraform tldr tmux watchexec yarn
 
+oritginal etc shells
+
+```sh
+matthewwright@mattbook packages % cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/bin/csh
+/bin/dash
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+```
+
 # mac
 
 - [install docker](https://docs.docker.com/desktop/mac/install/)
