@@ -1,0 +1,3 @@
+# files/folders in this gitignore will always be ignored
+.todo.md
+notes.md
