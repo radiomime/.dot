@@ -59,11 +59,16 @@ class Fish(AbsPackage):
         self.__change_shell(shell="bash")
 
     def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="fish",
-            flags="--HEAD",
-        )
+        # brew = Brew()
+        # brew.brew_install(
+        #     pkgs="fish",
+        #     flags="--HEAD",
+        # )
+
+        file = open("/etc/shells", "r")
+        lines = file.readlines()
+        for line in lines:
+            print(line)
 
         fish_loc = bin_loc("fish")
         print("fish location here: ", fish_loc)
