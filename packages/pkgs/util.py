@@ -55,6 +55,14 @@ def bin_loc(name) -> Optional[str]:
     return which(name)
 
 
+def get_user_approval(*prompt: str):
+    response = input("".join([*prompt, *["\n'y' to continue: "]]))
+    print("response", response)
+    if response == "y":
+        return True
+    return False
+
+
 def get_distro() -> str:
     return distro.linux_distribution(full_distribution_name=False)[0]
 
