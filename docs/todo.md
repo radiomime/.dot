@@ -189,6 +189,25 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 
 exa
 
+### Kitty conf
+
+- clean and update kitty conf
+
+### version managers
+
+- node version manager
+- python version manager
+
+### poetry
+
+- [completion](https://python-poetry.org/docs/#enable-tab-completion-for-bash-fish-or-zsh)
+- should I just link this in readme?
+
+### Yarn install
+
+- Should this be global? Put in readme?
+- https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
+
 ### tmux plugins
 
 ```
