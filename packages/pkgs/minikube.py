@@ -55,5 +55,4 @@ class Minikube(AbsPackage):
         brew = Brew()
         brew.brew_uninstall(
             pkgs="minikube",
-            # flags='--cask',
         )
