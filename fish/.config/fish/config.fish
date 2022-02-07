@@ -33,13 +33,15 @@ if test -e '/opt/homebrew/bin'
   contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
 end
 
-# Pyenv
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
 
 # TODO: add path section like above, rust can be part of this!
 # rust path
 # set PATH $HOME/.cargo/bin $PATH
+
+# Pyenv
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
 
 # Starship at the end of fish config
 starship init fish | source
