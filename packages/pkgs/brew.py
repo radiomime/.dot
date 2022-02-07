@@ -54,9 +54,10 @@ class Brew(AbsPackage):
         )
 
     def __continue_with_brew_op(self):
-        if not (self.is_installed() and get_user_approval("install brew?")):
-            self.install()
-            return True
+        if not self.is_installed():
+            if get_user_approval("install brew?"):
+                self.install()
+                return True
         return False
 
     def brew_update(
