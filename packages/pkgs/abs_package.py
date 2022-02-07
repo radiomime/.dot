@@ -3,7 +3,7 @@ import subprocess
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from os.path import abspath
+from os.path import abspath, expanduser
 from pathlib import Path
 
 from .util import get_architecture, get_distro, get_distro_codename, get_os, create_dir
@@ -19,7 +19,8 @@ class AbsPackage(ABC):
         self.path = "/usr/local/bin"
 
         # TODO: is there a better spot for this?
-        self.repo_store = abspath("./.repos")
+        self.repo_store = abspath(expanduser("~/.local/share/dotfiles-repo-store"))
+        # self.repo_store = abspath(expanduser("~/.dot/.repos"))
 
         # create necessary directories
         create_dir(self.repo_store)
