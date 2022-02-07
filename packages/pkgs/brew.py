@@ -66,9 +66,8 @@ class Brew(AbsPackage):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
 
-        if not self.is_installed():
-            print(f"ERROR: brew is not installed, cannot install: {pkgs}")
-            return
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
 
         cmd = [
             "brew",
@@ -86,15 +85,14 @@ class Brew(AbsPackage):
         self,
         pkgs: Union[List[str], str],
     ):
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
+
         self.brew_update()
         self.brew_upgrade()
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
-
-        if not self.is_installed():
-            print(f"ERROR: brew is not installed, cannot link: {pkgs}")
-            return
 
         cmd = [
             "brew",
@@ -109,12 +107,11 @@ class Brew(AbsPackage):
         self,
         pkgs: Union[List[str], str] = [],
     ):
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
+
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
-
-        if not self.is_installed():
-            print(f"ERROR: brew is not installed, cannot install: {pkgs}")
-            return
 
         cmd = [
             "brew",
@@ -135,9 +132,6 @@ class Brew(AbsPackage):
     ):
         if not self.__continue_with_brew_op():
             print(f"cannot install: {pkgs}")
-
-            # print(f"ERROR: brew is not installed, cannot install: {pkgs}")
-            # return
 
         self.brew_update()
         self.brew_upgrade()
@@ -162,15 +156,11 @@ class Brew(AbsPackage):
         subprocess.run(cmd)
 
     def brew_uninstall(self, pkgs: Union[list, str]):
-        # self.brew_update()
-        # self.brew_upgrade()
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
-
-        if not self.is_installed():
-            print(f"ERROR: brew is not installed, cannot uninstall: {pkgs}")
-            return
 
         cmd = [
             "brew",
