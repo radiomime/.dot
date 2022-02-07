@@ -3,8 +3,6 @@ import subprocess
 
 from .abs_package import AbsPackage
 
-import threading
-
 
 class Nerdfonts(AbsPackage):
     def __init__(self):
@@ -25,15 +23,18 @@ class Nerdfonts(AbsPackage):
                 # "--quiet",
                 "--depth",
                 "1",
+                # "--branch",
+                # "feature/stable-codepoints",
             ],
         )
 
         subprocess.run(
             [
                 f"{self.repo_store}/nerd-fonts/install.sh",
-                "--quiet",
-                "Meslo",
-                "FiraCode",
+                # "--quiet",
+                # "FiraCode",
+                # "Meslo",
+                # "CascadiaCode",
             ]
         )
 
