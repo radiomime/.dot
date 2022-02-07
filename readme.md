@@ -37,8 +37,6 @@ stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 
 check m1 install compatability
 
-fish go hammerspoon kitty kubectl minikube mitmproxy neovim nerdfonts node nullpackage pip poetry pyright ripgrep rust snap starship stow terraform tldr tmux watchexec yarn
-
 oritginal etc shells
 
 ```sh
