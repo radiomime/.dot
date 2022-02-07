@@ -2,7 +2,7 @@ import subprocess
 from typing import List, Optional, Union
 
 from .abs_package import AbsPackage
-from .util import is_installed
+from .util import is_installed, get_user_approval
 
 
 class Brew(AbsPackage):
@@ -53,12 +53,18 @@ class Brew(AbsPackage):
             )
         )
 
+    def __continue_with_brew_op(self):
+        return False
+
     def brew_update(
         self,
         pkgs: Union[List[str], str] = [],
     ):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
+
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
 
         if not self.is_installed():
             print(f"ERROR: brew is not installed, cannot install: {pkgs}")
@@ -131,16 +137,17 @@ class Brew(AbsPackage):
             print("brew is not installed")
         else:
             print("I do think brew is installed")
+        if not self.is_installed():
+
+            self.install()
+            # print(f"ERROR: brew is not installed, cannot install: {pkgs}")
+            # return
 
         self.brew_update()
         self.brew_upgrade()
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
-
-        if not self.is_installed():
-            print(f"ERROR: brew is not installed, cannot install: {pkgs}")
-            return
 
         cmd = [
             "brew",
