@@ -2,8 +2,9 @@
 
 ## cargo installs
 
-fd package! it isn't just "fd"
-watchexec
+- move all cargo installs to readme
+- fd package! it isn't just "fd"
+- watchexec
 
 ## git author
 
