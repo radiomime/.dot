@@ -72,5 +72,4 @@ class Kubectl(AbsPackage):
         brew = Brew()
         brew.brew_uninstall(
             pkgs="kubectl",
-            # flags='--cask',
         )
