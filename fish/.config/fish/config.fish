@@ -26,6 +26,14 @@ for ssh_key in $HOME'/.ssh/keys'/*
     ssh-add $ssh_key 2>/dev/null
 end
 
+
+# add to path!
+if test -e '/opt/homebrew/bin'
+  echo adding brew to fish_user_paths
+  contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
+end
+
+# TODO: add path section like above, rust can be part of this!
 # rust path
 # set PATH $HOME/.cargo/bin $PATH
 
