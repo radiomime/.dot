@@ -54,6 +54,9 @@ class Brew(AbsPackage):
         )
 
     def __continue_with_brew_op(self):
+        if not (self.is_installed() and get_user_approval("install brew?")):
+            self.install()
+            return True
         return False
 
     def brew_update(
@@ -62,9 +65,6 @@ class Brew(AbsPackage):
     ):
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
-
-        if not self.__continue_with_brew_op():
-            print(f"cannot install: {pkgs}")
 
         if not self.is_installed():
             print(f"ERROR: brew is not installed, cannot install: {pkgs}")
@@ -133,13 +133,9 @@ class Brew(AbsPackage):
         pkgs: Union[List[str], str],
         flags: Optional[Union[List[str], str]] = None,
     ):
-        if not self.is_installed():
-            print("brew is not installed")
-        else:
-            print("I do think brew is installed")
-        if not self.is_installed():
+        if not self.__continue_with_brew_op():
+            print(f"cannot install: {pkgs}")
 
-            self.install()
             # print(f"ERROR: brew is not installed, cannot install: {pkgs}")
             # return
 
