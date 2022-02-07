@@ -129,6 +129,8 @@ class Brew(AbsPackage):
     ):
         if not self.is_installed:
             print("brew is not installed")
+        else:
+            print("I do think brew is installed")
         self.brew_update()
         self.brew_upgrade()
 
