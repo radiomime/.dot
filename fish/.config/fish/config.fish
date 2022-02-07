@@ -33,6 +33,10 @@ if test -e '/opt/homebrew/bin'
   contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
 end
 
+# if test -e '$HOME/.cargo/bin'
+if test -d $HOME/.cargo/bin
+  contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
+end
 
 # TODO: add path section like above, rust can be part of this!
 # rust path
