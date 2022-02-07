@@ -127,6 +127,8 @@ class Brew(AbsPackage):
         pkgs: Union[List[str], str],
         flags: Optional[Union[List[str], str]] = None,
     ):
+        if not self.is_installed:
+            print("brew is not installed")
         self.brew_update()
         self.brew_upgrade()
 
