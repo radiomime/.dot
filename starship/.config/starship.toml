@@ -10,8 +10,8 @@ error_symbol = "[-->](bold red)"     # The "success_symbol" segment is being set
 format = "via [🐋 $context](blue bold)"
 
 [git_branch]
-# symbol = "🌱 "
-truncation_length = 4
+symbol = "🌱 "
+truncation_length = 16 # originally 4
 truncation_symbol = ""
 
 [git_status]
