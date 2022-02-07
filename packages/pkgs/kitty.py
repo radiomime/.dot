@@ -141,7 +141,6 @@ class Kitty(AbsPackage):
         )
 
     def osx_uninstall(self):
-        # self.__uninstall()
         brew = Brew()
         brew.brew_uninstall(
             pkgs="kitty",
