@@ -29,10 +29,10 @@ class Pyright(AbsPackage):
         # should never be hit
         return None
 
-    def osx_install(self):
-        node = Node()
-        node.node_install("pyright")
-
-    def osx_uninstall(self):
-        node = Node()
-        node.node_uninstall("pyright")
+    # def osx_install(self):
+    #     node = Node()
+    #     node.node_install("pyright")
+    #
+    # def osx_uninstall(self):
+    #     node = Node()
+    #     node.node_uninstall("pyright")
