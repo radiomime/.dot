@@ -1,6 +1,9 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
+[package]
+format = " [📦 $version](208 bold) " # 🎁
+
 [gcloud]
 format = " [$symbol$account@$domain](dimmed blue)"
 # format = " [$symbol$account@$domain](dimmed blue)"
