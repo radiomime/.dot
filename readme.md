@@ -9,12 +9,13 @@ Repo for dotfiles.
 ```bash
 # .config cannot be dot-config until this issue resolves
 #     https://github.com/aspiers/stow/issues/33
+
 stow -v --dotfiles bash fish git kitty nvim starship tmux
 ```
 
 ## install programs
 
-`./install.py` should do the trick.
+todo: install process
 
 # uninstall
 
@@ -32,6 +33,31 @@ stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 :TSInstall <language>
 :LspInstall <language>
 ```
+
+# mac todo
+
+check m1 install compatability
+
+oritginal etc shells
+
+```sh
+matthewwright@mattbook packages % cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/bin/csh
+/bin/dash
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+```
+
+# mac
+
+- [install docker](https://docs.docker.com/desktop/mac/install/)
 
 # thanks
 

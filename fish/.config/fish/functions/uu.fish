@@ -2,7 +2,13 @@ function uu
     # install fisher
     if not type -sq fisher
         echo 'installing fisher'
-        command curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+        command curl -sL https://git.io/fisher | source # && fisher install jorgebucaran/fisher
+    end
+
+    # install fisher plugins
+    if type -sq fisher
+      echo 'installing fisher plugins'
+      fisher update
     end
     # to uninstall: fisher list | fisher remove
 
