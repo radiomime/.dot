@@ -1,5 +1,5 @@
 function signin
-  set -l name Matt Wright
+  set -l name "Matt Wright"
   set -l personal wright.matthew91@gmail.com
   set -l work matt@onehot.io
 
