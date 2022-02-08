@@ -9,6 +9,7 @@ Repo for dotfiles.
 ```bash
 # .config cannot be dot-config until this issue resolves
 #     https://github.com/aspiers/stow/issues/33
+
 stow -v --dotfiles bash fish git kitty nvim starship tmux
 ```
 
