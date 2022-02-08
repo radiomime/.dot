@@ -30,3 +30,20 @@ deleted = "($count)✗(red)"
 # ahead = "⇡${count}"
 # diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 # behind = "⇣${count}"
+
+# Custom commands
+
+[custom.author]
+command = "git config user.email" # shows output of command
+when = "git rev-parse --git-dir" # returns non-0 outside of repo (could just be "true")
+format = " ✍️  [$output](dimmed purple)"
+
+# Indicates when in bash shell.
+[custom.bash]
+command = "echo 🚀"
+when = '[ "$STARSHIP_SHELL" == "bash" ]'
+
+# Indicates when in fish shell.
+[custom.fish]
+command = "echo 🐠"
+when = 'test "$STARSHIP_SHELL" = "fish"'
