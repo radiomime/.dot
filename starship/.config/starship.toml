@@ -1,6 +1,9 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
+[package]
+format = " [📦 $version](208 bold) " # 🎁
+
 [gcloud]
 format = " [$symbol$account@$domain](dimmed blue)"
 # format = " [$symbol$account@$domain](dimmed blue)"
@@ -15,6 +18,7 @@ error_symbol = "[-->](bold red)"        # The "success_symbol" segment is being 
 format = "via [🐋 $context](blue bold)"
 
 [git_branch]
+format = "[$symbol$branch]($style) "
 symbol = "🌱 "
 truncation_length = 16 # originally 4
 truncation_symbol = ""
@@ -37,7 +41,9 @@ deleted = "($count)✗(red)"
 [custom.author]
 command = "git config user.email" # shows output of command
 when = "git rev-parse --git-dir" # returns non-0 outside of repo (could just be "true")
-format = " ✍️  [$output](dimmed purple)"
+format = " פֿ [$output  ](dimmed white)"
+# format = " ✍️  [$output]( immed pcyan)"
+
 
 # # Indicates when in bash shell.
 # [custom.bash]
