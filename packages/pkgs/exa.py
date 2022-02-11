@@ -28,21 +28,21 @@ class Exa(AbsPackage):
         # should never be hit
         return None
 
-    def linux_install(self):
-        self.__install()
+    # def linux_install(self):
+    #     self.__install()
 
     def linux_uninstall(self):
         self.__uninstall()
 
-    def osx_install(self):
-        self.__install()
+    # def osx_install(self):
+    #     self.__install()
 
     def osx_uninstall(self):
         self.__uninstall()
 
-    def __install(self):
-        rust = Rust()
-        rust.cargo_install("exa")
+    # def __install(self):
+    #     rust = Rust()
+    #     rust.cargo_install("exa")
 
     def __uninstall(self):
         rust = Rust()

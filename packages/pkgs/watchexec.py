@@ -28,17 +28,17 @@ class Watchexec(AbsPackage):
         # should never be hit
         return None
 
-    def linux_install(self):
-        rust = Rust()
-        rust.cargo_install("watchexec-cli")
+    # def linux_install(self):
+    #     rust = Rust()
+    #     rust.cargo_install("watchexec-cli")
 
     def linux_uninstall(self):
         rust = Rust()
         rust.cargo_uninstall("watchexec-cli")
 
-    def osx_install(self):
-        rust = Rust()
-        rust.cargo_install("watchexec-cli")
+    # def osx_install(self):
+    #     rust = Rust()
+    #     rust.cargo_install("watchexec-cli")
 
     def osx_uninstall(self):
         rust = Rust()

@@ -29,34 +29,34 @@ class Bandwhich(AbsPackage):
         # should never be hit
         return None
 
-    def linux_install(self):
-        rust = Rust()
-        rust.cargo_install(["bandwhich"])
-        bw_loc = bin_loc("bandwhich")
-        if bw_loc is not None:
-            subprocess.run(
-                [
-                    "sudo",
-                    "setcap",
-                    ",".join(
-                        [
-                            "cap_sys_ptrace",
-                            "cap_dac_read_search",
-                            "cap_net_raw",
-                            "cap_net_admin+ep",
-                        ]
-                    ),
-                    bw_loc,
-                ]
-            )
+    # def linux_install(self):
+    #     rust = Rust()
+    #     rust.cargo_install(["bandwhich"])
+    #     bw_loc = bin_loc("bandwhich")
+    #     if bw_loc is not None:
+    #         subprocess.run(
+    #             [
+    #                 "sudo",
+    #                 "setcap",
+    #                 ",".join(
+    #                     [
+    #                         "cap_sys_ptrace",
+    #                         "cap_dac_read_search",
+    #                         "cap_net_raw",
+    #                         "cap_net_admin+ep",
+    #                     ]
+    #                 ),
+    #                 bw_loc,
+    #             ]
+    #         )
 
     def linux_uninstall(self):
         rust = Rust()
         rust.cargo_uninstall("bandwhich")
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install("bandwhich")
+    # def osx_install(self):
+    #     brew = Brew()
+    #     brew.brew_install("bandwhich")
 
     def osx_uninstall(self):
         brew = Brew()
