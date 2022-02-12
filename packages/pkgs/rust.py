@@ -52,23 +52,23 @@ class Rust(AbsPackage):
     def osx_uninstall(self):
         self.__uninstall()
 
-    def cargo_install(self, pkgs):
-        if not isinstance(pkgs, list):
-            pkgs = [pkgs]
-
-        if not self.is_installed():
-            print(f"ERROR: cargo is not installed, cannot install: {pkgs}")
-            return
-
-        cmd = [
-            "cargo",
-            "install",
-            # "--quiet",
-        ]
-        cmd.extend(pkgs)
-
-        print("cargo installing:", pkgs)
-        subprocess.run(cmd)
+    # def cargo_install(self, pkgs):
+    #     if not isinstance(pkgs, list):
+    #         pkgs = [pkgs]
+    #
+    #     if not self.is_installed():
+    #         print(f"ERROR: cargo is not installed, cannot install: {pkgs}")
+    #         return
+    #
+    #     cmd = [
+    #         "cargo",
+    #         "install",
+    #         # "--quiet",
+    #     ]
+    #     cmd.extend(pkgs)
+    #
+    #     print("cargo installing:", pkgs)
+    #     subprocess.run(cmd)
 
     def cargo_uninstall(self, pkgs):
         if not isinstance(pkgs, list):

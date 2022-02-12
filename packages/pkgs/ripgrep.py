@@ -39,22 +39,22 @@ class Ripgrep(AbsPackage):
     #     rust = Rust()
     #     rust.cargo_uninstall("ripgrep")
 
-    def linux_install(self):
-        ripgrep_md = github_release_metadata("BurntSushi/ripgrep")
-        ripgrep_latest_version = ripgrep_md["name"]
-
-        deb = "".join(
-            [
-                "https://github.com/BurntSushi/ripgrep/releases/download/",
-                ripgrep_latest_version,
-                "/",
-                "ripgrep_",
-                ripgrep_latest_version[:],
-                "_amd64.deb",
-            ]
-        )
-
-        self.install_pkg_from_deb(deb)
+    # def linux_install(self):
+    #     ripgrep_md = github_release_metadata("BurntSushi/ripgrep")
+    #     ripgrep_latest_version = ripgrep_md["name"]
+    #
+    #     deb = "".join(
+    #         [
+    #             "https://github.com/BurntSushi/ripgrep/releases/download/",
+    #             ripgrep_latest_version,
+    #             "/",
+    #             "ripgrep_",
+    #             ripgrep_latest_version[:],
+    #             "_amd64.deb",
+    #         ]
+    #     )
+    #
+    #     self.install_pkg_from_deb(deb)
 
     def linux_uninstall(self):
         subprocess.run(
@@ -66,11 +66,11 @@ class Ripgrep(AbsPackage):
             ]
         )
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="ripgrep",
-        )
+    # def osx_install(self):
+    #     brew = Brew()
+    #     brew.brew_install(
+    #         pkgs="ripgrep",
+    #     )
 
     def osx_uninstall(self):
         brew = Brew()

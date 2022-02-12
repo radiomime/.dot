@@ -15,7 +15,27 @@ stow -v --dotfiles bash fish git kitty nvim starship tmux
 
 ## install programs
 
-todo: install process
+### install packages overkill factory
+
+```
+./packages/install.py
+```
+
+### install cargo packages
+
+```
+cargo install ripgrep bandwhich watchexec-cli exa rm-improved
+```
+
+#### bandwhich permissions
+
+Bandwhich needs elevated permissions on Linux machines
+
+```
+## Only on linux!
+sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep (which bandwhich)
+```
+
 
 # uninstall
 
