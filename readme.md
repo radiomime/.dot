@@ -33,7 +33,6 @@ switch (uname)
   case '*'
     echo unexpected os
 end
-
 ```
 
 # reinstall
