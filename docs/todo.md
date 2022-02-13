@@ -1,5 +1,14 @@
 ## ToDo
 
+## readme
+
+- install instructions
+- pyenv install
+- nvm or similar instructions
+- uninstall instructions
+- uninstall simple commands
+- reinstall
+
 ## cargo installs
 
 - move all cargo installs to readme
