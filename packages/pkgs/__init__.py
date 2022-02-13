@@ -17,6 +17,7 @@ from .fish import Fish  # noqa
 from .go import Go  # noqa
 from .kitty import Kitty  # noqa
 from .kubectl import Kubectl  # noqa
+from .lazygit import Lazygit  # noqa
 from .minikube import Minikube  # noqa
 from .mitmproxy import Mitmproxy  # noqa
 from .neovim import Neovim  # noqa
