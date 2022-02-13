@@ -1,8 +1,18 @@
 # .dot
 
+
+
+
+
 Repo for dotfiles.
 
 # install
+
+## install packages overkill factory
+
+```
+./packages/install.py
+```
 
 ## link dotfiles with stow
 
@@ -13,36 +23,33 @@ Repo for dotfiles.
 stow -v --dotfiles bash fish git kitty nvim starship tmux
 ```
 
-## install programs
+## install cargo packages
 
-### install packages overkill factory
-
-```
-./packages/install.py
-```
-
-### install cargo packages
-
-```
+```sh
 cargo install ripgrep bandwhich watchexec-cli exa rm-improved
+
+switch (uname)
+  case Linux
+    echo linux cargo package setup
+    sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep (which bandwhich)
+  case Darwin
+    echo osx cargo package setup
+  case '*'
+    echo unexpected os
+end
+
 ```
 
-#### bandwhich permissions
-
-Bandwhich needs elevated permissions on Linux machines
-
-```
-## Only on linux!
-sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep (which bandwhich)
-```
-
-
-# uninstall
+# reinstall
 
 ```
 # reinstall
 stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
+```
 
+# uninstall
+
+```
 # uninstall
 stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 ```
