@@ -3,7 +3,7 @@ from .brew import Brew
 
 from .abs_package import AbsPackage
 from .snap import Snap
-from .util import  is_installed
+from .util import is_installed
 from .go import Go
 
 
