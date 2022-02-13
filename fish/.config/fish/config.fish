@@ -10,8 +10,6 @@ if status --is-interactive
     abbr --add --global l 'exa'
     abbr --add --global ll 'exa --long --all'
     abbr --add --global lll 'exa --long --all --tree --level=2'
-    # abbr --add --global l 'ls'
-    # abbr --add --global ll 'ls -alth'
     abbr --add --global x 'chmod +x'
     abbr --add --global ts 'tmux ls'
     abbr --add --global tn 'tmux new -s'
