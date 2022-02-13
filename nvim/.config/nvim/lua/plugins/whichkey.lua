@@ -194,6 +194,7 @@ local normal_mappings = {
 		},
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
+		L = { "<cmd>LspInstallLog<cr>", "Install Log" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		-- TODO: deprecated! lsp.diagnostics!
 		j = {
