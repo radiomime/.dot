@@ -68,7 +68,7 @@ class Brew(AbsPackage):
             pkgs = [pkgs]
 
         if not self.__continue_with_brew_op():
-            print(f"cannot install: {pkgs}")
+            print(f"cannot update: {pkgs}")
 
         cmd = [
             "brew",
@@ -87,7 +87,7 @@ class Brew(AbsPackage):
         pkgs: Union[List[str], str],
     ):
         if not self.__continue_with_brew_op():
-            print(f"cannot install: {pkgs}")
+            print(f"cannot link: {pkgs}")
 
         self.brew_update()
         self.brew_upgrade()
@@ -109,7 +109,7 @@ class Brew(AbsPackage):
         pkgs: Union[List[str], str] = [],
     ):
         if not self.__continue_with_brew_op():
-            print(f"cannot install: {pkgs}")
+            print(f"cannot upgrade: {pkgs}")
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
@@ -158,7 +158,7 @@ class Brew(AbsPackage):
 
     def brew_uninstall(self, pkgs: Union[list, str]):
         if not self.__continue_with_brew_op():
-            print(f"cannot install: {pkgs}")
+            print(f"cannot uninstall: {pkgs}")
 
         if not isinstance(pkgs, list):
             pkgs = [pkgs]
