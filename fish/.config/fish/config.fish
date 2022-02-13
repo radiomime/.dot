@@ -19,6 +19,7 @@ if status --is-interactive
     abbr --add --global bw 'bandwhich --dns-server 1.1.1.1'
     abbr --add --global we 'watchexec --'
     abbr --add --global sshkitty 'kitty +kitten ssh'
+    abbr --add --global rip 'rip --graveyard ~/.local/share/graveyard'
 end
 
 # add ssh keys
