@@ -5,6 +5,7 @@ from .abs_package import AbsPackage
 from .tmux import Tmux  # noqa
 
 from .stow import Stow
+from .prettier import Prettier
 from .pip import Pip  # TODO: should this be here?
 from .hammerspoon import Hammerspoon  # noqa
 from .bandwhich import Bandwhich  # noqa
