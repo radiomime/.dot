@@ -79,7 +79,6 @@ class Pip(AbsPackage):
             "-m",
             "pip",
             "uninstall",
-            "--user",
         ]
         cmd.extend(pkgs)
 
