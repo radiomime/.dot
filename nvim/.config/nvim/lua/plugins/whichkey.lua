@@ -253,27 +253,12 @@ local normal_mappings = {
 			"Colorscheme with Preview",
 		},
 	},
-
-	-- t = {
-	--     name = "nvimtree",
-	--     t = { ":NvimTreeToggle<cr>", "Toggle" },
-	-- },
-	-- T = {
-	--     name = "Treesitter",
-	--     i = { ":TSConfigInfo<cr>", "Info" },
-	-- },
-	-- j = {
-	--     name = "terminal",
-	--     j = {
-	--         "<cmd>ToggleTerm<cr>",
-	--         "Toggle floating terminal",
-	--     },
-	--     g = {
-	--         "<cmd>lua require('core.terminal').lazygit()<cr>",
-	--         "Git status terminal",
-	--     },
-	-- },
 	t = {
+	    name = "Treesitter",
+	    i = { ":TSInstallInfo<cr>", "Install Info" },
+	    c = { ":TSConfigInfo<cr>", "Config Info" },
+	    u = { ":TSUpdate<cr>", "Update" },
+	},
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
