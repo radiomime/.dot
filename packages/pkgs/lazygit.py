@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-import subprocess
 from .brew import Brew
 
 from .abs_package import AbsPackage
 from .snap import Snap
-from .util import github_release_metadata, is_installed
+from .util import  is_installed
 from .go import Go
 
 
@@ -16,7 +15,7 @@ class Lazygit(AbsPackage):
         return is_installed("lazygit")
 
     def get_version(self):
-        return 'unversioned'
+        return "unversioned"
 
         # should never be hit
         return None
@@ -28,7 +27,6 @@ class Lazygit(AbsPackage):
     def linux_uninstall(self):
         go = Go()
         go.go_uninstall("lazygit")
-
 
     def osx_install(self):
         brew = Brew()
