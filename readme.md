@@ -1,9 +1,5 @@
 # .dot
 
-
-
-
-
 Repo for dotfiles.
 
 # install
