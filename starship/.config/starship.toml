@@ -42,8 +42,6 @@ deleted = "($count)✗(red)"
 command = "git config user.email" # shows output of command
 when = "git rev-parse --git-dir" # returns non-0 outside of repo (could just be "true")
 format = " פֿ [$output  ](dimmed white)"
-# format = " ✍️  [$output]( immed pcyan)"
-
 
 # # Indicates when in bash shell.
 # [custom.bash]
