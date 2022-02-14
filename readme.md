@@ -4,10 +4,23 @@ Repo for dotfiles.
 
 # install
 
+## pyenv install
+
+[Follow instructions here.](https://github.com/pyenv/pyenv)
+
+### fish shell in linux
+
+```
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv && \
+cd ~/.pyenv && src/configure && make -C src && \
+set -Ux PYENV_ROOT $HOME/.pyenv && \
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+```
+
 ## install packages overkill factory
 
 ```
-./packages/install.py
+./packages/install.py -l | xargs ./packages/install.py -i
 ```
 
 ## link dotfiles with stow
