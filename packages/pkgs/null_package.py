@@ -5,7 +5,7 @@ from .abs_package import AbsPackage
 
 class NullPackage(AbsPackage):
     # TODO: do any of these actually need a constructor?
-    def __init__(self, pkg_name):
+    def __init__(self, pkg_name='nullpackage'):
         super().__init__()
         self.pkg_name = pkg_name
 
