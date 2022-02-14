@@ -48,6 +48,12 @@ switch (uname)
 end
 ```
 
+## install docker
+
+NOTE: Only necessary on Mac.
+
+- [install docker](https://docs.docker.com/desktop/mac/install/)
+
 # reinstall
 
 ```
@@ -62,37 +68,7 @@ stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
 stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 ```
 
-# for languages
 
-```
-:TSInstall <language>
-:LspInstall <language>
-```
-
-# mac todo
-
-check m1 install compatability
-
-oritginal etc shells
-
-```sh
-matthewwright@mattbook packages % cat /etc/shells
-# List of acceptable shells for chpass(1).
-# Ftpd will not allow users to connect who are not using
-# one of these shells.
-
-/bin/bash
-/bin/csh
-/bin/dash
-/bin/ksh
-/bin/sh
-/bin/tcsh
-/bin/zsh
-```
-
-# mac
-
-- [install docker](https://docs.docker.com/desktop/mac/install/)
 
 # thanks
 
