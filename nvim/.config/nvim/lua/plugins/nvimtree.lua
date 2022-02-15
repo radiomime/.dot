@@ -54,6 +54,7 @@ function M:configure()
 			enable = true,
 			auto_open = true,
 		},
+    -- TODO: enable later? This could be helpful, but currently causes errors
 		diagnostics = {
 			enable = false,
 			icons = {
