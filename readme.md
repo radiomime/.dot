@@ -68,8 +68,6 @@ stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
 stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 ```
 
-
-
 # thanks
 
 [Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
