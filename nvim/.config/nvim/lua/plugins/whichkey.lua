@@ -96,8 +96,7 @@ local normal_mappings = {
 	["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
 	-- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	-- ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
-	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["m"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 	-- TODO: separate 'f' into separate commands?
 	-- ["f"] = {
 	-- 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
