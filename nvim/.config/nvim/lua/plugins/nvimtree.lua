@@ -55,7 +55,7 @@ function M:configure()
 			auto_open = true,
 		},
 		diagnostics = {
-			enable = true,
+			enable = false,
 			icons = {
 				hint = "",
 				info = "",
