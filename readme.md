@@ -35,7 +35,7 @@ stow -v --dotfiles bash fish git kitty nvim starship tmux
 ## install cargo packages
 
 ```sh
-cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua
+cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find
 
 switch (uname)
   case Linux
