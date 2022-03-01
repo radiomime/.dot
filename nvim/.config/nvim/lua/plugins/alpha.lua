@@ -58,7 +58,7 @@ function M:configure()
     -- return "a place is only a place"
   end
 
-  dashboard.section.footer.val = footer()
+  -- dashboard.section.footer.val = footer()
 
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"
