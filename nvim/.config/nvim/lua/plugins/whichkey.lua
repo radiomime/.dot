@@ -233,7 +233,7 @@ local normal_mappings = {
 	},
 	s = {
 		name = "Search",
-		f = { "<cmd>Telescope find_files<cr>", "Find File" },
+		f = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search within this file" },
 		d = {
 			"<cmd>Telescope find_files hidden=true<cr>",
 			"Find File (+hidden)",
@@ -245,6 +245,7 @@ local normal_mappings = {
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		t = { "<cmd>Telescope live_grep<cr>", "Text" },
+		s = { "<cmd>Telescope grep_string<cr>", "String under Cursor" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		p = {
