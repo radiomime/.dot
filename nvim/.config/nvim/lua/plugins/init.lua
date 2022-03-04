@@ -144,6 +144,13 @@ function M:_install()
     })
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
+    -- diagnostics
+    -- TODO: setup some keybinds. remove whatever is mapped to <leader>q, my other diagnostics thing
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    })
+
     -- Telescope
     -- TODO: look at this as primeagen said
     --   https://github.com/nvim-telescope/telescope-fzf-native.nvim

@@ -151,7 +151,11 @@ local normal_mappings = {
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
-
+	d = {
+		name = "Diagnostics",
+		d = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+		r = { "<cmd>TroubleRefresh<cr>", "Refresh Trouble" },
+	},
 	g = {
 		name = "Git",
 		-- g = { "<cmd>lua require('plugins.toggleterm')._lazygit_toggle()<cr>", "LazyGit" },
