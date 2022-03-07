@@ -43,22 +43,23 @@ function M:configure()
 
   local function footer()
     -- NOTE: requires the fortune-mod package to work
-    local handle = io.popen("fortune")
-    local fortune = handle:read("*a")
-    handle:close()
-    -- TODO: make this smarter as a fun little exercise?
-    -- print(vim.inspect(utils.get_os_info().sysname))
-    if type(fortune) ~= "string" then
-      return "install fortune: brew install fortune || sudo apt-get install -y fortune"
-    end
-    if string.len(fortune) == 0 then
-      return "install fortune: brew install fortune || sudo apt-get install -y fortune"
-    end
-    return fortune
+    -- local handle = io.popen("fortune")
+    -- local fortune = handle:read("*a")
+    -- handle:close()
+    -- -- TODO: make this smarter as a fun little exercise?
+    -- -- print(vim.inspect(utils.get_os_info().sysname))
+    -- if type(fortune) ~= "string" then
+    --   return "install fortune: brew install fortune || sudo apt-get install -y fortune"
+    -- end
+    -- if string.len(fortune) == 0 then
+    --   return "install fortune: brew install fortune || sudo apt-get install -y fortune"
+    -- end
+    -- return fortune
     -- return "a place is only a place"
+    return "small changes --> big results.\ntake a breathe. dont get lost."
   end
 
-  -- dashboard.section.footer.val = footer()
+  dashboard.section.footer.val = footer()
 
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"
