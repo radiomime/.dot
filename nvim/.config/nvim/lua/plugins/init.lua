@@ -91,6 +91,7 @@ function M:_install()
 
   -- return packer.startup(function()
   return packer.startup(function(use)
+    -- TODO: what is using <leader> q? It is a diagnostics thing, and I think I'm using a better one down (dd)
     -----
     -- TODO: sort out which plugins to use!
     -----
@@ -105,6 +106,8 @@ function M:_install()
     use("kyazdani42/nvim-tree.lua")
     use("akinsho/bufferline.nvim")
     use("moll/vim-bbye")
+    -- TODO: play around with qs config more
+    use("unblevable/quick-scope")
     use("nvim-lualine/lualine.nvim")
     use("akinsho/toggleterm.nvim")
     -- use("ahmedkhalf/project.nvim")
@@ -143,6 +146,7 @@ function M:_install()
       requires = { { "neovim/nvim-lspconfig" } },
     })
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+    use("jose-elias-alvarez/nvim-lsp-ts-utils") -- tsserver builtin lsp client easier development
 
     -- diagnostics
     -- TODO: setup some keybinds. remove whatever is mapped to <leader>q, my other diagnostics thing
