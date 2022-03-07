@@ -183,6 +183,16 @@ function M:_install()
       cmd = "MarkdownPreview",
     })
 
+    -- movement
+    use({
+      "phaazon/hop.nvim",
+      branch = "v1", -- optional but strongly recommended
+      -- config = function()
+      --   -- you can configure Hop the way you like here; see :h hop-config
+      --   require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+      -- end,
+    })
+
     -- checkout!
     -- use("sindrets/winshift.nvim")
 
@@ -357,6 +367,7 @@ function M:configure()
   require("plugins.nvimtree")
   require("plugins.bufferline")
   require("plugins.lualine")
+  require("plugins.hop")
   require("plugins.toggleterm")
   require("plugins.impatient")
   require("plugins.indentblankline")
