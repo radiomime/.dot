@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+-- TODO: what is using <leader> q
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -92,7 +94,9 @@ local normal_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["q"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+
   ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
