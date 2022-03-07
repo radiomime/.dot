@@ -1,5 +1,9 @@
 ## ToDo
 
+## tssserver
+
+- inlay hints? I might have this disabled somewhere
+
 ## readme
 
 - install instructions
