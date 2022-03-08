@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require("utils")
 local M = {}
 
 function M:configure()
@@ -9,7 +9,9 @@ function M:configure()
   end
 
   local dashboard = require("alpha.themes.dashboard")
+  -- Good source for dumb headers: https://patorjk.com/software/taag/#p=display&f=Ogre&t=Neovim
   dashboard.section.header.val = {
+    -- Larry 3D
     [[                               __                ]],
     [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
     [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
