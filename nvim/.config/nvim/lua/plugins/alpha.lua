@@ -59,7 +59,7 @@ function M:configure()
     return "small changes --> big results.\ntake a breathe. dont get lost."
   end
 
-  dashboard.section.footer.val = footer()
+  -- dashboard.section.footer.val = footer()
 
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"
