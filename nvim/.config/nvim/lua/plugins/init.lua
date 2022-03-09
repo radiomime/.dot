@@ -107,7 +107,7 @@ function M:_install()
     use("akinsho/bufferline.nvim")
     use("moll/vim-bbye")
     -- TODO: play around with qs config more
-    use("unblevable/quick-scope")
+    -- use("unblevable/quick-scope") -- do I like this?
     use("nvim-lualine/lualine.nvim")
     use("akinsho/toggleterm.nvim")
     -- use("ahmedkhalf/project.nvim")
@@ -186,6 +186,10 @@ function M:_install()
       run = "cd app && yarn install",
       cmd = "MarkdownPreview",
     })
+
+    -- make things pretty
+    -- TODO: compare with https://github.com/nvim-telescope/telescope-ui-select.nvim
+    use({ "stevearc/dressing.nvim" })
 
     -- movement
     use({
