@@ -1,5 +1,22 @@
 ## ToDo
 
+## prettier default files
+
+
+```yaml
+# .prettierrc or .prettierrc.yaml
+trailingComma: "es5"
+tabWidth: 2
+semi: true
+singleQuote: true
+printWidth: 80
+overrides:
+  - files: "*.json"
+    options:
+      tabWidth: 2
+
+```
+
 ## tssserver
 
 - inlay hints? I might have this disabled somewhere
