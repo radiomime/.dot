@@ -27,4 +27,6 @@ function uu
         echo '*** upgrading brew packages'
         command brew upgrade
     end
+
+  # TODO: add tldr --update
 end
