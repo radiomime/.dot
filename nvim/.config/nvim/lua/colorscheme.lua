@@ -1,15 +1,4 @@
 local M = {}
--- local utils = require('utils')
-
-M.load_colorscheme = function(colorscheme_name)
-  -- print('attempting to set colorscheme:'..colorscheme_name)
-  vim.g.colors_name = colorscheme_name
-  vim.g.tokyonight_style = "night" -- "day", "storm"
-  -- vim.g.material_style = "deep ocean"
-  -- vim.g.material_style = "darker"
-  -- vim.g.neon_style = "doom"
-  vim.cmd("colorscheme " .. colorscheme_name)
-end
 
 -- Colorscheme must get called after plugins are loaded or it will break new installs.
 M._load_colorscheme = function()
@@ -28,6 +17,24 @@ M._load_colorscheme = function()
     M.load_colorscheme("default")
     return
   end
+end
+
+M.load_colorscheme = function(colorscheme_name)
+  print("set colorscheme:" .. colorscheme_name)
+  vim.g.colors_name = colorscheme_name
+
+  if colorscheme_name == "tokyonight" then
+    vim.g.tokyonight_style = "night"
+    -- vim.g.tokyonight_style = "day"
+    -- vim.g.tokyonight_style = "storm"
+  elseif colorscheme_name == "neon" then
+    vim.g.neon_style = "doom"
+  elseif colorscheme_name == "material" then
+    vim.g.material_style = "deep ocean"
+    -- vim.g.material_style = "darker"
+  end
+
+  vim.cmd("colorscheme " .. colorscheme_name)
 end
 
 M._load_colorscheme()
