@@ -3,13 +3,17 @@ local M = {}
 -- Colorscheme must get called after plugins are loaded or it will break new installs.
 M._load_colorscheme = function()
   -- TODO: get some colorschemes! my old ones do not seem to be here
-  local _colorscheme = "tokyonight"
+  -- local _colorscheme = "tokyonight"
   -- local _colorscheme = "darkplus"
   -- local _colorscheme = 'spacegray'
   -- local _colorscheme = "neon"
   -- local _colorscheme = 'tokyodark'
   -- local _colorscheme = "material"
   -- local _colorscheme = "moonlight"
+  -- local _colorscheme = "dawnfox"
+  -- local _colorscheme = "duskfox"
+  -- local _colorscheme = "nordfox"
+  local _colorscheme = "nightfox"
 
   local status_ok, result = pcall(M.load_colorscheme, _colorscheme)
   if not status_ok then
