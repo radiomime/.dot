@@ -1,5 +1,9 @@
 ## ToDo
 
+## snippets
+
+* Look through snippets tool
+
 ## prettier default files
 
 
