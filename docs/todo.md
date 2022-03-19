@@ -12,6 +12,10 @@ Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
 
 https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
 
+## snippets
+
+* Look through snippets tool
+
 ## prettier default files
 
 
