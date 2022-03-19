@@ -121,6 +121,7 @@ function M:_install()
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
     use("folke/tokyonight.nvim")
     use("EdenEast/nightfox.nvim") -- Packer
+    use("rebelot/kanagawa.nvim")
     -- use("lunarvim/darkplus.nvim")
     -- use("tiagovla/tokyodark.nvim")
     -- use("rafamadriz/neon")
