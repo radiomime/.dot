@@ -1,5 +1,17 @@
 ## ToDo
 
+## Look into plugins:
+
+`nyngwang/NeoRoot.lua`
+
+## opener
+
+Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
+
+## autocmds in lua
+
+https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
+
 ## prettier default files
 
 
