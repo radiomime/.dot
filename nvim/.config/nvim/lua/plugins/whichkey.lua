@@ -272,7 +272,10 @@ local normal_mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
     S = { "<cmd>Telescope grep_string<cr>", "String under Cursor" },
-    s = { "<cmd>Telescope lsp_references<cr>", "String under Cursor References" },
+    s = {
+      "<cmd>Telescope lsp_references<cr>",
+      "String under Cursor References",
+    },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     p = {
