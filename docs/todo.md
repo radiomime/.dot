@@ -1,8 +1,15 @@
 ## ToDo
 
+
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
+
+https://github.com/nacro90/numb.nvim
+
+he has cool plugins:
+https://github.com/ChristianChiarulli/nvim
 
 ## opener
 
