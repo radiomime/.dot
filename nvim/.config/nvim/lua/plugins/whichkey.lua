@@ -291,10 +291,17 @@ local normal_mappings = {
   },
   j = {
     name = "Terminal",
+    -- numbered terminals
+    a = { "<cmd>1ToggleTerm direction=float<cr>", "Float" },
+    s = { "<cmd>2ToggleTerm direction=float<cr>", "Float" },
+    d = { "<cmd>3ToggleTerm direction=float<cr>", "Float" },
+    f = { "<cmd>4ToggleTerm direction=float<cr>", "Float" },
+
     -- default terminal
-    j = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    j = { "<cmd>7ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>7ToggleTerm size=15 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>7ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+
     -- extra pre-set terminals
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
