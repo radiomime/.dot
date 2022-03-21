@@ -147,7 +147,8 @@ local normal_mappings = {
   h = {
     name = "Hop",
     -- AC, BC, and MW suffix can be hoping before and after the cursor, and multiwindow
-    h = { "<cmd>HopWord<cr>", "Word" },
+    h = { "<cmd>HopChar1<cr>", "Char  1" },
+    b = { "<cmd>HopWord<cr>", "Word  buffer" },
     a = { "<cmd>HopChar1<cr>", "Char  1" },
     s = { "<cmd>HopChar2<cr>", "Char  2" },
     w = { "<cmd>HopWordMW<cr>", "Word  multiwindow" },
