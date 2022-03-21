@@ -202,7 +202,10 @@ local normal_mappings = {
 
   l = {
     name = "lsp",
-    a = { "<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>", "Code Action" },
+    a = {
+      "<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>",
+      "Code Action",
+    },
     d = {
       "<cmd>Telescope lsp_document_diagnostics<cr>",
       "Document Diagnostics",
