@@ -292,15 +292,25 @@ local normal_mappings = {
   j = {
     name = "Terminal",
     -- numbered terminals
-    a = { "<cmd>1ToggleTerm direction=float<cr>", "Float" },
-    s = { "<cmd>2ToggleTerm direction=float<cr>", "Float" },
-    d = { "<cmd>3ToggleTerm direction=float<cr>", "Float" },
-    f = { "<cmd>4ToggleTerm direction=float<cr>", "Float" },
+    a = { "<cmd>1ToggleTerm direction=float<cr>", "Float  1" },
+    s = { "<cmd>2ToggleTerm direction=float<cr>", "Float  2" },
+    d = { "<cmd>3ToggleTerm direction=float<cr>", "Float  3" },
+    f = { "<cmd>4ToggleTerm direction=float<cr>", "Float  4" },
+    A = { "<cmd>1ToggleTerm direction=horizontal<cr>", "Horizontal  1" },
+    S = { "<cmd>2ToggleTerm direction=horizontal<cr>", "Horizontal  2" },
+    D = { "<cmd>3ToggleTerm direction=horizontal<cr>", "Horizontal  3" },
+    F = { "<cmd>4ToggleTerm direction=horizontal<cr>", "Horizontal  4" },
 
     -- default terminal
-    j = { "<cmd>7ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>7ToggleTerm size=15 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>7ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    j = { "<cmd>7ToggleTerm direction=float<cr>", "Float  7" },
+    h = {
+      "<cmd>7ToggleTerm size=15 direction=horizontal<cr>",
+      "Horizontal  7",
+    },
+    v = {
+      "<cmd>7ToggleTerm size=80 direction=vertical<cr>",
+      "Vertical  7",
+    },
 
     -- extra pre-set terminals
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
