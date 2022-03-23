@@ -316,6 +316,8 @@ local normal_mappings = {
       "Vertical  7",
     },
 
+    -- toggle terminals
+    m = { "<cmd>ToggleTermToggleAll<cr>", "Toggle All  Min/Max" },
     -- extra pre-set terminals
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
