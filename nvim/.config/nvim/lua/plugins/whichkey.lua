@@ -318,10 +318,11 @@ local normal_mappings = {
 
     -- toggle terminals
     m = { "<cmd>ToggleTermToggleAll<cr>", "Toggle All  Min/Max" },
+
     -- extra pre-set terminals
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, -- TODO: add a top one? Should I use btm here?
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
   },
 }
