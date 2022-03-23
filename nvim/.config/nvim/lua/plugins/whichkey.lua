@@ -295,10 +295,15 @@ local normal_mappings = {
     s = { "<cmd>2ToggleTerm direction=float<cr>", "Float  2" },
     d = { "<cmd>3ToggleTerm direction=float<cr>", "Float  3" },
     f = { "<cmd>4ToggleTerm direction=float<cr>", "Float  4" },
-    A = { "<cmd>1ToggleTerm direction=horizontal<cr>", "Horizontal  1" },
-    S = { "<cmd>2ToggleTerm direction=horizontal<cr>", "Horizontal  2" },
-    D = { "<cmd>3ToggleTerm direction=horizontal<cr>", "Horizontal  3" },
-    F = { "<cmd>4ToggleTerm direction=horizontal<cr>", "Horizontal  4" },
+    -- bindings below correspond to a,s,d,f layers on my keyboard
+    ['1'] = { "<cmd>1ToggleTerm size=20 direction=horizontal<cr>", "Horizontal  1" },
+    ['2'] = { "<cmd>2ToggleTerm size=20 direction=horizontal<cr>", "Horizontal  2" },
+    ['3'] = { "<cmd>3ToggleTerm size=20 direction=horizontal<cr>", "Horizontal  3" },
+    ['4'] = { "<cmd>4ToggleTerm size=20 direction=horizontal<cr>", "Horizontal  4" },
+    ['!'] = { "<cmd>1ToggleTerm size=120 direction=vertical<cr>", "Vertical  1" },
+    ['@'] = { "<cmd>2ToggleTerm size=120 direction=vertical<cr>", "Vertical  2" },
+    ['#'] = { "<cmd>3ToggleTerm size=120 direction=vertical<cr>", "Vertical  3" },
+    ['$'] = { "<cmd>4ToggleTerm size=120 direction=vertical<cr>", "Vertical  4" },
 
     -- default terminal
     j = { "<cmd>7ToggleTerm direction=float<cr>", "Float  7" },
