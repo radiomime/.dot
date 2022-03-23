@@ -173,7 +173,6 @@ local normal_mappings = {
   -- TODO: combine this section with keymaps section of gitsigns.lua
   g = {
     name = "Git",
-    -- g = { "<cmd>lua require('plugins.toggleterm')._lazygit_toggle()<cr>", "LazyGit" },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
