@@ -122,6 +122,7 @@ function M:_install()
     use("folke/tokyonight.nvim")
     use("EdenEast/nightfox.nvim") -- Packer
     use("rebelot/kanagawa.nvim")
+    use("catppuccin/nvim") -- TODO: incorporate this as an option
     -- use("lunarvim/darkplus.nvim")
     -- use("tiagovla/tokyodark.nvim")
     -- use("rafamadriz/neon")
