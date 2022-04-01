@@ -28,5 +28,8 @@ function uu
         command brew upgrade
     end
 
-  # TODO: add tldr --update
+    if type -sq tldr
+      echo '*** updating tldr database'
+      tldr --update
+    end
 end

@@ -58,10 +58,11 @@ function M:configure()
     -- end
     -- return fortune
     -- return "a place is only a place"
-    return "small changes --> big results.\ntake a breathe. dont get lost."
+    return "iterate."
+    -- return "small changes --> big results.\ntake a breathe. dont get lost."
   end
 
-  -- dashboard.section.footer.val = footer()
+  dashboard.section.footer.val = footer()
 
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"

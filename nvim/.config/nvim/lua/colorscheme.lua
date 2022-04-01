@@ -14,6 +14,7 @@ M._load_colorscheme = function()
   -- local _colorscheme = "nordfox"
   -- local _colorscheme = "nightfox"
   local _colorscheme = "kanagawa"
+  -- local _colorscheme = "catppuccin"
 
   local status_ok, result = pcall(M.load_colorscheme, _colorscheme)
   if not status_ok then
@@ -27,16 +28,22 @@ M.load_colorscheme = function(colorscheme_name)
   print("set colorscheme:" .. colorscheme_name)
   vim.g.colors_name = colorscheme_name
 
-  if colorscheme_name == "tokyonight" then
-    vim.g.tokyonight_style = "night"
-    -- vim.g.tokyonight_style = "day"
-    -- vim.g.tokyonight_style = "storm"
-  elseif colorscheme_name == "neon" then
-    vim.g.neon_style = "doom"
-  elseif colorscheme_name == "material" then
-    vim.g.material_style = "deep ocean"
-    -- vim.g.material_style = "darker"
-  end
+  -- tokyonight
+  vim.g.tokyonight_style = "night"
+  -- vim.g.tokyonight_style = "day"
+  -- vim.g.tokyonight_style = "storm"
+
+  -- neon
+  vim.g.neon_style = "doom"
+
+  -- material
+  vim.g.material_style = "deep ocean"
+  -- vim.g.material_style = "darker"
+
+  -- if colorscheme_name == "tokyonight" then
+  -- elseif colorscheme_name == "neon" then
+  -- elseif colorscheme_name == "material" then
+  -- end
 
   vim.cmd("colorscheme " .. colorscheme_name)
 end
