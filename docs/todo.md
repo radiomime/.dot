@@ -1,6 +1,8 @@
 ## ToDo
 
+## install
 
+add /opt/homebrew to brew remove** scripts!!
 
 ## Look into plugins:
 
