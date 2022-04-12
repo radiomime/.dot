@@ -104,12 +104,17 @@ function M:_install()
     use("numToStr/Comment.nvim") -- Easily comment stuff
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
-    use("akinsho/bufferline.nvim")
+    use({
+      "akinsho/bufferline.nvim",
+      tag = "*",
+      requires = "kyazdani42/nvim-web-devicons",
+    }) -- buffer line up top
+
     use("moll/vim-bbye")
     -- TODO: play around with qs config more
     -- use("unblevable/quick-scope") -- do I like this?
     use("nvim-lualine/lualine.nvim")
-    use("akinsho/toggleterm.nvim")
+    use({ "akinsho/toggleterm.nvim", branch = "main" })
     -- use("ahmedkhalf/project.nvim")
     use("lewis6991/impatient.nvim")
     use("lukas-reineke/indent-blankline.nvim")
