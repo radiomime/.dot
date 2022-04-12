@@ -129,6 +129,9 @@ function M:_install()
     -- use("marko-cerovac/material.nvim")
     -- use("shaunsingh/moonlight.nvim")
 
+    -- copilot, run ':Copilot setup'
+    use("github/copilot.vim")
+
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- The completion plugin
     use("hrsh7th/cmp-buffer") -- buffer completions
