@@ -117,6 +117,8 @@ function M:_install()
     use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
     use("folke/which-key.nvim")
 
+    use("tpope/vim-abolish") -- work with strings
+
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
     use("folke/tokyonight.nvim")
