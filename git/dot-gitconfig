@@ -7,3 +7,5 @@
 	ff = yes
 [core]
 	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
