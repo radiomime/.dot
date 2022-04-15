@@ -99,7 +99,6 @@ local normal_mappings = {
 
   ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["m"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
   -- TODO: separate 'f' into separate commands?
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
@@ -116,6 +115,7 @@ local normal_mappings = {
 
   b = {
     name = "Buffers",
+    c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     j = { "<cmd>BufferPick<cr>", "jump to buffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find buffer" },
     w = { "<cmd>BufferWipeout<cr>", "wipeout buffer" },
@@ -143,6 +143,13 @@ local normal_mappings = {
       "<cmd>BufferOrderByLanguage<cr>",
       "sort BufferLines automatically by language",
     },
+  },
+  c = {
+    name = "copilot",
+    s = { "<cmd>Copilot status<cr>", "status" },
+    e = { "<cmd>Copilot enable<cr>", "enable" },
+    d = { "<cmd>Copilot disable<cr>", "disable" },
+    p = { "<cmd>Copilot panel<cr>", "panel" },
   },
   h = {
     name = "Hop",
