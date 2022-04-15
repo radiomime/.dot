@@ -379,6 +379,7 @@ end
 function M:configure()
   print("configuring plugins")
   -- TODO: protected call for these?
+  -- TODO: underscore file names for namespace collision avoidance.
   -- require('plugins.cmp')
   require("plugins.telescope")
   require("plugins.treesitter")
@@ -386,7 +387,6 @@ function M:configure()
   require("plugins.comment")
   require("plugins.gitsigns")
   require("plugins._nvimtree")
-  require("plugins._neotree")
   require("plugins.bufferline")
   require("plugins.lualine")
   require("plugins.hop")
