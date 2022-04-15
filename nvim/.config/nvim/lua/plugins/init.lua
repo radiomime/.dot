@@ -156,7 +156,7 @@ function M:_install()
     use("williamboman/nvim-lsp-installer") -- simple to use language server installer
     use({
       "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
-      requires = { { "neovim/nvim-lspconfig" } },
+      requires = { "neovim/nvim-lspconfig" },
     })
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
     use("jose-elias-alvarez/nvim-lsp-ts-utils") -- tsserver builtin lsp client easier development
@@ -179,7 +179,7 @@ function M:_install()
     --  })
     use({
       "nvim-telescope/telescope.nvim",
-      requires = { { "nvim-lua/plenary.nvim" } },
+      requires = { "nvim-lua/plenary.nvim" },
     })
 
     -- Treesitter
@@ -385,7 +385,8 @@ function M:configure()
   require("plugins.autopairs")
   require("plugins.comment")
   require("plugins.gitsigns")
-  require("plugins.nvimtree")
+  require("plugins._nvimtree")
+  require("plugins._neotree")
   require("plugins.bufferline")
   require("plugins.lualine")
   require("plugins.hop")
