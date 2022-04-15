@@ -136,17 +136,6 @@ function M:_install()
     -- use("marko-cerovac/material.nvim")
     -- use("shaunsingh/moonlight.nvim")
 
-    use({
-      "nvim-neo-tree/neo-tree.nvim",
-      requires = {
-        {
-          "nvim-lua/plenary.nvim",
-          "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-          "MunifTanjim/nui.nvim",
-        },
-      },
-    })
-
     -- copilot, run ':Copilot setup'
     use("github/copilot.vim")
 
