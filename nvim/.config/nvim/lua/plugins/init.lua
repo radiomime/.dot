@@ -136,8 +136,25 @@ function M:_install()
     -- use("marko-cerovac/material.nvim")
     -- use("shaunsingh/moonlight.nvim")
 
-    -- copilot, run ':Copilot setup'
-    use("github/copilot.vim")
+    -- Copilot --
+    -- run ':Copilot setup'
+    -- be sure ~/.config/github-copilot has files in it
+    -- use("github/copilot.vim")
+    -- enable the other plugins below. This may be easier once the below plugins are more mature.
+    use({
+      "zbirenbaum/copilot.lua",
+      event = { "VimEnter" },
+      config = function()
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
+      end,
+    })
+    use({
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua", "nvim-cmp" },
+    })
+    -- End of copilot setup --
 
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- The completion plugin
