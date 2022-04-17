@@ -52,6 +52,7 @@ class Brew(AbsPackage):
                 ]
             )
         )
+        print("run 'rip /opt/homebrew' if problems uninstalling exist")
 
     def __continue_with_brew_op(self):
         if not self.is_installed():
