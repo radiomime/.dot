@@ -185,7 +185,7 @@ Checkout
 ### standard package managers
 
 - install node version managers (nvm, n?)
-- python version amanger?
+- python version manger?
 
 ### docker and docker-compose to install
 
@@ -195,9 +195,6 @@ https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
 
 https://github.com/docker/compose/releases
 
-### Mac compatability
-
-Runnable on mac
 
 ### Uninstalls
 
@@ -214,10 +211,6 @@ Checkout vim markup
 ### curl gitignore file!
 
 I think this is in bash, do it for fish
-
-### default git branch to main
-
-- set default main branch to main!
 
 ### add environment for system
 
@@ -240,13 +233,6 @@ Two clear options:
 
 What is it? Gave me some weird issues regarding whitespace in my readme files
 
-### Should I use cargo or brew for these prorams on mac?
-
-exa
-
-### Kitty conf
-
-- clean and update kitty conf
 
 ### version managers
 
