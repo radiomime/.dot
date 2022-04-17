@@ -146,7 +146,13 @@ function M:_install()
       event = { "VimEnter" },
       config = function()
         vim.defer_fn(function()
-          require("copilot").setup()
+          require("copilot").setup({
+            ft_disable = {
+              "markdown",
+              "terraform",
+              "text",
+            },
+          })
         end, 100)
       end,
     })
