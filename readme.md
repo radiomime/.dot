@@ -75,7 +75,7 @@ stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 
 - @ : command
 - $ : shift
-- ~ : alt 
+- ~ : alt
 - ^ : ctr
 
 ```sh
