@@ -7,23 +7,7 @@ hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "W", function()
 end)
 
 hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "R", function()
-  hs.alert.show("Config loaded, dummy")
   hs.reload()
-end)
-
-hs.hotkey.bind({ "cmd", "ctrl" }, "J", function()
-  -- local foo =hs.screen:name()
-  -- hs.screen:next()
-
-  -- hs.window.switcher.nextWindow()
-  local currentspace = hs.spaces.focusedSpace()
-local active = hs.spaces.activeSpaces()
-  print(active)
-  hs.notify.new({
-    title = "Hammerspoon",
-    -- informativeText =  active,
-    informativeText = "current space" .. currentspace,
-  }):send()
 end)
 
 function reloadConfig(files)
