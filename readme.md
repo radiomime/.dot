@@ -95,7 +95,7 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"     
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..." -string "^l"
 ```
 
-I also change mission control --> move * a space shortcuts to line up with
+I also change mission control --> 'move left/right a space' shortcuts to line up with
 PopOS, but that is weird on the command line for what I can tell
 
 # thanks
