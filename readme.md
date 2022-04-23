@@ -69,6 +69,30 @@ stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
 stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 ```
 
+# MacOS Specific
+
+## Keyboard Shortcuts
+
+- @ : command
+- $ : shift
+- ~ : alt 
+- ^ : ctr
+
+```sh
+defaults read -g NSUserKeyEquivalents
+defaults read com.brave.Browser NSUserKeyEquivalents
+```
+
+```sh
+# defaults
+defaults write -g NSUserKeyEquivalents -dict-add "Paste" -string "^v"
+
+# brave
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab" -string "^t"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window" -string "^n"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab" -string "^w"
+```
+
 # thanks
 
 [Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
