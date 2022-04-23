@@ -79,19 +79,24 @@ stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 - ^ : ctr
 
 ```sh
-defaults read -g NSUserKeyEquivalents
+defaults read -g                NSUserKeyEquivalents
 defaults read com.brave.Browser NSUserKeyEquivalents
 ```
 
 ```sh
 # defaults
+defaults write -g NSUserKeyEquivalents -dict-add "Copy" -string "^c"
 defaults write -g NSUserKeyEquivalents -dict-add "Paste" -string "^v"
 
 # brave
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab" -string "^t"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window" -string "^n"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab" -string "^w"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab"          -string "^t"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window"       -string "^n"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"        -string "^w"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..." -string "^l"
 ```
+
+I also change mission control --> move * a space shortcuts to line up with
+PopOS, but that is weird on the command line for what I can tell
 
 # thanks
 
