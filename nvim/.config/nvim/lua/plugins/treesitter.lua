@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-	print("configuring treesitter")
+	-- print("configuring treesitter")
 	local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 	if not status_ok then
 		print("error: cannot configure treesitter inside configure function")
@@ -8,7 +8,7 @@ function M:configure()
 	end
 
 	configs.setup({
-		ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+		ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 		ignore_install = { "" }, -- List of parsers to ignore installing
 		highlight = {

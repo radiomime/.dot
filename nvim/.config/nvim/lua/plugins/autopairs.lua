@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-	print("configuring autopairs")
+	-- print("configuring autopairs")
 	local status_ok, npairs = pcall(require, "nvim-autopairs")
 	if not status_ok then
 		print("error: cannot call autopairs to configure")

@@ -1,5 +1,6 @@
 local M = {}
 
+-- TODO: play around with these
 function M:create_autocommands()
 	print("creating autocommands")
 	vim.cmd([[
@@ -34,6 +35,7 @@ function M:create_autocommands()
   augroup end
 ]])
 
+  -- TODO: format on save?
 	-- Autoformat
 	-- augroup _lsp
 	--   autocmd!

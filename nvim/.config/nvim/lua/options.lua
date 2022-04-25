@@ -1,4 +1,4 @@
-print("loading options")
+-- print("loading options")
 
 local options = {
 	laststatus = 2, -- always display the status line

@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: there are a ton of lualine alternatives, should i switch?
 function M:configure()
-	print("configuring lualine")
+	-- print("configuring lualine")
 	local status_ok, lualine = pcall(require, "lualine")
 	if not status_ok then
 		return
