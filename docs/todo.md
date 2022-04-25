@@ -19,6 +19,10 @@ https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_au
 
 https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
 
+## plugins
+
+Look into plugins in readme there
+
 ## snippets
 
 * Look through snippets tool
