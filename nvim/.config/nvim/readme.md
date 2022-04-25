@@ -19,3 +19,10 @@ A general place for useful notes regarding my neovim config.
 - nvim-neo-tree/neo-tree.nvim
   - instead of nvim-tree. this should have fewer breaking changes and have some
     other features. currently I don't think it seems much better.
+
+### Could be cool
+
+- mrjones2014/legendary.nvim
+  - this looks sorta neat, but which key already does a bunch for me. This supplements it, though.
+- https://github.com/echasnovski/mini.nvim
+  - can replace comment plugin

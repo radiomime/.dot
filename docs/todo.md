@@ -17,6 +17,8 @@ Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
 
 https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
 
+https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
+
 ## snippets
 
 * Look through snippets tool
