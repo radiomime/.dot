@@ -95,6 +95,7 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"     
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reopen Closed Tab" -string "^\$t"
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..."  -string "^l"
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Page"  -string "^r"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
 I also change mission control --> 'move left/right a space' shortcuts to line up with
