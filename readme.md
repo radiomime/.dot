@@ -30,7 +30,7 @@ python3 -m pip install requests distro
 # .config cannot be dot-config until this issue resolves
 #     https://github.com/aspiers/stow/issues/33
 
-stow -v --dotfiles bash fish git kitty nvim starship tmux
+stow -v --dotfiles bash fish git kitty nvim starship tmux hammerspoon
 ```
 
 ## install cargo packages
@@ -68,6 +68,37 @@ stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
 # uninstall
 stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
 ```
+
+# MacOS Specific
+
+## Keyboard Shortcuts
+
+- @ : command
+- $ : shift
+- ~ : alt
+- ^ : ctr
+
+```sh
+defaults read -g                NSUserKeyEquivalents
+defaults read com.brave.Browser NSUserKeyEquivalents
+```
+
+```sh
+# defaults
+defaults write -g NSUserKeyEquivalents -dict-add "Copy" -string "^c"
+defaults write -g NSUserKeyEquivalents -dict-add "Paste" -string "^v"
+
+# brave
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab"           -string "^t"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window"        -string "^n"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"         -string "^w"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reopen Closed Tab" -string "^\$t"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..."  -string "^l"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Page"  -string "^r"
+```
+
+I also change mission control --> 'move left/right a space' shortcuts to line up with
+PopOS, but that is weird on the command line for what I can tell
 
 # thanks
 
