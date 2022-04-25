@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: add a keybind to open nvim tree in current buffer's path or with it open
 function M:configure()
-	print("configuring nvimtree")
+	-- print("configuring nvimtree")
 	vim.g.nvim_tree_icons = {
 		default = "",
 		symlink = "",

@@ -25,7 +25,7 @@ M._load_colorscheme = function()
 end
 
 M.load_colorscheme = function(colorscheme_name)
-  print("set colorscheme:" .. colorscheme_name)
+  -- print("set colorscheme:" .. colorscheme_name)
   vim.g.colors_name = colorscheme_name
 
   -- tokyonight

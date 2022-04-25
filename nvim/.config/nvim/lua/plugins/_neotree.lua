@@ -4,7 +4,7 @@ local M = {}
 
 -- TODO: add a keybind to open nvim tree in current buffer's path or with it open
 function M:configure()
-  print("configuring neotree")
+  -- print("configuring neotree")
 
   -- Unless you are still migrating, remove the deprecated commands from v1.x
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])

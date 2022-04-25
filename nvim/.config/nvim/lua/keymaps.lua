@@ -6,7 +6,7 @@ function M.set_keymappings()
 	-- Shorten function name
 	local keymap = vim.api.nvim_set_keymap
 
-	print("setting up keymappings")
+	-- print("setting up keymappings")
 
 	--Remap space as leader key
 	keymap("", "<Space>", "<Nop>", opts)

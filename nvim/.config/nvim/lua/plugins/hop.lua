@@ -4,7 +4,7 @@ local M = {}
 -- I could set some custom keys and other options
 -- checkout :h hop.setup
 function M:configure()
-  print("configuring hop")
+  -- print("configuring hop")
   local status_ok, hop = pcall(require, "hop")
   if not status_ok then
     return

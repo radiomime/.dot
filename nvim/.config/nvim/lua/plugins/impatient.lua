@@ -10,7 +10,7 @@ local M = {}
 -- :LuaCacheProfile:
 -- View profiling data. To enable, Impatient must be setup with:
 function M:configure()
-	print("configuring impatient")
+	-- print("configuring impatient")
 	local status_ok, impatient = pcall(require, "impatient")
 	if not status_ok then
 		return

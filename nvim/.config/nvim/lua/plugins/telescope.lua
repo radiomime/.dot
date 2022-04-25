@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-  print("configuring telescope")
+  -- print("configuring telescope")
   local status_ok, telescope = pcall(require, "telescope")
   if not status_ok then
     print("error: cannot call telescope to configure")

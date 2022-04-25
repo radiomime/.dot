@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-	print("configuring gitsigns")
+	-- print("configuring gitsigns")
 	local status_ok, gitsigns = pcall(require, "gitsigns")
 	if not status_ok then
 		return

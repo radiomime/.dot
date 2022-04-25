@@ -2,7 +2,7 @@ local utils = require("utils")
 local M = {}
 
 function M:configure()
-  print("configuring alpha")
+  -- print("configuring alpha")
   local status_ok, alpha = pcall(require, "alpha")
   if not status_ok then
     return

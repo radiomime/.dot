@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-	print("configuring treesitter")
+	-- print("configuring treesitter")
 	local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 	if not status_ok then
 		print("error: cannot configure treesitter inside configure function")

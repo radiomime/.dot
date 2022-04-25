@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-	print("configuring toggleterm")
+	-- print("configuring toggleterm")
 	local status_ok, toggleterm = pcall(require, "toggleterm")
 	if not status_ok then
 		return

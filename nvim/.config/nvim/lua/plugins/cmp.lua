@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-  print("configuring cmp")
+  -- print("configuring cmp")
   local cmp_status_ok, cmp = pcall(require, "cmp")
   if not cmp_status_ok then
     print("error: cannot configure cmp inside configure function")

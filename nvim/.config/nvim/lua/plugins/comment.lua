@@ -1,6 +1,6 @@
 local M = {}
 function M:configure()
-  print("configuring comment")
+  -- print("configuring comment")
   local status_ok, comment = pcall(require, "Comment")
   if not status_ok then
     print("error: cannot call comment to configure")
