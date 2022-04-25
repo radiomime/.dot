@@ -97,7 +97,9 @@ function M:_install()
     -----
     -- below are from lunarvim/neovim-from-scratch
     -- My plugins here
-    use("wbthomason/packer.nvim") -- Have packer manage itself
+    use("wbthomason/packer.nvim") -- packer can manage itself
+    use("lewis6991/impatient.nvim") -- faster start up speed
+
     use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
     use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
     use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
@@ -116,7 +118,6 @@ function M:_install()
     use("nvim-lualine/lualine.nvim")
     use({ "akinsho/toggleterm.nvim", branch = "main" })
     -- use("ahmedkhalf/project.nvim")
-    use("lewis6991/impatient.nvim")
     use("lukas-reineke/indent-blankline.nvim")
     use("goolord/alpha-nvim")
     use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
