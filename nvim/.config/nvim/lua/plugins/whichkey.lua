@@ -112,6 +112,7 @@ local normal_mappings = {
     "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
     "Projects",
   },
+  ["o"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
 
   b = {
     name = "Buffers",

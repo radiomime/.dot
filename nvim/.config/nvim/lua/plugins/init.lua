@@ -238,6 +238,9 @@ function M:_install()
       -- end,
     })
 
+    -- other
+    use("simrat39/symbols-outline.nvim")
+
     -- checkout!
     -- use("sindrets/winshift.nvim")
 
