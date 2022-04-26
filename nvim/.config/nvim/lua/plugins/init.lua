@@ -422,6 +422,7 @@ function M:configure()
   require("plugins.indentblankline")
   require("plugins.alpha")
   require("plugins.whichkey")
+  require('plugins._symbolsoutline')
 end
 
 -- M.install()
