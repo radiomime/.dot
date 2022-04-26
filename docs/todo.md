@@ -1,5 +1,9 @@
 ## ToDo
 
+## Hammerspoon
+
+[Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
