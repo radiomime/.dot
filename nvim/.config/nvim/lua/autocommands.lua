@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: play around with these
 function M:create_autocommands()
-	print("creating autocommands")
+	-- print("creating autocommands")
 	vim.cmd([[
   augroup _general_settings
     autocmd!

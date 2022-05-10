@@ -404,7 +404,7 @@ function M:install()
 end
 
 function M:configure()
-  print("configuring plugins")
+  -- print("configuring plugins")
   -- TODO: protected call for these?
   -- TODO: underscore file names for namespace collision avoidance.
   -- require('plugins.cmp')
