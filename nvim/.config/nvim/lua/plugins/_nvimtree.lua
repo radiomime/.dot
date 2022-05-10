@@ -38,6 +38,7 @@ function M:configure()
   local tree_cb = nvim_tree_config.nvim_tree_callback
 
   nvim_tree.setup({
+    -- TODO: this plugin has had a lot of breaking changes. Look into what my ideal config should have different than the defaults
     disable_netrw = true, -- TODO: explore this
     hijack_netrw = true, -- TODO: explore this
     open_on_setup = false,
@@ -99,22 +100,48 @@ function M:configure()
       number = true,
       relativenumber = true,
     },
+    -- actions = {
+    --   use_system_clipboard = true,
+    --   change_dir = {
+    --     enable = true,
+    --     global = false,
+    --     restrict_above_cwd = false,
+    --   },
+    --   open_file = {
+    --     quit_on_open = false,
+    --     resize_window = false,
+    --     window_picker = {
+    --       enable = true,
+    --       chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+    --       exclude = {
+    --         filetype = {
+    --           "notify",
+    --           "packer",
+    --           "qf",
+    --           "diff",
+    --           "fugitive",
+    --           "fugitiveblame",
+    --         },
+    --         buftype = { "nofile", "terminal", "help" },
+    --       },
+    --     },
+    --   },
+    -- },
     -- TODO: trash command on system! Do this, maybe use rip?
     trash = {
       cmd = "trash",
       require_confirm = true,
     },
-    quit_on_open = 0,
-    git_hl = 1,
-    disable_window_picker = 0,
-    root_folder_modifier = ":t",
-    show_icons = {
-      git = 1,
-      folders = 1,
-      files = 1,
-      folder_arrows = 1,
-      tree_width = 30,
-    },
+    -- git_hl = 1,
+    -- disable_window_picker = 0,
+    -- root_folder_modifier = ":t",
+    -- show_icons = {
+    --   git = 1,
+    --   folders = 1,
+    --   files = 1,
+    --   folder_arrows = 1,
+    --   tree_width = 30,
+    -- },
   })
 end
 
