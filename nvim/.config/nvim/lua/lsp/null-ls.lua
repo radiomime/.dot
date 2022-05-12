@@ -14,7 +14,7 @@ null_ls.setup({
   sources = {
     formatting.prettier, -- with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
-    -- formatting.stylua, -- using sumneko, though that may have memory leaks
+    formatting.stylua, -- using sumneko, though that may have memory leaks
     -- diagnostics.flake8
   },
   -- uncomment on_attach fn below for format on save
