@@ -240,6 +240,7 @@ function M:_install()
 
     -- other
     use("simrat39/symbols-outline.nvim")
+    use("axieax/urlview.nvim") -- :UrlView, :UrlView packer, and :UrlView buffer
 
     -- checkout!
     -- use("sindrets/winshift.nvim")
@@ -422,7 +423,7 @@ function M:configure()
   require("plugins.indentblankline")
   require("plugins.alpha")
   require("plugins.whichkey")
-  require('plugins._symbolsoutline')
+  require("plugins._symbolsoutline")
 end
 
 -- M.install()
