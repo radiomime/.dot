@@ -120,6 +120,7 @@ local normal_mappings = {
     j = { "<cmd>BufferPick<cr>", "jump to buffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find buffer" },
     w = { "<cmd>BufferWipeout<cr>", "wipeout buffer" },
+    u = { "<cmd>UrlView buffer<cr>", "find urls in buffer" },
     b = {
       "<cmd>Telescope buffers<cr>",
       "Buffers",
@@ -172,6 +173,7 @@ local normal_mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+    p = { "<cmd>UrlView packer<cr>", "Search URLs to plugins" },
   },
   d = {
     name = "Diagnostics",
@@ -367,7 +369,7 @@ local normal_mappings = {
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 
     -- create terminal in pane
-    [';'] = { "<cmd>terminal<cr>", "create terminal in current pane" },
+    [";"] = { "<cmd>terminal<cr>", "create terminal in current pane" },
   },
 }
 
