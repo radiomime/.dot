@@ -365,6 +365,9 @@ local normal_mappings = {
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, -- TODO: add a top one? Should I use btm here?
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+
+    -- create terminal in pane
+    [';'] = { "<cmd>terminal<cr>", "create terminal in current pane" },
   },
 }
 
