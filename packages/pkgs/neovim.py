@@ -37,6 +37,7 @@ class Neovim(AbsPackage):
         output = output.decode("utf-8")
         for line in output.split("\n"):
             words = line.split(" ")
+            # TODO: is this right?
             if words[0] == "NVIM":
                 return words[1]
 
@@ -69,8 +70,8 @@ class Neovim(AbsPackage):
             [
                 "git",
                 "clone",
-                "--branch",
-                "release-0.6",
+                # "--branch",
+                # "release-0.6",
                 "https://github.com/neovim/neovim",
                 self.install_path,
             ]
