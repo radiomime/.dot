@@ -244,6 +244,7 @@ function M:_install()
 
     -- checkout!
     -- use("sindrets/winshift.nvim")
+    -- use('mrjones2014/smart-splits.nvim')
 
     -----
     -- TODO: below are some of the old ones I've used
