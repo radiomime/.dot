@@ -1,5 +1,19 @@
 ## ToDo
 
+
+# checkout
+
+* https://github.com/nvbn/thefuck
+* Useful for work projects and lsp file settings: `.git/info/exclude`
+* toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
+* mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
+* dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
+* https://github.com/axieax/urlview.nvim
+* tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
+* some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
+* This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+  * essentially, this should allow me to comment and view issues in a tui
+
 ## Hammerspoon
 
 [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
