@@ -220,24 +220,12 @@ function M:_install()
     -- TODO: move this to a config file??
     use({
       "iamcco/markdown-preview.nvim",
-      run = "cd app && yarn install",
-      cmd = "MarkdownPreview",
+      run = "cd app && npm install",
+      setup = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
     })
-    -- use({
-    --   "iamcco/markdown-preview.nvim",
-    --   run = function()
-    --     vim.fn["mkdp#util#install"]()
-    --   end,
-    -- })
-
-    -- use({
-    --   "iamcco/markdown-preview.nvim",
-    --   run = "cd app && npm install",
-    --   setup = function()
-    --     vim.g.mkdp_filetypes = { "markdown" }
-    --   end,
-    --   ft = { "markdown" },
-    -- })
 
     -- make things pretty
     -- TODO: compare with https://github.com/nvim-telescope/telescope-ui-select.nvim
