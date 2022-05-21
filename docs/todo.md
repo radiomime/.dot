@@ -5,9 +5,31 @@
 formatting: .fish files
 lsp references: .js files
 
+# checkout
+
+* https://github.com/nvbn/thefuck
+* Useful for work projects and lsp file settings: `.git/info/exclude`
+* toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
+* mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
+* dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
+* https://github.com/axieax/urlview.nvim
+* tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
+* some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
+* This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+  * essentially, this should allow me to comment and view issues in a tui
+* notify, for pretty logging: https://github.com/rcarriga/nvim-notify
+* How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
+  * https://github.com/mfussenegger/nvim-dap
+  * https://github.com/rcarriga/nvim-dap-ui
+  * https://github.com/Pocco81/dap-buddy.nvim
+
 ## Hammerspoon
 
-[Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+* [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+* possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
+* This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
+* Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
+
 
 ## Look into plugins:
 
