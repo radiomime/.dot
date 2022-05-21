@@ -121,6 +121,7 @@ set --universal nvm_default_version latest
 
 <details>
   <summary>Blow up packer</summary>
+
 ```
 ls ~/.local/share/nvim/site/pack/packer
 ```
@@ -132,11 +133,6 @@ rip ~/.local/share/nvim/site/pack/packer
 nvim --headless -c 'exit'
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
-
-Error in packer_compiled
-
-* I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
-
 </details>
 
 # thanks

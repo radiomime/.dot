@@ -7,6 +7,7 @@ local package_root = vim.fn.stdpath("data") .. "/site/pack"
 local install_path = vim.fn.stdpath("data")
   .. "/site/pack/packer/start/packer.nvim"
 
+-- TODO: turn the following two into some command? packer nuke?
 function M:clear_packer_cache()
   print("deleting packer cache at:" .. compile_path)
   if vim.fn.delete(compile_path) == 0 then
@@ -14,7 +15,6 @@ function M:clear_packer_cache()
   end
 end
 
--- TODO: turn this into some command? packer nuke?
 function M:remove_packer_directory()
   print("deleting packer at:" .. install_path)
   if vim.fn.delete(install_path, "rf") == 0 then
