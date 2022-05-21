@@ -14,6 +14,7 @@ function M:clear_packer_cache()
   end
 end
 
+-- TODO: turn this into some command? packer nuke?
 function M:remove_packer_directory()
   print("deleting packer at:" .. install_path)
   if vim.fn.delete(install_path, "rf") == 0 then
