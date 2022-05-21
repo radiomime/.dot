@@ -1,5 +1,10 @@
 ## ToDo
 
+## lsp
+
+formatting: .fish files
+lsp references: .js files
+
 ## Hammerspoon
 
 [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
