@@ -116,6 +116,29 @@ set --universal nvm_default_version latest
 
 </details>
 
+# Troubleshooting
+
+
+<details>
+  <summary>Blow up packer</summary>
+```
+ls ~/.local/share/nvim/site/pack/packer
+```
+
+Are all your plugins there? If so,
+
+```
+rip ~/.local/share/nvim/site/pack/packer
+nvim --headless -c 'exit'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+
+Error in packer_compiled
+
+* I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
+
+</details>
+
 # thanks
 
 [Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
