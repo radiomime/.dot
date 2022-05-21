@@ -101,6 +101,21 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."       
 I also change mission control --> 'move left/right a space' shortcuts to line up with
 PopOS, but that is weird on the command line for what I can tell
 
+# Node installation
+
+<details>
+  <summary>Using nvm.fish for node</summary>
+```
+fisher install jorgebucaran/nvm.fish
+nvm install latest
+set --universal nvm_default_version latest
+```
+
+
+* I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
+
+</details>
+
 # thanks
 
 [Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
