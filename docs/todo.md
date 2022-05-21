@@ -282,6 +282,10 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 - Should this be global? Put in readme?
 - https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
 
+# good resource
+
+https://github.com/rockerBOO/awesome-neovim
+
 ### tmux plugins
 
 ```
