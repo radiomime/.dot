@@ -1,12 +1,15 @@
 # .dot
 
-Repo for dotfiles.
+Repository for dotfiles.
 
 # install
 
 ## pyenv install
 
 [Follow instructions here.](https://github.com/pyenv/pyenv)
+
+_pyenv seems useful, but I'm not sold yet._
+
 
 ### fish shell in linux
 
