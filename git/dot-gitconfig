@@ -9,3 +9,8 @@
 	excludesfile = ~/.gitignore_global
 [init]
 	defaultBranch = main
+[alias]
+  l = log --graph --simplify-by-decoration --pretty=format:'%d' --all \
+    --format='%Cgreen(%cr) %C(cyan dim) <%an> %C(bold white)%d%Creset'
+	ll = log --graph --oneline --decorate --all \
+    --format='%C(cyan dim) %p %Cred %h %C(white dim) %s %Cgreen(%cr)%C(cyan dim) <%an>%C(bold magenta)%d%Creset'
