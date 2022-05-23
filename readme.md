@@ -110,8 +110,13 @@ PopOS, but that is weird on the command line for what I can tell
   <summary>Using nvm.fish for node</summary>
 ```
 fisher install jorgebucaran/nvm.fish
+# for latest npm/node
 nvm install latest
 set --universal nvm_default_version latest
+
+# or for stable
+nvm install lts
+set --universal nvm_default_version lts
 ```
 
 
@@ -126,7 +131,12 @@ set --universal nvm_default_version latest
   <summary>Blow up packer</summary>
 
 ```
+printf "*** packer base dir ***\n"
 ls ~/.local/share/nvim/site/pack/packer
+printf "*** packer opt dir ***\n"
+ls ~/.local/share/nvim/site/pack/packer/opt
+printf "*** packer start dir ***\n"
+ls ~/.local/share/nvim/site/pack/packer/start
 ```
 
 Are all your plugins there? If so,
@@ -137,6 +147,18 @@ nvim --headless -c 'exit'
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 </details>
+
+# Notes
+
+These were globally installed packages. This may or may not be useful if I want to replicate
+
+/usr/local/lib
+├── corepack@0.10.0
+├── n@7.5.0
+├── neovim@4.10.0
+├── npm@8.5.5
+├── prettier@2.5.1
+└── yarn@1.22.17
 
 # thanks
 
