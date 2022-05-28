@@ -143,25 +143,25 @@ function M:_install()
     -- be sure ~/.config/github-copilot has files in it
     -- use("github/copilot.vim")
     -- enable the other plugins below. This may be easier once the below plugins are more mature.
-    use({
-      "zbirenbaum/copilot.lua",
-      event = { "VimEnter" },
-      config = function()
-        vim.defer_fn(function()
-          require("copilot").setup({
-            ft_disable = {
-              "markdown",
-              "terraform",
-              "text",
-            },
-          })
-        end, 100)
-      end,
-    })
-    use({
-      "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua", "nvim-cmp" },
-    })
+    -- use({
+    --   "zbirenbaum/copilot.lua",
+    --   event = { "VimEnter" },
+    --   config = function()
+    --     vim.defer_fn(function()
+    --       require("copilot").setup({
+    --         ft_disable = {
+    --           "markdown",
+    --           "terraform",
+    --           "text",
+    --         },
+    --       })
+    --     end, 100)
+    --   end,
+    -- })
+    -- use({
+    --   "zbirenbaum/copilot-cmp",
+    --   after = { "copilot.lua", "nvim-cmp" },
+    -- })
     -- End of copilot setup --
 
     -- cmp plugins
