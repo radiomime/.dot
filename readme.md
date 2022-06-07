@@ -39,7 +39,7 @@ stow -v --dotfiles bash fish git kitty nvim starship tmux hammerspoon
 ## install cargo packages
 
 ```sh
-cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find
+cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
 
 switch (uname)
   case Linux
@@ -48,7 +48,7 @@ switch (uname)
   case Darwin
     echo osx cargo package setup
   case '*'
-    echo unexpected os
+    echo no setup defined for os
 end
 ```
 

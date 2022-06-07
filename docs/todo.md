@@ -5,6 +5,12 @@
 formatting: .fish files
 lsp references: .js files
 
+For fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
+
+## autocmds
+
+try to turn on/off format on save with an autocommand and create a whichkey binding.
+
 # checkout
 
 * https://github.com/nvbn/thefuck
