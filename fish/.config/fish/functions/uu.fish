@@ -42,5 +42,13 @@ function uu
       cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ' | xargs cargo install
     end
 
+  # snap
+    if type -sq snap
+      echo '*** updating snap packages'
+
+snap refresh --list
+snap refresh 
+    end
+  
 
 end
