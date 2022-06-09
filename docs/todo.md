@@ -288,9 +288,49 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 - Should this be global? Put in readme?
 - https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
 
+# if I want typescript references
+
+* https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
+
 # good resource
 
 https://github.com/rockerBOO/awesome-neovim
+
+# cargo packages
+
+* https://github.com/nabijaczleweli/cargo-update
+
+# pick through
+
+* [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
+* [and another one](https://github.com/ayamir/nvimdots)
+
+# breadcrumbs
+
+* https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
+* Also, this might have a plugin, now
+
+# plugins
+
+* https://github.com/johmsalas/text-case.nvim
+* https://github.com/nvim-treesitter/nvim-treesitter-context
+* https://github.com/andythigpen/nvim-coverage
+* https://github.com/rcarriga/neotest
+* https://github.com/ThePrimeagen/refactoring.nvim
+* https://github.com/nvim-telescope/telescope-ui-select.nvim
+* https://github.com/tami5/xbase
+* https://github.com/pwntester/octo.nvim <-- github in neovim
+* https://github.com/pwntester/octo.nvim
+* https://github.com/ziontee113/syntax-tree-surfer
+* alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 
 ### tmux plugins
 
