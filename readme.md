@@ -10,7 +10,6 @@ Repository for dotfiles.
 
 _pyenv seems useful, but I'm not sold yet._
 
-
 ### fish shell in linux
 
 ```
@@ -104,11 +103,12 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."       
 I also change mission control --> 'move left/right a space' shortcuts to line up with
 PopOS, but that is weird on the command line for what I can tell
 
-# Node installation
+# node installation
 
 <details>
   <summary>Using nvm.fish for node</summary>
-```
+
+```fish
 fisher install jorgebucaran/nvm.fish
 # for latest npm/node
 nvm install latest
@@ -119,13 +119,11 @@ nvm install lts
 set --universal nvm_default_version lts
 ```
 
-
-* I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
+- I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
 
 </details>
 
-# Troubleshooting
-
+# troubleshooting
 
 <details>
   <summary>Blow up packer</summary>
@@ -146,25 +144,12 @@ rip ~/.local/share/nvim/site/pack/packer
 nvim --headless -c 'exit'
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
+
 </details>
-
-# Notes
-
-These were globally installed packages. This may or may not be useful if I want to replicate
-
-/usr/local/lib
-├── corepack@0.10.0
-├── n@7.5.0
-├── neovim@4.10.0
-├── npm@8.5.5
-├── prettier@2.5.1
-└── yarn@1.22.17
 
 # thanks
 
-[Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
-creator [Chris](https://github.com/ChristianChiarulli) made using neovim so
-much easier. Many thanks. I got inspired from [these
-dotfiles](https://github.com/lukas-reineke?tab=repositories) as well. And
-thanks to my friend [Ethan](https://github.com/EthanJWright) for getting me
-started with vim.
+- [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its creator [Chris](https://github.com/ChristianChiarulli) made using neovim so much easier. Many thanks.
+- I was inspired from [Lukas's dotfiles](https://github.com/lukas-reineke?tab=repositories) as well.
+- thanks to my friend [Ethan](https://github.com/EthanJWright) for getting me started with vim.
+- [this repo](https://github.com/ashfinal/awesome-hammerspoon) was my base for my hammerspoon config.
