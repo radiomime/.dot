@@ -298,6 +298,11 @@ local normal_mappings = {
     c = { ":TSConfigInfo<cr>", "Config Info" },
     u = { ":TSUpdate<cr>", "Update" },
   },
+  i = {
+    name = "iterate",
+    a = { "<cmd>normal <C-a><cr>", "up" },
+    x = { "<cmd>normal <C-x><cr>", "down" },
+  },
   j = {
     name = "Terminal",
     -- numbered terminals
