@@ -37,6 +37,18 @@ try to turn on/off format on save with an autocommand and create a whichkey bind
 * Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
 
 
+# node to do?
+
+These were globally installed packages. This may or may not be useful if I want to replicate
+
+/usr/local/lib
+├── corepack@0.10.0
+├── n@7.5.0
+├── neovim@4.10.0
+├── npm@8.5.5
+├── prettier@2.5.1
+└── yarn@1.22.17
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
