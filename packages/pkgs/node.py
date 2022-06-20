@@ -24,11 +24,11 @@ class Node(AbsPackage):
         output = output.decode("utf-8")
         return output[1:].strip()
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="node",
-        )
+    # def osx_install(self):
+    #     brew = Brew()
+    #     brew.brew_install(
+    #         pkgs="node",
+    #     )
 
     def osx_uninstall(self):
         brew = Brew()
@@ -36,16 +36,16 @@ class Node(AbsPackage):
             pkgs="node",
         )
 
-    def linux_install(self):
-        installSource = "https://deb.nodesource.com/setup_current.x"
-        self.install_from_curled_script(
-            address=installSource,
-            run_as_sudo=True,
-        )
-
-        apt = Apt()
-        apt.update()
-        apt.install(["nodejs"])
+    # def linux_install(self):
+    #     installSource = "https://deb.nodesource.com/setup_current.x"
+    #     self.install_from_curled_script(
+    #         address=installSource,
+    #         run_as_sudo=True,
+    #     )
+    #
+    #     apt = Apt()
+    #     apt.update()
+    #     apt.install(["nodejs"])
 
     def linux_uninstall(self):
         apt = Apt()

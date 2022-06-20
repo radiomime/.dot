@@ -17,8 +17,8 @@ M.setup = function()
   end
 
   local config = {
-    -- disable virtual text
-    virtual_text = false,
+    -- enable virtual text: enabled virtual text for diagnostics
+    virtual_text = true,
     -- show signs
     signs = {
       active = signs,
@@ -160,6 +160,11 @@ M.on_attach = function(client, bufnr)
     -- })
     -- require('nvim-lsp-ts-utils').setup_client(client)
   end
+
+  if client.name == "sumneko_lua" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end

@@ -1,5 +1,54 @@
 ## ToDo
 
+## lsp
+
+formatting: .fish files
+lsp references: .js files
+
+For fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
+
+## autocmds
+
+try to turn on/off format on save with an autocommand and create a whichkey binding.
+
+# checkout
+
+* https://github.com/nvbn/thefuck
+* Useful for work projects and lsp file settings: `.git/info/exclude`
+* toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
+* mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
+* dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
+* https://github.com/axieax/urlview.nvim
+* tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
+* some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
+* This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+  * essentially, this should allow me to comment and view issues in a tui
+* notify, for pretty logging: https://github.com/rcarriga/nvim-notify
+* How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
+  * https://github.com/mfussenegger/nvim-dap
+  * https://github.com/rcarriga/nvim-dap-ui
+  * https://github.com/Pocco81/dap-buddy.nvim
+
+## Hammerspoon
+
+* [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+* possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
+* This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
+* Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
+
+
+# node to do?
+
+These were globally installed packages. This may or may not be useful if I want to replicate
+
+/usr/local/lib
+├── corepack@0.10.0
+├── n@7.5.0
+├── neovim@4.10.0
+├── npm@8.5.5
+├── prettier@2.5.1
+└── yarn@1.22.17
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
@@ -16,6 +65,12 @@ Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
 ## autocmds in lua
 
 https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
+
+https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
+
+## plugins
+
+Look into plugins in readme there
 
 ## snippets
 
@@ -244,6 +299,50 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 
 - Should this be global? Put in readme?
 - https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
+
+# if I want typescript references
+
+* https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
+
+# good resource
+
+https://github.com/rockerBOO/awesome-neovim
+
+# cargo packages
+
+* https://github.com/nabijaczleweli/cargo-update
+
+# pick through
+
+* [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
+* [and another one](https://github.com/ayamir/nvimdots)
+
+# breadcrumbs
+
+* https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
+* Also, this might have a plugin, now
+
+# plugins
+
+* https://github.com/johmsalas/text-case.nvim
+* https://github.com/nvim-treesitter/nvim-treesitter-context
+* https://github.com/andythigpen/nvim-coverage
+* https://github.com/rcarriga/neotest
+* https://github.com/ThePrimeagen/refactoring.nvim
+* https://github.com/nvim-telescope/telescope-ui-select.nvim
+* https://github.com/tami5/xbase
+* https://github.com/pwntester/octo.nvim <-- github in neovim
+* https://github.com/pwntester/octo.nvim
+* https://github.com/ziontee113/syntax-tree-surfer
+* alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
+* https://github.com/markonm/traces.vim
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 
 ### tmux plugins
 

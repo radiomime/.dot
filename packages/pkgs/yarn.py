@@ -23,6 +23,7 @@ class Yarn(AbsPackage):
         output = output.decode("utf-8")
         return output.rstrip()
 
+    # TODO, deal with node not being installed
     def __install(self):
         node = Node()
         node.node_install("yarn")

@@ -112,6 +112,7 @@ local normal_mappings = {
     "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
     "Projects",
   },
+  ["o"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" },
 
   b = {
     name = "Buffers",
@@ -119,6 +120,7 @@ local normal_mappings = {
     j = { "<cmd>BufferPick<cr>", "jump to buffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find buffer" },
     w = { "<cmd>BufferWipeout<cr>", "wipeout buffer" },
+    u = { "<cmd>UrlView buffer<cr>", "find urls in buffer" },
     b = {
       "<cmd>Telescope buffers<cr>",
       "Buffers",
@@ -171,6 +173,7 @@ local normal_mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+    p = { "<cmd>UrlView packer<cr>", "Search URLs to plugins" },
   },
   d = {
     name = "Diagnostics",
@@ -295,6 +298,11 @@ local normal_mappings = {
     c = { ":TSConfigInfo<cr>", "Config Info" },
     u = { ":TSUpdate<cr>", "Update" },
   },
+  i = {
+    name = "iterate",
+    a = { "<cmd>normal <C-a><cr>", "up" },
+    x = { "<cmd>normal <C-x><cr>", "down" },
+  },
   j = {
     name = "Terminal",
     -- numbered terminals
@@ -302,7 +310,9 @@ local normal_mappings = {
     s = { "<cmd>2ToggleTerm direction=float<cr>", "Float  2" },
     d = { "<cmd>3ToggleTerm direction=float<cr>", "Float  3" },
     f = { "<cmd>4ToggleTerm direction=float<cr>", "Float  4" },
-    -- bindings below correspond to a,s,d,f layers on my keyboard
+    j = { "<cmd>7ToggleTerm direction=float<cr>", "Float  7" },
+
+    -- bindings below correspond to layers on my keyboard
     ["1"] = {
       "<cmd>1ToggleTerm size=20 direction=horizontal<cr>",
       "Horizontal  1",
@@ -318,6 +328,10 @@ local normal_mappings = {
     ["4"] = {
       "<cmd>4ToggleTerm size=20 direction=horizontal<cr>",
       "Horizontal  4",
+    },
+    ["7"] = {
+      "<cmd>7ToggleTerm size=20 direction=horizontal<cr>",
+      "Horizontal  7",
     },
     ["!"] = {
       "<cmd>1ToggleTerm size=80 direction=vertical<cr>",
@@ -335,17 +349,20 @@ local normal_mappings = {
       "<cmd>4ToggleTerm size=80 direction=vertical<cr>",
       "Vertical  4",
     },
-
-    -- default terminal
-    j = { "<cmd>7ToggleTerm direction=float<cr>", "Float  7" },
-    h = {
-      "<cmd>7ToggleTerm size=15 direction=horizontal<cr>",
-      "Horizontal  7",
-    },
-    v = {
+    ["&"] = {
       "<cmd>7ToggleTerm size=80 direction=vertical<cr>",
       "Vertical  7",
     },
+
+    -- default terminal
+    -- h = {
+    --   "<cmd>7ToggleTerm size=15 direction=horizontal<cr>",
+    --   "Horizontal  7",
+    -- },
+    -- v = {
+    --   "<cmd>7ToggleTerm size=80 direction=vertical<cr>",
+    --   "Vertical  7",
+    -- },
 
     -- toggle terminals
     m = { "<cmd>ToggleTermToggleAll<cr>", "Toggle All  Min/Max" },
@@ -355,6 +372,9 @@ local normal_mappings = {
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, -- TODO: add a top one? Should I use btm here?
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+
+    -- create terminal in pane
+    [";"] = { "<cmd>terminal<cr>", "create terminal in current pane" },
   },
 }
 

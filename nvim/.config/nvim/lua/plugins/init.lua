@@ -7,6 +7,7 @@ local package_root = vim.fn.stdpath("data") .. "/site/pack"
 local install_path = vim.fn.stdpath("data")
   .. "/site/pack/packer/start/packer.nvim"
 
+-- TODO: turn the following two into some command? packer nuke?
 function M:clear_packer_cache()
   print("deleting packer cache at:" .. compile_path)
   if vim.fn.delete(compile_path) == 0 then
@@ -142,25 +143,25 @@ function M:_install()
     -- be sure ~/.config/github-copilot has files in it
     -- use("github/copilot.vim")
     -- enable the other plugins below. This may be easier once the below plugins are more mature.
-    use({
-      "zbirenbaum/copilot.lua",
-      event = { "VimEnter" },
-      config = function()
-        vim.defer_fn(function()
-          require("copilot").setup({
-            ft_disable = {
-              "markdown",
-              "terraform",
-              "text",
-            },
-          })
-        end, 100)
-      end,
-    })
-    use({
-      "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua", "nvim-cmp" },
-    })
+    -- use({
+    --   "zbirenbaum/copilot.lua",
+    --   event = { "VimEnter" },
+    --   config = function()
+    --     vim.defer_fn(function()
+    --       require("copilot").setup({
+    --         ft_disable = {
+    --           "markdown",
+    --           "terraform",
+    --           "text",
+    --         },
+    --       })
+    --     end, 100)
+    --   end,
+    -- })
+    -- use({
+    --   "zbirenbaum/copilot-cmp",
+    --   after = { "copilot.lua", "nvim-cmp" },
+    -- })
     -- End of copilot setup --
 
     -- cmp plugins
@@ -220,8 +221,11 @@ function M:_install()
     -- TODO: move this to a config file??
     use({
       "iamcco/markdown-preview.nvim",
-      run = "cd app && yarn install",
-      cmd = "MarkdownPreview",
+      run = "cd app && npm install",
+      setup = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
     })
 
     -- make things pretty
@@ -238,8 +242,13 @@ function M:_install()
       -- end,
     })
 
+    -- other
+    use("simrat39/symbols-outline.nvim")
+    use("axieax/urlview.nvim") -- :UrlView, :UrlView packer, and :UrlView buffer
+
     -- checkout!
     -- use("sindrets/winshift.nvim")
+    -- use('mrjones2014/smart-splits.nvim')
 
     -----
     -- TODO: below are some of the old ones I've used
@@ -401,7 +410,7 @@ function M:install()
 end
 
 function M:configure()
-  print("configuring plugins")
+  -- print("configuring plugins")
   -- TODO: protected call for these?
   -- TODO: underscore file names for namespace collision avoidance.
   -- require('plugins.cmp')
@@ -419,6 +428,7 @@ function M:configure()
   require("plugins.indentblankline")
   require("plugins.alpha")
   require("plugins.whichkey")
+  require("plugins._symbolsoutline")
 end
 
 -- M.install()

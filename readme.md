@@ -1,12 +1,14 @@
 # .dot
 
-Repo for dotfiles.
+Repository for dotfiles.
 
 # install
 
 ## pyenv install
 
 [Follow instructions here.](https://github.com/pyenv/pyenv)
+
+_pyenv seems useful, but I'm not sold yet._
 
 ### fish shell in linux
 
@@ -36,7 +38,7 @@ stow -v --dotfiles bash fish git kitty nvim starship tmux hammerspoon
 ## install cargo packages
 
 ```sh
-cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find
+cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
 
 switch (uname)
   case Linux
@@ -45,7 +47,7 @@ switch (uname)
   case Darwin
     echo osx cargo package setup
   case '*'
-    echo unexpected os
+    echo no setup defined for os
 end
 ```
 
@@ -95,16 +97,59 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"     
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reopen Closed Tab" -string "^\$t"
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..."  -string "^l"
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Page"  -string "^r"
+defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
 I also change mission control --> 'move left/right a space' shortcuts to line up with
 PopOS, but that is weird on the command line for what I can tell
 
+# node installation
+
+<details>
+  <summary>Using nvm.fish for node</summary>
+
+```fish
+fisher install jorgebucaran/nvm.fish
+# for latest npm/node
+nvm install latest
+set --universal nvm_default_version latest
+
+# or for stable
+nvm install lts
+set --universal nvm_default_version lts
+```
+
+- I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
+
+</details>
+
+# troubleshooting
+
+<details>
+  <summary>Blow up packer</summary>
+
+```
+printf "*** packer base dir ***\n"
+ls ~/.local/share/nvim/site/pack/packer
+printf "*** packer opt dir ***\n"
+ls ~/.local/share/nvim/site/pack/packer/opt
+printf "*** packer start dir ***\n"
+ls ~/.local/share/nvim/site/pack/packer/start
+```
+
+Are all your plugins there? If so,
+
+```
+rip ~/.local/share/nvim/site/pack/packer
+nvim --headless -c 'exit'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+
+</details>
+
 # thanks
 
-[Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its
-creator [Chris](https://github.com/ChristianChiarulli) made using neovim so
-much easier. Many thanks. I got inspired from [these
-dotfiles](https://github.com/lukas-reineke?tab=repositories) as well. And
-thanks to my friend [Ethan](https://github.com/EthanJWright) for getting me
-started with vim.
+- [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its creator [Chris](https://github.com/ChristianChiarulli) made using neovim so much easier. Many thanks.
+- I was inspired from [Lukas's dotfiles](https://github.com/lukas-reineke?tab=repositories) as well.
+- thanks to my friend [Ethan](https://github.com/EthanJWright) for getting me started with vim.
+- [this repo](https://github.com/ashfinal/awesome-hammerspoon) was my base for my hammerspoon config.
