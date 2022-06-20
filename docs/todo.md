@@ -335,7 +335,7 @@ https://github.com/rockerBOO/awesome-neovim
 * https://github.com/pwntester/octo.nvim
 * https://github.com/ziontee113/syntax-tree-surfer
 * alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
-* 
+* https://github.com/markonm/traces.vim
 * 
 * 
 * 
