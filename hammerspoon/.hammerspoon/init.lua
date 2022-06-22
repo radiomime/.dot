@@ -78,6 +78,15 @@ local function localLinkOfficialSpoon(name)
   hs.alert.show("exists   : " .. tostring(officialExists))
 end
 
+-- https://www.hammerspoon.org/Spoons/
+-- https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#how-do-i-create-a-spoon
+-- https://evantravers.com/articles/2020/06/08/hammerspoon-a-better-better-hyper-key/
+-- http://www.hammerspoon.org/Spoons/ReloadConfiguration.html
+-- https://www.hammerspoon.org/go/#fancyreload
+-- https://github.com/ashfinal/awesome-hammerspoon
+-- https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
+-- https://www.hammerspoon.org/docs/hs.fs.html#link
+
 spoonExists("ModalMgr")
 officialSpoonExists("ModalMgr")
 
