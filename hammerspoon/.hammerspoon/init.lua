@@ -86,6 +86,7 @@ end
 -- https://github.com/ashfinal/awesome-hammerspoon
 -- https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
 -- https://www.hammerspoon.org/docs/hs.fs.html#link
+-- https://github.com/koekeishiya/yabai
 
 spoonExists("ModalMgr")
 officialSpoonExists("ModalMgr")
