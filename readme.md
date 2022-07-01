@@ -91,12 +91,12 @@ defaults read com.brave.Browser NSUserKeyEquivalents
 # defaults write -g NSUserKeyEquivalents -dict-add "Paste" -string "^v"
 
 # brave
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab"           -string "^t"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window"        -string "^n"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"         -string "^w"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reopen Closed Tab" -string "^\$t"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..."  -string "^l"
-defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Page"  -string "^r"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Tab"           -string "^t"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "New Window"        -string "^n"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Close Tab"         -string "^w"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reopen Closed Tab" -string "^\$t"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Open Location..."  -string "^l"
+# defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Page"  -string "^r"
 # defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
