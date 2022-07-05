@@ -155,12 +155,17 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
-    -- client.filter_out_diagnostics_by_code = {80001}
-    -- TODO: make this a pcall? clean a bit? does this have cool other things I should use?
-    local ts_utils = require("nvim-lsp-ts-utils")
+
+    -- TODO: are there cool other things in this plug in? I think so.
+    local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
+    if not status_ok then
+      return
+    end
+
     ts_utils.setup({
       filter_out_diagnostics_by_code = { 80001 },
     })
+
     ts_utils.setup_client(client)
     -- require('nvim-lsp-ts-utils').setup({
     --     filter_out_diagnostics_by_code = { 80001 },
