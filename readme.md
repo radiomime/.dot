@@ -4,6 +4,12 @@ Repository for dotfiles.
 
 # install
 
+## clone
+
+```fish
+git clone --recursive git@github.com:radiomime/.dot.git
+```
+
 ## pyenv install
 
 [Follow instructions here.](https://github.com/pyenv/pyenv)
@@ -28,16 +34,26 @@ python3 -m pip install requests distro
 
 ## link dotfiles with stow
 
-```bash
+```fish
 # .config cannot be dot-config until this issue resolves
 #     https://github.com/aspiers/stow/issues/33
 
-stow -v --dotfiles bash fish git kitty nvim starship tmux hammerspoon
+stow -v \
+  --dotfiles \
+  --restow   \
+  bash       \
+  fish       \
+  git        \
+  kitty      \
+  nvim       \
+  starship   \
+  tmux       \
+  hammerspoon
 ```
 
 ## install cargo packages
 
-```sh
+```fish
 cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
 
 switch (uname)
@@ -53,23 +69,9 @@ end
 
 ## install docker
 
-NOTE: Only necessary on Mac.
+note: for mac.
 
 - [install docker](https://docs.docker.com/desktop/mac/install/)
-
-# reinstall
-
-```
-# reinstall
-stow -v --dotfiles --restow bash fish git kitty nvim starship tmux
-```
-
-# uninstall
-
-```
-# uninstall
-stow -v --dotfiles --delete bash fish git kitty nvim starship tmux
-```
 
 # MacOS Specific
 
@@ -100,8 +102,8 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Pag
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
-I also change mission control --> 'move left/right a space' shortcuts to line up with
-PopOS, but that is weird on the command line for what I can tell
+- I also change mission control --> 'move left/right a space' shortcuts to line up with
+  PopOS, but that is weird on the command line for what I can tell
 
 # node installation
 

@@ -13,11 +13,13 @@ end
 local conf = hs.fs.pathToAbsolute(hs.configdir .. "/config.lua")
 if conf then
   require("config")
-  print('*** config has been loaded ***')
+  print("*** config has been loaded ***")
 end
 
 -- reload hammerspoon config
-hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "r", function()
+-- hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "r", function()
+-- hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "r", function()
+hs.hotkey.bind({ "cmd", "ctrl" }, "r", function()
   hs.reload()
 end)
 
@@ -39,33 +41,57 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 -- display when config has been reloaded successfully
 hs.alert.show("Config loaded")
 
-
 -- hs.alert.sho
 -- hs.
 
-local foo = hs.fs.displayName(hs.configdir .. '/Spoons/ModalMgr')
-if not foo then
-  hs.alert.show('oh no, not foo')
-  return
+local function spoonExists(name)
+  local spoonPath = hs.configdir .. "/Spoons/" .. name
+  print("Checking for spoon " .. name .. " at path: " .. spoonPath)
+
+  if not hs.fs.displayName(spoonPath) then
+    print("local spoon does not exist: " .. name)
+    return false
+  end
+
+  return true
 end
 
-hs.alert.show('foo: ' .. foo)
+local function officialSpoonExists(name)
+  local spoonPath = hs.configdir
+    .. "/Spoons/OfficialSpoons/Source/"
+    .. name
+    .. ".spoon"
+  print("Checking for official spoon " .. name .. " at path: " .. spoonPath)
 
-
-local function checkForSpoon(name)
-  
+  if not hs.fs.displayName(spoonPath) then
+    print("official spoon not found: " .. name)
+    return false
+  end
+  return true
 end
--- local function reloadConfig(files)
---   local doReload = false
---   for _, file in pairs(files) do
---     if file:sub(-4) == ".lua" then
---       doReload = true
---     end
---   end
---   if doReload then
---     hs.reload()
---   end
--- end
+
+local function localLinkOfficialSpoon(name)
+  hs.alert.show("imma link: " .. name)
+  local isLinked = spoonExists(name)
+  hs.alert.show("is linked: " .. tostring(isLinked))
+  local officialExists = officialSpoonExists(name)
+  hs.alert.show("exists   : " .. tostring(officialExists))
+end
+
+-- https://www.hammerspoon.org/Spoons/
+-- https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#how-do-i-create-a-spoon
+-- https://evantravers.com/articles/2020/06/08/hammerspoon-a-better-better-hyper-key/
+-- http://www.hammerspoon.org/Spoons/ReloadConfiguration.html
+-- https://www.hammerspoon.org/go/#fancyreload
+-- https://github.com/ashfinal/awesome-hammerspoon
+-- https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
+-- https://www.hammerspoon.org/docs/hs.fs.html#link
+-- https://github.com/koekeishiya/yabai
+
+spoonExists("ModalMgr")
+officialSpoonExists("ModalMgr")
+
+localLinkOfficialSpoon("ModalMgr")
 
 -- hs.fs.link(hs.configdir .. '')
 

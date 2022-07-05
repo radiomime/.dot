@@ -26,3 +26,5 @@ A general place for useful notes regarding my neovim config.
   - this looks sorta neat, but which key already does a bunch for me. This supplements it, though.
 - https://github.com/echasnovski/mini.nvim
   - can replace comment plugin
+- https://github.com/kevinhwang91/nvim-ufo
+  - folding, but better
