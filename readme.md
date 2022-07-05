@@ -8,7 +8,6 @@ Repository for dotfiles.
 
 ```fish
 git clone --recursive git@github.com:radiomime/.dot.git
-git submodule update --init --recursive
 ```
 
 ## pyenv install
