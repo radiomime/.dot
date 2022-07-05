@@ -77,6 +77,14 @@ note: for mac.
 
 ## Keyboard Shortcuts
 
+- I change mission control --> 'move left/right a space' shortcuts to line up with
+  PopOS
+
+<details>
+  <summary>keyboard shortcut overwrites</summary>
+
+I found these to conflict with MacOS built-ins a little too much for my comfort.
+
 - @ : command
 - $ : shift
 - ~ : alt
@@ -102,8 +110,7 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Pag
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
-- I also change mission control --> 'move left/right a space' shortcuts to line up with
-  PopOS, but that is weird on the command line for what I can tell
+</details>
 
 # node installation
 
