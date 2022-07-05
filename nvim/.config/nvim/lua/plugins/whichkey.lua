@@ -146,13 +146,13 @@ local normal_mappings = {
       "sort BufferLines automatically by language",
     },
   },
-  c = {
-    name = "copilot",
-    s = { "<cmd>Copilot status<cr>", "status" },
-    e = { "<cmd>Copilot enable<cr>", "enable" },
-    d = { "<cmd>Copilot disable<cr>", "disable" },
-    p = { "<cmd>Copilot panel<cr>", "panel" },
-  },
+  -- c = {
+  --   name = "copilot",
+  --   s = { "<cmd>Copilot status<cr>", "status" },
+  --   e = { "<cmd>Copilot enable<cr>", "enable" },
+  --   d = { "<cmd>Copilot disable<cr>", "disable" },
+  --   p = { "<cmd>Copilot panel<cr>", "panel" },
+  -- },
   h = {
     name = "Hop",
     -- AC, BC, and MW suffix can be hoping before and after the cursor, and multiwindow
