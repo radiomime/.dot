@@ -156,15 +156,6 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 </details>
 
-## for local branches master -> main
-
-```fish
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-```
-
 # thanks
 
 - [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its creator [Chris](https://github.com/ChristianChiarulli) made using neovim so much easier. Many thanks.
