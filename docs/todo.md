@@ -1,5 +1,9 @@
 ## ToDo
 
+## uu update
+
+nvm install latest? should ask as a question. could set the universal version, too
+
 ## lsp
 
 formatting: .fish files
@@ -13,7 +17,6 @@ try to turn on/off format on save with an autocommand and create a whichkey bind
 
 # checkout
 
-* https://github.com/nvbn/thefuck
 * telescope jump list
 * Useful for work projects and lsp file settings: `.git/info/exclude`
 * toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
