@@ -17,29 +17,28 @@ try to turn on/off format on save with an autocommand and create a whichkey bind
 
 # checkout
 
-* telescope jump list
-* Useful for work projects and lsp file settings: `.git/info/exclude`
-* toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
-* mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
-* dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
-* https://github.com/axieax/urlview.nvim
-* tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
-* some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
-* This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
-  * essentially, this should allow me to comment and view issues in a tui
-* notify, for pretty logging: https://github.com/rcarriga/nvim-notify
-* How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
-  * https://github.com/mfussenegger/nvim-dap
-  * https://github.com/rcarriga/nvim-dap-ui
-  * https://github.com/Pocco81/dap-buddy.nvim
+- telescope jump list
+- Useful for work projects and lsp file settings: `.git/info/exclude`
+- toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
+- mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
+- dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
+- https://github.com/axieax/urlview.nvim
+- tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
+- some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
+- This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+  - essentially, this should allow me to comment and view issues in a tui
+- notify, for pretty logging: https://github.com/rcarriga/nvim-notify
+- How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
+  - https://github.com/mfussenegger/nvim-dap
+  - https://github.com/rcarriga/nvim-dap-ui
+  - https://github.com/Pocco81/dap-buddy.nvim
 
 ## Hammerspoon
 
-* [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
-* possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
-* This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
-* Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
-
+- [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+- possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
+- This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
+- Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
 
 # node to do?
 
@@ -78,10 +77,9 @@ Look into plugins in readme there
 
 ## snippets
 
-* Look through snippets tool
+- Look through snippets tool
 
 ## prettier default files
-
 
 ```yaml
 # .prettierrc or .prettierrc.yaml
@@ -94,7 +92,6 @@ overrides:
   - files: "*.json"
     options:
       tabWidth: 2
-
 ```
 
 ## tssserver
@@ -115,10 +112,6 @@ overrides:
 - move all cargo installs to readme
 - fd package! it isn't just "fd"
 - watchexec
-
-## git author
-
-Fish should have some alias for signing in as personal/work
 
 ## gitignore
 
@@ -145,24 +138,19 @@ This also looks neat: https://devhints.io/fish-shell
 
 ## rando
 
-add general fix plugin structure.
-
-add to gitconfig: default branch name
-
-Add gitignore command to fish instead of bash
-
-install prettier:
-npm install -g prettier
-maybe this too?
-npm install -g eslint_d
-
-add cargo install stylua
-add:
-go get github.com/jesseduffield/lazygit
-also, add to path: ~/go/bin
-fish_add_path ~/go/bin/
-Do this for the cargo stuff too!
-Actually, do gitui instead! Or maybe not, for author stuff.
+- add general fix plugin structure.
+- add gitignore command to fish instead of bash
+- install prettier:
+- npm install -g prettier
+- maybe this too?
+- npm install -g eslint_d
+- add cargo install stylua
+- add:
+- go get github.com/jesseduffield/lazygit
+- also, add to path: ~/go/bin
+- fish_add_path ~/go/bin/
+- Do this for the cargo stuff too!
+- Actually, do gitui instead! Or maybe not, for author stuff.
 
 # Weird installs
 
@@ -177,16 +165,13 @@ Actually, do gitui instead! Or maybe not, for author stuff.
 
 # rust packages
 
-fd-find add!:
-https://github.com/sharkdp/fd
-
-new top?
-https://github.com/ClementTsang/bottom
-
-Rust, should I put locked into command?
-
-Cargo:
-https://github.com/ClementTsang/bottom
+- fd-find add!:
+  - https://github.com/sharkdp/fd
+- new top?
+  - https://github.com/ClementTsang/bottom
+- Rust, should I put locked into command?
+- Cargo:
+  - https://github.com/ClementTsang/bottom
 
 # config
 
@@ -202,12 +187,10 @@ fit the prod system's needs, anyways.
 
 # lsp
 
-Add the following!
-brew install efm-langserver
-
-efm-langserver config symlink
-
-Things to checkout, incorporate, etc.
+- Add the following!
+- brew install efm-langserver
+- efm-langserver config symlink
+- Things to checkout, incorporate, etc.
 
 ## shell management
 
@@ -250,7 +233,6 @@ https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
 
 https://github.com/docker/compose/releases
 
-
 ### Uninstalls
 
 Put unintalls everywhere
@@ -258,6 +240,10 @@ Put unintalls everywhere
 ### fuzzyfinder
 
 from command line? rust implementation?
+
+### submodule init in readme
+
+https://stackoverflow.com/questions/1030169/pull-latest-changes-for-all-git-submodules
 
 ### Vim Markup
 
@@ -288,7 +274,6 @@ Two clear options:
 
 What is it? Gave me some weird issues regarding whitespace in my readme files
 
-
 ### version managers
 
 - node version manager
@@ -306,7 +291,7 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 
 # if I want typescript references
 
-* https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
+- https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
 
 # good resource
 
@@ -314,39 +299,39 @@ https://github.com/rockerBOO/awesome-neovim
 
 # cargo packages
 
-* https://github.com/nabijaczleweli/cargo-update
+- https://github.com/nabijaczleweli/cargo-update
 
 # pick through
 
-* [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
-* [and another one](https://github.com/ayamir/nvimdots)
+- [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
+- [and another one](https://github.com/ayamir/nvimdots)
 
 # breadcrumbs
 
-* https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
-* Also, this might have a plugin, now
+- https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
+- Also, this might have a plugin, now
 
 # plugins
 
-* https://github.com/johmsalas/text-case.nvim
-* https://github.com/nvim-treesitter/nvim-treesitter-context
-* https://github.com/andythigpen/nvim-coverage
-* https://github.com/rcarriga/neotest
-* https://github.com/ThePrimeagen/refactoring.nvim
-* https://github.com/nvim-telescope/telescope-ui-select.nvim
-* https://github.com/tami5/xbase
-* https://github.com/pwntester/octo.nvim <-- github in neovim
-* https://github.com/pwntester/octo.nvim
-* https://github.com/ziontee113/syntax-tree-surfer
-* alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
-* https://github.com/markonm/traces.vim
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+- https://github.com/johmsalas/text-case.nvim
+- https://github.com/nvim-treesitter/nvim-treesitter-context
+- https://github.com/andythigpen/nvim-coverage
+- https://github.com/rcarriga/neotest
+- https://github.com/ThePrimeagen/refactoring.nvim
+- https://github.com/nvim-telescope/telescope-ui-select.nvim
+- https://github.com/tami5/xbase
+- https://github.com/pwntester/octo.nvim <-- github in neovim
+- https://github.com/pwntester/octo.nvim
+- https://github.com/ziontee113/syntax-tree-surfer
+- alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
+- https://github.com/markonm/traces.vim
+-
+-
+-
+-
+-
+-
+-
 
 ### tmux plugins
 
