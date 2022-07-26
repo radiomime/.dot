@@ -348,9 +348,15 @@ https://github.com/rockerBOO/awesome-neovim
 * 
 * 
 
-### tmux plugins
+### pyenv global?
 
 ```
+pyenv global 3.8.13 2.7.18
+```
+
+### tmux plugins
+
+```fish
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'wfxr/tmux-fzf-url'
 set -g @plugin 'egel/tmux-gruvbox'
