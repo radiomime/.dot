@@ -1,5 +1,11 @@
 ## ToDo
 
+## asdf
+
+[asdf looks dope](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
+
+- use this for installing several things, like pyenv
+
 ## uu update
 
 nvm install latest? should ask as a question. could set the universal version, too
@@ -144,6 +150,7 @@ This also looks neat: https://devhints.io/fish-shell
 - npm install -g prettier
 - maybe this too?
 - npm install -g eslint_d
+- npm install -g tree-sitter-cli
 - add cargo install stylua
 - add:
 - go get github.com/jesseduffield/lazygit
