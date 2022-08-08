@@ -119,10 +119,6 @@ overrides:
 - fd package! it isn't just "fd"
 - watchexec
 
-## gitignore
-
-TODO: ignore functions, then include functions I want to include
-
 ## fisher
 
 add fisher plugin: z
