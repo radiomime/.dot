@@ -1,5 +1,11 @@
 ## ToDo
 
+## high priority ones!
+
+- copilot vs tabnine
+- python good lsp, renaming and such
+- nvim-lsp-installer is deprecated, yeah? fix that usage
+
 ## asdf
 
 [asdf looks dope](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
