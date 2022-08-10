@@ -21,6 +21,9 @@ if status --is-interactive
 end
 
 # add ssh keys
+for ssh_key in $HOME'/.ssh'/*
+    ssh-add $ssh_key 2>/dev/null
+end
 for ssh_key in $HOME'/.ssh/keys'/*
     ssh-add $ssh_key 2>/dev/null
 end
