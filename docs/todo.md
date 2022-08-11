@@ -64,6 +64,10 @@ These were globally installed packages. This may or may not be useful if I want 
 ├── prettier@2.5.1
 └── yarn@1.22.17
 
+## tmux review
+
+- do I still like and use tmux? could I make my config a bit better? I've never really done much there
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
