@@ -7,7 +7,7 @@ local lspconfig = require("lspconfig")
 
 -- TODO: add new servers here!
 -- TODO: can I make this automatic? Check nvim-lsp-installer somehow?
-local servers = { "jsonls", "sumneko_lua", "tsserver" }
+local servers = { "jsonls", "sumneko_lua", "tsserver" ,'jedi_language_server' }
 
 lsp_installer.setup({
   ensure_installed = servers,
