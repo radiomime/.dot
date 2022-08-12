@@ -44,13 +44,11 @@ M.setup = function()
       -- width = 60,
     })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    {
+  vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "rounded",
       -- width = 60,
-    }
-  )
+    })
 end
 
 local function lsp_highlight_document(client)
@@ -155,6 +153,8 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
+    -- client.resolved_capabilities.document_range_formatting = false
+    -- when this breaks, see: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflrcts
 
     -- TODO: are there cool other things in this plug in? I think so.
     local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
