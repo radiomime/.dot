@@ -36,6 +36,12 @@ function uu
       tldr --update
     end
 
+    # rust
+    if type -sq rust
+        echo '*** updating rust'
+        rustup update stable
+    end
+
     # cargo packages
     if type -sq cargo
       echo '*** updating cargo packages'
