@@ -21,6 +21,9 @@ if status --is-interactive
 end
 
 # add ssh keys
+for ssh_key in $HOME'/.ssh'/*
+    ssh-add $ssh_key 2>/dev/null
+end
 for ssh_key in $HOME'/.ssh/keys'/*
     ssh-add $ssh_key 2>/dev/null
 end
@@ -41,6 +44,7 @@ end
 if type -q pyenv
   status is-login; and pyenv init --path | source
   status is-interactive; and pyenv init - | source
+  # status --is-interactive; and pyenv virtualenv-init - | source
 end
 
 

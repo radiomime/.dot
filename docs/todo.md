@@ -1,5 +1,11 @@
 ## ToDo
 
+## high priority ones!
+
+- copilot vs tabnine
+- python good lsp, renaming and such
+- nvim-lsp-installer is deprecated, yeah? fix that usage
+
 ## asdf
 
 [asdf looks dope](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
@@ -57,6 +63,10 @@ These were globally installed packages. This may or may not be useful if I want 
 ├── npm@8.5.5
 ├── prettier@2.5.1
 └── yarn@1.22.17
+
+## tmux review
+
+- do I still like and use tmux? could I make my config a bit better? I've never really done much there
 
 ## Look into plugins:
 
