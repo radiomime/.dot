@@ -154,6 +154,20 @@ This also looks neat: https://devhints.io/fish-shell
 - fish_add_path ~/go/bin/
 - Do this for the cargo stuff too!
 - Actually, do gitui instead! Or maybe not, for author stuff.
+- cmdheight 0 and disappearing tmux status for more room
+  - https://www.reddit.com/r/neovim/comments/vc75v7/cmdheight0_vimtpipeline_a_match_made_in_heaven/
+- color picker, there are two, but one looks a bit more feature rich
+  - https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/
+- nvim-surround
+  - https://www.reddit.com/r/neovim/comments/vot02j/introducing_nvimsurround_a_plugin_for/
+- sudo file save when necessary
+  - https://www.reddit.com/r/commandline/comments/vqzg5c/dont_you_hate_it_when_you_edit_a_txt_file_in_vi/
+- hydra looks dope
+  - https://www.reddit.com/r/neovim/comments/w20cl1/hydra_update/
+- nice dot files
+  - https://www.reddit.com/r/vimporn/comments/whk9no/finally_updated_my_15_years_old_vimscript_config/
+- gh tui
+  - https://github.com/dlvhdr/gh-dash
 
 # Weird installs
 
