@@ -3,7 +3,6 @@
 ## high priority ones!
 
 - copilot vs tabnine
-- python good lsp, renaming and such
 - nvim-lsp-installer is deprecated, yeah? fix that usage
 
 ## asdf
@@ -14,7 +13,8 @@
 
 ## uu update
 
-nvm install latest? should ask as a question. could set the universal version, too
+- nvm install latest?
+  - should ask as a question. could set the universal version, too
 
 ## lsp
 
@@ -66,7 +66,8 @@ These were globally installed packages. This may or may not be useful if I want 
 
 ## tmux review
 
-- do I still like and use tmux? could I make my config a bit better? I've never really done much there
+- do I still like and use tmux?
+  - could I make my config a bit better? I've never really done much there
 
 ## Look into plugins:
 
@@ -79,17 +80,13 @@ https://github.com/ChristianChiarulli/nvim
 
 ## opener
 
-Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
+- Check this out for `cd` functionality:
+  - https://github.com/willthbill/opener.nvim
 
 ## autocmds in lua
 
-https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
-
-https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
-
-## plugins
-
-Look into plugins in readme there
+- https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
+- https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
 
 ## snippets
 
@@ -202,9 +199,8 @@ This also looks neat: https://devhints.io/fish-shell
 
 # config
 
-change around conf file to have program specific config dirs at the top level
-
-With this, update the "dot" class
+- change around conf file to have program specific config dirs at the top level
+  - With this, update the "dot" class
 
 # How about docker revisit
 
