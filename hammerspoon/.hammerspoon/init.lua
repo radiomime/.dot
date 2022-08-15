@@ -10,11 +10,12 @@ local function bubble(str)
 end
 
 -- load config
-local conf = hs.fs.pathToAbsolute(hs.configdir .. "/config.lua")
-if conf then
-  require("config")
-  print("*** config has been loaded ***")
-end
+-- local config
+-- local conf = hs.fs.pathToAbsolute(hs.configdir .. "/config.lua")
+-- if conf then
+--   config = require("config")
+--   print("*** config has been loaded ***")
+-- end
 
 -- reload hammerspoon config
 -- hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "r", function()
