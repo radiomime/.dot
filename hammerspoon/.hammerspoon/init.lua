@@ -18,9 +18,7 @@ end
 -- end
 
 -- reload hammerspoon config
--- hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "r", function()
--- hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "r", function()
-hs.hotkey.bind({ "cmd", "ctrl" }, "r", function()
+hs.hotkey.bind({ "cmd", "ctrl" }, "h", function()
   hs.reload()
 end)
 
