@@ -2,8 +2,10 @@
 -- TODO: lint
 -- TODO: clean
 
+local M = {}
+
 -- Specify Spoons which will be loaded
-hspoon_list = {
+M.hspoon_list = {
   "AClock",
   "BingDaily",
   -- "Calendar",
@@ -97,3 +99,6 @@ hstype_keys = { "alt", "V" }
 
 -- Toggle Hammerspoon console
 hsconsole_keys = { "alt", "Z" }
+
+-- return
+return M
