@@ -107,6 +107,8 @@ local function localLinkOfficialSpoon(name)
   -- hs.alert.show(name .. " exists: " .. tostring(officialPath))
 
   if not isLinked and officialPath then
+    -- log
+    hs.alert.show("locally linking " .. name)
     -- hs.alert.show(
     --   "i would like to locally link, because I think I can and should"
     -- )
@@ -144,7 +146,33 @@ end
 localLinkOfficialSpoon("ModalMgr")
 hs.loadSpoon("ModalMgr")
 
-hs.alert.show(config.hspoon_list)
+-- load spoons defined in config
+for _, spoon in pairs(config.hspoon_list) do
+  -- hs.alert.show("key " .. _)
+  -- hs.alert.show("value " .. spoon)
+  localLinkOfficialSpoon(spoon)
+  hs.loadSpoon(spoon)
+end
+
+----------------------------------------------------------------------------------------------------
+-- Register AClock
+if spoon.AClock then
+  hs.alert.show("there is a aclock spoon")
+  hsaclock_keys = hsaclock_keys or { "alt", "T" }
+  if string.len(hsaclock_keys[2]) > 0 then
+    hs.alert.show("we have some good hsa clock keys length")
+    spoon.ModalMgr.supervisor:bind(
+      hsaclock_keys[1],
+      hsaclock_keys[2],
+      "Toggle Floating Clock",
+      function()
+        spoon.AClock:toggleShow()
+      end
+    )
+  end
+end
+
+-- hs.alert.show(config.hspoon_list)
 
 -- hs.alert.show(c.hspoon_list)
 
