@@ -1,5 +1,9 @@
 ## ToDo
 
+## colors
+
+fuzzy find colors? or telescope?
+
 ## high priority ones!
 
 - copilot vs tabnine
