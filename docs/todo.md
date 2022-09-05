@@ -1,5 +1,27 @@
 ## ToDo
 
+## installations i could add
+
+- conda or miniconda
+- asdf
+- sh and bash fixes
+  - cargo install shellharden
+  - go install mvdan.cc/sh/v3/cmd/shfmt@latest
+
+```sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# ~/miniconda3/bin/conda init fish
+# mkdir -p ~/miniconda3
+# bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+# ~/miniconda3/bin/conda init bash
+# ~/miniconda3/bin/conda init zsh
+# conda config --set auto_activate_base false
+
+```
+
 ## high priority ones!
 
 - nvim-lsp-installer is deprecated, yeah? fix that usage
