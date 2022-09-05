@@ -1,5 +1,11 @@
 ## ToDo
 
+## switch to conda
+
+- conda install instead of pip install? Should I just move all of those to a readme?
+- fish formatter
+- fish, load a local config? Per computer? solves for things like conda.
+
 ## installations i could add
 
 - conda or miniconda
