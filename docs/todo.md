@@ -1,19 +1,19 @@
 ## ToDo
 
-## colors
-
-fuzzy find colors? or telescope?
-
 ## high priority ones!
 
-- copilot vs tabnine
 - nvim-lsp-installer is deprecated, yeah? fix that usage
+- copilot vs tabnine
 
 ## asdf
 
 [asdf looks dope](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
 
 - use this for installing several things, like pyenv
+
+## colors
+
+fuzzy find colors? or telescope?
 
 ## uu update
 
