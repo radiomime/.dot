@@ -1,22 +1,37 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+-- require plugins
+local mason_status_ok, mason = pcall(require, "mason")
+if not mason_status_ok then
   return
 end
 
-local lspconfig = require("lspconfig")
+local mason_lspconfig_status_ok, lsp_installer =
+  pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+  return
+end
 
--- TODO: add new servers here!
--- TODO: can I make this automatic? Check nvim-lsp-installer somehow?
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
+
+-- NOTE: add any new servers to be installed here. this gives lsp highlighting
 local servers = {
   "jsonls",
   "sumneko_lua",
   "tsserver",
   "jedi_language_server",
   "clangd",
+  "bashls",
 }
 
+-- mason needs to be setup first
+mason.setup()
+
+-- mason's lsp installer needs to be setup between mason and lspconfig
 lsp_installer.setup({
   ensure_installed = servers,
+  automatic_installation = false,
 })
 
 for _, server in pairs(servers) do
@@ -29,5 +44,7 @@ for _, server in pairs(servers) do
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
+
+  -- lspconfig should be set up last
   lspconfig[server].setup(opts)
 end

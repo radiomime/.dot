@@ -177,8 +177,14 @@ function M:_install()
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
     -- LSP
-    use("neovim/nvim-lspconfig") -- enable LSP
-    use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+    -- use("neovim/nvim-lspconfig") -- enable LSP
+    -- use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+    -- use({ "williamboman/mason.nvim" })
+    use({
+      "williamboman/mason.nvim", -- manage external tooling
+      "williamboman/mason-lspconfig.nvim", -- bridges mason and lspconfig
+      "neovim/nvim-lspconfig", -- enable LSP
+    })
     use({
       "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
       requires = { "neovim/nvim-lspconfig" },
