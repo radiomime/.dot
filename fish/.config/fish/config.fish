@@ -48,13 +48,6 @@ if type -q pyenv
 end
 
 
-# conda
-if type -q conda
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
-  # <<< conda initialize <<<
-end
 
 
 # Starship at the end of fish config
@@ -63,4 +56,19 @@ starship init fish | source
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zpuser/google-cloud-sdk/path.fish.inc' ]; . '/Users/zpuser/google-cloud-sdk/path.fish.inc'; end
 
+
+# ## mac here!
+# # conda
+# if type -q conda
+#   # >>> conda initialize >>>
+#   # !! Contents within this block are managed by 'conda init' !!
+#   eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+#   # <<< conda initialize <<<
+# end
+
+## linux here-
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/matt/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 
