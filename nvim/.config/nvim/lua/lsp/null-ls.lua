@@ -16,8 +16,9 @@ null_ls.setup({
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua, -- using sumneko, though that may have memory leaks
     --[[ formatting.beautysh, ]]
-    formatting.shfmt,
+    formatting.shfmt.with({ extra_args = { "-i", "2" } }),
     formatting.shellharden,
+    formatting.fish_indent,
     -- diagnostics.flake8
   },
 
