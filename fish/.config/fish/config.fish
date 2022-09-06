@@ -40,6 +40,11 @@ if test -d $HOME/.cargo/bin
   contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
 end
 
+if type -q go 
+  and test -d (go env GOPATH)
+  contains (go env GOPATH)/bin $fish_user_paths; or set -Ua fish_user_paths (go env GOPATH)/bin
+end
+
 # Pyenv
 if type -q pyenv
   status is-login; and pyenv init --path | source
