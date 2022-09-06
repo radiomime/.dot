@@ -6,6 +6,7 @@
 - move go install and conda installs to script in readme? Remove distinctions in mac when possible?
 - fish formatter
 - fish, load a local config? Per computer? solves for things like conda.
+- pip install isort
 
 ## installations i could add
 
