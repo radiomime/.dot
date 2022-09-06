@@ -19,6 +19,7 @@ null_ls.setup({
     formatting.shfmt.with({ extra_args = { "-i", "2" } }),
     formatting.shellharden,
     formatting.fish_indent,
+    formatting.isort,
     -- diagnostics.flake8
   },
 
