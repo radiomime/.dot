@@ -4,10 +4,10 @@
 
 if status --is-interactive
     abbr --add --global mk 'mkdir -pv'
-    abbr --add --global v 'nvim'
-    abbr --add --global b 'bat'
-    abbr --add --global c 'clear'
-    abbr --add --global l 'exa'
+    abbr --add --global v nvim
+    abbr --add --global b bat
+    abbr --add --global c clear
+    abbr --add --global l exa
     abbr --add --global ll 'exa --long --all'
     abbr --add --global lll 'exa --long --all --tree --level=2'
     abbr --add --global x 'chmod +x'
@@ -30,26 +30,26 @@ end
 
 
 # add to path!
-if test -e '/opt/homebrew/bin'
-  echo adding brew to fish_user_paths
-  contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
+if test -e /opt/homebrew/bin
+    echo adding brew to fish_user_paths
+    contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
 end
 
 # if test -e '$HOME/.cargo/bin'
 if test -d $HOME/.cargo/bin
-  contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
+    contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
 end
 
-if type -q go 
-  and test -d (go env GOPATH)
-  contains (go env GOPATH)/bin $fish_user_paths; or set -Ua fish_user_paths (go env GOPATH)/bin
+if type -q go
+    and test -d (go env GOPATH)
+    contains (go env GOPATH)/bin $fish_user_paths; or set -Ua fish_user_paths (go env GOPATH)/bin
 end
 
 # Pyenv
 if type -q pyenv
-  status is-login; and pyenv init --path | source
-  status is-interactive; and pyenv init - | source
-  # status --is-interactive; and pyenv virtualenv-init - | source
+    status is-login; and pyenv init --path | source
+    status is-interactive; and pyenv init - | source
+    # status --is-interactive; and pyenv virtualenv-init - | source
 end
 
 
@@ -59,7 +59,9 @@ end
 starship init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zpuser/google-cloud-sdk/path.fish.inc' ]; . '/Users/zpuser/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/zpuser/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/zpuser/google-cloud-sdk/path.fish.inc'
+end
 
 
 # ## mac here!
