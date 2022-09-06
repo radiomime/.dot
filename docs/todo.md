@@ -3,6 +3,7 @@
 ## switch to conda
 
 - conda install instead of pip install? Should I just move all of those to a readme?
+- move go install and conda installs to script in readme? Remove distinctions in mac when possible?
 - fish formatter
 - fish, load a local config? Per computer? solves for things like conda.
 
