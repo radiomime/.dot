@@ -19,7 +19,7 @@ null_ls.setup({
     formatting.shfmt.with({ extra_args = { "-i", "2" } }),
     formatting.shellharden,
     formatting.fish_indent,
-    formatting.isort,
+    formatting.isort.with({ extra_args = { "--profile", "black" } }),
     -- diagnostics.flake8
   },
 
