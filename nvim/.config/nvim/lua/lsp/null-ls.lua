@@ -20,6 +20,9 @@ null_ls.setup({
     formatting.shellharden,
     formatting.fish_indent,
     formatting.isort.with({ extra_args = { "--profile", "black" } }),
+    formatting.sqlfluff.with({
+      extra_args = { "--dialect", "bigquery" }, -- change to your dialect
+    }),
     -- diagnostics.flake8
   },
 
