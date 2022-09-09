@@ -471,6 +471,10 @@ large_file_skip_char_limit = 20000
 processes = 0
 ```
 
+### quickscope colors
+
+- https://github.com/unblevable/quick-scope#customize-colors
+
 ### tmux plugins
 
 ```fish
