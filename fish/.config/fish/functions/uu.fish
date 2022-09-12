@@ -37,7 +37,7 @@ function uu
     end
 
     # rust
-    if type -sq rust
+    if type -sq rustup
         echo '*** updating rust'
         rustup update stable
     end
