@@ -379,15 +379,15 @@ local normal_mappings = {
 }
 
 local visual_opts = {
-            mode = "v", -- VISUAL mode
-            prefix = "<leader>",
-            buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true, -- use `silent` when creating keymaps
-            noremap = true, -- use `noremap` when creating keymaps
-            nowait = true, -- use `nowait` when creating keymaps
+  mode = "v", -- VISUAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
 }
 local visual_mappings = {
---       ["/"] = { ":CommentToggle<CR>", "Comment" },
+  --       ["/"] = { ":CommentToggle<CR>", "Comment" },
   l = {
     name = "lsp",
     f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format --- visual" },
