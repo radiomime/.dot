@@ -53,7 +53,6 @@ fuzzy find colors? or telescope?
 
 ## lsp
 
-formatting: .fish files
 lsp references: .js files
 
 For fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
