@@ -275,6 +275,8 @@ local normal_mappings = {
     },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    m = { "<cmd>lua require'telescope.builtin'.marks{}<cr>", "Marks" }, -- todo, use this more!
+    e = { "<cmd>lua require'telescope.builtin'.registers{}<cr>", "Registers" }, -- todo, use this more!
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
