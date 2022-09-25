@@ -73,6 +73,6 @@ function M:configure()
   alpha.setup(dashboard.opts)
 end
 
-M.configure()
+M.configure({})
 
 return M

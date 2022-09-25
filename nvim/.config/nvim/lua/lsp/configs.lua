@@ -23,6 +23,7 @@ local servers = {
   "jedi_language_server",
   "clangd",
   "bashls",
+  --[[ "pyright", ]]
 }
 
 -- mason needs to be setup first
@@ -31,7 +32,7 @@ mason.setup()
 -- mason's lsp installer needs to be setup between mason and lspconfig
 lsp_installer.setup({
   ensure_installed = servers,
-  automatic_installation = false,
+  automatic_installation = false, -- should this be true? where are these?
 })
 
 for _, server in pairs(servers) do

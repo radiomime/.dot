@@ -3,8 +3,11 @@
 ## switch to conda
 
 - conda install instead of pip install? Should I just move all of those to a readme?
+- move go install and conda installs to script in readme? Remove distinctions in mac when possible?
 - fish formatter
 - fish, load a local config? Per computer? solves for things like conda.
+- pip install isort
+- pip install sqlfluff
 
 ## installations i could add
 
@@ -50,7 +53,6 @@ fuzzy find colors? or telescope?
 
 ## lsp
 
-formatting: .fish files
 lsp references: .js files
 
 For fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
@@ -398,6 +400,84 @@ https://github.com/rockerBOO/awesome-neovim
 ```
 pyenv global 3.8.13 2.7.18
 ```
+
+# add a default configurations for things
+
+### sqlfluff
+
+https://docs.sqlfluff.com/en/stable/configuration.html#default-configuration
+
+```
+[sqlfluff]
+
+# verbose is an integer (0-2) indicating the level of log output
+verbose = 0
+
+# Turn off color formatting of output
+nocolor = False
+
+# Supported dialects https://docs.sqlfluff.com/en/stable/dialects.html
+# Or run 'sqlfluff dialects'
+dialect = bigquery
+
+# One of [raw|jinja|python|placeholder]
+templater = jinja
+
+# Comma separated list of rules to check, default to all
+rules = all
+
+# Comma separated list of rules to exclude, or None
+exclude_rules = None
+
+# The depth to recursively parse to (0 for unlimited)
+recurse = 0
+
+# Below controls SQLFluff output, see max_line_length for SQL output
+output_line_length = 80
+
+# Number of passes to run before admitting defeat
+runaway_limit = 10
+
+# Ignore errors by category (one or more of the following, separated by commas: lexing,linting,parsing,templating)
+ignore = templating
+# ignore = None
+
+# Ignore linting errors found within sections of code coming directly from
+# templated code (e.g. from within Jinja curly braces. Note that it does not
+# ignore errors from literal code found within template loops.
+ignore_templated_areas = True
+
+# can either be autodetect or a valid encoding e.g. utf-8, utf-8-sig
+encoding = autodetect
+
+# Ignore inline overrides (e.g. to test if still required)
+disable_noqa = False
+
+# Comma separated list of file extensions to lint
+# NB: This config will only apply in the root folder
+sql_file_exts = .sql,.sql.j2,.dml,.ddl
+
+# Allow fix to run on files, even if they contain parsing errors
+# Note altering this is NOT RECOMMENDED as can corrupt SQL
+# fix_even_unparsable = True
+fix_even_unparsable = False # default
+
+# Very large files can make the parser effectively hang.
+# This limit skips files over a certain character length
+# and warns the user what has happened.
+# Set this to 0 to disable.
+large_file_skip_char_limit = 20000
+
+# CPU processes to use while linting.
+# If positive, just implies number of processes.
+# If negative or zero, implies number_of_cpus - specifed_number.
+# e.g. -1 means use all processors but one. 0  means all cpus.
+processes = 0
+```
+
+### quickscope colors
+
+- https://github.com/unblevable/quick-scope#customize-colors
 
 ### tmux plugins
 

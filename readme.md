@@ -56,6 +56,12 @@ stow -v \
 ```fish
 cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
 
+# other possible cool ones
+# diskonaut from https://github.com/imsnif/diskonaut
+# du-dust from https://github.com/bootandy/dust
+# broot from https://github.com/Canop/broot
+
+
 switch (uname)
   case Linux
     echo linux cargo package setup

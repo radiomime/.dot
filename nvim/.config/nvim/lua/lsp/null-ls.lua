@@ -12,13 +12,28 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
+    --[[ js, ts ]]
     formatting.prettier, -- with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-    formatting.black.with({ extra_args = { "--fast" } }),
+
+    --[[ lua ]]
     formatting.stylua, -- using sumneko, though that may have memory leaks
-    --[[ formatting.beautysh, ]]
-    formatting.shfmt,
+
+    --[[ shell files ]]
+    formatting.shfmt.with({ extra_args = { "-i", "2" } }),
     formatting.shellharden,
+
+    --[[ fish ]]
+    formatting.fish_indent,
+
+    --[[ python ]]
+    formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.isort.with({ extra_args = { "--profile", "black" } }),
     -- diagnostics.flake8
+
+    --[[ sql ]]
+    formatting.sqlfluff.with({
+      extra_args = { "--dialect", "bigquery" }, -- change to your dialect
+    }),
   },
 
   -- uncomment on_attach fn below for format on save

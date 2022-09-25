@@ -34,7 +34,7 @@ function M:init()
   -- print("packer is already installed: " .. tostring(M.packer_is_installed()))
 
   -- install packer if that directory isn't populated
-  if not M.packer_is_installed() then
+  if not M.packer_is_installed(self) then
     print("installing packer to: " .. install_path)
     PACKER_BOOTSTRAP = vim.fn.system({
       "git",
@@ -115,7 +115,7 @@ function M:_install()
 
     use("moll/vim-bbye")
     -- TODO: play around with qs config more
-    -- use("unblevable/quick-scope") -- do I like this?
+    use("unblevable/quick-scope") -- do I like this?
     use("nvim-lualine/lualine.nvim")
     use({ "akinsho/toggleterm.nvim", branch = "main" })
     -- use("ahmedkhalf/project.nvim")
@@ -435,6 +435,7 @@ function M:configure()
   require("plugins.alpha")
   require("plugins.whichkey")
   require("plugins._symbolsoutline")
+  require("plugins._quickscope")
 end
 
 -- M.install()
