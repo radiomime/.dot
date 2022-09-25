@@ -388,6 +388,11 @@ https://github.com/rockerBOO/awesome-neovim
 -
 -
 
+# look in to:
+
+- https://www.reddit.com/r/neovim/comments/xg48k9/what_is_the_coolest_unknownish_plugin_that_youre/
+- https://github.com/anuvyklack/windows.nvim
+
 ### pyenv global?
 
 ```
