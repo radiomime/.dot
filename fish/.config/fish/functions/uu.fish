@@ -53,7 +53,7 @@ function uu
       echo '*** updating snap packages'
 
 snap refresh --list
-snap refresh 
+sudo snap refresh 
     end
   
 
