@@ -34,7 +34,6 @@ rm -rf ~/miniconda3/miniconda.sh
 ## high priority ones!
 
 - nvim-lsp-installer is deprecated, yeah? fix that usage
-- copilot vs tabnine
 
 ## asdf
 
@@ -394,6 +393,32 @@ https://github.com/rockerBOO/awesome-neovim
 
 - https://www.reddit.com/r/neovim/comments/xg48k9/what_is_the_coolest_unknownish_plugin_that_youre/
 - https://github.com/anuvyklack/windows.nvim
+- https://github.com/ziontee113/syntax-tree-surfer
+- https://www.reddit.com/r/neovim/comments/q7bgwo/marksnvim_a_plugin_for_viewing_and_interacting/
+- https://github.com/chentoast/marks.nvim
+- https://github.com/uga-rosa/ccc.nvim
+- look into code folding more, not sure how to do it the native way.
+- https://github.com/ray-x/lsp_signature.nvim
+- https://github.com/EdenEast/nightfox.nvim
+- https://github.com/savq/melange
+- https://github.com/sainnhe/sonokai
+- https://github.com/sainnhe/everforest
+- https://github.com/folke/tokyonight.nvim
+- https://github.com/catppuccin/catppuccin
+- https://github.com/sam4llis/nvim-tundra
+- https://alpha2phi.medium.com/neovim-for-beginners-lsp-using-null-ls-nvim-bd954bf86b40
+- https://www.reddit.com/r/neovim/comments/x409tv/cant_go_back_to_vscode/
+- https://www.reddit.com/r/neovim/comments/x53lzx/i_must_be_missing_something/
+- https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
+- https://github.com/phaazon/mind.nvim
+- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
+-
+-
+-
+
+## mac things
+
+- https://github.com/rxhanson/Rectangle
 
 ### pyenv global?
 
