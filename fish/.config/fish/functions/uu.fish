@@ -51,11 +51,8 @@ function uu
     # snap
     if type -sq snap
         echo '*** updating snap packages'
-
-snap refresh --list
-sudo snap refresh 
         snap refresh --list
-        snap refresh
+        sudo snap refresh
     end
 
 

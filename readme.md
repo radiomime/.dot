@@ -54,7 +54,15 @@ stow -v \
 ## install cargo packages
 
 ```fish
-cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
+cargo install \
+  ripgrep \
+  bandwhich \
+  watchexec-cli \
+  exa \
+  rm-improved \
+  stylua \
+  fd-find \
+  bottom
 
 # other possible cool ones
 # diskonaut from https://github.com/imsnif/diskonaut
