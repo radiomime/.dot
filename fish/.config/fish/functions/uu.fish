@@ -7,12 +7,12 @@ function uu
 
     # install fisher plugins
     if type -sq fisher
-      echo '*** installing fisher plugins'
-      fisher update
+        echo '*** installing fisher plugins'
+        fisher update
     end
     # to uninstall: fisher list | fisher remove
 
-  # apt packages
+    # apt packages
     if type -sq apt-get
         echo '*** updating linux packages'
         # command sudo apt-get -y -qq update
@@ -30,25 +30,30 @@ function uu
         command brew upgrade
     end
 
-  # tldr db
+    # tldr db
     if type -sq tldr
-      echo '*** updating tldr database'
-      tldr --update
+        echo '*** updating tldr database'
+        tldr --update
+    end
+
+    # rust
+    if type -sq rustup
+        echo '*** updating rust'
+        rustup update stable
     end
 
     # cargo packages
     if type -sq cargo
-      echo '*** updating cargo packages'
-      cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ' | xargs cargo install
+        echo '*** updating cargo packages'
+        cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ' | xargs cargo install
     end
 
-  # snap
+    # snap
     if type -sq snap
-      echo '*** updating snap packages'
-
-snap refresh --list
-snap refresh 
+        echo '*** updating snap packages'
+        snap refresh --list
+        sudo snap refresh
     end
-  
+
 
 end

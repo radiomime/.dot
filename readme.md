@@ -54,7 +54,21 @@ stow -v \
 ## install cargo packages
 
 ```fish
-cargo install ripgrep bandwhich watchexec-cli exa rm-improved stylua fd-find bottom
+cargo install \
+  ripgrep \
+  bandwhich \
+  watchexec-cli \
+  exa \
+  rm-improved \
+  stylua \
+  fd-find \
+  bottom
+
+# other possible cool ones
+# diskonaut from https://github.com/imsnif/diskonaut
+# du-dust from https://github.com/bootandy/dust
+# broot from https://github.com/Canop/broot
+
 
 switch (uname)
   case Linux
@@ -76,6 +90,14 @@ note: for mac.
 # MacOS Specific
 
 ## Keyboard Shortcuts
+
+- I change mission control --> 'move left/right a space' shortcuts to line up with
+  PopOS
+
+<details>
+  <summary>keyboard shortcut overwrites</summary>
+
+I found these to conflict with MacOS built-ins a little too much for my comfort.
 
 - @ : command
 - $ : shift
@@ -102,8 +124,7 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Reload This Pag
 defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."           -string "^f"
 ```
 
-- I also change mission control --> 'move left/right a space' shortcuts to line up with
-  PopOS, but that is weird on the command line for what I can tell
+</details>
 
 # node installation
 

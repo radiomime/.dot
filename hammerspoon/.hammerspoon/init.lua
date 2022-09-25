@@ -10,16 +10,15 @@ local function bubble(str)
 end
 
 -- load config
-local conf = hs.fs.pathToAbsolute(hs.configdir .. "/config.lua")
-if conf then
-  require("config")
-  print("*** config has been loaded ***")
-end
+-- local config
+-- local conf = hs.fs.pathToAbsolute(hs.configdir .. "/config.lua")
+-- if conf then
+--   config = require("config")
+--   print("*** config has been loaded ***")
+-- end
 
 -- reload hammerspoon config
--- hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "r", function()
--- hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "r", function()
-hs.hotkey.bind({ "cmd", "ctrl" }, "r", function()
+hs.hotkey.bind({ "cmd", "ctrl" }, "h", function()
   hs.reload()
 end)
 
@@ -41,11 +40,39 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 -- display when config has been reloaded successfully
 hs.alert.show("Config loaded")
 
--- hs.alert.sho
--- hs.
+-- load config
+local config_ok, config = pcall(require, "config")
+if not config_ok then
+  bubble("error finding necessary config.lua file")
+  return
+end
 
-local function spoonExists(name)
-  local spoonPath = hs.configdir .. "/Spoons/" .. name
+local function getOfficialSpoonPath(name)
+  local spoonPath = hs.configdir
+    .. "/Spoons/OfficialSpoons/Source/"
+    .. name
+    .. ".spoon"
+
+  print("Checking for official spoon " .. name .. " at path: " .. spoonPath)
+
+  if not hs.fs.displayName(spoonPath) then
+    print("official spoon does not exist: " .. name)
+    -- hs.alert.show("not seeing the official spoon")
+    return nil
+  end
+
+  print("official spoon exists: " .. name)
+  return spoonPath
+end
+
+local function getSpoonPath(name)
+  local spoonPath = hs.configdir .. "/Spoons/" .. name .. ".spoon"
+  -- hs.alert.show("spoon path: " .. spoonPath)
+  return spoonPath
+end
+
+local function localSpoonExists(name)
+  local spoonPath = getSpoonPath(name)
   print("Checking for spoon " .. name .. " at path: " .. spoonPath)
 
   if not hs.fs.displayName(spoonPath) then
@@ -56,26 +83,44 @@ local function spoonExists(name)
   return true
 end
 
-local function officialSpoonExists(name)
-  local spoonPath = hs.configdir
-    .. "/Spoons/OfficialSpoons/Source/"
-    .. name
-    .. ".spoon"
-  print("Checking for official spoon " .. name .. " at path: " .. spoonPath)
-
-  if not hs.fs.displayName(spoonPath) then
-    print("official spoon not found: " .. name)
-    return false
-  end
-  return true
-end
+-- local function officialSpoonExists(name)
+--   local spoonPath = hs.configdir
+--     .. "/Spoons/OfficialSpoons/Source/"
+--     .. name
+--     .. ".spoon"
+--   print("Checking for official spoon " .. name .. " at path: " .. spoonPath)
+--
+--   if not hs.fs.displayName(spoonPath) then
+--     print("official spoon does not exist: " .. name)
+--     return false
+--   end
+--
+--   print("official spoon exists: " .. name)
+--   return true
+-- end
 
 local function localLinkOfficialSpoon(name)
-  hs.alert.show("imma link: " .. name)
-  local isLinked = spoonExists(name)
-  hs.alert.show("is linked: " .. tostring(isLinked))
-  local officialExists = officialSpoonExists(name)
-  hs.alert.show("exists   : " .. tostring(officialExists))
+  local isLinked = localSpoonExists(name)
+  local officialPath = getOfficialSpoonPath(name)
+  -- hs.alert.show("thinking about locally linking: " .. name)
+  -- hs.alert.show(name .. " is linked: " .. tostring(isLinked))
+  -- hs.alert.show(name .. " exists: " .. tostring(officialPath))
+
+  if not isLinked and officialPath then
+    -- log
+    hs.alert.show("locally linking " .. name)
+    -- hs.alert.show(
+    --   "i would like to locally link, because I think I can and should"
+    -- )
+    -- hs.alert.show("I need to link the official spoon: " .. name)
+    -- hs.alert.show("link path\n" .. getSpoonPath(name))
+    -- hs.alert.show("dir path\n" .. officialPath)
+
+    hs.fs.link(officialPath, getSpoonPath(name), true)
+  else
+    -- hs.alert.show("i do not need to locally link the spoon")
+    print("I do not need to link the official spoon: " .. name)
+  end
 end
 
 -- https://www.hammerspoon.org/Spoons/
@@ -88,10 +133,48 @@ end
 -- https://www.hammerspoon.org/docs/hs.fs.html#link
 -- https://github.com/koekeishiya/yabai
 
-spoonExists("ModalMgr")
-officialSpoonExists("ModalMgr")
+-- spoonExists("ModalMgr")
+-- getOfficialSpoonPath("ModalMgr")
+-- print("*** does exist ***: " .. getOfficialSpoonPath("ModalMgr"))
+-- print(
+--   "*** does not exist ***: "
+--     .. tostring(true == getOfficialSpoonPath("Doesn't exist"))
+-- )
+-- officialSpoonExists("ModalMgr")
 
+-- ModalMgr Spoon must be loaded explicitly, because this repository heavily relies upon it.
 localLinkOfficialSpoon("ModalMgr")
+hs.loadSpoon("ModalMgr")
+
+-- load spoons defined in config
+for _, spoon in pairs(config.hspoon_list) do
+  -- hs.alert.show("key " .. _)
+  -- hs.alert.show("value " .. spoon)
+  localLinkOfficialSpoon(spoon)
+  hs.loadSpoon(spoon)
+end
+
+----------------------------------------------------------------------------------------------------
+-- Register AClock
+if spoon.AClock then
+  hs.alert.show("there is a aclock spoon")
+  hsaclock_keys = hsaclock_keys or { "alt", "T" }
+  if string.len(hsaclock_keys[2]) > 0 then
+    hs.alert.show("we have some good hsa clock keys length")
+    spoon.ModalMgr.supervisor:bind(
+      hsaclock_keys[1],
+      hsaclock_keys[2],
+      "Toggle Floating Clock",
+      function()
+        spoon.AClock:toggleShow()
+      end
+    )
+  end
+end
+
+-- hs.alert.show(config.hspoon_list)
+
+-- hs.alert.show(c.hspoon_list)
 
 -- hs.fs.link(hs.configdir .. '')
 

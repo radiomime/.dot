@@ -1,3 +1,10 @@
+# mac
+.DS_STORE
+
+# hammerspoon
+hammerspoon/.hammerspoon/Spoons/AClock.spoon
+hammerspoon/.hammerspoon/Spoons/ModalMgr.spoon
+
 # fish
 fish/.config/fish/completions
 fish/.config/fish/fish_variables

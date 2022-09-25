@@ -1,8 +1,57 @@
 ## ToDo
 
+## switch to conda
+
+- conda install instead of pip install? Should I just move all of those to a readme?
+- move go install and conda installs to script in readme? Remove distinctions in mac when possible?
+- fish formatter
+- fish, load a local config? Per computer? solves for things like conda.
+- pip install isort
+- pip install sqlfluff
+
+## installations i could add
+
+- conda or miniconda
+- asdf
+- sh and bash fixes
+  - cargo install shellharden
+  - go install mvdan.cc/sh/v3/cmd/shfmt@latest
+
+```sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# ~/miniconda3/bin/conda init fish
+# mkdir -p ~/miniconda3
+# bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+# ~/miniconda3/bin/conda init bash
+# ~/miniconda3/bin/conda init zsh
+# conda config --set auto_activate_base false
+
+```
+
+## high priority ones!
+
+- nvim-lsp-installer is deprecated, yeah? fix that usage
+
+## asdf
+
+[asdf looks dope](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
+
+- use this for installing several things, like pyenv
+
+## colors
+
+fuzzy find colors? or telescope?
+
+## uu update
+
+- nvm install latest?
+  - should ask as a question. could set the universal version, too
+
 ## lsp
 
-formatting: .fish files
 lsp references: .js files
 
 For fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
@@ -13,30 +62,28 @@ try to turn on/off format on save with an autocommand and create a whichkey bind
 
 # checkout
 
-* https://github.com/nvbn/thefuck
-* telescope jump list
-* Useful for work projects and lsp file settings: `.git/info/exclude`
-* toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
-* mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
-* dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
-* https://github.com/axieax/urlview.nvim
-* tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
-* some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
-* This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
-  * essentially, this should allow me to comment and view issues in a tui
-* notify, for pretty logging: https://github.com/rcarriga/nvim-notify
-* How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
-  * https://github.com/mfussenegger/nvim-dap
-  * https://github.com/rcarriga/nvim-dap-ui
-  * https://github.com/Pocco81/dap-buddy.nvim
+- telescope jump list
+- Useful for work projects and lsp file settings: `.git/info/exclude`
+- toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
+- mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
+- dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
+- https://github.com/axieax/urlview.nvim
+- tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
+- some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
+- This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+  - essentially, this should allow me to comment and view issues in a tui
+- notify, for pretty logging: https://github.com/rcarriga/nvim-notify
+- How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
+  - https://github.com/mfussenegger/nvim-dap
+  - https://github.com/rcarriga/nvim-dap-ui
+  - https://github.com/Pocco81/dap-buddy.nvim
 
 ## Hammerspoon
 
-* [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
-* possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
-* This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
-* Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
-
+- [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
+- possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
+- This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
+- Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
 
 # node to do?
 
@@ -50,6 +97,11 @@ These were globally installed packages. This may or may not be useful if I want 
 ├── prettier@2.5.1
 └── yarn@1.22.17
 
+## tmux review
+
+- do I still like and use tmux?
+  - could I make my config a bit better? I've never really done much there
+
 ## Look into plugins:
 
 `nyngwang/NeoRoot.lua`
@@ -61,24 +113,19 @@ https://github.com/ChristianChiarulli/nvim
 
 ## opener
 
-Check this out for `cd` functionality: https://github.com/willthbill/opener.nvim
+- Check this out for `cd` functionality:
+  - https://github.com/willthbill/opener.nvim
 
 ## autocmds in lua
 
-https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
-
-https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
-
-## plugins
-
-Look into plugins in readme there
+- https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
+- https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
 
 ## snippets
 
-* Look through snippets tool
+- Look through snippets tool
 
 ## prettier default files
-
 
 ```yaml
 # .prettierrc or .prettierrc.yaml
@@ -91,7 +138,6 @@ overrides:
   - files: "*.json"
     options:
       tabWidth: 2
-
 ```
 
 ## tssserver
@@ -112,14 +158,6 @@ overrides:
 - move all cargo installs to readme
 - fd package! it isn't just "fd"
 - watchexec
-
-## git author
-
-Fish should have some alias for signing in as personal/work
-
-## gitignore
-
-TODO: ignore functions, then include functions I want to include
 
 ## fisher
 
@@ -142,24 +180,34 @@ This also looks neat: https://devhints.io/fish-shell
 
 ## rando
 
-add general fix plugin structure.
-
-add to gitconfig: default branch name
-
-Add gitignore command to fish instead of bash
-
-install prettier:
-npm install -g prettier
-maybe this too?
-npm install -g eslint_d
-
-add cargo install stylua
-add:
-go get github.com/jesseduffield/lazygit
-also, add to path: ~/go/bin
-fish_add_path ~/go/bin/
-Do this for the cargo stuff too!
-Actually, do gitui instead! Or maybe not, for author stuff.
+- add general fix plugin structure.
+- add gitignore command to fish instead of bash
+- install prettier:
+- npm install -g prettier
+- maybe this too?
+- npm install -g eslint_d
+- npm install -g tree-sitter-cli
+- add cargo install stylua
+- add:
+- go get github.com/jesseduffield/lazygit
+- also, add to path: ~/go/bin
+- fish_add_path ~/go/bin/
+- Do this for the cargo stuff too!
+- Actually, do gitui instead! Or maybe not, for author stuff.
+- cmdheight 0 and disappearing tmux status for more room
+  - https://www.reddit.com/r/neovim/comments/vc75v7/cmdheight0_vimtpipeline_a_match_made_in_heaven/
+- color picker, there are two, but one looks a bit more feature rich
+  - https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/
+- nvim-surround
+  - https://www.reddit.com/r/neovim/comments/vot02j/introducing_nvimsurround_a_plugin_for/
+- sudo file save when necessary
+  - https://www.reddit.com/r/commandline/comments/vqzg5c/dont_you_hate_it_when_you_edit_a_txt_file_in_vi/
+- hydra looks dope
+  - https://www.reddit.com/r/neovim/comments/w20cl1/hydra_update/
+- nice dot files
+  - https://www.reddit.com/r/vimporn/comments/whk9no/finally_updated_my_15_years_old_vimscript_config/
+- gh tui
+  - https://github.com/dlvhdr/gh-dash
 
 # Weird installs
 
@@ -174,22 +222,18 @@ Actually, do gitui instead! Or maybe not, for author stuff.
 
 # rust packages
 
-fd-find add!:
-https://github.com/sharkdp/fd
-
-new top?
-https://github.com/ClementTsang/bottom
-
-Rust, should I put locked into command?
-
-Cargo:
-https://github.com/ClementTsang/bottom
+- fd-find add!:
+  - https://github.com/sharkdp/fd
+- new top?
+  - https://github.com/ClementTsang/bottom
+- Rust, should I put locked into command?
+- Cargo:
+  - https://github.com/ClementTsang/bottom
 
 # config
 
-change around conf file to have program specific config dirs at the top level
-
-With this, update the "dot" class
+- change around conf file to have program specific config dirs at the top level
+  - With this, update the "dot" class
 
 # How about docker revisit
 
@@ -199,12 +243,10 @@ fit the prod system's needs, anyways.
 
 # lsp
 
-Add the following!
-brew install efm-langserver
-
-efm-langserver config symlink
-
-Things to checkout, incorporate, etc.
+- Add the following!
+- brew install efm-langserver
+- efm-langserver config symlink
+- Things to checkout, incorporate, etc.
 
 ## shell management
 
@@ -247,7 +289,6 @@ https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
 
 https://github.com/docker/compose/releases
 
-
 ### Uninstalls
 
 Put unintalls everywhere
@@ -255,6 +296,10 @@ Put unintalls everywhere
 ### fuzzyfinder
 
 from command line? rust implementation?
+
+### submodule init in readme
+
+https://stackoverflow.com/questions/1030169/pull-latest-changes-for-all-git-submodules
 
 ### Vim Markup
 
@@ -285,7 +330,6 @@ Two clear options:
 
 What is it? Gave me some weird issues regarding whitespace in my readme files
 
-
 ### version managers
 
 - node version manager
@@ -303,7 +347,7 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 
 # if I want typescript references
 
-* https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
+- https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
 
 # good resource
 
@@ -311,43 +355,158 @@ https://github.com/rockerBOO/awesome-neovim
 
 # cargo packages
 
-* https://github.com/nabijaczleweli/cargo-update
+- https://github.com/nabijaczleweli/cargo-update
 
 # pick through
 
-* [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
-* [and another one](https://github.com/ayamir/nvimdots)
+- [this seems like a good dotfiles to raid](https://github.com/glepnir/nvim)
+- [and another one](https://github.com/ayamir/nvimdots)
 
 # breadcrumbs
 
-* https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
-* Also, this might have a plugin, now
+- https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
+- Also, this might have a plugin, now
 
 # plugins
 
-* https://github.com/johmsalas/text-case.nvim
-* https://github.com/nvim-treesitter/nvim-treesitter-context
-* https://github.com/andythigpen/nvim-coverage
-* https://github.com/rcarriga/neotest
-* https://github.com/ThePrimeagen/refactoring.nvim
-* https://github.com/nvim-telescope/telescope-ui-select.nvim
-* https://github.com/tami5/xbase
-* https://github.com/pwntester/octo.nvim <-- github in neovim
-* https://github.com/pwntester/octo.nvim
-* https://github.com/ziontee113/syntax-tree-surfer
-* alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
-* https://github.com/markonm/traces.vim
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+- https://github.com/johmsalas/text-case.nvim
+- https://github.com/nvim-treesitter/nvim-treesitter-context
+- https://github.com/andythigpen/nvim-coverage
+- https://github.com/rcarriga/neotest
+- https://github.com/ThePrimeagen/refactoring.nvim
+- https://github.com/nvim-telescope/telescope-ui-select.nvim
+- https://github.com/tami5/xbase
+- https://github.com/pwntester/octo.nvim <-- github in neovim
+- https://github.com/pwntester/octo.nvim
+- https://github.com/ziontee113/syntax-tree-surfer
+- alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
+- https://github.com/markonm/traces.vim
+-
+-
+-
+-
+-
+-
+-
+
+# look in to:
+
+- https://www.reddit.com/r/neovim/comments/xg48k9/what_is_the_coolest_unknownish_plugin_that_youre/
+- https://github.com/anuvyklack/windows.nvim
+- https://github.com/ziontee113/syntax-tree-surfer
+- https://www.reddit.com/r/neovim/comments/q7bgwo/marksnvim_a_plugin_for_viewing_and_interacting/
+- https://github.com/chentoast/marks.nvim
+- https://github.com/uga-rosa/ccc.nvim
+- look into code folding more, not sure how to do it the native way.
+- https://github.com/ray-x/lsp_signature.nvim
+- https://github.com/EdenEast/nightfox.nvim
+- https://github.com/savq/melange
+- https://github.com/sainnhe/sonokai
+- https://github.com/sainnhe/everforest
+- https://github.com/folke/tokyonight.nvim
+- https://github.com/catppuccin/catppuccin
+- https://github.com/sam4llis/nvim-tundra
+- https://alpha2phi.medium.com/neovim-for-beginners-lsp-using-null-ls-nvim-bd954bf86b40
+- https://www.reddit.com/r/neovim/comments/x409tv/cant_go_back_to_vscode/
+- https://www.reddit.com/r/neovim/comments/x53lzx/i_must_be_missing_something/
+- https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
+- https://github.com/phaazon/mind.nvim
+- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
+-
+-
+-
+
+## mac things
+
+- https://github.com/rxhanson/Rectangle
+
+### pyenv global?
+
+```
+pyenv global 3.8.13 2.7.18
+```
+
+# add a default configurations for things
+
+### sqlfluff
+
+https://docs.sqlfluff.com/en/stable/configuration.html#default-configuration
+
+```
+[sqlfluff]
+
+# verbose is an integer (0-2) indicating the level of log output
+verbose = 0
+
+# Turn off color formatting of output
+nocolor = False
+
+# Supported dialects https://docs.sqlfluff.com/en/stable/dialects.html
+# Or run 'sqlfluff dialects'
+dialect = bigquery
+
+# One of [raw|jinja|python|placeholder]
+templater = jinja
+
+# Comma separated list of rules to check, default to all
+rules = all
+
+# Comma separated list of rules to exclude, or None
+exclude_rules = None
+
+# The depth to recursively parse to (0 for unlimited)
+recurse = 0
+
+# Below controls SQLFluff output, see max_line_length for SQL output
+output_line_length = 80
+
+# Number of passes to run before admitting defeat
+runaway_limit = 10
+
+# Ignore errors by category (one or more of the following, separated by commas: lexing,linting,parsing,templating)
+ignore = templating
+# ignore = None
+
+# Ignore linting errors found within sections of code coming directly from
+# templated code (e.g. from within Jinja curly braces. Note that it does not
+# ignore errors from literal code found within template loops.
+ignore_templated_areas = True
+
+# can either be autodetect or a valid encoding e.g. utf-8, utf-8-sig
+encoding = autodetect
+
+# Ignore inline overrides (e.g. to test if still required)
+disable_noqa = False
+
+# Comma separated list of file extensions to lint
+# NB: This config will only apply in the root folder
+sql_file_exts = .sql,.sql.j2,.dml,.ddl
+
+# Allow fix to run on files, even if they contain parsing errors
+# Note altering this is NOT RECOMMENDED as can corrupt SQL
+# fix_even_unparsable = True
+fix_even_unparsable = False # default
+
+# Very large files can make the parser effectively hang.
+# This limit skips files over a certain character length
+# and warns the user what has happened.
+# Set this to 0 to disable.
+large_file_skip_char_limit = 20000
+
+# CPU processes to use while linting.
+# If positive, just implies number of processes.
+# If negative or zero, implies number_of_cpus - specifed_number.
+# e.g. -1 means use all processors but one. 0  means all cpus.
+processes = 0
+```
+
+### quickscope colors
+
+- https://github.com/unblevable/quick-scope#customize-colors
 
 ### tmux plugins
 
-```
+```fish
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'wfxr/tmux-fzf-url'
 set -g @plugin 'egel/tmux-gruvbox'

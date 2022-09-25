@@ -30,6 +30,7 @@ class Black(AbsPackage):
         return None
 
     def linux_install(self):
+        # TODO: conda install!
         pip = Pip()
         pip.pip_install("black")
 
