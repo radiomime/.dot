@@ -94,8 +94,8 @@ local normal_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["u"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
 
   ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
