@@ -82,15 +82,11 @@ function M:_install()
     return
   end
 
+  -- TODO: what is using <leader> q? It is a diagnostics thing, and I think I'm using a better one down (dd)
   return packer.startup(function(use)
-    -- TODO: what is using <leader> q? It is a diagnostics thing, and I think I'm using a better one down (dd)
-    -----
-    -- TODO: sort out which plugins to use!
-    -----
-    -- below are from lunarvim/neovim-from-scratch
     -- My plugins here
     use("wbthomason/packer.nvim") -- packer can manage itself
-    use("lewis6991/impatient.nvim") -- faster start up speed
+    use("lewis6991/impatient.nvim") -- faster start up speed. to clear cache, :LuaCacheClear
 
     use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
     use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
