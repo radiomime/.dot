@@ -1,14 +1,13 @@
 local M = {}
 function M:configure()
-  -- print("configuring cmp")
-  local cmp_status_ok, cmp = pcall(require, "cmp")
-  if not cmp_status_ok then
+  local cmp_okay, cmp = pcall(require, "cmp")
+  if not cmp_okay then
     print("error: cannot configure cmp inside configure function")
     return
   end
 
-  local snip_status_ok, luasnip = pcall(require, "luasnip")
-  if not snip_status_ok then
+  local luasnip_ok, luasnip = pcall(require, "luasnip")
+  if not luasnip_ok then
     print("error: cannot configure luasnip inside cmp configure function")
     return
   end
