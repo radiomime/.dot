@@ -1,14 +1,13 @@
 local M = {}
 function M:configure()
-  -- print("configuring cmp")
-  local cmp_status_ok, cmp = pcall(require, "cmp")
-  if not cmp_status_ok then
+  local cmp_okay, cmp = pcall(require, "cmp")
+  if not cmp_okay then
     print("error: cannot configure cmp inside configure function")
     return
   end
 
-  local snip_status_ok, luasnip = pcall(require, "luasnip")
-  if not snip_status_ok then
+  local luasnip_ok, luasnip = pcall(require, "luasnip")
+  if not luasnip_ok then
     print("error: cannot configure luasnip inside cmp configure function")
     return
   end
@@ -47,6 +46,7 @@ function M:configure()
     Event = "",
     Operator = "",
     TypeParameter = "",
+    Copilot = "",
   }
   -- TODO: are these better? They're the larger versions
   -- kind_icons = {
@@ -148,10 +148,13 @@ function M:configure()
       end,
     },
     sources = {
+      -- copilot source
+      { name = "copilot", group_index = 2 },
+      -- other sources
       { name = "nvim_lsp", group_index = 2 },
-      { name = "luasnip" , group_index = 2 },
-      { name = "buffer"  , group_index = 2 },
-      { name = "path"    , group_index = 2 },
+      { name = "luasnip", group_index = 2, max_item_count = 2 },
+      { name = "buffer", group_index = 2 },
+      { name = "path", group_index = 2 },
       -- { name = "copilot" , group_index = 2 },
       -- { name = "treesitter" }, -- TODO: should this be here??
       -- { name = "cmp_tabnine" },

@@ -165,6 +165,7 @@ function M:_install()
     -- End of copilot setup --
 
     -- cmp plugins
+    --[[ TODO: look into more sources: https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources ]]
     use("hrsh7th/nvim-cmp") -- The completion plugin
     use("hrsh7th/cmp-buffer") -- buffer completions
     use("hrsh7th/cmp-path") -- path completions
@@ -255,6 +256,42 @@ function M:_install()
     -- checkout!
     -- use("sindrets/winshift.nvim")
     -- use('mrjones2014/smart-splits.nvim')
+
+    -- copilot
+    -- TODO: format this, make a config file?
+    use({
+      "zbirenbaum/copilot.lua",
+      event = { "VimEnter" },
+      config = function()
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
+      end,
+    })
+    -- copilot cmp
+    use({
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua" },
+      config = function()
+        require("copilot_cmp").setup({
+          method = "getCompletionsCycling",
+        })
+      end,
+    })
+
+    -- rando
+    --[[ TODO: fork this ]]
+    use({
+      "anuvyklack/help-vsplit.nvim",
+      config = function()
+        require("help-vsplit").setup({
+          always = true, -- Always open help in a vertical split.
+          side = "right", -- 'left' or 'right'
+          buftype = { "help" },
+          filetype = { "man" },
+        })
+      end,
+    })
 
     -----
     -- TODO: below are some of the old ones I've used
