@@ -165,6 +165,7 @@ function M:_install()
     -- End of copilot setup --
 
     -- cmp plugins
+    --[[ TODO: look into more sources: https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources ]]
     use("hrsh7th/nvim-cmp") -- The completion plugin
     use("hrsh7th/cmp-buffer") -- buffer completions
     use("hrsh7th/cmp-path") -- path completions
@@ -274,6 +275,20 @@ function M:_install()
       config = function()
         require("copilot_cmp").setup({
           method = "getCompletionsCycling",
+        })
+      end,
+    })
+
+    -- rando
+    --[[ TODO: fork this ]]
+    use({
+      "anuvyklack/help-vsplit.nvim",
+      config = function()
+        require("help-vsplit").setup({
+          always = true, -- Always open help in a vertical split.
+          side = "right", -- 'left' or 'right'
+          buftype = { "help" },
+          filetype = { "man" },
         })
       end,
     })
