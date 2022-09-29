@@ -46,6 +46,7 @@ function M:configure()
     Event = "",
     Operator = "",
     TypeParameter = "",
+    Copilot = "",
   }
   -- TODO: are these better? They're the larger versions
   -- kind_icons = {
@@ -147,10 +148,13 @@ function M:configure()
       end,
     },
     sources = {
+      -- copilot source
+      { name = "copilot", group_index = 2 },
+      -- other sources
       { name = "nvim_lsp", group_index = 2 },
-      { name = "luasnip" , group_index = 2 },
-      { name = "buffer"  , group_index = 2 },
-      { name = "path"    , group_index = 2 },
+      { name = "luasnip", group_index = 2, max_item_count = 2 },
+      { name = "buffer", group_index = 2 },
+      { name = "path", group_index = 2 },
       -- { name = "copilot" , group_index = 2 },
       -- { name = "treesitter" }, -- TODO: should this be here??
       -- { name = "cmp_tabnine" },
