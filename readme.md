@@ -133,13 +133,13 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."       
 
 ```fish
 fisher install jorgebucaran/nvm.fish
-# for latest npm/node
-nvm install latest
-set --universal nvm_default_version latest
-
-# or for stable
+# stable (needed for copilot)
 nvm install lts
 set --universal nvm_default_version lts
+
+# latest npm/node
+nvm install latest
+set --universal nvm_default_version latest
 ```
 
 - I found another good resource if nvm.fish ends up sucking. It's [fnm, the blazing fast way](https://github.com/Schniz/fnm)
