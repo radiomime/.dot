@@ -8,6 +8,7 @@
 - fish, load a local config? Per computer? solves for things like conda.
 - pip install isort
 - pip install sqlfluff
+- look into alpha a bit, this seems like this could be better. I have the weird bug where it opens my init file.
 
 ## installations i could add
 
@@ -412,8 +413,8 @@ https://github.com/rockerBOO/awesome-neovim
 - https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
 - https://github.com/phaazon/mind.nvim
 - https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
--
--
+- https://www.reddit.com/r/neovim/comments/wym9fi/regex_nvim_plugin/
+- https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/
 -
 
 ## mac things

@@ -23,7 +23,7 @@ local servers = {
   "jedi_language_server",
   "clangd",
   "bashls",
-  --[[ "pyright", ]]
+  "pyright",
 }
 
 -- mason needs to be setup first
