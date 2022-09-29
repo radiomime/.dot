@@ -28,11 +28,6 @@ function M:packer_is_installed()
 end
 
 function M:init()
-  -- print("compile path: " .. compile_path)
-  -- print("package root: " .. package_root)
-  -- print("install path: " .. install_path)
-  -- print("packer is already installed: " .. tostring(M.packer_is_installed()))
-
   -- install packer if that directory isn't populated
   if not M.packer_is_installed(self) then
     print("installing packer to: " .. install_path)
@@ -52,12 +47,12 @@ function M:init()
   end
 
   -- Autocommand that reloads neovim whenever you save the plugins.lua file
-  -- vim.cmd [[
-  --   augroup packer_user_config
-  --     autocmd!
-  --     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  --   augroup end
-  -- ]]
+  vim.cmd([[
+     augroup packer_user_config
+       autocmd!
+       autocmd BufWritePost plugins.lua source <afile> | PackerSync
+     augroup end
+   ]])
 
   -- Use a protected call so we don't error out on first use
   local packer_ok, packer = pcall(require, "packer")
@@ -68,8 +63,6 @@ function M:init()
 
   -- packer init function
   packer.init({
-    -- package_root = package_root, -- this is already the default
-    -- compile_path = compile_path, -- this is already the default
     git = { clone_timeout = 300 },
     display = {
       open_fn = function()
@@ -83,14 +76,12 @@ function M:init()
 end
 
 function M:_install()
-  -- print("installing plugins")
   local packer_ok, packer = pcall(require, "packer")
   if not packer_ok then
     print("error: cannot require packer in install function")
     return
   end
 
-  -- return packer.startup(function()
   return packer.startup(function(use)
     -- TODO: what is using <leader> q? It is a diagnostics thing, and I think I'm using a better one down (dd)
     -----
