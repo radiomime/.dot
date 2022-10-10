@@ -152,7 +152,8 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
     -- client.resolved_capabilities.document_range_formatting = false
     -- when this breaks, see: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflrcts
 
@@ -174,11 +175,13 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
   end
 
   if client.name == "jsonls" then
-    client.resolved_capabilities.document_formatting = false
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
   end
 
   lsp_keymaps(bufnr)
