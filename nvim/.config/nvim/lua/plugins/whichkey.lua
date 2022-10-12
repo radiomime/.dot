@@ -92,7 +92,8 @@ local normal_opts = {
 
 local normal_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Tree Explorer" },
+  ["E"] = { "<cmd>NvimTreeFindFile<cr>", "Open File in Tree Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["u"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
