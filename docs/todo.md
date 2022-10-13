@@ -1,5 +1,6 @@
 ## ToDo
 
+- https://github.com/michaelb/sniprun
 - nvim-cmp recommends using this for symbols: lspkind
 - help in a vertical window: https://www.reddit.com/r/neovim/comments/s4ps1b/helpvsplitnvim_auto_open_help_in_vertical_split/
 - maybe clean nvim-cmp?
