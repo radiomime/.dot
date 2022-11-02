@@ -294,6 +294,7 @@ function M:_install()
       },
     })
 
+    use("johmsalas/text-case.nvim")
     -----
     -- TODO: below are some of the old ones I've used
     -----

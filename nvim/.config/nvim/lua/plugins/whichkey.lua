@@ -395,6 +395,10 @@ local visual_mappings = {
     name = "lsp",
     f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format --- visual" },
   },
+  r = {
+    name = "text case --> update case",
+    f = { "<cmd>TextCaseOpenTelescope<cr>", "telescope method for new casing" },
+  },
 }
 
 -- TODO: this was giving invalid mapping errors. Is it worth it?
