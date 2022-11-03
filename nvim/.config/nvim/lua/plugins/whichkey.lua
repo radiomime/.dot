@@ -390,14 +390,11 @@ local visual_opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local visual_mappings = {
-  --       ["/"] = { ":CommentToggle<CR>", "Comment" },
+  ["/"] = { ":CommentToggle<CR>", "Comment" },
+  ["f"] = { "<cmd>TextCaseOpenTelescope<cr>", "update text case format" },
   l = {
     name = "lsp",
     f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format --- visual" },
-  },
-  r = {
-    name = "text case --> update case",
-    f = { "<cmd>TextCaseOpenTelescope<cr>", "telescope method for new casing" },
   },
 }
 
