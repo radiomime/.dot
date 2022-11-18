@@ -72,6 +72,7 @@ local function lsp_highlight_document(client)
   -- end
 end
 
+-- TODO: move these to keymaps file?
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(
