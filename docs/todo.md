@@ -1,5 +1,7 @@
 ## ToDo
 
+- python version manager? Add readme things to know what common commands are. Prune install functions
+
 - toggle autocmand for formatting while writing!
 - plugin search on the internet function? not working anymore
 
