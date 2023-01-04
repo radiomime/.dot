@@ -2,19 +2,22 @@ local M = {}
 
 -- Colorscheme must get called after plugins are loaded or it will break new installs.
 M._load_colorscheme = function()
-  local _colorscheme = "tokyonight"
-  --[[ local _colorscheme = "darkplus" ]]
-  --[[ local _colorscheme = "spacegray" ]]
-  --[[ local _colorscheme = "neon" ]]
-  --[[ local _colorscheme = "tokyodark" ]]
-  --[[ local _colorscheme = "material" ]]
-  --[[ local _colorscheme = "moonlight" ]]
-  --[[ local _colorscheme = "dawnfox" ]]
-  --[[ local _colorscheme = "duskfox" ]]
-  --[[ local _colorscheme = "nordfox" ]]
-  --[[ local _colorscheme = "nightfox" ]]
-  --[[ local _colorscheme = "kanagawa" ]]
-  --[[ local _colorscheme = "catppuccin" ]]
+  -- local _colorscheme = "tokyonight-night"
+  -- local _colorscheme = "tokyonight-storm"
+  -- local _colorscheme = "tokyonight-day"
+  -- local _colorscheme = "tokyonight-moon"
+  --  local _colorscheme = "darkplus"
+  -- local _colorscheme = "spacegray"
+  -- local _colorscheme = "neon"
+  -- local _colorscheme = "tokyodark"
+  -- local _colorscheme = "material"
+  -- local _colorscheme = "moonlight"
+  -- local _colorscheme = "dawnfox"
+  -- local _colorscheme = "duskfox"
+  -- local _colorscheme = "nordfox"
+  local _colorscheme = "nightfox"
+  -- local _colorscheme = "kanagawa"
+  -- local _colorscheme = "catppuccin"
 
   local status_ok, result = pcall(M.load_colorscheme, _colorscheme)
   if not status_ok then
@@ -27,11 +30,6 @@ end
 M.load_colorscheme = function(colorscheme_name)
   -- print("set colorscheme:" .. colorscheme_name)
   vim.g.colors_name = colorscheme_name
-
-  -- tokyonight
-  vim.g.tokyonight_style = "night"
-  -- vim.g.tokyonight_style = "day"
-  -- vim.g.tokyonight_style = "storm"
 
   -- neon
   vim.g.neon_style = "doom"
