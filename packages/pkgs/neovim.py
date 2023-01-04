@@ -135,7 +135,7 @@ class Neovim(AbsPackage):
         brew = Brew()
         brew.brew_install(
             pkgs="neovim",
-            flags="--HEAD",
+            # flags="--HEAD",
         )
         self.__install_providers()
 
