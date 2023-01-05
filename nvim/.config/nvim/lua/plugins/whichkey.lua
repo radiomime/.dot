@@ -102,7 +102,15 @@ local normal_mappings = {
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["m"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
   -- TODO: separate 'f' into separate commands?
-  ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  -- ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  -- ["f"] = {
+  --   "<cmd>Telescope find_files hidden=true search_dirs=['.','local','private']<CR>",
+  --   "Find File",
+  -- },
+  ["f"] = {
+    "<cmd>Telescope find_files hidden=true no_ignore=true no_ignore_parent=true<CR>",
+    "Find File",
+  },
   -- TODO: add zenmode back in?
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   -- ["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
