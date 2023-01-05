@@ -124,6 +124,9 @@ function M:configure()
         },
       },
     },
+    git = {
+      ignore = false,
+    },
     trash = {
       cmd = "rip --graveyard ~/.local/share/graveyard",
       require_confirm = true,
