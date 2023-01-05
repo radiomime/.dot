@@ -286,6 +286,22 @@ Checkout
 - https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 - https://vim.fandom.com/wiki/File_type_plugins
 
+## cool tings to checkout
+
+- eyeliner.nvim
+- https://github.com/direnv/direnv (cargo env auto load, etc.)
+- https://github.com/trivago/prettier-plugin-sort-imports
+- https://www.reddit.com/r/neovim/comments/yj9g9l/introducing_portalnvim_a_plugin_like_leap_but_for/
+- https://www.reddit.com/r/neovim/comments/y6rlc4/introducing_codewindownvim_a_new_minimap_plugin/
+- https://www.reddit.com/r/neovim/comments/y7xhll/introducing_dirtelescopenvim_find_or_grep_in_a/
+- https://github.com/kvrohit/mellow.nvim
+
+## react references
+
+- https://www.reddit.com/r/reactjs/comments/y821a5/comment/it1ih4i/?utm_source=share&utm_medium=web2x&context=3
+- Zustand for state management
+- https://felixgerschau.com/react-component-composition/
+
 ### npm to install
 
 ### standard package managers
