@@ -294,6 +294,7 @@ function M:_install()
       },
     })
 
+    -- TODO: add some new keymaps! https://github.com/johmsalas/text-case.nvim#setup
     use("johmsalas/text-case.nvim")
     -----
     -- TODO: below are some of the old ones I've used
