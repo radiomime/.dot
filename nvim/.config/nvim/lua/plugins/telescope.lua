@@ -17,7 +17,7 @@ function M:configure()
       path_display = { shorten = 5 }, -- "smart"
       entry_prefix = "  ",
       -- TODO: investigate 'layout_config' option?
-      file_ignore_patterns = { "node_modules" },
+      file_ignore_patterns = { "node_modules", ".git" },
       -- TODO: should this be uncommented?
       -- set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 
