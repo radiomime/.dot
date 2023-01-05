@@ -80,7 +80,7 @@ function M:configure()
     },
     filters = {
       dotfiles = false,
-      custom = {},
+      custom = { "node_modules" },
     },
     view = {
       width = 45,
