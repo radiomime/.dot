@@ -108,7 +108,9 @@ local normal_mappings = {
   --   "Find File",
   -- },
   ["f"] = {
-    "<cmd>Telescope find_files hidden=true no_ignore=true no_ignore_parent=true<CR>",
+    -- "<cmd>Telescope find_files follow=true hidden=true no_ignore=true no_ignore_parent=true<CR>",
+    -- "<cmd>Telescope find_files no_ignore_parent=true no_ignore=true<CR>",
+    "<cmd>Telescope find_files hidden=true search_dirs=['./local','./private','./keys','.']<CR>",
     "Find File",
   },
   -- TODO: add zenmode back in?
