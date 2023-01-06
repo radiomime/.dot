@@ -1,5 +1,7 @@
 ## ToDo
 
+- fix tmux config
+
 - fuzzy find history
 - python version manager? Add readme things to know what common commands are. Prune install functions
 
