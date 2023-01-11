@@ -13,6 +13,11 @@
 - help in a vertical window: https://www.reddit.com/r/neovim/comments/s4ps1b/helpvsplitnvim_auto_open_help_in_vertical_split/
 - maybe clean nvim-cmp?
 
+## worktrees
+
+- use this: https://github.com/ThePrimeagen/git-worktree.nvim
+- and look at this: https://stackoverflow.com/a/31935999/4335339
+
 ## switch to conda
 
 - conda install instead of pip install? Should I just move all of those to a readme?
