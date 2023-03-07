@@ -45,7 +45,8 @@ null_ls.setup({
                 autocmd! * <buffer>
                 " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
                   " -- todo: should this be sync or async?
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+                " autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})
             augroup END
             ]])
     end
