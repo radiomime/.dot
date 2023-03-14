@@ -18,7 +18,7 @@ end
 -- NOTE: add any new servers to be installed here. this gives lsp highlighting
 local servers = {
   "jsonls",
-  "sumneko_lua",
+  "lua_ls",
   "tsserver",
   "jedi_language_server",
   "clangd",
