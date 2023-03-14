@@ -49,7 +49,6 @@ function M:configure()
     -- TODO: this plugin has had a lot of breaking changes. Look into what my ideal config should have different than the defaults
     disable_netrw = false,
     hijack_netrw = false, -- 'true' can cause issues with other plugins
-    open_on_setup = false,
     ignore_ft_on_setup = {
       "startify",
       "dashboard",
