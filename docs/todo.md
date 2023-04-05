@@ -11,6 +11,7 @@
 - maybe clean nvim-cmp?
 - [ctop](https://github.com/bcicen/ctop)
 - explore tabs
+- https://www.npmjs.com/package/prettier-plugin-organize-imports for better imports?
 
 ## worktrees
 
