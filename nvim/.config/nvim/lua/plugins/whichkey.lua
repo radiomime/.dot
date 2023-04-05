@@ -98,6 +98,15 @@ local normal_mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["u"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
 
+  ["J"] = {
+    "<cmd>call search('\\%' . virtcol('.') . 'v\\S', 'wW')<cr>",
+    "jump down to next non-blank space in column",
+  },
+  ["K"] = {
+    "<cmd>call search('\\%' . virtcol('.') . 'v\\S', 'bW')<cr>",
+    "jump up to next non-blank space in column",
+  },
+
   ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["m"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
