@@ -50,6 +50,8 @@ rm -rf ~/miniconda3/miniconda.sh
 
 ```
 
+- https://github.com/ThePrimeagen/refactoring.nvim
+
 ## high priority ones!
 
 - nvim-lsp-installer is deprecated, yeah? fix that usage
