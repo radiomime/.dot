@@ -5,6 +5,9 @@
 hammerspoon/.hammerspoon/Spoons/AClock.spoon
 hammerspoon/.hammerspoon/Spoons/ModalMgr.spoon
 
+# TODO: do i want to ignore this?
+fish/.config/fish/*\.config\.fish
+
 # fish
 fish/.config/fish/completions
 fish/.config/fish/fish_variables

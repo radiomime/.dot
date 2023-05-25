@@ -1,6 +1,5 @@
 # TODO: add a git signin method!
 # TODO: add ssh-add to fish start
-#
 
 if status --is-interactive
     abbr --add --global mk 'mkdir -pv'
@@ -29,13 +28,11 @@ for ssh_key in $HOME'/.ssh/keys'/*
 end
 
 
-# add to path!
 if test -e /opt/homebrew/bin
     echo adding brew to fish_user_paths
     contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
 end
 
-# if test -e '$HOME/.cargo/bin'
 if test -d $HOME/.cargo/bin
     contains $HOME/.cargo/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.cargo/bin
 end
@@ -45,7 +42,6 @@ if type -q go
     contains (go env GOPATH)/bin $fish_user_paths; or set -Ua fish_user_paths (go env GOPATH)/bin
 end
 
-# Pyenv
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
@@ -54,6 +50,7 @@ end
 
 # read computer specific config.
 if test -e ~/.config/fish/(hostname).config.fish
+    echo sourcing ~/.config/fish/(hostname).config.fish
     source ~/.config/fish/(hostname).config.fish
 end
 
