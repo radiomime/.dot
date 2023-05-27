@@ -49,11 +49,11 @@ function M:configure()
     -- TODO: this plugin has had a lot of breaking changes. Look into what my ideal config should have different than the defaults
     disable_netrw = false,
     hijack_netrw = false, -- 'true' can cause issues with other plugins
-    ignore_ft_on_setup = {
-      "startify",
-      "dashboard",
-      "alpha",
-    },
+    -- ignore_ft_on_setup = {
+    --   "startify",
+    --   "dashboard",
+    --   "alpha",
+    -- },
     -- auto_close = true,
     open_on_tab = false,
     hijack_cursor = false,
@@ -86,11 +86,11 @@ function M:configure()
       side = "left",
       mappings = {
         custom_only = false,
-        list = {
-          { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-          { key = "h", cb = tree_cb("close_node") },
-          { key = "v", cb = tree_cb("vsplit") },
-        },
+        -- list = {
+        --   { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+        --   { key = "h", cb = tree_cb("close_node") },
+        --   { key = "v", cb = tree_cb("vsplit") },
+        -- },
       },
       number = true,
       relativenumber = true,
