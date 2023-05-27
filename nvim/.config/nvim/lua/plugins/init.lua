@@ -110,6 +110,7 @@ function M:_install()
     use("goolord/alpha-nvim")
     use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
     use("folke/which-key.nvim")
+    -- use("Exafunction/codeium.vim")
 
     -- use("tpope/vim-abolish") -- work with strings -- I think I like `johmsalas/text-case.nvim` better
 
