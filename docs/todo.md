@@ -14,6 +14,12 @@
 - explore tabs
 - https://www.npmjs.com/package/prettier-plugin-organize-imports for better imports?
 
+## more to look in to
+
+- neocomposer: https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/
+- color theme: https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/
+- mini colors: https://www.reddit.com/r/neovim/comments/12o5t8l/minicolors_tweak_and_save_any_color_scheme_plus/
+
 ## worktrees
 
 - use this: https://github.com/ThePrimeagen/git-worktree.nvim
