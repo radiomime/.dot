@@ -71,7 +71,7 @@ class Neovim(AbsPackage):
                 "git",
                 "clone",
                 "--branch",
-                "release-0.7",
+                "release-0.8",
                 "https://github.com/neovim/neovim",
                 self.install_path,
             ]

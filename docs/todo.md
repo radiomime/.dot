@@ -1,7 +1,38 @@
 ## ToDo
 
+- https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/
+- Codeium, try to get that installed? Compare to copilot?
+- clean nvim tree config, it is all weird and deprecated
+- contribute to that one project to use 'dot-'
+- https://www.reddit.com/r/neovim/comments/13rh66h/minihipatterns_highlight_patterns_in_text/
+- brew install rectangle instead of magnet
+- brew install maccy
+- https://www.reddit.com/r/neovim/comments/10as1y5/markdownynvim/
+- https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
+- brew install sqlfluff
+- fix tmux config
+- fuzzy find history
+- python version manager? Add readme things to know what common commands are. Prune install functions
+- toggle autocmand for formatting while writing!
+- plugin search on the internet function? not working anymore
+- https://github.com/michaelb/sniprun
 - nvim-cmp recommends using this for symbols: lspkind
 - help in a vertical window: https://www.reddit.com/r/neovim/comments/s4ps1b/helpvsplitnvim_auto_open_help_in_vertical_split/
+- maybe clean nvim-cmp?
+- [ctop](https://github.com/bcicen/ctop)
+- explore tabs
+- https://www.npmjs.com/package/prettier-plugin-organize-imports for better imports?
+
+## more to look in to
+
+- neocomposer: https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/
+- color theme: https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/
+- mini colors: https://www.reddit.com/r/neovim/comments/12o5t8l/minicolors_tweak_and_save_any_color_scheme_plus/
+
+## worktrees
+
+- use this: https://github.com/ThePrimeagen/git-worktree.nvim
+- and look at this: https://stackoverflow.com/a/31935999/4335339
 
 ## switch to conda
 
@@ -34,6 +65,8 @@ rm -rf ~/miniconda3/miniconda.sh
 # conda config --set auto_activate_base false
 
 ```
+
+- https://github.com/ThePrimeagen/refactoring.nvim
 
 ## high priority ones!
 
@@ -277,6 +310,22 @@ Checkout
 - https://github.com/dense-analysis/ale#2ii-fixing
 - https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 - https://vim.fandom.com/wiki/File_type_plugins
+
+## cool tings to checkout
+
+- eyeliner.nvim
+- https://github.com/direnv/direnv (cargo env auto load, etc.)
+- https://github.com/trivago/prettier-plugin-sort-imports
+- https://www.reddit.com/r/neovim/comments/yj9g9l/introducing_portalnvim_a_plugin_like_leap_but_for/
+- https://www.reddit.com/r/neovim/comments/y6rlc4/introducing_codewindownvim_a_new_minimap_plugin/
+- https://www.reddit.com/r/neovim/comments/y7xhll/introducing_dirtelescopenvim_find_or_grep_in_a/
+- https://github.com/kvrohit/mellow.nvim
+
+## react references
+
+- https://www.reddit.com/r/reactjs/comments/y821a5/comment/it1ih4i/?utm_source=share&utm_medium=web2x&context=3
+- Zustand for state management
+- https://felixgerschau.com/react-component-composition/
 
 ### npm to install
 

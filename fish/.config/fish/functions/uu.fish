@@ -28,6 +28,8 @@ function uu
         command brew update
         echo '*** upgrading brew packages'
         command brew upgrade
+        echo '*** cleaning brew packages'
+        command brew cleanup
     end
 
     # tldr db
