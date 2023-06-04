@@ -1,5 +1,6 @@
 ## ToDo
 
+- https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/
 - Codeium, try to get that installed? Compare to copilot?
 - clean nvim tree config, it is all weird and deprecated
 - contribute to that one project to use 'dot-'
