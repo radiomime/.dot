@@ -1,5 +1,13 @@
 ## ToDo
 
+- Codeium, try to get that installed? Compare to copilot?
+- clean nvim tree config, it is all weird and deprecated
+- contribute to that one project to use 'dot-'
+- https://www.reddit.com/r/neovim/comments/13rh66h/minihipatterns_highlight_patterns_in_text/
+- brew install rectangle instead of magnet
+- brew install maccy
+- https://www.reddit.com/r/neovim/comments/10as1y5/markdownynvim/
+- https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
 - brew install sqlfluff
 - fix tmux config
 - fuzzy find history
@@ -56,6 +64,8 @@ rm -rf ~/miniconda3/miniconda.sh
 # conda config --set auto_activate_base false
 
 ```
+
+- https://github.com/ThePrimeagen/refactoring.nvim
 
 ## high priority ones!
 
