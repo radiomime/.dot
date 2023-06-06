@@ -60,10 +60,11 @@ function M:configure()
     -- return "a place is only a place"
     -- return "iterate."
     -- return "small changes --> big results.\ntake a breathe. dont get lost."
-    return "Any fool can write code that a computer can understand.\nGood programmers write code that humans can understand.\nFowler"
+    -- return "Any fool can write code that a computer can understand\nGood programmers write code that humans can understand"
+    -- return "simple is better"
   end
 
-  dashboard.section.footer.val = footer()
+  -- dashboard.section.footer.val = footer()
 
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"
