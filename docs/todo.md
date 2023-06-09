@@ -97,6 +97,7 @@
 - https://github.com/trivago/prettier-plugin-sort-imports
 - https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
 - edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
+- https://github.com/mawkler/modicator.nvim
 
 ### neovim explore
 
@@ -128,6 +129,7 @@
 - fish, load a local config? Per computer? solves for things like conda.
 - pip install isort
 - pip install sqlfluff
+- react tools: https://www.reddit.com/r/reactjs/comments/1447vs4/what_are_some_of_the_best_libraries_you_cannot/
 
 ### mac workflows
 
