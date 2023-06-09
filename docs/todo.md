@@ -95,6 +95,8 @@
 - https://www.reddit.com/r/neovim/comments/y7xhll/introducing_dirtelescopenvim_find_or_grep_in_a/
 - https://github.com/kvrohit/mellow.nvim
 - https://github.com/trivago/prettier-plugin-sort-imports
+- https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
+- edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
 
 ### neovim explore
 
