@@ -30,6 +30,7 @@
 - linux
   - indicator-sensors
   - `https://github.com/kgshank/gse-sound-output-device-chooser`
+- https://obsidian.md/download
 
 ### neovim plugins
 
@@ -104,6 +105,7 @@
 - https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/
 - https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
 - explore tabs in neovim and tools
+- https://www.reddit.com/r/neovim/comments/ypvrwp/comment/ivldnau/?context=1
 
 ### neovim improvements
 
