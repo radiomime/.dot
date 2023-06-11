@@ -30,6 +30,7 @@
 - linux
   - indicator-sensors
   - `https://github.com/kgshank/gse-sound-output-device-chooser`
+- https://stackoverflow.com/questions/70851048/does-it-make-sense-to-use-conda-poetry#:~:text=Conda%20is%20primarily%20a%20environment,%2C%20an%20upgrade%20of%20Pyenv
 
 ### neovim plugins
 
@@ -98,6 +99,7 @@
 - https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
 - edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
 - https://github.com/mawkler/modicator.nvim
+- https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
 
 ### neovim explore
 
