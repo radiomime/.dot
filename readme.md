@@ -28,7 +28,7 @@ set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 ## install packages overkill factory
 
 ```
-python3 -m pip install requests distro
+python -m pip install requests distro
 ./packages/install.py -l | xargs ./packages/install.py -i
 ```
 
@@ -62,7 +62,8 @@ cargo install \
   rm-improved \
   stylua \
   fd-find \
-  bottom
+  bottom \
+  tree-sitter-cli
 
 # other possible cool ones
 # diskonaut from https://github.com/imsnif/diskonaut
@@ -167,6 +168,26 @@ rip ~/.local/share/nvim/site/pack/packer
 nvim --headless -c 'exit'
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
+
+</details>
+
+# misc installs
+
+<details>
+    <summary>linux</summary>
+
+    ```sh
+    sudo apt install ctop
+    ```
+
+</details>
+
+<details>
+    <summary>mac</summary>
+
+    ```sh
+    brew install ctop
+    ```
 
 </details>
 

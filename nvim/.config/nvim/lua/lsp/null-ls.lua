@@ -34,15 +34,22 @@ null_ls.setup({
     formatting.sqlfluff.with({
       extra_args = { "--dialect", "bigquery" }, -- change to your dialect
     }),
+
+    --[[ prisma ]]
+    -- formatting.prismaFmt.vim,
   },
 
   -- uncomment on_attach fn below for format on save
   on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
+    --[[ if client.resolved_capabilities.document_formatting then ]]
+    if client.server_capabilities.documentFormattingProvider then
       vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                  " -- todo: should this be sync or async?
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+                " autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})
             augroup END
             ]])
     end

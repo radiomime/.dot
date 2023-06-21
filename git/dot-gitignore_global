@@ -1,3 +1,4 @@
-# files/folders in this gitignore will always be ignored
-.todo.md
-notes.md
+# folders that should typically never be public
+local/
+private/
+keys/

@@ -72,6 +72,7 @@ local function lsp_highlight_document(client)
   -- end
 end
 
+-- TODO: move these to keymaps file?
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(
@@ -152,7 +153,8 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
     -- client.resolved_capabilities.document_range_formatting = false
     -- when this breaks, see: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflrcts
 
@@ -174,20 +176,26 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+  end
+
+  if client.name == "jsonls" then
+    --[[ client.resolved_capabilities.document_formatting = false ]]
+    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
   end
 
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+--[[ local capabilities = vim.lsp.protocol.make_client_capabilities() ]]
+--[[ M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities) ]]
+M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 return M

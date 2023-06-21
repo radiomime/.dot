@@ -47,7 +47,7 @@ local setup = {
   },
   window = {
     border = "rounded", -- none, single, double, shadow, rounded
-    position = "top", -- bottom, top
+    position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
@@ -92,16 +92,36 @@ local normal_opts = {
 
 local normal_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Tree Explorer" },
+  ["E"] = { "<cmd>NvimTreeFindFile<cr>", "Open File in Tree Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["u"] = { "<cmd>QuickScopeToggle<CR>", "QuickScope Toggle Highlight" },
+
+  ["J"] = {
+    "<cmd>call search('\\%' . virtcol('.') . 'v\\S', 'wW')<cr>",
+    "jump down to next non-blank space in column",
+  },
+  ["K"] = {
+    "<cmd>call search('\\%' . virtcol('.') . 'v\\S', 'bW')<cr>",
+    "jump up to next non-blank space in column",
+  },
 
   ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
   -- [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["m"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
   -- TODO: separate 'f' into separate commands?
-  ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  -- ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  -- ["f"] = {
+  --   "<cmd>Telescope find_files hidden=true search_dirs=['.','local','private']<CR>",
+  --   "Find File",
+  -- },
+  ["f"] = {
+    -- "<cmd>Telescope find_files follow=true hidden=true no_ignore=true no_ignore_parent=true<CR>",
+    -- "<cmd>Telescope find_files no_ignore_parent=true no_ignore=true<CR>",
+    "<cmd>Telescope find_files hidden=true search_dirs=['./local','./private','./keys','.']<CR>",
+    "Find File",
+  },
   -- TODO: add zenmode back in?
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   -- ["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
@@ -223,7 +243,7 @@ local normal_mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     L = { "<cmd>LspInstallLog<cr>", "Install Log" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -389,7 +409,8 @@ local visual_opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local visual_mappings = {
-  --       ["/"] = { ":CommentToggle<CR>", "Comment" },
+  ["/"] = { ":CommentToggle<CR>", "Comment" },
+  ["f"] = { "<cmd>TextCaseOpenTelescope<cr>", "update text case format" },
   l = {
     name = "lsp",
     f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format --- visual" },
