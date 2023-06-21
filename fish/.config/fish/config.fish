@@ -55,6 +55,8 @@ end
 # read computer specific config.
 if test -e ~/.config/fish/(hostname).config.fish
     source ~/.config/fish/(hostname).config.fish
+else
+    echo "no computer specific config found"
 end
 
 
