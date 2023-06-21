@@ -2,6 +2,7 @@
 
 ### .dot changes and upgrades
 
+- https://superuser.com/a/944589/1693863
 - conda install everything.
   - still use pyenv? probaly not
   - conda install instead of pip install? Should I just move all of those to a readme?
