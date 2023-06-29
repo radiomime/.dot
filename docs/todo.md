@@ -2,7 +2,6 @@
 
 ### .dot changes and upgrades
 
-- https://superuser.com/a/944589/1693863
 - conda install everything.
   - still use pyenv? probaly not
   - conda install instead of pip install? Should I just move all of those to a readme?
@@ -36,6 +35,14 @@
 
 ### neovim plugins
 
+- https://www.reddit.com/r/neovim/comments/14f0t0n/your_favourite_neovim_plugins/
+- https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/
+- https://github.com/bennypowers/nvim-regexplainer
+- https://github.com/tomiis4/Hypersonic.nvim
+- https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
+- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
+- https://github.com/echasnovski/mini.nvim
+- https://github.com/folke/flash.nvim
 - https://github.com/ThePrimeagen/refactoring.nvim
 - neocomposer: https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/
 - color theme: https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/
@@ -102,6 +109,9 @@
 - edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
 - https://github.com/mawkler/modicator.nvim
 - https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
+- https://github.com/kamykn/spelunker.vim
+- https://github.com/ghidalgo93/boring_wozniak.nvim
+- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#cspell
 
 ### neovim explore
 
