@@ -52,6 +52,8 @@ end
 if test -e ~/.config/fish/(hostname).config.fish
     echo sourcing ~/.config/fish/(hostname).config.fish
     source ~/.config/fish/(hostname).config.fish
+else
+    echo "no computer specific config found"
 end
 
 

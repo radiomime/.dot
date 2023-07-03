@@ -34,6 +34,9 @@ null_ls.setup({
     formatting.sqlfluff.with({
       extra_args = { "--dialect", "bigquery" }, -- change to your dialect
     }),
+
+    --[[ prisma ]]
+    -- formatting.prismaFmt.vim,
   },
 
   -- uncomment on_attach fn below for format on save

@@ -31,10 +31,19 @@
 - linux
   - indicator-sensors
   - `https://github.com/kgshank/gse-sound-output-device-chooser`
+- https://obsidian.md/download
 - https://stackoverflow.com/questions/70851048/does-it-make-sense-to-use-conda-poetry#:~:text=Conda%20is%20primarily%20a%20environment,%2C%20an%20upgrade%20of%20Pyenv
 
 ### neovim plugins
 
+- https://www.reddit.com/r/neovim/comments/14f0t0n/your_favourite_neovim_plugins/
+- https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/
+- https://github.com/bennypowers/nvim-regexplainer
+- https://github.com/tomiis4/Hypersonic.nvim
+- https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
+- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
+- https://github.com/echasnovski/mini.nvim
+- https://github.com/folke/flash.nvim
 - https://github.com/ThePrimeagen/refactoring.nvim
 - neocomposer: https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/
 - color theme: https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/
@@ -101,6 +110,9 @@
 - edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
 - https://github.com/mawkler/modicator.nvim
 - https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
+- https://github.com/kamykn/spelunker.vim
+- https://github.com/ghidalgo93/boring_wozniak.nvim
+- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#cspell
 
 ### neovim explore
 
@@ -110,6 +122,7 @@
 - https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/
 - https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
 - explore tabs in neovim and tools
+- https://www.reddit.com/r/neovim/comments/ypvrwp/comment/ivldnau/?context=1
 
 ### neovim improvements
 
