@@ -3,6 +3,7 @@
 ### .dot changes and upgrades
 
 - https://www.youtube.com/watch?v=DzNmUNvnB04
+- `leader-u` should go to updates, include important updates and installs
 - conda install everything.
   - still use pyenv? probaly not
   - conda install instead of pip install? Should I just move all of those to a readme?
