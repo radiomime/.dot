@@ -17,6 +17,8 @@ if status --is-interactive
     abbr --add --global we 'watchexec --'
     abbr --add --global sshkitty 'kitty +kitten ssh'
     abbr --add --global rip 'rip --graveyard ~/.local/share/graveyard'
+    abbr --add --global r 'npm run'
+    abbr --add --global t 'npm run test'
 end
 
 # add ssh keys

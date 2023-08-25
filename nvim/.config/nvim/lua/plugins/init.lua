@@ -256,6 +256,16 @@ function M:_install()
         end, 100)
       end,
     })
+    -- use({
+    --   "zbirenbaum/copilot.lua",
+    --   cmd = "Copilot",
+    --   event = "InsertEnter",
+    --   config = function()
+    --     require("copilot").setup({
+    --       copilot_node_command = "which node", -- Node.js version must be > 16.x
+    --     })
+    --   end,
+    -- })
     -- copilot cmp
     use({
       "zbirenbaum/copilot-cmp",
