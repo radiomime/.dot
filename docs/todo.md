@@ -20,6 +20,8 @@
       # conda config --set auto_activate_base false
   ```
 - go and conda installs to scripts in readme would be good
+- https://github.com/drizzle-team/drizzle-orm
+- https://www.reddit.com/r/neovim/comments/12jgatz/introducing_dotfylecom_discover_and_share_neovim/
 - conda or miniconda link to install instructions
 - asdf
 - sh and bash fixes
