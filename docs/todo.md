@@ -28,6 +28,7 @@
   - cargo install shellharden
   - go install mvdan.cc/sh/v3/cmd/shfmt@latest
 - fish on uninstall should check for shell as available shells!
+- https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda/39928067#39928067
 - cargo install ripgrep! at least for linux
 - store fish plugins in dotfiles so I can easily load 'z' and whatnot across machines?
 - kubectl install minikube && docker
