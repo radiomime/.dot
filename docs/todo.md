@@ -2,6 +2,7 @@
 
 ### .dot changes and upgrades
 
+- cargo install gitui
 - https://www.youtube.com/watch?v=DzNmUNvnB04
 - `leader-u` should go to updates, include important updates and installs
 - conda install everything.
