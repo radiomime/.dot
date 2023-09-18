@@ -5,6 +5,7 @@
 - cargo install gitui
 - https://www.youtube.com/watch?v=DzNmUNvnB04
 - `leader-u` should go to updates, include important updates and installs
+- tmux stuff: https://www.youtube.com/watch?v=DzNmUNvnB04
 - conda install everything.
   - still use pyenv? probaly not
   - conda install instead of pip install? Should I just move all of those to a readme?
@@ -21,12 +22,15 @@
       # conda config --set auto_activate_base false
   ```
 - go and conda installs to scripts in readme would be good
+- https://github.com/drizzle-team/drizzle-orm
+- https://www.reddit.com/r/neovim/comments/12jgatz/introducing_dotfylecom_discover_and_share_neovim/
 - conda or miniconda link to install instructions
 - asdf
 - sh and bash fixes
   - cargo install shellharden
   - go install mvdan.cc/sh/v3/cmd/shfmt@latest
 - fish on uninstall should check for shell as available shells!
+- https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda/39928067#39928067
 - cargo install ripgrep! at least for linux
 - store fish plugins in dotfiles so I can easily load 'z' and whatnot across machines?
 - kubectl install minikube && docker
