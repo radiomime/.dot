@@ -63,6 +63,7 @@ cargo install \
   stylua \
   fd-find \
   bottom \
+  rnr \
   tree-sitter-cli
 
 # other possible cool ones
