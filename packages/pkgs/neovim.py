@@ -53,15 +53,16 @@ class Neovim(AbsPackage):
             [
                 "ninja-build",
                 "gettext",
-                "libtool",
-                "libtool-bin",
-                "autoconf",
-                "automake",
+                # "libtool",
+                # "libtool-bin",
+                # "autoconf",
+                # "automake",
                 "cmake",
-                "g++",
-                "xclip",
-                "pkg-config",
+                # "g++",
+                # "xclip",
+                # "pkg-config",
                 "unzip",
+                "curl",
             ]
         )
 
