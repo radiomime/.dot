@@ -2,6 +2,7 @@
 
 ### .dot changes and upgrades
 
+- play more with chatgpt and copilot
 - cargo install gitui
 - https://www.youtube.com/watch?v=DzNmUNvnB04
 - `leader-u` should go to updates, include important updates and installs
