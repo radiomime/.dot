@@ -1,5 +1,7 @@
 ## ToDo
 
+- go through packages and remove the ones that don't have installs
+
 ### .dot changes and upgrades
 
 - play more with chatgpt and copilot
