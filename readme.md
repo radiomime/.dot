@@ -32,9 +32,15 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 _Note: the above command also will update kitty_
 
-## cross platform
+## [fish](https://fishshell.com/)
 
-### [fish](https://fishshell.com/)
+Update shell to fish
+
+```sh
+which fish | xargs chsh -s
+```
+
+## cross platform
 
 ### rust and cargo packages
 
