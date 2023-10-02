@@ -1,14 +1,99 @@
 # .dot
 
-Repository for dotfiles.
-
-# install
+configuration files for dotfiles and configuration files I use across machines
 
 ## clone
 
 ```fish
 git clone --recursive git@github.com:radiomime/.dot.git
 ```
+
+# package (re)installation
+
+## [homebrew](https://brew.sh/)
+
+Go to the link above and install it
+
+## [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+
+### mac
+
+[Use brew to install](https://formulae.brew.sh/cask/kitty)
+
+```sh
+brew install --cask kitty
+```
+
+### linux
+
+```sh
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+```
+
+_Note: the above command also will update kitty_
+
+## cross platform
+
+### [fish](https://fishshell.com/)
+
+### rust and cargo packages
+
+#### [rust](https://www.rust-lang.org/tools/install)
+
+```sh
+curl \
+    --proto '=https' \
+    --tlsv1.2 \
+    -sSf \
+    https://sh.rustup.rs | sh
+```
+
+<details>
+    <summary>uninstall</summary>
+
+    ```sh
+    rustup self uninstall
+    ```
+
+</details>
+
+#### cargo packages
+
+```fish
+cargo install \
+  ripgrep \
+  bandwhich \
+  watchexec-cli \
+  exa \
+  rm-improved \
+  stylua \
+  fd-find \
+  bottom \
+  rnr \
+  bat \
+  tree-sitter-cli
+
+# other possible cool ones
+# diskonaut from https://github.com/imsnif/diskonaut
+# du-dust from https://github.com/bootandy/dust
+# broot from https://github.com/Canop/broot
+
+switch (uname)
+  case Linux
+    echo linux cargo package setup
+    sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep (which bandwhich)
+  case Darwin
+    echo osx cargo package setup
+  case '*'
+    echo no setup defined for os
+end
+```
+
+### python package management
+
+#### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
+
+### TODO: slightly refactoring below this point
 
 ## pyenv install
 
@@ -49,38 +134,6 @@ stow -v \
   starship   \
   tmux       \
   hammerspoon
-```
-
-## install cargo packages
-
-```fish
-cargo install \
-  ripgrep \
-  bandwhich \
-  watchexec-cli \
-  exa \
-  rm-improved \
-  stylua \
-  fd-find \
-  bottom \
-  rnr \
-  tree-sitter-cli
-
-# other possible cool ones
-# diskonaut from https://github.com/imsnif/diskonaut
-# du-dust from https://github.com/bootandy/dust
-# broot from https://github.com/Canop/broot
-
-
-switch (uname)
-  case Linux
-    echo linux cargo package setup
-    sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep (which bandwhich)
-  case Darwin
-    echo osx cargo package setup
-  case '*'
-    echo no setup defined for os
-end
 ```
 
 ## install docker
