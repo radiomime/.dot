@@ -43,6 +43,7 @@
 
 ### neovim plugins
 
+- muren looks great: https://github.com/AckslD/muren.nvim
 - https://www.reddit.com/r/neovim/comments/14f0t0n/your_favourite_neovim_plugins/
 - https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/
 - https://github.com/bennypowers/nvim-regexplainer
