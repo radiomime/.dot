@@ -65,21 +65,6 @@ brew install stow
 apt install stow
 ```
 
-### neovim
-
-#### mac
-
-```sh
-brew install neovim
-```
-
-```sh
-# or latest...
-brew install neovim --HEAD
-```
-
-## cross platform
-
 ### rust and cargo packages
 
 #### [rust](https://www.rust-lang.org/tools/install)
@@ -133,6 +118,17 @@ switch (uname)
 end
 ```
 
+## by machine type
+
+### mac
+
+```sh
+brew install neovim # [--HEAD] \
+
+```
+
+## cross platform
+
 ### python package management
 
 #### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
@@ -163,8 +159,16 @@ python -m pip install requests distro
 
 ## starship
 
+### macos
+
 ```sh
 brew install starship
+```
+
+### linux
+
+```sh
+curl -sS https://starship.rs/install.sh | sh
 ```
 
 ## link dotfiles with stow
