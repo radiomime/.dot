@@ -10,13 +10,17 @@ git clone --recursive git@github.com:radiomime/.dot.git
 
 # package (re)installation
 
-## [homebrew](https://brew.sh/)
+## vital packages
+
+### [homebrew](https://brew.sh/)
 
 Go to the link above and install it
 
-## [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
 
-### mac
+#### mac
+
+TODO: can use the same unix command as linux, should I?
 
 [Use brew to install](https://formulae.brew.sh/cask/kitty)
 
@@ -24,7 +28,7 @@ Go to the link above and install it
 brew install --cask kitty
 ```
 
-### linux
+#### linux
 
 ```sh
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -32,7 +36,7 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 _Note: the above command also will update kitty_
 
-## [fish](https://fishshell.com/)
+### [fish](https://fishshell.com/)
 
 Update shell to fish
 
@@ -41,6 +45,31 @@ Update shell to fish
 which fish | xargs tee -a /etc/shells
 
 which fish | xargs chsh -s
+```
+
+### stow
+
+#### mac
+
+```sh
+brew install stow
+```
+
+#### linux
+
+```sh
+apt install stow
+```
+
+### neovim
+
+#### mac
+
+```sh
+brew install neovim
+
+# or latest...
+brew install neovim --HEAD
 ```
 
 ## cross platform
