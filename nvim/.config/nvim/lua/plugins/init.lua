@@ -5,7 +5,7 @@ local M = {}
 local compile_path = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
 local package_root = vim.fn.stdpath("data") .. "/site/pack"
 local install_path = vim.fn.stdpath("data")
-    .. "/site/pack/packer/start/packer.nvim"
+  .. "/site/pack/packer/start/packer.nvim"
 
 -- TODO: turn the following two into some command? packer nuke?
 function M:clear_packer_cache()
@@ -107,7 +107,9 @@ function M:_install()
     use("nvim-lualine/lualine.nvim")
     use({ "akinsho/toggleterm.nvim", branch = "main" })
     -- use("ahmedkhalf/project.nvim")
-    use("lukas-reineke/indent-blankline.nvim")
+
+    -- TODO: add this back, there was a breaking change
+    -- use("lukas-reineke/indent-blankline.nvim")
     use("goolord/alpha-nvim")
     use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
     use("folke/which-key.nvim")
