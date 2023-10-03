@@ -113,8 +113,15 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/
 ### mac
 
 ```sh
+brew install \
+    neovim \
+    go
+```
+
+For newer neovim...
+
+```sh
 brew install neovim \ # [--HEAD]
-    go \
 ```
 
 ## cross platform
