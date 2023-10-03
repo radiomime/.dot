@@ -22,18 +22,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
 
-#### mac
-
-TODO: can use the same unix command as linux, should I?
-
-[Use brew to install](https://formulae.brew.sh/cask/kitty)
-
-```sh
-brew install --cask kitty
-```
-
-#### linux
-
 ```sh
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
@@ -67,15 +55,7 @@ apt install stow
 
 ### rust and cargo packages
 
-#### [rust](https://www.rust-lang.org/tools/install)
-
-```sh
-curl \
-    --proto '=https' \
-    --tlsv1.2 \
-    -sSf \
-    https://sh.rustup.rs | sh
-```
+- [install rust](https://www.rust-lang.org/tools/install) using the linked script
 
 <details>
     <summary>uninstall</summary>
@@ -90,17 +70,17 @@ curl \
 
 ```fish
 cargo install \
-  ripgrep \
   bandwhich \
-  watchexec-cli \
-  exa \
-  rm-improved \
-  stylua \
-  fd-find \
-  bottom \
-  rnr \
   bat \
-  tree-sitter-cli
+  bottom \
+  exa \
+  fd-find \
+  ripgrep \
+  rm-improved \
+  rnr \
+  stylua \
+  tree-sitter-cli \
+  watchexec-cli
 
 # other possible cool ones
 # diskonaut from https://github.com/imsnif/diskonaut
@@ -118,13 +98,23 @@ switch (uname)
 end
 ```
 
-## by machine type
+## different install by machine
+
+### nerdfonts
+
+```
+git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/
+```
+
+### [docker](https://www.docker.com/)
+
+- Install over the web or use the convenience script at: https://get.docker.com
 
 ### mac
 
 ```sh
-brew install neovim # [--HEAD] \
-
+brew install neovim \ # [--HEAD]
+    go \
 ```
 
 ## cross platform
