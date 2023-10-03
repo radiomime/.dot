@@ -5,7 +5,7 @@ local M = {}
 local compile_path = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
 local package_root = vim.fn.stdpath("data") .. "/site/pack"
 local install_path = vim.fn.stdpath("data")
-  .. "/site/pack/packer/start/packer.nvim"
+    .. "/site/pack/packer/start/packer.nvim"
 
 -- TODO: turn the following two into some command? packer nuke?
 function M:clear_packer_cache()
@@ -94,11 +94,12 @@ function M:_install()
     use("numToStr/Comment.nvim") -- Easily comment stuff
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
-    use({
-      "akinsho/bufferline.nvim",
-      tag = "*",
-      requires = "kyazdani42/nvim-web-devicons",
-    }) -- buffer line up top
+    -- TODO: there is a bad config in here!
+    -- use({
+    --   "akinsho/bufferline.nvim",
+    --   tag = "*",
+    --   requires = "kyazdani42/nvim-web-devicons",
+    -- }) -- buffer line up top
 
     use("moll/vim-bbye")
     -- TODO: play around with qs config more
