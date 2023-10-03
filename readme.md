@@ -16,6 +16,10 @@ git clone --recursive git@github.com:radiomime/.dot.git
 
 Go to the link above and install it
 
+```sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
 ### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
 
 #### mac
@@ -67,7 +71,9 @@ apt install stow
 
 ```sh
 brew install neovim
+```
 
+```sh
 # or latest...
 brew install neovim --HEAD
 ```
@@ -153,6 +159,12 @@ set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 ```
 python -m pip install requests distro
 ./packages/install.py -l | xargs ./packages/install.py -i
+```
+
+## starship
+
+```sh
+brew install starship
 ```
 
 ## link dotfiles with stow
