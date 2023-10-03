@@ -103,7 +103,8 @@ end
 ### nerdfonts
 
 ```
-git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/
+git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-fonts
+./install
 ```
 
 ### [docker](https://www.docker.com/)
