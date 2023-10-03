@@ -39,17 +39,17 @@ class Go(AbsPackage):
         snap = Snap()
         snap.snap_uninstall("go")
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="go",
-        )
-
-    def osx_uninstall(self):
-        brew = Brew()
-        brew.brew_uninstall(
-            pkgs="go",
-        )
+    # def osx_install(self):
+    #     brew = Brew()
+    #     brew.brew_install(
+    #         pkgs="go",
+    #     )
+    #
+    # def osx_uninstall(self):
+    #     brew = Brew()
+    #     brew.brew_uninstall(
+    #         pkgs="go",
+    #     )
 
     def __continue_with_go_op(self):
         if not self.is_installed():
@@ -82,13 +82,13 @@ class Go(AbsPackage):
             print(f"cannot uninstall: {pkg}")
 
         if not isinstance(pkg, str):
-            print('error: only expected a string')
+            print("error: only expected a string")
             return
 
         cmd = [
             "rm",
         ]
-        cmd.extend(["".join([expanduser('~/go/bin/'), pkg])])
+        cmd.extend(["".join([expanduser("~/go/bin/"), pkg])])
 
         print(f"running go uninstall: {cmd}")
         subprocess.run(cmd)

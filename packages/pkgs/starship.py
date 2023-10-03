@@ -42,14 +42,14 @@ class Starship(AbsPackage):
                 ]
             )
 
-    def osx_install(self):
-        brew = Brew()
-        brew.brew_install(
-            pkgs="starship",
-        )
-
-    def osx_uninstall(self):
-        brew = Brew()
-        brew.brew_uninstall(
-            pkgs="starship",
-        )
+    # def osx_install(self):
+    #     brew = Brew()
+    #     brew.brew_install(
+    #         pkgs="starship",
+    #     )
+    #
+    # def osx_uninstall(self):
+    #     brew = Brew()
+    #     brew.brew_uninstall(
+    #         pkgs="starship",
+    #     )
