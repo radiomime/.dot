@@ -37,6 +37,9 @@ _Note: the above command also will update kitty_
 Update shell to fish
 
 ```sh
+# add to /etc/shells. May need to echo the string, and add via tee
+which fish | xargs tee -a /etc/shells
+
 which fish | xargs chsh -s
 ```
 
