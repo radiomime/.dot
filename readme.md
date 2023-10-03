@@ -31,13 +31,16 @@ brew install \
     stow
 ```
 
-#### for newer neovim
+<details>
+    <summary>for newer neovim</summary>
 
-```sh
-brew install neovim --HEAD
-```
+    ```sh
+    brew install neovim --HEAD
+    ```
 
-### apps and tools
+</details>
+
+## apps and tools
 
 ### fish
 
