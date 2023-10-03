@@ -10,25 +10,40 @@ git clone --recursive git@github.com:radiomime/.dot.git
 
 # package (re)installation
 
-## vital packages
+## homebrew for mac
 
-### [homebrew](https://brew.sh/)
-
-Go to the link above and install it
+[install from this link...](https://brew.sh/)
 
 ```sh
+# add to path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+### brew packages
 
 ```sh
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+brew install \
+    go \
+    neovim \
+    stow \
+    tmux \
+    fish \
+    stow
 ```
 
-_Note: the above command also will update kitty_
+#### for newer neovim
 
-### [fish](https://fishshell.com/)
+```sh
+brew install neovim --HEAD
+```
+
+### apps and tools
+
+### fish
+
+_installed with brew on mac_
+
+[instructions here](https://fishshell.com/)
 
 Update shell to fish
 
@@ -41,17 +56,19 @@ which fish | xargs chsh -s
 
 ### stow
 
-#### mac
-
-```sh
-brew install stow
-```
-
-#### linux
+_installed with brew on mac_
 
 ```sh
 apt install stow
 ```
+
+### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+
+```sh
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+```
+
+_Note: the above command also will update kitty_
 
 ### rust and cargo packages
 
@@ -98,34 +115,18 @@ switch (uname)
 end
 ```
 
-## different install by machine
-
 ### nerdfonts
 
-```
+```sh
 git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-fonts
-./install
+
+# and to install
+~/.local/share/nerd-fonts/install.sh
 ```
 
 ### [docker](https://www.docker.com/)
 
 - Install over the web or use the convenience script at: https://get.docker.com
-
-### mac
-
-```sh
-brew install \
-    go \
-    neovim \
-    stow \
-    tmux
-```
-
-For newer neovim...
-
-```sh
-brew install neovim \ # [--HEAD]
-```
 
 ## cross platform
 
@@ -189,12 +190,6 @@ stow -v \
   tmux       \
   hammerspoon
 ```
-
-## install docker
-
-note: for mac.
-
-- [install docker](https://docs.docker.com/desktop/mac/install/)
 
 # MacOS Specific
 
