@@ -115,8 +115,10 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-
 
 ```sh
 brew install \
+    go \
     neovim \
-    go
+    stow \
+    tmux
 ```
 
 For newer neovim...
