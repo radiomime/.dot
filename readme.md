@@ -131,11 +131,7 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-
 
 - Install over the web or use the convenience script at: https://get.docker.com
 
-## cross platform
-
-### python package management
-
-#### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
+### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
 
 ### TODO: slightly refactoring below this point
 
