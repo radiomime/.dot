@@ -30,11 +30,11 @@ class Node(AbsPackage):
     #         pkgs="node",
     #     )
 
-    def osx_uninstall(self):
-        brew = Brew()
-        brew.brew_uninstall(
-            pkgs="node",
-        )
+    # def osx_uninstall(self):
+    #     brew = Brew()
+    #     brew.brew_uninstall(
+    #         pkgs="node",
+    #     )
 
     # def linux_install(self):
     #     installSource = "https://deb.nodesource.com/setup_current.x"
@@ -47,10 +47,10 @@ class Node(AbsPackage):
     #     apt.update()
     #     apt.install(["nodejs"])
 
-    def linux_uninstall(self):
-        apt = Apt()
-        apt.update()
-        apt.uninstall(["nodejs"])
+    # def linux_uninstall(self):
+    #     apt = Apt()
+    #     apt.update()
+    #     apt.uninstall(["nodejs"])
 
     def node_install(self, pkgs):
         if not self.is_installed:
