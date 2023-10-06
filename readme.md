@@ -23,12 +23,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ```sh
 brew install \
+    fish \
     go \
+    lazygit \
     neovim \
     stow \
-    tmux \
-    fish \
-    stow
+    tmux
 ```
 
 <details>
