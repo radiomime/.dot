@@ -150,13 +150,6 @@ set -Ux PYENV_ROOT $HOME/.pyenv && \
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 ```
 
-## install packages overkill factory
-
-```
-python -m pip install requests distro
-./packages/install.py -l | xargs ./packages/install.py -i
-```
-
 ## starship
 
 ### macos
