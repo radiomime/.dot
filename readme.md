@@ -23,12 +23,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ```sh
 brew install \
+    fish \
     go \
+    lazygit \
     neovim \
     stow \
-    tmux \
-    fish \
-    stow
+    tmux
 ```
 
 <details>
@@ -186,8 +186,7 @@ stow -v \
   kitty      \
   nvim       \
   starship   \
-  tmux       \
-  hammerspoon
+  tmux
 ```
 
 # MacOS Specific
@@ -288,10 +287,3 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     ```
 
 </details>
-
-# thanks
-
-- [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch) and its creator [Chris](https://github.com/ChristianChiarulli) made using neovim so much easier. Many thanks.
-- I was inspired from [Lukas's dotfiles](https://github.com/lukas-reineke?tab=repositories) as well.
-- thanks to my friend [Ethan](https://github.com/EthanJWright) for getting me started with vim.
-- [this repo](https://github.com/ashfinal/awesome-hammerspoon) was my base for my hammerspoon config.

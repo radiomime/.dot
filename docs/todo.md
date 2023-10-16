@@ -510,3 +510,7 @@ set -g @plugin 'egel/tmux-gruvbox'
 set -g @plugin 'laktak/extrakto'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ```
+
+### meh
+
+- do i want hammerspoon at all anymore?
