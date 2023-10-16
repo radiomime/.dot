@@ -93,6 +93,8 @@ function M:_install()
     use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
     use("numToStr/Comment.nvim") -- Easily comment stuff
     use("kyazdani42/nvim-web-devicons")
+    -- https://github.com/nvim-telescope/telescope-file-browser.nvim
+    -- https://github.com/tamago324/lir.nvim <-- file tree explorer
     use("kyazdani42/nvim-tree.lua")
     -- TODO: there is a bad config in here!
     -- use({
