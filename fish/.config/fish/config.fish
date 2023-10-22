@@ -31,7 +31,6 @@ end
 
 
 if test -e /opt/homebrew/bin
-    echo adding brew to fish_user_paths
     contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
 end
 
@@ -52,7 +51,6 @@ end
 
 # read computer specific config.
 if test -e ~/.config/fish/(hostname).config.fish
-    echo sourcing ~/.config/fish/(hostname).config.fish
     source ~/.config/fish/(hostname).config.fish
 else
     echo "no computer specific config found"

@@ -1,6 +1,7 @@
 ## ToDo
 
 - go through packages and remove the ones that don't have installs
+- sql linter/formatter
 
 ### .dot changes and upgrades
 
