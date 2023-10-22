@@ -5,7 +5,7 @@ local M = {}
 local compile_path = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
 local package_root = vim.fn.stdpath("data") .. "/site/pack"
 local install_path = vim.fn.stdpath("data")
-  .. "/site/pack/packer/start/packer.nvim"
+    .. "/site/pack/packer/start/packer.nvim"
 
 -- TODO: turn the following two into some command? packer nuke?
 function M:clear_packer_cache()
@@ -464,11 +464,13 @@ function M:sync()
   end
 end
 
+-- called first from init.lua
 function M:install()
-  M.init()
-  M.install_ret = M._install()
+  M.init({})
+  M.install_ret = M._install({})
 end
 
+-- called second from init.lua
 function M:configure()
   -- print("configuring plugins")
   -- TODO: protected call for these?
