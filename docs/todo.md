@@ -1,5 +1,6 @@
 ## ToDo
 
+- lazygit seems like the next logical thing
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
 
