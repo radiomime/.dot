@@ -3,6 +3,14 @@
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
 
+## obsidian
+
+- https://obsidian.rocks/getting-started-with-obsidian-a-beginners-guide/
+- https://www.youtube.com/watch?v=QgbLb6QCK88
+- https://www.youtube.com/watch?v=d3e7GWsqoU0
+- https://www.youtube.com/watch?v=OUrOfIqvGS4
+
+
 ### .dot changes and upgrades
 
 - play more with chatgpt and copilot
