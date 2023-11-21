@@ -1,16 +1,7 @@
 ## ToDo
 
-- lazygit seems like the next logical thing
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
-
-## obsidian
-
-- https://obsidian.rocks/getting-started-with-obsidian-a-beginners-guide/
-- https://www.youtube.com/watch?v=QgbLb6QCK88
-- https://www.youtube.com/watch?v=d3e7GWsqoU0
-- https://www.youtube.com/watch?v=OUrOfIqvGS4
-
 
 ### .dot changes and upgrades
 
@@ -504,6 +495,9 @@ set -g @plugin 'laktak/extrakto'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ```
 
-### meh
+## obsidian
 
-- do i want hammerspoon at all anymore?
+- https://obsidian.rocks/getting-started-with-obsidian-a-beginners-guide/
+- https://www.youtube.com/watch?v=QgbLb6QCK88
+- https://www.youtube.com/watch?v=d3e7GWsqoU0
+- https://www.youtube.com/watch?v=OUrOfIqvGS4
