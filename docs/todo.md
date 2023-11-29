@@ -10,6 +10,7 @@
 - https://www.youtube.com/watch?v=DzNmUNvnB04
 - `leader-u` should go to updates, include important updates and installs
 - tmux stuff: https://www.youtube.com/watch?v=DzNmUNvnB04
+- get airflow && conda environment to work in neovim
 - go and conda installs to scripts in readme would be good
 - https://github.com/drizzle-team/drizzle-orm
 - https://www.reddit.com/r/neovim/comments/12jgatz/introducing_dotfylecom_discover_and_share_neovim/
