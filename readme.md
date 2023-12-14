@@ -23,8 +23,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ```sh
 brew install \
+    black \
     fish \
     go \
+    isort \
     lazygit \
     neovim \
     stow \
