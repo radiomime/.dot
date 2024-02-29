@@ -19,6 +19,7 @@ if status --is-interactive
     abbr --add --global rip 'rip --graveyard ~/.local/share/graveyard'
     abbr --add --global r 'npm run'
     abbr --add --global t 'npm run test'
+    abbr --add --global td 'npm run test-dev'
 end
 
 # add ssh keys
