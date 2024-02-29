@@ -131,7 +131,7 @@
 ### cli tools
 
 - contribute to that one project to use 'dot-'
-- https://github.com/direnv/direnv (cargo env auto load, etc.)
+- https://github.com/direnv/direnv (cargo env auto load, etc., auto-run nvm install or conda activate...)
 
 ### coding and other tools
 
