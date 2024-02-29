@@ -5,6 +5,7 @@
 
 ### .dot changes and upgrades
 
+- hydra.nvim?
 - play more with chatgpt and copilot
 - cargo install gitui
 - https://www.youtube.com/watch?v=DzNmUNvnB04
