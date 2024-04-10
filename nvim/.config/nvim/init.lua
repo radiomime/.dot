@@ -1,6 +1,6 @@
 require("options")
 require("keymaps")
-require('lazy')
+require("lazy_plugins")
 require("plugins").install({})
 require("colorscheme")
 require("plugins.cmp") -- TODO: do I need to configure cmp before lsp?
