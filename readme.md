@@ -30,6 +30,7 @@ brew install \
     lazygit \
     neovim \
     stow \
+    fzf \
     tmux
 ```
 
