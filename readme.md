@@ -170,9 +170,6 @@ curl -sS https://starship.rs/install.sh | sh
 ## link dotfiles with stow
 
 ```fish
-# .config cannot be dot-config until this issue resolves
-#     https://github.com/aspiers/stow/issues/33
-
 stow -v \
   --dotfiles \
   --restow   \
