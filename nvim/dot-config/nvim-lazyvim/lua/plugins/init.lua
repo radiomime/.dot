@@ -74,6 +74,16 @@ require("lazy").setup({
         ["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
         ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
       })
+
+      -- normal mappings
+      require("which-key").register({
+        ["v"] = { "<cmd>vsplit<CR>", "Vertical split" },
+      }, {
+        mode = "n", -- NORMAL mode
+        prefix = "<leader>",
+        nowait = true, -- use `nowait` when creating keymaps
+      })
+
       -- visual mode
       require("which-key").register({
         ["<leader>h"] = { "Git [H]unk" },
@@ -382,7 +392,8 @@ require("lazy").setup({
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.server_capabilities.documentHighlightProvider
+          if
+            client and client.server_capabilities.documentHighlightProvider
           then
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
@@ -399,9 +410,10 @@ require("lazy").setup({
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client
-              and client.server_capabilities.inlayHintProvider
-              and vim.lsp.inlay_hint
+          if
+            client
+            and client.server_capabilities.inlayHintProvider
+            and vim.lsp.inlay_hint
           then
             map("<leader>th", function()
               vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
