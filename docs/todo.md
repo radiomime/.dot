@@ -2,6 +2,9 @@
 
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
+- look through neovim :Tutor page
+- nerdfonts
+- stow, maybe don't wait for the --dot-files flag. Link directly to .config
 
 ### .dot changes and upgrades
 
