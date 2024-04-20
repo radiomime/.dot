@@ -1,3 +1,5 @@
+print("setting keymappings...")
+
 local M = {}
 
 function M.set_keymappings()
