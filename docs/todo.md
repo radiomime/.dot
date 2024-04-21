@@ -124,6 +124,7 @@
 - https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
 - explore tabs in neovim and tools
 - https://www.reddit.com/r/neovim/comments/ypvrwp/comment/ivldnau/?context=1
+- more keymap work?
 
 ### neovim improvements
 
