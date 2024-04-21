@@ -47,18 +47,18 @@ require("lazy").setup({
   --    require('gitsigns').setup({ ... })
   --
   -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-    },
-  },
+  -- { -- Adds git related signs to the gutter, as well as utilities for managing changes
+  --   "lewis6991/gitsigns.nvim",
+  --   opts = {
+  --     signs = {
+  --       add = { text = "+" },
+  --       change = { text = "~" },
+  --       delete = { text = "_" },
+  --       topdelete = { text = "‾" },
+  --       changedelete = { text = "~" },
+  --     },
+  --   },
+  -- },
   {
     "kdheepak/lazygit.nvim",
     cmd = {
@@ -332,8 +332,7 @@ require("lazy").setup({
       -- Shortcut for opening the file browser
       vim.keymap.set("n", "<leader>e", function()
         require("telescope").extensions.file_browser.file_browser()
-      end, { desc = "File browser" }
-)
+      end, { desc = "File browser" })
     end,
   },
 
@@ -953,6 +952,7 @@ require("lazy").setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+  { import = "plugins.config" },
   -- { import = 'custom.plugins' },
 }, {
   ui = {
