@@ -125,6 +125,7 @@ require("lazy").setup({
         ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
         ["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
         ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
+        ["<leader>W"] = { cmd = "<cmd>wa<CR>", name = "Write All" },
       })
 
       -- normal mappings
@@ -169,7 +170,14 @@ require("lazy").setup({
           return vim.fn.executable("make") == 1
         end,
       },
-      { "nvim-telescope/telescope-ui-select.nvim" },
+      -- { "nvim-telescope/telescope-ui-select.nvim" },
+      {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "nvim-lua/plenary.nvim",
+        },
+      },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -210,12 +218,28 @@ require("lazy").setup({
           ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
           },
+          file_browser = {
+            -- theme = "ivy",
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true,
+            mappings = {
+              ["i"] = {
+                -- your custom insert mode mappings
+              },
+              ["n"] = {
+                -- your custom normal mode mappings
+              },
+            },
+          },
         },
       })
 
       -- Enable Telescope extensions if they are installed
       pcall(require("telescope").load_extension, "fzf")
       pcall(require("telescope").load_extension, "ui-select")
+      -- To get telescope-file-browser loaded and working with telescope,
+      -- you need to call load_extension, somewhere after setup function:
+      pcall(require("telescope").load_extension, "file_browser")
 
       -- See `:help telescope.builtin`
       local builtin = require("telescope.builtin")
@@ -304,6 +328,12 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>sn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, { desc = "[S]earch [N]eovim files" })
+
+      -- Shortcut for opening the file browser
+      vim.keymap.set("n", "<leader>e", function()
+        require("telescope").extensions.file_browser.file_browser()
+      end, { desc = "File browser" }
+)
     end,
   },
 
@@ -641,6 +671,40 @@ require("lazy").setup({
       local luasnip = require("luasnip")
       luasnip.config.setup({})
 
+      --   פּ ﯟ   some other good icons
+      local kind_icons = {
+        Class = "",
+        Color = "",
+        Constant = "",
+        Constructor = "",
+        Copilot = "",
+        Enum = "",
+        EnumMember = "",
+        Event = "",
+        Field = "",
+        File = "",
+        Folder = "",
+        Function = "",
+        Interface = "",
+        Keyword = "",
+        Method = "m",
+        Module = "",
+        Operator = "",
+        Property = "",
+        Reference = "",
+        Snippet = "",
+        Struct = "",
+        Text = "",
+        TypeParameter = "",
+        Unit = "",
+        Value = "",
+        Variable = "",
+      }
+      local check_backspace = function()
+        local col = vim.fn.col(".") - 1
+        return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+      end
+
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -655,9 +719,39 @@ require("lazy").setup({
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert({
           -- Select the [n]ext item
-          ["<C-n>"] = cmp.mapping.select_next_item(),
+          -- ["<C-j>"] = cmp.mapping.select_next_item(),
           -- Select the [p]revious item
-          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+
+          ["<C-j>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expandable() then
+              luasnip.expand()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif check_backspace() then
+              fallback()
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+          ["<C-k>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
 
           -- Scroll the documentation window [b]ack / [f]orward
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -666,7 +760,8 @@ require("lazy").setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          -- ["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -701,15 +796,37 @@ require("lazy").setup({
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         }),
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
         sources = {
+          { name = "copilot" },
           { name = "nvim_lsp" },
-          { name = "luasnip" },
+          { name = "luasnip" }, -- max_item_count = 2, group_index = 2
           { name = "path" },
+          { name = "buffer" },
+          -- { name = "treesitter" }, -- TODO: should this be here??
+          -- { name = "cmp_tabnine" },
+          -- { name = "nvim_lua" },
+          -- { name = "calc" },
+          -- { name = "emoji" },
+          -- { name = "crates" },
         },
       })
     end,
   },
-
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
