@@ -5,6 +5,7 @@
 - look through neovim :Tutor page
 - nerdfonts
 - stow, maybe don't wait for the --dot-files flag. Link directly to .config
+- look into folding! (and tree sitter based folding?)
 
 ### .dot changes and upgrades
 
@@ -130,6 +131,7 @@
 - clean nvim tree config, it is all weird and deprecated
 - prune unused plugins
 - fuzzy find colors via telescope
+- are tabs good?
 
 ### cli tools
 
