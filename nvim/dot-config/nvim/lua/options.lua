@@ -6,7 +6,6 @@ print("setting options...")
 --  For more options, you can see `:help option-list`
 --
 
---local options = {
 -- vim.opt.laststatus = 2, -- always display the status line
 -- vim.opt.exrc = true, -- source .nvimrc or .exrc from current directory when starting vim
 
@@ -82,11 +81,10 @@ vim.opt.numberwidth = 2 -- set number column
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 
 vim.opt.wrap = false -- display lines as one long line
-vim.opt.scrolloff = 20 -- cursor mostly centered
+vim.opt.scrolloff = 50 -- cursor mostly centered
 vim.opt.sidescroll = 1 -- scroll sideways 1 column at a time
 vim.opt.sidescrolloff = 12 -- keep a buffer on the side when scrolling
 
---}
 -- TODO: is title string cool?
 -- vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 vim.opt.shortmess:append("c")
