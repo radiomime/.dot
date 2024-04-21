@@ -29,6 +29,9 @@ vim.opt.hlsearch = false -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = "split"
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
