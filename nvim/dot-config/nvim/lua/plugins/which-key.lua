@@ -14,20 +14,26 @@ return {
     {
       "<leader>v",
       "<cmd>vsplit<cr>",
-      mode = { "n" },
+      mode = { "n" }, -- unnecessary, normal mode assumed
       desc = "Vertical split",
     },
     {
-      "<leader>w",
-      "<cmd>w<cr>",
-      mode = { "n" },
+      "<leader>ww",
+      -- "<cmd>w<cr>",
+      ":w",
       desc = "Write File",
     },
     {
       "<leader>W",
-      "<cmd>w<cr>",
+      "<cmd>wa<cr>",
       mode = { "n" },
       desc = "Write All Files",
+    },
+    {
+      "<leader>j",
+      "<cmd>terminal<cr>",
+      -- mode = { "n" },
+      desc = "terminal",
     },
   },
 }
