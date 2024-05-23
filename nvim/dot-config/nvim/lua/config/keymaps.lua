@@ -9,10 +9,10 @@
 --   vim.keymap.del(mode, lhs)
 -- end
 -- del("n", "<leader>ww")
-vim.keymap.del("n", "<leader>ww")
-vim.keymap.del("n", "<leader>wd")
-vim.keymap.del("n", "<leader>w-")
-vim.keymap.del("n", "<leader>w|")
+-- vim.keymap.del("n", "<leader>ww")
+-- vim.keymap.del("n", "<leader>wd")
+-- vim.keymap.del("n", "<leader>w-")
+-- vim.keymap.del("n", "<leader>w|")
 
 ------------------------
 ----- insert mode ------
