@@ -19,8 +19,8 @@ return {
     },
     {
       "<leader>ww",
-      -- "<cmd>w<cr>",
-      ":w",
+      "<cmd>w<cr>",
+      -- ":w",
       desc = "Write File",
     },
     {
