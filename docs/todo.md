@@ -1,5 +1,16 @@
 ## ToDo
 
+### updates with lazy...
+
+- https://www.reddit.com/r/neovim/comments/1cytkbq/most_useful_neovim_options/
+- https://www.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/?share_id=QMAl2EtDZ5nk-KtvTCk-J&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1
+- https://www.reddit.com/r/neovim/comments/1cuzrlw/comment/l4mqdi6/?context=3&share_id=g3a0JkPVWVWqf1w0sknIu&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1
+- Gemini Code Assist with ogpt?
+- Lazyvim Extras...
+- Neotest...
+
+### previous ones...
+
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
 - look through neovim :Tutor page
