@@ -43,6 +43,38 @@ brew install \
 
 </details>
 
+### linux
+
+#### manual
+
+```sh
+# fish
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt install fish -y
+```
+
+#### via snap
+
+```sh
+# install snap
+sudo apt update
+sudo apt install snapd
+# go
+sudo snap install go --classic
+sudo snap install rustup --classic
+rustup default stable
+# nvim
+sudo snap install nvim --classic
+
+```
+
+#### via go
+
+```sh
+go install github.com/jesseduffield/lazygit@latest
+```
+
 ## apps and tools
 
 ### fish
