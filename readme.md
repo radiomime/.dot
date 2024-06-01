@@ -164,7 +164,7 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-
 
 ### [docker](https://www.docker.com/)
 
-- Install over the web or use the convenience script at: https://get.docker.com
+- Install over the web or use [the convenience script](https://get.docker.com)
 
 ### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
 
