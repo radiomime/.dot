@@ -10,6 +10,8 @@ if not vim.g.vscode then
   vim.opt.timeoutlen = 75 -- Lower than default (1000) to quickly trigger which-key
 end
 
+vim.opt.conceallevel = 0 -- All text is shown normally in markdown (do not hide backticks, etc.)
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
