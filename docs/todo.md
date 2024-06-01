@@ -18,6 +18,14 @@
 - stow, maybe don't wait for the --dot-files flag. Link directly to .config
 - look into folding! (and tree sitter based folding?)
 
+### terminal
+
+- Swap to Alacritty:
+  - https://github.com/alacritty/alacritty
+  - turns out the kitty author sorta sucks...
+    - https://github.com/kovidgoyal/kitty/issues/2481
+    - https://github.com/kovidgoyal/kitty/pull/3544
+
 ### .dot changes and upgrades
 
 - hydra.nvim?
