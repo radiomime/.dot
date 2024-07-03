@@ -44,6 +44,11 @@ if type -q go
     contains (go env GOPATH)/bin $fish_user_paths; or set -Ua fish_user_paths (go env GOPATH)/bin
 end
 
+# poetry lives here by default
+if test -e $HOME/.local/bin
+    contains $HOME/.local/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.local/bin
+end
+
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
