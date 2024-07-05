@@ -17,6 +17,7 @@
 - nerdfonts
 - stow, maybe don't wait for the --dot-files flag. Link directly to .config
 - look into folding! (and tree sitter based folding?)
+- https://github.com/bloznelis/before.nvim
 
 ### terminal
 
@@ -26,9 +27,15 @@
     - https://github.com/kovidgoyal/kitty/issues/2481
     - https://github.com/kovidgoyal/kitty/pull/3544
 
+### tool managers
+
+- https://github.com/MordechaiHadad/bob
+- https://github.com/jdx/mise
+
 ### .dot changes and upgrades
 
 - hydra.nvim?
+- https://github.com/OXY2DEV/markview.nvim
 - play more with chatgpt and copilot
 - cargo install gitui
 - https://www.youtube.com/watch?v=DzNmUNvnB04
