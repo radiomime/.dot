@@ -137,6 +137,12 @@ require("lazy").setup({
         prefix = "<leader>",
         nowait = true, -- use `nowait` when creating keymaps
       })
+      require("which-key").register({
+        ["j"] = { "<cmd>terminal<CR>", "Terminal" },
+      }, {
+        prefix = "<leader>",
+        nowait = true, -- use `nowait` when creating keymaps
+      })
 
       -- visual mode
       require("which-key").register({
