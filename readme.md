@@ -8,9 +8,9 @@ configuration files for dotfiles and configuration files I use across machines
 git clone --recursive git@github.com:radiomime/.dot.git
 ```
 
-# package (re)installation
+## package (re)installation
 
-## homebrew for mac
+### homebrew for mac
 
 [install from this link...](https://brew.sh/)
 
@@ -19,7 +19,7 @@ git clone --recursive git@github.com:radiomime/.dot.git
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-### brew packages
+#### brew packages
 
 ```sh
 brew install \
@@ -43,9 +43,9 @@ brew install \
 
 </details>
 
-### linux
+#### linux
 
-#### manual
+##### manual
 
 ```sh
 # fish
@@ -54,7 +54,7 @@ sudo apt update
 sudo apt install fish -y
 ```
 
-#### via snap
+##### via snap
 
 ```sh
 # install snap
@@ -69,15 +69,15 @@ sudo snap install nvim --classic
 
 ```
 
-#### via go
+##### via go
 
 ```sh
 go install github.com/jesseduffield/lazygit@latest
 ```
 
-## apps and tools
+### apps and tools
 
-### fish
+#### fish
 
 _installed with brew on mac_
 
@@ -92,7 +92,7 @@ which fish | xargs tee -a /etc/shells
 which fish | xargs chsh -s
 ```
 
-### stow
+#### stow
 
 _installed with brew on mac_
 
@@ -100,7 +100,7 @@ _installed with brew on mac_
 apt install stow
 ```
 
-### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
+#### [kitty](https://sw.kovidgoyal.net/kitty/binary/#binary-install)
 
 ```sh
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -108,7 +108,7 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 _Note: the above command also will update kitty_
 
-### rust and cargo packages
+#### rust and cargo packages
 
 - [install rust](https://www.rust-lang.org/tools/install) using the linked script
 
@@ -121,7 +121,7 @@ _Note: the above command also will update kitty_
 
 </details>
 
-#### cargo packages
+##### cargo packages
 
 ```fish
 cargo install \
@@ -153,7 +153,7 @@ switch (uname)
 end
 ```
 
-### nerdfonts
+#### nerdfonts
 
 ```sh
 git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-fonts
@@ -162,21 +162,21 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ~/.local/share/nerd-
 ~/.local/share/nerd-fonts/install.sh
 ```
 
-### [docker](https://www.docker.com/)
+#### [docker](https://www.docker.com/)
 
 - Install over the web or use [the convenience script](https://get.docker.com)
 
-### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
+#### [conda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
 
-### TODO: slightly refactoring below this point
+#### TODO: slightly refactoring below this point
 
-## pyenv install
+### pyenv install
 
 [Follow instructions here.](https://github.com/pyenv/pyenv)
 
 _pyenv seems useful, but I'm not sold yet._
 
-### fish shell in linux
+#### fish shell in linux
 
 ```
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv && \
@@ -185,21 +185,21 @@ set -Ux PYENV_ROOT $HOME/.pyenv && \
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 ```
 
-## starship
+### starship
 
-### macos
+#### macos
 
 ```sh
 brew install starship
 ```
 
-### linux
+#### linux
 
 ```sh
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-## link dotfiles with stow
+### link dotfiles with stow
 
 ```fish
 stow -v \
@@ -214,9 +214,9 @@ stow -v \
   tmux
 ```
 
-# MacOS Specific
+## MacOS Specific
 
-## Keyboard Shortcuts
+### Keyboard Shortcuts
 
 - I change mission control --> 'move left/right a space' shortcuts to line up with
   PopOS
@@ -253,7 +253,7 @@ defaults write com.brave.Browser NSUserKeyEquivalents -dict-add "Find..."       
 
 </details>
 
-# node installation with nvm
+## node installation with nvm
 
 fisher installs with `uu`
 
@@ -269,7 +269,7 @@ nvm install latest
 set --universal nvm_default_version latest
 ````
 
-# troubleshooting
+## troubleshooting
 
 <details>
   <summary>Blow up packer</summary>
@@ -293,7 +293,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 </details>
 
-# misc installs
+## misc installs
 
 <details>
     <summary>linux</summary>
