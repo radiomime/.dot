@@ -20,6 +20,7 @@ if status --is-interactive
     abbr --add --global r 'npm run'
     abbr --add --global t 'npm run test'
     abbr --add --global td 'npm run test-dev'
+    abbr --add --global lg lazygit
 end
 
 # add ssh keys
