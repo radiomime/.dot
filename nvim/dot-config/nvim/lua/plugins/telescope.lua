@@ -9,8 +9,20 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
-      { "<leader>ff", LazyVim.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      { "<leader>fF", LazyVim.telescope("files"), desc = "Find Files (Root Dir)" },
+      {
+        "<leader>ff",
+        function()
+          require("telescope.builtin").find_files()
+        end,
+        desc = "Find Files (cwd)",
+      },
+      {
+        "<leader>fF",
+        function()
+          require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Find Files (root dir)",
+      },
     },
     -- change some options
     -- opts = {
