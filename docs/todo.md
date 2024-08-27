@@ -53,6 +53,7 @@
 - fish on uninstall should check for shell as available shells!
 - https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda/39928067#39928067
 - store fish plugins in dotfiles so I can easily load 'z' and whatnot across machines?
+- https://www.reddit.com/r/neovim/comments/1f1gdxf/want_zed_ai_in_nvim_here_we_go_with_nvimai/
 - linux
   - indicator-sensors
   - `https://github.com/kgshank/gse-sound-output-device-chooser`
