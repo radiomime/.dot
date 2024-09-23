@@ -23,6 +23,13 @@ return {
         end,
         desc = "Find Files (root dir)",
       },
+      {
+        "<leader>sg",
+        function()
+          require("telescope.builtin").live_grep()
+        end,
+        desc = "Grep Search (root dir)",
+      },
     },
     -- change some options
     -- opts = {
