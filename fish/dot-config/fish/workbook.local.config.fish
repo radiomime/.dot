@@ -1,5 +1,8 @@
 alias pulumi_cred='GOOGLE_APPLICATION_CREDENTIALS=$(pulumi config get gcp:credentials) pulumi'
 
+conso
+fish_add_path /Applications/Cursor.app/Contents/MacOS
+
 echo about to init conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
