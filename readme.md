@@ -28,6 +28,7 @@ brew install \
     go \
     isort \
     lazygit \
+    lazydocker \
     neovim \
     stow \
     fzf \
@@ -313,10 +314,9 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 </details>
 
-
 ## vscode notes
-
 
 ```sh
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
+
