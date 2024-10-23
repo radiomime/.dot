@@ -21,6 +21,8 @@ if status --is-interactive
     abbr --add --global t 'npm run test'
     abbr --add --global td 'npm run test-dev'
     abbr --add --global lg lazygit
+    abbr --add --global cht 'cht.sh'
+    abbr --add --global cheat curl -sL https://cheat.sh/
 end
 
 # add ssh keys
@@ -30,7 +32,6 @@ end
 for ssh_key in $HOME'/.ssh/keys'/*
     ssh-add $ssh_key 2>/dev/null
 end
-
 
 if test -e /opt/homebrew/bin
     contains /opt/homebrew/bin $fish_user_paths; or set -Ua fish_user_paths /opt/homebrew/bin
@@ -64,7 +65,6 @@ else
     echo was trying to source: ~/.config/fish/(hostname).config.fish
     echo ~/.config/fish/(hostname).config.fish
 end
-
 
 # Starship at the end of fish config
 starship init fish | source
