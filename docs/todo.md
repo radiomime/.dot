@@ -1,156 +1,160 @@
 ## ToDo
 
-### updates with lazy...
+- <https://github.com/stevearc/oil.nvim>
 
-- https://www.reddit.com/r/neovim/comments/1cytkbq/most_useful_neovim_options/
-- https://www.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/?share_id=QMAl2EtDZ5nk-KtvTCk-J&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1
-- https://www.reddit.com/r/neovim/comments/1cuzrlw/comment/l4mqdi6/?context=3&share_id=g3a0JkPVWVWqf1w0sknIu&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1
+### updates with lazy
+
+- <https://www.reddit.com/r/neovim/comments/1cytkbq/most_useful_neovim_options/>
+- <https://www.reddit.com/r/neovim/comments/1cxfhom/builtin_snippets_so_good_i_removed_luasnip/?share_id=QMAl2EtDZ5nk-KtvTCk-J&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1>
+- <https://www.reddit.com/r/neovim/comments/1cuzrlw/comment/l4mqdi6/?context=3&share_id=g3a0JkPVWVWqf1w0sknIu&utm_content=1&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1>
 - Gemini Code Assist with ogpt?
 - Lazyvim Extras...
 - Neotest...
 
-### previous ones...
+### previous ones
 
 - go through packages and remove the ones that don't have installs
 - sql linter/formatter
+- <https://github.com/simonmclean/triptych.nvim>
+- <https://github.com/stevearc/oil.nvim>
 - look through neovim :Tutor page
 - nerdfonts
 - stow, maybe don't wait for the --dot-files flag. Link directly to .config
 - look into folding! (and tree sitter based folding?)
-- https://github.com/bloznelis/before.nvim
+- <https://github.com/bloznelis/before.nvim>
 
 ### terminal
 
 - Swap to Alacritty:
-  - https://github.com/alacritty/alacritty
+  - <https://github.com/alacritty/alacritty>
   - turns out the kitty author sorta sucks...
-    - https://github.com/kovidgoyal/kitty/issues/2481
-    - https://github.com/kovidgoyal/kitty/pull/3544
+    - <https://github.com/kovidgoyal/kitty/issues/2481>
+    - <https://github.com/kovidgoyal/kitty/pull/3544>
 
 ### tool managers
 
-- https://github.com/MordechaiHadad/bob
-- https://github.com/jdx/mise
+- <https://github.com/MordechaiHadad/bob>
+- <https://github.com/jdx/mise>
 
 ### .dot changes and upgrades
 
 - hydra.nvim?
-- https://github.com/OXY2DEV/markview.nvim
+- <https://github.com/OXY2DEV/markview.nvim>
 - play more with chatgpt and copilot
 - cargo install gitui
-- https://www.youtube.com/watch?v=DzNmUNvnB04
+- <https://www.youtube.com/watch?v=DzNmUNvnB04>
 - `leader-u` should go to updates, include important updates and installs
-- tmux stuff: https://www.youtube.com/watch?v=DzNmUNvnB04
+- tmux stuff: <https://www.youtube.com/watch?v=DzNmUNvnB04>
 - get airflow && conda environment to work in neovim
 - go and conda installs to scripts in readme would be good
-- https://github.com/drizzle-team/drizzle-orm
-- https://www.reddit.com/r/neovim/comments/12jgatz/introducing_dotfylecom_discover_and_share_neovim/
+- <https://github.com/drizzle-team/drizzle-orm>
+- <https://www.reddit.com/r/neovim/comments/12jgatz/introducing_dotfylecom_discover_and_share_neovim/>
 - conda or miniconda link to install instructions
 - asdf
 - sh and bash fixes
   - cargo install shellharden
   - go install mvdan.cc/sh/v3/cmd/shfmt@latest
 - fish on uninstall should check for shell as available shells!
-- https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda/39928067#39928067
+- <https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda/39928067#39928067>
 - store fish plugins in dotfiles so I can easily load 'z' and whatnot across machines?
-- https://www.reddit.com/r/neovim/comments/1f1gdxf/want_zed_ai_in_nvim_here_we_go_with_nvimai/
+- <https://www.reddit.com/r/neovim/comments/1f1gdxf/want_zed_ai_in_nvim_here_we_go_with_nvimai/>
 - linux
   - indicator-sensors
   - `https://github.com/kgshank/gse-sound-output-device-chooser`
-- https://obsidian.md/download
-- https://stackoverflow.com/questions/70851048/does-it-make-sense-to-use-conda-poetry#:~:text=Conda%20is%20primarily%20a%20environment,%2C%20an%20upgrade%20of%20Pyenv
+- <https://obsidian.md/download>
+- <https://stackoverflow.com/questions/70851048/does-it-make-sense-to-use-conda-poetry#:~:text=Conda%20is%20primarily%20a%20environment,%2C%20an%20upgrade%20of%20Pyenv>
 
 ### neovim plugins
 
 - lazyvim swap instead of packer
-- muren looks great: https://github.com/AckslD/muren.nvim
-- https://www.reddit.com/r/neovim/comments/14f0t0n/your_favourite_neovim_plugins/
-- https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/
-- https://github.com/bennypowers/nvim-regexplainer
-- https://github.com/tomiis4/Hypersonic.nvim
-- https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
-- https://github.com/echasnovski/mini.nvim
-- https://github.com/folke/flash.nvim
-- https://github.com/ThePrimeagen/refactoring.nvim
-- neocomposer: https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/
-- color theme: https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/
-- mini colors: https://www.reddit.com/r/neovim/comments/12o5t8l/minicolors_tweak_and_save_any_color_scheme_plus/
-- https://www.reddit.com/r/neovim/comments/13rh66h/minihipatterns_highlight_patterns_in_text/
+- muren looks great: <https://github.com/AckslD/muren.nvim>
+- <https://www.reddit.com/r/neovim/comments/14f0t0n/your_favourite_neovim_plugins/>
+- <https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/>
+- <https://github.com/bennypowers/nvim-regexplainer>
+- <https://github.com/tomiis4/Hypersonic.nvim>
+- <https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/>
+- <https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md>
+- <https://github.com/echasnovski/mini.nvim>
+- <https://github.com/folke/flash.nvim>
+- <https://github.com/ThePrimeagen/refactoring.nvim>
+- neocomposer: <https://www.reddit.com/r/neovim/comments/12uou0i/introducing_neocomposer_the_missing_symphony_in/>
+- color theme: <https://www.reddit.com/r/neovim/comments/12puw5m/darkrosenvim_a_lowcontrast_colorscheme_based_on/>
+- mini colors: <https://www.reddit.com/r/neovim/comments/12o5t8l/minicolors_tweak_and_save_any_color_scheme_plus/>
+- <https://www.reddit.com/r/neovim/comments/13rh66h/minihipatterns_highlight_patterns_in_text/>
 - nvim-lsp-installer is deprecated, yeah? fix that usage
-- https://www.reddit.com/r/neovim/comments/10as1y5/markdownynvim/
-- https://github.com/michaelb/sniprun
+- <https://www.reddit.com/r/neovim/comments/10as1y5/markdownynvim/>
+- <https://github.com/michaelb/sniprun>
 - nvim-cmp recommends using this for symbols: lspkind
-- help in a vertical window: https://www.reddit.com/r/neovim/comments/s4ps1b/helpvsplitnvim_auto_open_help_in_vertical_split/
+- help in a vertical window: <https://www.reddit.com/r/neovim/comments/s4ps1b/helpvsplitnvim_auto_open_help_in_vertical_split/>
 - clean nvim-cmp
 - for fish, [look at this](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md)
 - try to turn on/off format on save with an autocommand and create a whichkey binding.
 - `nyngwang/NeoRoot.lua`
-- https://github.com/nacro90/numb.nvim
-- https://github.com/ChristianChiarulli/nvim
-- https://github.com/willthbill/opener.nvim
-- https://github.com/unblevable/quick-scope#customize-colors
-- https://www.reddit.com/r/neovim/comments/xg48k9/what_is_the_coolest_unknownish_plugin_that_youre/
-- https://github.com/anuvyklack/windows.nvim
-- https://github.com/ziontee113/syntax-tree-surfer
-- https://www.reddit.com/r/neovim/comments/q7bgwo/marksnvim_a_plugin_for_viewing_and_interacting/
-- https://github.com/chentoast/marks.nvim
-- https://github.com/uga-rosa/ccc.nvim
+- <https://github.com/nacro90/numb.nvim>
+- <https://github.com/ChristianChiarulli/nvim>
+- <https://github.com/willthbill/opener.nvim>
+- <https://github.com/unblevable/quick-scope#customize-colors>
+- <https://www.reddit.com/r/neovim/comments/xg48k9/what_is_the_coolest_unknownish_plugin_that_youre/>
+- <https://github.com/anuvyklack/windows.nvim>
+- <https://github.com/ziontee113/syntax-tree-surfer>
+- <https://www.reddit.com/r/neovim/comments/q7bgwo/marksnvim_a_plugin_for_viewing_and_interacting/>
+- <https://github.com/chentoast/marks.nvim>
+- <https://github.com/uga-rosa/ccc.nvim>
 - look into code folding more, not sure how to do it the native way.
-- https://github.com/ray-x/lsp_signature.nvim
-- https://github.com/EdenEast/nightfox.nvim
-- https://github.com/savq/melange
-- https://github.com/sainnhe/sonokai
-- https://github.com/sainnhe/everforest
-- https://github.com/folke/tokyonight.nvim
-- https://github.com/catppuccin/catppuccin
-- https://github.com/sam4llis/nvim-tundra
-- https://alpha2phi.medium.com/neovim-for-beginners-lsp-using-null-ls-nvim-bd954bf86b40
-- https://www.reddit.com/r/neovim/comments/x409tv/cant_go_back_to_vscode/
-- https://www.reddit.com/r/neovim/comments/x53lzx/i_must_be_missing_something/
-- https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
-- https://github.com/phaazon/mind.nvim
-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
-- https://www.reddit.com/r/neovim/comments/wym9fi/regex_nvim_plugin/
-- https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/
-- https://github.com/johmsalas/text-case.nvim
-- https://github.com/nvim-treesitter/nvim-treesitter-context
-- https://github.com/andythigpen/nvim-coverage
-- https://github.com/rcarriga/neotest
-- https://github.com/ThePrimeagen/refactoring.nvim
-- https://github.com/nvim-telescope/telescope-ui-select.nvim
-- https://github.com/tami5/xbase
-- https://github.com/pwntester/octo.nvim <-- github in neovim
-- https://github.com/pwntester/octo.nvim
-- https://github.com/ziontee113/syntax-tree-surfer
-- alternative to octo: https://who.ldelossa.is/posts/gh-nvim/
-- https://github.com/markonm/traces.vim
-- https://github.com/dense-analysis/ale#2ii-fixing
-- https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
-- https://vim.fandom.com/wiki/File_type_plugins
+- <https://github.com/ray-x/lsp_signature.nvim>
+- <https://github.com/EdenEast/nightfox.nvim>
+- <https://github.com/savq/melange>
+- <https://github.com/sainnhe/sonokai>
+- <https://github.com/sainnhe/everforest>
+- <https://github.com/folke/tokyonight.nvim>
+- <https://github.com/catppuccin/catppuccin>
+- <https://github.com/sam4llis/nvim-tundra>
+- <https://alpha2phi.medium.com/neovim-for-beginners-lsp-using-null-ls-nvim-bd954bf86b40>
+- <https://www.reddit.com/r/neovim/comments/x409tv/cant_go_back_to_vscode/>
+- <https://www.reddit.com/r/neovim/comments/x53lzx/i_must_be_missing_something/>
+- <https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/>
+- <https://github.com/phaazon/mind.nvim>
+- <https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md>
+- <https://www.reddit.com/r/neovim/comments/wym9fi/regex_nvim_plugin/>
+- <https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/>
+- <https://github.com/johmsalas/text-case.nvim>
+- <https://github.com/nvim-treesitter/nvim-treesitter-context>
+- <https://github.com/andythigpen/nvim-coverage>
+- <https://github.com/rcarriga/neotest>
+- <https://github.com/ThePrimeagen/refactoring.nvim>
+- <https://github.com/nvim-telescope/telescope-ui-select.nvim>
+- <https://github.com/tami5/xbase>
+- <https://github.com/pwntester/octo.nvim> <-- github in neovim
+- <https://github.com/pwntester/octo.nvim>
+- <https://github.com/ziontee113/syntax-tree-surfer>
+- alternative to octo: <https://who.ldelossa.is/posts/gh-nvim/>
+- <https://github.com/markonm/traces.vim>
+- <https://github.com/dense-analysis/ale#2ii-fixing>
+- <https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean>
+- <https://vim.fandom.com/wiki/File_type_plugins>
 - eyeliner.nvim
-- https://www.reddit.com/r/neovim/comments/yj9g9l/introducing_portalnvim_a_plugin_like_leap_but_for/
-- https://www.reddit.com/r/neovim/comments/y6rlc4/introducing_codewindownvim_a_new_minimap_plugin/
-- https://www.reddit.com/r/neovim/comments/y7xhll/introducing_dirtelescopenvim_find_or_grep_in_a/
-- https://github.com/kvrohit/mellow.nvim
-- https://github.com/trivago/prettier-plugin-sort-imports
-- https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
-- edgy: https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/
-- https://github.com/mawkler/modicator.nvim
-- https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/
-- https://github.com/kamykn/spelunker.vim
-- https://github.com/ghidalgo93/boring_wozniak.nvim
-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#cspell
+- <https://www.reddit.com/r/neovim/comments/yj9g9l/introducing_portalnvim_a_plugin_like_leap_but_for/>
+- <https://www.reddit.com/r/neovim/comments/y6rlc4/introducing_codewindownvim_a_new_minimap_plugin/>
+- <https://www.reddit.com/r/neovim/comments/y7xhll/introducing_dirtelescopenvim_find_or_grep_in_a/>
+- <https://github.com/kvrohit/mellow.nvim>
+- <https://github.com/trivago/prettier-plugin-sort-imports>
+- <https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/>
+- edgy: <https://www.reddit.com/r/neovim/comments/1425wvl/edgynvim_easily_create_and_manage_predefined/>
+- <https://github.com/mawkler/modicator.nvim>
+- <https://www.reddit.com/r/neovim/comments/141ief9/markmapnvim_visualize_your_markdown_as_mindmaps/>
+- <https://github.com/kamykn/spelunker.vim>
+- <https://github.com/ghidalgo93/boring_wozniak.nvim>
+- <https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#cspell>
 
 ### neovim explore
 
 - worktrees
-  - use this: https://github.com/ThePrimeagen/git-worktree.nvim
-  - and look at this: https://stackoverflow.com/a/31935999/4335339
-- https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/
-- https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1
+  - use this: <https://github.com/ThePrimeagen/git-worktree.nvim>
+  - and look at this: <https://stackoverflow.com/a/31935999/4335339>
+- <https://www.reddit.com/r/neovim/comments/13y3thq/whats_a_very_simple_config_change_that_you_cant/>
+- <https://reddit.com/r/neovim/comments/ypvrwp/_/ivldnau/?context=1>
 - explore tabs in neovim and tools
-- https://www.reddit.com/r/neovim/comments/ypvrwp/comment/ivldnau/?context=1
+- <https://www.reddit.com/r/neovim/comments/ypvrwp/comment/ivldnau/?context=1>
 - more keymap work?
 
 ### neovim improvements
@@ -164,32 +168,32 @@
 ### cli tools
 
 - contribute to that one project to use 'dot-'
-- https://github.com/direnv/direnv (cargo env auto load, etc., auto-run nvm install or conda activate...)
+- <https://github.com/direnv/direnv> (cargo env auto load, etc., auto-run nvm install or conda activate...)
 
 ### coding and other tools
 
 - tmux config is all over the place, explore here
 - fuzzy find history in fish
-- https://www.npmjs.com/package/prettier-plugin-organize-imports for better imports?
+- <https://www.npmjs.com/package/prettier-plugin-organize-imports> for better imports?
 - fish formatter
 - fish, load a local config? Per computer? solves for things like conda.
 - pip install isort
 - pip install sqlfluff
-- react tools: https://www.reddit.com/r/reactjs/comments/1447vs4/what_are_some_of_the_best_libraries_you_cannot/
+- react tools: <https://www.reddit.com/r/reactjs/comments/1447vs4/what_are_some_of_the_best_libraries_you_cannot/>
 
 ### mac workflows
 
 - brew install rectangle instead of magnet
 - brew install maccy
 - brew install sqlfluff
-- https://github.com/rxhanson/Rectangle
+- <https://github.com/rxhanson/Rectangle>
 
 ## hammerspoon
 
 - [Check out this spoon](https://github.com/Hammerspoon/Spoons/pull/240)
-- possibly interesting: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua
-- This is the hammerspoon to build from: https://github.com/ashfinal/awesome-hammerspoon
-- Also a nice one: https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua
+- possibly interesting: <https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/delete-words.lua>
+- This is the hammerspoon to build from: <https://github.com/ashfinal/awesome-hammerspoon>
+- Also a nice one: <https://github.com/jasonrudolph/keyboard/blob/main/hammerspoon/init.lua>
 
 ## default files
 
@@ -210,7 +214,7 @@ overrides:
 
 ### sqlfluff
 
-https://docs.sqlfluff.com/en/stable/configuration.html#default-configuration
+<https://docs.sqlfluff.com/en/stable/configuration.html#default-configuration>
 
 ```
 [sqlfluff]
@@ -282,9 +286,9 @@ processes = 0
 
 ## react references
 
-- https://www.reddit.com/r/reactjs/comments/y821a5/comment/it1ih4i/?utm_source=share&utm_medium=web2x&context=3
+- <https://www.reddit.com/r/reactjs/comments/y821a5/comment/it1ih4i/?utm_source=share&utm_medium=web2x&context=3>
 - Zustand for state management
-- https://felixgerschau.com/react-component-composition/
+- <https://felixgerschau.com/react-component-composition/>
 
 ### old below
 
@@ -292,24 +296,24 @@ processes = 0
 
 - telescope jump list
 - Useful for work projects and lsp file settings: `.git/info/exclude`
-- toggle lsp autocommand: https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/
-- mac homebrew tiling solution? https://formulae.brew.sh/cask/rectangle
-- dumb little scratchwork plugin, but seems like I'd use it: https://github.com/m-demare/attempt.nvim
-- https://github.com/axieax/urlview.nvim
-- tree command, but in rust, and therefore blazingly fast. https://github.com/solidiquis/erdtree
-- some neat mentions here: https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/
-- This looks SLICK: https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/
+- toggle lsp autocommand: <https://www.reddit.com/r/neovim/comments/uri2p4/here_is_a_quick_code_snippet_to_toggle_lsp/>
+- mac homebrew tiling solution? <https://formulae.brew.sh/cask/rectangle>
+- dumb little scratchwork plugin, but seems like I'd use it: <https://github.com/m-demare/attempt.nvim>
+- <https://github.com/axieax/urlview.nvim>
+- tree command, but in rust, and therefore blazingly fast. <https://github.com/solidiquis/erdtree>
+- some neat mentions here: <https://www.reddit.com/r/commandline/comments/ul3shx/what_are_some_of_your_favorite_clitui_apps/>
+- This looks SLICK: <https://www.reddit.com/r/neovim/comments/ul1tx3/introducing_ghnvim_a_fully_featured_github/>
   - essentially, this should allow me to comment and view issues in a tui
-- notify, for pretty logging: https://github.com/rcarriga/nvim-notify
-- How about breakpoints and such? https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/
-  - https://github.com/mfussenegger/nvim-dap
-  - https://github.com/rcarriga/nvim-dap-ui
-  - https://github.com/Pocco81/dap-buddy.nvim
+- notify, for pretty logging: <https://github.com/rcarriga/nvim-notify>
+- How about breakpoints and such? <https://www.reddit.com/r/neovim/comments/pzlzof/will_we_ever_get_nice_debugging_functionality_in/>
+  - <https://github.com/mfussenegger/nvim-dap>
+  - <https://github.com/rcarriga/nvim-dap-ui>
+  - <https://github.com/Pocco81/dap-buddy.nvim>
 
 ## autocmds in lua
 
-- https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/
-- https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/
+- <https://www.reddit.com/r/neovim/comments/t98zhs/short_demo_of_lua_autocmds_by_author_of_lua/>
+- <https://www.reddit.com/r/neovim/comments/u9ihdt/what_are_your_favorite_autocommands/>
 
 ## snippets
 
@@ -341,17 +345,17 @@ fisher: install plugins on uu
 
 ## snippets
 
-look at https://github.com/L3MON4D3/LuaSnip a little more, could be useful for snippets
+look at <https://github.com/L3MON4D3/LuaSnip> a little more, could be useful for snippets
 
 ## cht.sh
 
 Checkout cheat.sh, might be cool to use. Might be able to turn this into a
-terminal app. https://github.com/chubin/cheat.sh
+terminal app. <https://github.com/chubin/cheat.sh>
 
-https://www.youtube.com/watch?v=hJzqEAf2U4I
-https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-cht.sh
+<https://www.youtube.com/watch?v=hJzqEAf2U4I>
+<https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-cht.sh>
 
-This also looks neat: https://devhints.io/fish-shell
+This also looks neat: <https://devhints.io/fish-shell>
 
 ## rando
 
@@ -370,19 +374,19 @@ This also looks neat: https://devhints.io/fish-shell
 - Do this for the cargo stuff too!
 - Actually, do gitui instead! Or maybe not, for author stuff.
 - cmdheight 0 and disappearing tmux status for more room
-  - https://www.reddit.com/r/neovim/comments/vc75v7/cmdheight0_vimtpipeline_a_match_made_in_heaven/
+  - <https://www.reddit.com/r/neovim/comments/vc75v7/cmdheight0_vimtpipeline_a_match_made_in_heaven/>
 - color picker, there are two, but one looks a bit more feature rich
-  - https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/
+  - <https://www.reddit.com/r/neovim/comments/vm0w37/introducing_colorpickernvim_a_plugin_that_lets/>
 - nvim-surround
-  - https://www.reddit.com/r/neovim/comments/vot02j/introducing_nvimsurround_a_plugin_for/
+  - <https://www.reddit.com/r/neovim/comments/vot02j/introducing_nvimsurround_a_plugin_for/>
 - sudo file save when necessary
-  - https://www.reddit.com/r/commandline/comments/vqzg5c/dont_you_hate_it_when_you_edit_a_txt_file_in_vi/
+  - <https://www.reddit.com/r/commandline/comments/vqzg5c/dont_you_hate_it_when_you_edit_a_txt_file_in_vi/>
 - hydra looks dope
-  - https://www.reddit.com/r/neovim/comments/w20cl1/hydra_update/
+  - <https://www.reddit.com/r/neovim/comments/w20cl1/hydra_update/>
 - nice dot files
-  - https://www.reddit.com/r/vimporn/comments/whk9no/finally_updated_my_15_years_old_vimscript_config/
+  - <https://www.reddit.com/r/vimporn/comments/whk9no/finally_updated_my_15_years_old_vimscript_config/>
 - gh tui
-  - https://github.com/dlvhdr/gh-dash
+  - <https://github.com/dlvhdr/gh-dash>
 
 # Weird installs
 
@@ -398,12 +402,12 @@ This also looks neat: https://devhints.io/fish-shell
 # rust packages
 
 - fd-find add!:
-  - https://github.com/sharkdp/fd
+  - <https://github.com/sharkdp/fd>
 - new top?
-  - https://github.com/ClementTsang/bottom
+  - <https://github.com/ClementTsang/bottom>
 - Rust, should I put locked into command?
 - Cargo:
-  - https://github.com/ClementTsang/bottom
+  - <https://github.com/ClementTsang/bottom>
 
 # config
 
@@ -434,9 +438,9 @@ fit the prod system's needs, anyways.
 
 Remember to add the sudoers user mod so no sudo is needed for the user
 
-https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+<https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8>
 
-https://github.com/docker/compose/releases
+<https://github.com/docker/compose/releases>
 
 ### Uninstalls
 
@@ -448,13 +452,13 @@ from command line? rust implementation?
 
 ### submodule init in readme
 
-https://stackoverflow.com/questions/1030169/pull-latest-changes-for-all-git-submodules
+<https://stackoverflow.com/questions/1030169/pull-latest-changes-for-all-git-submodules>
 
 ### Vim Markup
 
 Checkout vim markup
 
-### curl gitignore file!
+### curl gitignore file
 
 I think this is in bash, do it for fish
 
@@ -466,14 +470,14 @@ I think this is in bash, do it for fish
 
 Checkout:
 
-1. https://github.com/bramp/js-sequence-diagrams
-2. https://vimawesome.com/plugin/markdown-preview-nvim
+1. <https://github.com/bramp/js-sequence-diagrams>
+2. <https://vimawesome.com/plugin/markdown-preview-nvim>
    - Seems like a really good option. Markdown && js-sequence-diagrams
 
 Two clear options:
 
-1. https://github.com/scrooloose/vim-slumlord
-2. https://github.com/xavierchow/vim-sequence-diagram
+1. <https://github.com/scrooloose/vim-slumlord>
+2. <https://github.com/xavierchow/vim-sequence-diagram>
 
 ### Indent line plugin
 
@@ -492,19 +496,19 @@ What is it? Gave me some weird issues regarding whitespace in my readme files
 ### Yarn install
 
 - Should this be global? Put in readme?
-- https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
+- <https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable>
 
 # if I want typescript references
 
-- https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/
+- <https://www.reddit.com/r/neovim/comments/v4mhsv/neovim_setup_for_fullstack_web_development_with/>
 
 # good resource
 
-https://github.com/rockerBOO/awesome-neovim
+<https://github.com/rockerBOO/awesome-neovim>
 
 # cargo packages
 
-- https://github.com/nabijaczleweli/cargo-update
+- <https://github.com/nabijaczleweli/cargo-update>
 
 # pick through
 
@@ -513,12 +517,12 @@ https://github.com/rockerBOO/awesome-neovim
 
 # breadcrumbs
 
-- https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66
+- <https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/init.lua#L46-L66>
 - Also, this might have a plugin, now
 
 # plugins
 
-# look in to:
+# look in to
 
 ### tmux plugins
 
@@ -532,7 +536,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 
 ## obsidian
 
-- https://obsidian.rocks/getting-started-with-obsidian-a-beginners-guide/
-- https://www.youtube.com/watch?v=QgbLb6QCK88
-- https://www.youtube.com/watch?v=d3e7GWsqoU0
-- https://www.youtube.com/watch?v=OUrOfIqvGS4
+- <https://obsidian.rocks/getting-started-with-obsidian-a-beginners-guide/>
+- <https://www.youtube.com/watch?v=QgbLb6QCK88>
+- <https://www.youtube.com/watch?v=d3e7GWsqoU0>
+- <https://www.youtube.com/watch?v=OUrOfIqvGS4>
